@@ -13,8 +13,8 @@ android {
         applicationId = "com.ccnaacademy.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 6
-        versionName = "1.5.0-rc1"
+        versionCode = 7
+        versionName = "1.5.0-rc2"
     }
 
     // Optional real release key, supplied through environment variables (never commit keystores).

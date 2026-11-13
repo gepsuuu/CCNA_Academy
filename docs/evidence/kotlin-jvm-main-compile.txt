@@ -1,0 +1,10 @@
+/home/claude/w/CCNAAcademy/app/src/main/java/com/ccnaacademy/app/data/Generators.kt:88:61: warning: redundant call of conversion method.
+        val block = (256 - ((maskOf(p) shr shift) and 255)).toLong() shl shift
+                                                            ^^^^^^^^
+/home/claude/w/CCNAAcademy/app/src/main/java/com/ccnaacademy/app/lab/Network.kt:36:64: warning: unnecessary non-null assertion (!!) on a non-null receiver of type 'Intf'.
+            "dynamic desirable" -> if (peerSwitchport && peerIf!!.mode != "access" && sendsDtp(peerIf)) "trunk" else "access"
+                                                               ^^
+/home/claude/w/CCNAAcademy/app/src/main/java/com/ccnaacademy/app/lab/Network.kt:37:60: warning: unnecessary non-null assertion (!!) on a non-null receiver of type 'Intf'.
+            "dynamic auto" -> if (peerSwitchport && (peerIf!!.mode == "trunk" || peerIf.mode == "dynamic desirable") && sendsDtp(peerIf)) "trunk" else "access"
+                                                           ^^
+EXIT 0

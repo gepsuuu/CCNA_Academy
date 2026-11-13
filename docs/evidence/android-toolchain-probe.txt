@@ -1,0 +1,10 @@
+rc2 environment probe (2026-11-13). HTTP status from curl -I:
+services.gradle.org/distributions/gradle-8.11.1-bin.zip -> 403
+dl.google.com/android/repository -> 403
+repo.maven.apache.org/maven2 -> 403
+plugins.gradle.org/m2 -> 403
+maven.google.com -> 403
+github.com/gepsuuu/CCNA_Academy -> 403
+npm registry -> 403
+No local Gradle cache, Android SDK, android.jar, or aapt2 found.
+Result: Gradle build, Compose compilation, lint, APK, emulator/device review NOT executed.

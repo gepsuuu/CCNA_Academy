@@ -1,0 +1,51 @@
+RELEASE BLOCKED: 50 unmet conditions
+android_compilation: blocked_toolchain
+kotlin_unit_tests: partial
+android_lint: blocked_toolchain
+apk_build: blocked_toolchain
+pilot_device_review: blocked_toolchain
+all_lesson_technical_review: partial
+mobile_accessibility_review: blocked_toolchain
+upgrade_and_backup_restore: blocked_toolchain
+final_acceptance: pending
+1-01: lesson acceptance pending
+1-02: lesson acceptance pending
+1-03: lesson acceptance pending
+1-04: lesson acceptance pending
+1-05: lesson acceptance pending
+1-06: lesson acceptance pending
+1-07: lesson acceptance pending
+1-08: lesson acceptance pending
+1-09: lesson acceptance pending
+1-10: lesson acceptance pending
+1-11: lesson acceptance pending
+1-12: lesson acceptance pending
+1-13: lesson acceptance pending
+1-14: lesson acceptance pending
+2-01: lesson acceptance pending
+2-02: lesson acceptance pending
+2-03: lesson acceptance pending
+2-04: lesson acceptance pending
+2-05: lesson acceptance pending
+2-06: lesson acceptance pending
+2-07: lesson acceptance pending
+2-08: lesson acceptance pending
+2-09: lesson acceptance pending
+3-01: lesson acceptance pending
+3-02: lesson acceptance pending
+3-03: lesson acceptance pending
+3-04: lesson acceptance pending
+4-01: lesson acceptance pending
+4-02: lesson acceptance pending
+4-03: lesson acceptance pending
+4-04: lesson acceptance pending
+5-01: lesson acceptance pending
+5-02: lesson acceptance pending
+5-03: lesson acceptance pending
+5-04: lesson acceptance pending
+5-05: lesson acceptance pending
+5-06: lesson acceptance pending
+6-01: lesson acceptance pending
+6-02: lesson acceptance pending
+6-03: lesson acceptance pending
+6-04: lesson acceptance pending

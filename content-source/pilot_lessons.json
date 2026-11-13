@@ -22,7 +22,7 @@
           {
             "type": "text",
             "title": "What this pilot covers",
-            "text": "Required CCNA v1.1: objectives 2.1 and 2.2, including access ports, inter-VLAN connectivity, trunks, 802.1Q, and native VLANs. Voice VLAN configuration remains in the preserved reference material and must be reviewed before this pilot can be marked complete."
+            "text": "Required CCNA v1.1: objectives 2.1 and 2.2, including access ports, data and voice VLANs, the default VLAN, inter-VLAN connectivity, trunks, 802.1Q, and native VLANs. The two-department fixture is used throughout; the voice VLAN is taught with its own single-port fixture in Configure, Verify, and Troubleshoot so its phone-specific behavior is not confused with an interswitch trunk."
           }
         ]
       },
@@ -406,6 +406,11 @@
             "items": [
               "Classic IOS commonly uses a 100-Mbps reference bandwidth, so faster links can all receive cost 1. Verify the platform and configuration. auto-cost reference-bandwidth uses Mbps and should be planned consistently across the OSPF domain. An explicit ip ospf cost overrides automatic interface cost. This fixture uses explicit costs to make the expected route metric deterministic."
             ]
+          },
+          {
+            "type": "text",
+            "title": "Hello compatibility: what must match",
+            "text": "Two routers become OSPF neighbors only if their Hellos agree on the parameters OSPF checks. On a shared segment they must agree on the area ID, the Hello and dead intervals, the authentication settings, and the area type flags (for example, stub). On broadcast and NBMA networks the subnet and mask must also match. Router IDs must be unique.\n\nCisco IOS defaults on broadcast and point-to-point networks are a 10-second Hello and a 40-second dead interval; changing one side alone prevents the neighbor relationship. Interface MTU is not a Hello field: it is checked in Database Description packets, which is why an MTU mismatch typically leaves neighbors stuck in ExStart or Exchange instead of preventing discovery.\n\nOSPF process IDs are locally significant and do not need to match. Network type is not a Hello compatibility field, but mismatched types (one side broadcast, the other point-to-point) can produce a neighbor that never reaches a working Full adjacency or routes that do not install as expected, so keep both ends consistent as this fixture does."
           }
         ]
       },

@@ -1,51 +1,67 @@
 {
-  "release": "1.5.0-rc1",
+  "release": "1.5.0-rc2 (versionCode 7)",
   "releaseAccepted": false,
   "gates": {
     "python_content": {
       "status": "passed",
+      "note": "74 Python tests + deterministic asset regeneration",
       "evidence": [
         {
-          "path": "docs/release-python-tests.txt",
-          "sha256": "1e9bd6f04350f0ee13bf0e4db4a846b9b45ed553c2259c51f59248ac79326042"
+          "path": "docs/evidence/python-validation.txt",
+          "sha256": "977988e463f440a354daa5c5629ffe01df8d7ee3dd7fb213b94e5db6ed2e3c23"
         }
       ]
     },
     "android_compilation": {
       "status": "blocked_toolchain",
-      "evidence": []
+      "note": "Compose/Android sources uncompiled; network to Gradle/Google/Maven 403",
+      "evidence": [
+        {
+          "path": "docs/evidence/android-toolchain-probe.txt",
+          "sha256": "9f053f993816019207f1ed27b6aab31bc26634e48a1cebb3b1236034528de0b3"
+        }
+      ]
     },
     "kotlin_unit_tests": {
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "note": "64/64 passed on plain JVM (Kotlin 2.3.10 compiler from kotlin-jupyter-kernel PyPI wheel, JUnit API shim). Not Gradle, not project Kotlin 2.1.0. 26 Android-free sources only.",
+      "evidence": [
+        {
+          "path": "docs/evidence/kotlin-jvm-tests.txt",
+          "sha256": "c3aae3e7e11762db9072258025c1a10b88dcc12ff12ccd314463cd01370d1482"
+        },
+        {
+          "path": "docs/evidence/kotlin-jvm-test-compile.txt",
+          "sha256": "d4e49dd8b59469b9ec9b4026c9796f2e272e46b3e0dfe7486db13f05630cfbf9"
+        }
+      ]
     },
     "android_lint": {
-      "status": "not_run",
-      "evidence": []
+      "status": "blocked_toolchain",
+      "note": "Requires Android SDK/emulator; unavailable"
     },
     "apk_build": {
-      "status": "not_run",
-      "evidence": []
+      "status": "blocked_toolchain",
+      "note": "Requires Android SDK/emulator; unavailable"
     },
     "pilot_device_review": {
-      "status": "not_run",
-      "evidence": []
+      "status": "blocked_toolchain",
+      "note": "Requires Android SDK/emulator; unavailable"
     },
     "all_lesson_technical_review": {
       "status": "partial",
-      "evidence": []
+      "note": "Source review of all 41 lessons, 124 scored questions, all CLI blocks; corrections in docs/TECHNICAL_CORRECTIONS.md. Runtime/visual review not done."
     },
     "mobile_accessibility_review": {
-      "status": "not_run",
-      "evidence": []
+      "status": "blocked_toolchain",
+      "note": "Requires Android SDK/emulator; unavailable"
     },
     "upgrade_and_backup_restore": {
-      "status": "not_run",
-      "evidence": []
+      "status": "blocked_toolchain",
+      "note": "Requires Android SDK/emulator; unavailable"
     },
     "final_acceptance": {
-      "status": "pending",
-      "evidence": []
+      "status": "pending"
     }
   },
   "lessons": [
@@ -55,7 +71,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "1-02",
@@ -63,7 +81,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "1-03",
@@ -71,7 +91,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "1-04",
@@ -79,7 +101,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "1-05",
@@ -87,7 +111,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "1-06",
@@ -95,7 +121,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "1-07",
@@ -103,7 +131,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "1-08",
@@ -111,7 +141,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "1-09",
@@ -119,7 +151,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "1-10",
@@ -127,7 +161,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "1-11",
@@ -135,7 +171,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "1-12",
@@ -143,7 +181,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "1-13",
@@ -151,7 +191,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "1-14",
@@ -159,7 +201,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "2-01",
@@ -167,7 +211,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "2-02",
@@ -175,7 +221,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "2-03",
@@ -183,7 +231,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "2-04",
@@ -191,7 +241,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "2-05",
@@ -199,7 +251,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "2-06",
@@ -207,7 +261,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "2-07",
@@ -215,7 +271,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "2-08",
@@ -223,7 +281,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "2-09",
@@ -231,7 +291,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "3-01",
@@ -239,7 +301,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "3-02",
@@ -247,7 +311,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "3-03",
@@ -255,7 +321,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "3-04",
@@ -263,7 +331,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "4-01",
@@ -271,7 +341,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "4-02",
@@ -279,7 +351,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "4-03",
@@ -287,7 +361,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "4-04",
@@ -295,7 +371,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "5-01",
@@ -303,7 +381,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "5-02",
@@ -311,7 +391,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "5-03",
@@ -319,7 +401,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "5-04",
@@ -327,7 +411,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "5-05",
@@ -335,7 +421,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "5-06",
@@ -343,7 +431,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "6-01",
@@ -351,7 +441,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "6-02",
@@ -359,7 +451,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "6-03",
@@ -367,7 +461,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     },
     {
       "id": "6-04",
@@ -375,7 +471,9 @@
       "sourceStages": "present",
       "visualReference": "present",
       "practiceCheck": "present",
-      "acceptance": "pending"
+      "acceptance": "pending",
+      "sourceReview": "reviewed-rc2",
+      "blockedBy": "android build + runtime review"
     }
   ]
 }

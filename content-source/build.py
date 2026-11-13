@@ -92,7 +92,7 @@ used.update(b['diagram'] for l in LESSONS for stage in l['learningStages'] for b
 used.update(b['packet']['diagramId'] for l in LESSONS for stage in l['learningStages'] for b in stage['blocks'] if b.get('packet'))
 print("Unreferenced by lesson body (may be quiz-only):", sorted(ids-used))
 
-out=dict(blueprint=dict(exam="CCNA 200-301",version="v1.1",note="Aligned to Cisco's 200-301 v1.1 exam topics (effective Aug 20, 2024). Cisco has announced v2.0 starting Feb 3, 2027; content is tagged by objective for remapping."),
+out=dict(blueprint=dict(exam="CCNA 200-301",version="v1.1",note="Aligned to Cisco's 200-301 v1.1 exam topics (effective Aug 20, 2024). Cisco lists Feb 2, 2027 as the last v1.1 test date and Feb 3, 2027 as the first v2.0 test date. This content is not a v2.0 course; lessons are tagged by v1.1 objective for a deliberate future remap."),
  domains=domains,lessons=LESSONS,flashcards=[],tips=TIPS)
 import os
 dst=sys.argv[1]

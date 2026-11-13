@@ -20,7 +20,7 @@ Keep the same application ID/signing key for an in-place upgrade and export a ba
 
 # Current delivery: all-lesson content migration draft
 
-All 41 lessons have progressive stages, including the 39 migrated in this delivery. Android build and device acceptance are pending. No APK is included.
+All 41 lessons have progressive stages, including the 39 migrated in this delivery. Version 1.5.0-rc2. Android build and device acceptance are pending (toolchain unavailable). No APK is included. See docs/RELEASE_CANDIDATE_REPORT.md.
 
 Read docs/ALL_LESSONS_MIGRATION_REPORT.md first for scope, validation, remaining work, and build instructions. The earlier pilot report is historical.
 

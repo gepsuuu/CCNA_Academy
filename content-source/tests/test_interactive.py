@@ -23,14 +23,23 @@ class InteractiveTests(unittest.TestCase):
    for i in range(3):
     h=self.steps[f'{prefix}-{i}']['headers'];self.assertEqual(CLIENT,h['Source IPv4']);self.assertEqual(SERVER,h['Destination IPv4'])
  def test_ttl_per_routed_hop(self):
-  for prefix in ['SYN','SYN-ACK','ACK','HTTP request']:self.assertEqual([64,63,62],[int(self.steps[f'{prefix}-{i}']['headers']['TTL']) for i in range(3)])
+  for prefix in ['SYN','SYN-ACK','ACK','HTTP request','HTTP response']:self.assertEqual([64,63,62],[int(self.steps[f'{prefix}-{i}']['headers']['TTL']) for i in range(3)])
  def test_mac_rewrite(self):
   self.assertEqual([(PC,R1L),(R1T,R2T),(R2L,WEB)],[(self.steps[f'SYN-{i}']['headers']['Source MAC'],self.steps[f'SYN-{i}']['headers']['Destination MAC']) for i in range(3)])
  def test_switch_preserves_header(self):self.assertEqual(self.steps['SYN-0']['headers'],self.steps['switch-forward']['headers'])
  def test_handshake_acknowledges_syn(self):
   self.assertEqual('1001',self.steps['SYN-ACK-0']['headers']['Acknowledgment']);self.assertEqual('5001',self.steps['ACK-0']['headers']['Acknowledgment'])
+ def test_http_response_sequence_arithmetic(self):
+  req=self.steps['HTTP request-0']['headers'];resp=self.steps['HTTP response-0']['headers']
+  self.assertEqual(req['Acknowledgment'],resp['Sequence'])
+  self.assertEqual(int(req['Sequence'])+120,int(resp['Acknowledgment']))
+  self.assertIn('120 bytes',req['Payload'])
+  ids=list(self.steps);self.assertLess(ids.index('HTTP request-2'),ids.index('HTTP response-0'));self.assertEqual('application',ids[-1])
+ def test_reverse_mac_rewrite(self):
+  self.assertEqual([(WEB,R2L),(R2T,R1T),(R1L,PC)],[(self.steps[f'HTTP response-{i}']['headers']['Source MAC'],self.steps[f'HTTP response-{i}']['headers']['Destination MAC']) for i in range(3)])
  def test_reverse_ip_path(self):
   for i in range(3):
+   self.assertEqual(SERVER,self.steps[f'HTTP response-{i}']['headers']['Source IPv4'])
    h=self.steps[f'SYN-ACK-{i}']['headers'];self.assertEqual(SERVER,h['Source IPv4']);self.assertEqual(CLIENT,h['Destination IPv4'])
  def test_cache_branches(self):
   cold=PACKET['steps'];warm=[s for s in cold if s['condition']=='always'];self.assertEqual(7,len(cold)-len(warm));self.assertIn('SYN-0',[s['id'] for s in warm])
@@ -75,7 +84,8 @@ class InteractiveTests(unittest.TestCase):
  def test_new_models_have_defaults(self):
   text=(ROOT/'app/src/main/java/com/ccnaacademy/app/data/MemoryModels.kt').read_text();self.assertIn('val packet: PacketWalkthrough? = null',text);self.assertIn('val inspector: OutputInspection? = null',text)
  def test_highlight_resolver_has_old_and_new_keys(self):
-  text=(ROOT/'app/src/main/java/com/ccnaacademy/app/ui/screens/LibraryScreens.kt').read_text();self.assertIn('section.startsWith("block:")',text);self.assertIn('section.startsWith("deep")',text)
+  # Resolver moved from the Compose screen to the JVM-testable data layer in 1.5.0-rc2 (DECISION_LOG D-05).
+  text=(ROOT/'app/src/main/java/com/ccnaacademy/app/data/HighlightText.kt').read_text();self.assertIn('section.startsWith("block:")',text);self.assertIn('section.startsWith("deep")',text)
  def test_no_unknown_json_helper(self):
   for p in (ROOT/'app/src/test').rglob('*.kt'):self.assertNotIn('JsonCodec',p.read_text())
  def test_cli_engine_unchanged_from_manifest_baseline(self):

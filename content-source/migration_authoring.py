@@ -365,6 +365,7 @@ configure terminal
 hostname R1
 ip domain name academy.example
 username learner privilege 1 secret LabOnly-ChangeMe-2026
+enable secret LabOnly-Enable-2026
 crypto key generate rsa modulus 2048
 ip ssh version 2
 line vty 0 4
@@ -372,7 +373,7 @@ line vty 0 4
  transport input ssh
 end
 show ip ssh''',
-config_note='Isolated IOS router with crypto support, reachable Gi0/0 192.168.10.1/24, and console recovery. The password is an explicitly disposable lab example, never a production secret. hostname/domain support key identity; RSA creates host keys; login local selects the user database; transport restricts VTY 0-4. Review any additional VTY ranges on the actual device. Key-generation syntax and supported algorithms vary. Restore the captured VTY/user baseline for undo; do not zeroize shared keys blindly.')
+config_note='Isolated IOS router with crypto support, reachable Gi0/0 192.168.10.1/24, and console recovery. The password is an explicitly disposable lab example, never a production secret. hostname/domain support key identity; RSA creates host keys; login local selects the user database; transport restricts VTY 0-4. The privilege 1 user arrives in User EXEC (R1>); enable secret (a separate disposable lab value) is what allows enable to reach Privileged EXEC (R1#) remotely, because IOS refuses enable over VTY when no enable password is set. Review any additional VTY ranges on the actual device. Key-generation syntax and supported algorithms vary. Restore the captured VTY/user baseline for undo; do not zeroize shared keys blindly.')
 
 lesson('3-01',
 'A router has several routes that seem to match one packet. The key is to separate building the routing table from forwarding a packet through that table. The most trusted route source is not always the most specific forwarding match.',
@@ -578,7 +579,7 @@ interface GigabitEthernet0/1
 end
 show ip dhcp snooping
 show ip dhcp snooping binding''',
-config_note='Isolated supported Catalyst switch, VLAN 10 already operational; Gi0/1 leads only to the authorized DHCP infrastructure, and clients use untrusted access ports. Review option-82/server compatibility and rate limits before testing. These commands enable snooping, not DAI or port security. After valid bindings and static-host policy exist, DAI is enabled with ip arp inspection vlan 10; trust must be planned separately. Undo by restoring prior feature/VLAN/trust policy, not blindly trusting clients. Full DAI and port-security configuration acceptance remains pending.')
+config_note='Isolated supported Catalyst switch, VLAN 10 already operational; Gi0/1 leads only to the authorized DHCP infrastructure, and clients use untrusted access ports. Review option-82/server compatibility and rate limits before testing. These commands enable snooping, not DAI or port security. After valid bindings and static-host policy exist, DAI is enabled with ip arp inspection vlan 10; trust must be planned separately. Undo by restoring prior feature/VLAN/trust policy, not blindly trusting clients. Port security and DAI are configured in their own fixtures below, each with context, verification, and restoration.')
 
 lesson('5-05',
 'Two offices need private communication across a network they do not control. A VPN creates a protected logical relationship over that transport, but the outer path must still work and the endpoints must agree on identity and policy.',

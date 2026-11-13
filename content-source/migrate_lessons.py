@@ -77,8 +77,8 @@ def apply_migration(lessons):
             target['applicable']=True
             target['reason']=''
             target['blocks'].append(copy.deepcopy(expansion['block']))
-        from mechanism_diagrams import MECHANISMS
-        if lid in MECHANISMS:
+        from mechanism_diagrams import mechanism_lessons
+        if lid in mechanism_lessons():
             st['Visualize']['blocks'].insert(0,block(f'{lid}-mechanism-diagram','Inspect the mechanism','Read the explanation for alternatives and assumptions; arrows are reading guides where stated.','visual',diagram='mechanism_'+lid))
         fixture_diagram={'2-01':'vlan_pilot_fixture','3-03':'ospf_pilot_fixture'}.get(lid)
         if fixture_diagram:
