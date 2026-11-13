@@ -1,0 +1,12 @@
+Android build attempt
+Fri Nov 13 15:11:04 UTC 2026
+
+Tool availability
+/usr/bin/java
+gradle: not installed on PATH
+kotlinc: not installed on PATH
+adb: not installed on PATH
+sdkmanager: not installed on PATH
+
+Requested Gradle validation/build
+/bin/bash: line 5: gradle: command not found

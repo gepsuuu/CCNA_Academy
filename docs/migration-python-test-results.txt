@@ -1,0 +1,35 @@
+test_39_authored_scenarios (test_migration.MigrationTests.test_39_authored_scenarios) ... ok
+test_39_interactive_checks (test_migration.MigrationTests.test_39_interactive_checks) ... ok
+test_all_41_migrated (test_migration.MigrationTests.test_all_41_migrated) ... ok
+test_all_domain_coverage (test_migration.MigrationTests.test_all_domain_coverage) ... ok
+test_answer_positions_varied (test_migration.MigrationTests.test_answer_positions_varied) ... ok
+test_duplicate_block_rejected (test_migration.MigrationTests.test_duplicate_block_rejected) ... ok
+test_invalid_diagram_rejected (test_migration.MigrationTests.test_invalid_diagram_rejected) ... ok
+test_json_fixture_parses (test_migration.MigrationTests.test_json_fixture_parses) ... ok
+test_legacy_fingerprints (test_migration.MigrationTests.test_legacy_fingerprints) ... ok
+test_missing_rationale_rejected (test_migration.MigrationTests.test_missing_rationale_rejected) ... ok
+test_no_tier_metadata_in_stages (test_migration.MigrationTests.test_no_tier_metadata_in_stages) ... ok
+test_no_unexplained_empty_stage (test_migration.MigrationTests.test_no_unexplained_empty_stage) ... ok
+test_original_depth_present_in_new_flow (test_migration.MigrationTests.test_original_depth_present_in_new_flow) ... ok
+test_original_examples_present (test_migration.MigrationTests.test_original_examples_present) ... ok
+test_original_question_ids_unique (test_migration.MigrationTests.test_original_question_ids_unique) ... ok
+test_original_terminology_present (test_migration.MigrationTests.test_original_terminology_present) ... ok
+test_rationale_rotation (test_migration.MigrationTests.test_rationale_rotation) ... ok
+test_reproducible_composition (test_migration.MigrationTests.test_reproducible_composition) ... ok
+test_schema (test_migration.MigrationTests.test_schema) ... ok
+test_subnet_fixture_nonoverlap (test_migration.MigrationTests.test_subnet_fixture_nonoverlap) ... ok
+test_assets_match_authoring (test_pilots.PilotTests.test_assets_match_authoring) ... ok
+test_bad_diagram (test_pilots.PilotTests.test_bad_diagram) ... ok
+test_bad_lesson (test_pilots.PilotTests.test_bad_lesson) ... ok
+test_empty_stage (test_pilots.PilotTests.test_empty_stage) ... ok
+test_explained_not_applicable (test_pilots.PilotTests.test_explained_not_applicable) ... ok
+test_missing_stage (test_pilots.PilotTests.test_missing_stage) ... ok
+test_output_provenance (test_pilots.PilotTests.test_output_provenance) ... ok
+test_scope_remains_two_pilots (test_pilots.PilotTests.test_scope_remains_two_pilots) ... ok
+test_unexplained_not_applicable (test_pilots.PilotTests.test_unexplained_not_applicable) ... ok
+test_valid (test_pilots.PilotTests.test_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 2.795s
+
+OK

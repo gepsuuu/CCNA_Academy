@@ -1,0 +1,18 @@
+{
+  "pythonTests": {
+    "executed": 10,
+    "passed": 10
+  },
+  "generatorsExecuted": [
+    "build.py",
+    "build_memory.py",
+    "build_study.py"
+  ],
+  "pythonCompileall": "passed",
+  "legacyCurriculumSemanticEquality": true,
+  "androidBuild": "blocked: gradle executable unavailable; Android SDK not configured",
+  "kotlinTests": "not executed",
+  "deviceTests": "not executed",
+  "pilotAcceptance": "incomplete",
+  "massMigration": "not started"
+}

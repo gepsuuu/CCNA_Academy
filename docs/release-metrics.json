@@ -1,0 +1,14 @@
+{
+  "lessons": 41,
+  "stages": 328,
+  "blocks": 1011,
+  "diagrams": 47,
+  "practiceChecks": 41,
+  "packetWalkthroughPlacements": 6,
+  "uniquePacketWalkthroughs": 2,
+  "outputInspectors": 10,
+  "lessonsWithVisualReferences": 41,
+  "pythonTestsPassed": 62,
+  "androidTestsExecuted": false,
+  "apkBuilt": false
+}

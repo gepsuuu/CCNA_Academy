@@ -1,0 +1,2 @@
+NOT EXECUTED: Gradle executable is unavailable and no Android SDK is configured.
+Kotlin compilation, unit tests, APK generation, and device review remain unverified.

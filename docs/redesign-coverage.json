@@ -1,0 +1,4674 @@
+[
+  {
+    "lessonId": "1-01",
+    "title": "Network Components and Their Roles",
+    "domain": "d1",
+    "chapter": "d1c1",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "1.1"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "This lesson identifies device roles. It does not define one universal configuration for routers, APs, firewalls, and PoE platforms; their configurations are taught in the relevant lessons.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 5
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "The everyday picture",
+      "Layer 2 vs Layer 3 devices",
+      "Security, wireless, controllers and PoE",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Small branch",
+      "Campus with Layer 3 switches",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation",
+      "Beyond the exam: supplementary context"
+    ],
+    "technicalTerminology": [
+      "Endpoint",
+      "NGFW",
+      "IPS",
+      "WLC",
+      "PSE / PD"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "1-02",
+    "title": "Network Topology Architectures",
+    "domain": "d1",
+    "chapter": "d1c1",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "1.2"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "An architecture is a design choice rather than one IOS feature. Device configurations depend on the chosen Layer 2/Layer 3 design and are covered in switching and routing lessons.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Why layers exist",
+      "Two-tier and three-tier campus",
+      "Spine-leaf, WAN, SOHO and cloud",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Hospital campus",
+      "Data center",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Access layer",
+      "Distribution layer",
+      "Core layer",
+      "Spine-leaf",
+      "East-west traffic"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "1-03",
+    "title": "OSI and TCP/IP Models and Encapsulation",
+    "domain": "d1",
+    "chapter": "d1c1",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "1.0 (foundation)"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "Layer models and encapsulation are explanatory foundations, not a configurable IOS protocol. Addressing, VLANs, and routing supply the concrete configurations.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 5
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "The seven OSI layers",
+      "Mapping OSI to TCP/IP",
+      "Encapsulation and PDUs",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Opening a web page",
+      "Troubleshooting by layer",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation",
+      "Beyond the exam: supplementary context"
+    ],
+    "technicalTerminology": [
+      "PDU",
+      "Encapsulation",
+      "De-encapsulation",
+      "Header / Trailer"
+    ],
+    "diagramReferences": [
+      "osi_tcpip",
+      "encapsulation"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "1-04",
+    "title": "Cabling, Interfaces, and Interface Issues",
+    "domain": "d1",
+    "chapter": "d1c2",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "1.3",
+      "1.4"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "This stage is physical selection and installation, not a universal speed/duplex command recipe. Forced settings depend on the exact medium and platform; verify both ends before changing them.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Copper and fiber basics",
+      "Shared media vs point-to-point",
+      "Reading interface problems",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Duplex mismatch",
+      "Choosing media",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "UTP",
+      "MMF / SMF",
+      "CRC error",
+      "Runt / Giant",
+      "Late collision"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector",
+      "Pinout/connector and fiber illustrations still need creation and visual review"
+    ]
+  },
+  {
+    "lessonId": "1-05",
+    "title": "Ethernet Frames, MAC Addresses, and ARP",
+    "domain": "d1",
+    "chapter": "d1c2",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "1.13",
+      "1.0 (foundation)"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "ARP normally operates automatically from addressing and routing. Static ARP is not needed for this demonstration; configuring it would hide the mechanism being taught.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "MAC addresses",
+      "The Ethernet II frame",
+      "ARP step by step",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Same-subnet ping",
+      "Remote destination",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "OUI",
+      "FCS",
+      "EtherType",
+      "ARP cache"
+    ],
+    "diagramReferences": [
+      "ethernet_frame"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "1-06",
+    "title": "TCP vs UDP",
+    "domain": "d1",
+    "chapter": "d1c3",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "1.5"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "TCP and UDP behavior is selected by applications and stacks, not enabled by a generic router command. The exercise interprets traffic rather than configuring a transport protocol on IOS.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Port numbers",
+      "How TCP provides reliability",
+      "Why UDP still matters",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Web browsing",
+      "Voice call",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Three-way handshake",
+      "Windowing",
+      "Ephemeral port",
+      "Socket"
+    ],
+    "diagramReferences": [
+      "tcp_handshake"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "1-07",
+    "title": "Binary and Hexadecimal Conversions",
+    "domain": "d1",
+    "chapter": "d1c4",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "1.6",
+      "1.8 (supporting)"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "Number-base conversion is a calculation skill, not a device configuration. Use the subnetting and IPv6 lessons to apply it to interfaces.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 5
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Place values",
+      "Decimal to binary",
+      "Hexadecimal",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Mask conversion",
+      "Hex to decimal",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation",
+      "Beyond the exam: supplementary context"
+    ],
+    "technicalTerminology": [
+      "Bit",
+      "Octet",
+      "Nibble",
+      "Hextet"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "1-08",
+    "title": "IPv4 Addressing and Private Addresses",
+    "domain": "d1",
+    "chapter": "d1c4",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "1.6",
+      "1.7"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Network and host portions",
+      "Special addresses in a subnet",
+      "Private addressing (RFC 1918)",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Address analysis",
+      "APIPA clue",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Subnet mask",
+      "Prefix length",
+      "RFC 1918",
+      "APIPA"
+    ],
+    "diagramReferences": [
+      "ipv4_structure"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "1-09",
+    "title": "IPv4 Subnetting and VLSM",
+    "domain": "d1",
+    "chapter": "d1c4",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "1.6"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "This lesson produces and checks an address plan. Interface configuration is demonstrated in IPv4 addressing; no device command performs the reasoning for you.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Borrowing bits",
+      "The block size ('magic number') method",
+      "VLSM and design questions",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Which subnet?",
+      "VLSM plan from 192.168.50.0/24",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Subnet",
+      "VLSM",
+      "Block size",
+      "CIDR"
+    ],
+    "diagramReferences": [
+      "subnetting"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "1-10",
+    "title": "IPv6 Addressing and Address Types",
+    "domain": "d1",
+    "chapter": "d1c5",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "1.8",
+      "1.9"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Writing and shortening addresses",
+      "Address types",
+      "Configuration, EUI-64 and SLAAC",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Abbreviation",
+      "Identifying types",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Hextet",
+      "GUA",
+      "ULA",
+      "Link-local",
+      "SLAAC",
+      "NDP"
+    ],
+    "diagramReferences": [
+      "ipv6_structure"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "1-11",
+    "title": "Verifying IP Parameters on Client Operating Systems",
+    "domain": "d1",
+    "chapter": "d1c6",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "1.10"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "The objective is verifying client IP parameters across operating systems. Configuration commands vary by OS and network manager; this lesson intentionally uses read-only inspection.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "The four key parameters",
+      "Commands per OS",
+      "Interpreting the output",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Wrong gateway",
+      "Linux check",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Default gateway",
+      "DNS server",
+      "DHCP lease"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "1-12",
+    "title": "Wireless Principles",
+    "domain": "d1",
+    "chapter": "d1c6",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "1.11"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "This lesson explains RF principles. Channel, power, and security configuration depend on controller/AP platform and regulatory domain; the WLAN GUI lessons supply configuration context.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "RF basics",
+      "Non-overlapping channels and service sets",
+      "Standards and encryption overview",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Channel plan",
+      "Roaming in an ESS",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "SSID",
+      "BSSID",
+      "ESS",
+      "CSMA/CA"
+    ],
+    "diagramReferences": [
+      "wireless"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "1-13",
+    "title": "Virtualization and Cloud Fundamentals",
+    "domain": "d1",
+    "chapter": "d1c6",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "1.12",
+      "1.2.f"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "The blueprint asks for virtualization fundamentals. Hypervisor, container, cloud, and VRF setup differ by platform; a generic command sequence would imply unsupported equivalence.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 5
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Virtual machines and hypervisors",
+      "Containers",
+      "VRFs and cloud models",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Server consolidation",
+      "Service provider VRFs",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation",
+      "Beyond the exam: supplementary context"
+    ],
+    "technicalTerminology": [
+      "Hypervisor",
+      "Container",
+      "VRF",
+      "vSwitch"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "1-14",
+    "title": "Switching Concepts: MAC Learning, Forwarding, and Flooding",
+    "domain": "d1",
+    "chapter": "d1c7",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "1.13"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "MAC learning is automatic on the demonstrated switching ports. VLAN and trunk configuration is taught separately; static MAC entries would obscure the learning exercise.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Learn, then forward",
+      "Flooding, filtering and aging",
+      "Verification and domains",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Finding a device",
+      "Learning sequence",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "MAC address table",
+      "Flooding",
+      "Unknown unicast",
+      "Aging time"
+    ],
+    "diagramReferences": [
+      "mac_learning"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "2-01",
+    "title": "VLANs: Access, Voice, and Default VLAN",
+    "domain": "d2",
+    "chapter": "d2c1",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "2.1"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": false,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 8
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 5
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 5
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 5
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 6
+      }
+    ],
+    "requiredConcepts": [
+      "One office, two conversations",
+      "From the analogy to the mechanism",
+      "What this pilot covers",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Why VLANs",
+      "Access ports and voice VLANs",
+      "Configuration and verification",
+      "Access port: one ordinary data VLAN",
+      "Trunk: several VLANs on one link",
+      "Native VLAN is not the management VLAN",
+      "Use the technical vocabulary",
+      "Read the existing VLAN illustration",
+      "Command fixture: keep these connections in mind",
+      "Follow a local broadcast, then a known unicast",
+      "Now follow a routed packet",
+      "Inspect the tag",
+      "Office floor",
+      "Wrong VLAN",
+      "Objective and safety",
+      "SW1: create VLANs, attach PC-A, and build both trunks",
+      "SW2: attach both departments",
+      "R1: route between VLANs",
+      "Read the modes and parameters",
+      "Use evidence from both ends",
+      "SW2# show vlan brief: simulated excerpt",
+      "SW2# show interfaces trunk: simulated excerpt",
+      "Interpret before testing",
+      "Failure 1: PC-C cannot reach its gateway",
+      "Correct the demonstrated allowed-list failure",
+      "Correct an access-port assignment instead",
+      "Safe undo in the training fixture",
+      "Mistakes to avoid",
+      "Choose the forwarding boundary",
+      "Reason about the header",
+      "Explain the failure",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "VLAN",
+      "Access port",
+      "Voice VLAN",
+      "Default VLAN"
+    ],
+    "diagramReferences": [
+      "vlan_trunk"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 0,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector",
+      "Integrate/review voice-VLAN configuration within the new pilot narrative"
+    ]
+  },
+  {
+    "lessonId": "2-02",
+    "title": "Trunking: 802.1Q and the Native VLAN",
+    "domain": "d2",
+    "chapter": "d2c1",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "2.2"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Tagging",
+      "The native VLAN",
+      "Configuration and DTP",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Accidental replacement",
+      "DTP outcome",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "802.1Q",
+      "Native VLAN",
+      "DTP",
+      "ISL"
+    ],
+    "diagramReferences": [
+      "dot1q_tag"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "2-03",
+    "title": "Inter-VLAN Routing",
+    "domain": "d2",
+    "chapter": "d2c1",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "2.1.c",
+      "1.1.b",
+      "3.0 (supporting)"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Why routing is needed",
+      "Router-on-a-stick (ROAS)",
+      "Layer 3 switch SVIs and routed ports",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Small branch ROAS",
+      "Campus distribution",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Subinterface",
+      "SVI",
+      "Routed port",
+      "ROAS"
+    ],
+    "diagramReferences": [
+      "intervlan"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "2-04",
+    "title": "Layer 2 Discovery: CDP and LLDP",
+    "domain": "d2",
+    "chapter": "d2c2",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "2.3"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "What they share",
+      "CDP",
+      "LLDP",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Mapping an uplink",
+      "Multi-vendor",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "CDP",
+      "LLDP",
+      "Holdtime"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "2-05",
+    "title": "EtherChannel and LACP",
+    "domain": "d2",
+    "chapter": "d2c2",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "2.4"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "The problem it solves",
+      "Negotiation protocols",
+      "Configuration and verification",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Uplink bundle",
+      "Suspended member",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "EtherChannel",
+      "LACP",
+      "PAgP",
+      "Port-channel"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector",
+      "Add/review a complete separate Layer 3 EtherChannel fixture"
+    ]
+  },
+  {
+    "lessonId": "2-06",
+    "title": "Spanning Tree Protocol and Rapid PVST+",
+    "domain": "d2",
+    "chapter": "d2c3",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "2.5"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Why loops are dangerous",
+      "How STP elects roles",
+      "Rapid PVST+ details",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Root election",
+      "Root port tie",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Bridge ID",
+      "Root port",
+      "Designated port",
+      "Alternate port",
+      "BPDU"
+    ],
+    "diagramReferences": [
+      "stp"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "2-07",
+    "title": "Cisco Wireless Architectures and AP Modes",
+    "domain": "d2",
+    "chapter": "d2c4",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "2.6",
+      "2.7"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "This lesson compares architectures and AP modes. AireOS and IOS XE controller configuration models differ; the next WLAN GUI lesson provides a platform-aware interpretation workflow rather than invented universal commands.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Three architectures",
+      "CAPWAP and deployment models",
+      "AP modes and physical connections",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Branch office",
+      "Campus",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Split-MAC",
+      "CAPWAP",
+      "FlexConnect",
+      "LAG"
+    ],
+    "diagramReferences": [
+      "wireless"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "2-08",
+    "title": "Interpreting WLAN Configuration in the WLC GUI",
+    "domain": "d2",
+    "chapter": "d2c4",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "2.9",
+      "5.10"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Creating a WLAN",
+      "Security tab",
+      "QoS and Advanced tabs",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Staff SSID",
+      "Voice SSID",
+      "Fixture, command context, and restoration",
+      "GUI workflow, not terminal commands",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "WLAN ID",
+      "Interface (WLC)",
+      "QoS profile"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector",
+      "Add release-specific controller screenshots and exact GUI steps"
+    ]
+  },
+  {
+    "lessonId": "2-09",
+    "title": "Device Management Access",
+    "domain": "d2",
+    "chapter": "d2c5",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "2.8",
+      "4.8",
+      "4.9"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Access methods",
+      "Configuring SSH",
+      "File transfer and centralized authentication",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Secure baseline",
+      "Image upgrade",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "VTY lines",
+      "Rollover cable",
+      "TFTP",
+      "SSHv2"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "3-01",
+    "title": "Routing Fundamentals and the Routing Table",
+    "domain": "d3",
+    "chapter": "d3c1",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "3.1",
+      "3.2"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "This lesson interprets routing and forwarding. Static and OSPF lessons provide the route-creation commands; adding an unrelated route would obscure the lookup exercise.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "How a router forwards",
+      "Reading 'show ip route'",
+      "Choosing the best route",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Longest match",
+      "AD decision",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Administrative distance",
+      "Metric",
+      "Longest prefix match",
+      "Gateway of last resort",
+      "ECMP"
+    ],
+    "diagramReferences": [
+      "routing"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "3-02",
+    "title": "Static Routing for IPv4 and IPv6",
+    "domain": "d3",
+    "chapter": "d3c1",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "3.3"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Basic syntax",
+      "Types of static routes",
+      "IPv6 static routes and next-hop choices",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Branch default route",
+      "Floating backup",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Static route",
+      "Default route",
+      "Floating static route",
+      "Fully specified route"
+    ],
+    "diagramReferences": [
+      "routing"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector",
+      "Add/review full IPv6, default, host, and floating-static lab fixtures"
+    ]
+  },
+  {
+    "lessonId": "3-03",
+    "title": "OSPFv2 Single Area",
+    "domain": "d3",
+    "chapter": "d3c2",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "3.4"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": false,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 8
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 6
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 6
+      }
+    ],
+    "requiredConcepts": [
+      "When static routes become a maintenance problem",
+      "Map, calculation, and forwarding table",
+      "Scope and simulation boundary",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Link-state in plain terms",
+      "Neighbors and adjacencies",
+      "Network types, DR/BDR, router ID, cost, and configuration",
+      "Static routes versus OSPF",
+      "Broadcast Ethernet versus point-to-point",
+      "Use the technical vocabulary",
+      "Read the OSPF illustration",
+      "Point-to-point command fixture",
+      "Identity comes before discovery",
+      "Watch the neighbor relationship develop",
+      "What the packets actually carry",
+      "DR/BDR and cost details",
+      "Two routers on a /30",
+      "Adjacency failure",
+      "DR election",
+      "Objective and IOS context",
+      "R1: identity, interfaces, and area",
+      "R2: matching area and network type",
+      "Explain the configuration modes",
+      "Verify identity, adjacency, database, and route separately",
+      "R1# show ip ospf neighbor: simulated excerpt",
+      "R1# show ip route ospf: simulated route excerpt",
+      "Interpret the route",
+      "Failure 1: no neighbor on an up/up link",
+      "R2: restore Hello exchanges",
+      "Failure 2: ExStart or Exchange persists",
+      "Failure 3: 2-Way on broadcast Ethernet",
+      "Undo without removing unrelated configuration",
+      "Mistakes to avoid",
+      "Choose the correct state interpretation",
+      "Calculate the path",
+      "Distinguish the packet types",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "LSA / LSDB",
+      "SPF",
+      "Router ID",
+      "DR / BDR",
+      "Passive interface",
+      "Area 0"
+    ],
+    "diagramReferences": [
+      "ospf_states"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 4,
+      "newInteractivePracticeChecks": 0,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector",
+      "Interactive OSPF state/header inspector remains unimplemented"
+    ]
+  },
+  {
+    "lessonId": "3-04",
+    "title": "First Hop Redundancy Protocols",
+    "domain": "d3",
+    "chapter": "d3c3",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "3.5"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "Objective 3.5 is conceptual. HSRP/VRRP/GLBP configurations and defaults are version-specific; this lesson teaches purpose, roles, and verification rather than pretending one recipe configures all three.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Virtual gateway",
+      "HSRP, VRRP, GLBP",
+      "What the CCNA expects",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Campus VLAN 10",
+      "Standards-based",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Virtual IP",
+      "Active / Standby",
+      "Master / Backup",
+      "AVG / AVF",
+      "Preemption"
+    ],
+    "diagramReferences": [
+      "fhrp"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "4-01",
+    "title": "DHCP and DNS",
+    "domain": "d4",
+    "chapter": "d4c1",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "4.3",
+      "4.6"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "DHCP DORA",
+      "Cisco IOS DHCP server, relay and client",
+      "DNS",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Central DHCP",
+      "Name resolution failure",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "DORA",
+      "DHCP relay",
+      "Lease",
+      "A / AAAA record"
+    ],
+    "diagramReferences": [
+      "dhcp_dora"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector",
+      "Add/review complete separate DHCP-client fixture"
+    ]
+  },
+  {
+    "lessonId": "4-02",
+    "title": "NAT and PAT",
+    "domain": "d4",
+    "chapter": "d4c1",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "4.1",
+      "1.7"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Why NAT exists",
+      "The four address terms",
+      "Static NAT, dynamic NAT, and PAT configuration",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Home/office PAT",
+      "Published server",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Inside local",
+      "Inside global",
+      "PAT",
+      "Translation table"
+    ],
+    "diagramReferences": [
+      "nat_pat"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector",
+      "Add/review complete dynamic-pool and PAT lab fixtures"
+    ]
+  },
+  {
+    "lessonId": "4-03",
+    "title": "NTP, SNMP, and Syslog",
+    "domain": "d4",
+    "chapter": "d4c2",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "4.2",
+      "4.4",
+      "4.5"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "NTP",
+      "SNMP",
+      "Syslog",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Logging level",
+      "SNMP monitoring",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Stratum",
+      "MIB / OID",
+      "Trap / Inform",
+      "Facility"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector",
+      "Add/review complete NTP-server-mode fixture"
+    ]
+  },
+  {
+    "lessonId": "4-04",
+    "title": "Quality of Service (QoS)",
+    "domain": "d4",
+    "chapter": "d4c2",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "4.7"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "Objective 4.7 explains per-hop behavior. Scheduler, queue, and policy syntax vary by platform; this lesson interprets mechanisms and counters instead of applying an unvalidated universal WAN policy.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "What hurts real-time traffic",
+      "Classification and marking",
+      "Queuing, congestion avoidance, policing and shaping",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Branch WAN",
+      "Provider contract",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "DSCP",
+      "CoS",
+      "LLQ",
+      "WRED",
+      "Trust boundary"
+    ],
+    "diagramReferences": [
+      "qos"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "5-01",
+    "title": "Security Concepts and Security Program Elements",
+    "domain": "d5",
+    "chapter": "d5c1",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "5.1",
+      "5.2"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "Security concepts and program elements are not one IOS feature. Configuration belongs to the specific access-control, ACL, Layer 2 security, and wireless lessons.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Core vocabulary",
+      "Common attacks",
+      "Security program elements",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Phishing",
+      "Amplification",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "CIA triad",
+      "Exploit",
+      "MITM",
+      "Spear phishing / Whaling"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "5-02",
+    "title": "Device Access Control, Passwords, and AAA",
+    "domain": "d5",
+    "chapter": "d5c1",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "5.3",
+      "5.4",
+      "5.8"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Local passwords",
+      "Password policies and alternatives",
+      "AAA, RADIUS, and TACACS+",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Secure login",
+      "Central admin",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "AAA",
+      "RADIUS",
+      "TACACS+",
+      "MFA"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "5-03",
+    "title": "Access Control Lists (ACLs)",
+    "domain": "d5",
+    "chapter": "d5c2",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "5.6"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "How ACLs evaluate",
+      "Standard vs extended, and wildcard masks",
+      "Configuration, placement and verification",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Block one host from a server",
+      "Wildcard calculation",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Implicit deny",
+      "Wildcard mask",
+      "Inbound / Outbound",
+      "Sequence number"
+    ],
+    "diagramReferences": [
+      "acl_flow"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "5-04",
+    "title": "Layer 2 Security: Port Security, DHCP Snooping, and DAI",
+    "domain": "d5",
+    "chapter": "d5c2",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "5.7"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Port security",
+      "Violation modes and recovery",
+      "DHCP snooping and DAI",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Conference room port",
+      "Rogue DHCP",
+      "Fixture, command context, and restoration",
+      "Isolated lab configuration",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Err-disabled",
+      "Sticky MAC",
+      "Binding table",
+      "ARP poisoning"
+    ],
+    "diagramReferences": [
+      "l2_security"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector",
+      "Add/review complete port-security and DAI configurations, including static-host policy"
+    ]
+  },
+  {
+    "lessonId": "5-05",
+    "title": "VPN Fundamentals",
+    "domain": "d5",
+    "chapter": "d5c3",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "5.5"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "Objective 5.5 describes VPN purpose and concepts. IKE/IPsec configuration depends on platform, version, identity, crypto policy, and topology; an unvalidated generic crypto recipe would be misleading.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Why VPNs",
+      "IPsec services",
+      "Site-to-site vs remote access",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Branch to HQ",
+      "Remote worker",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "IPsec",
+      "ESP / AH",
+      "IKE",
+      "Remote-access VPN"
+    ],
+    "diagramReferences": [
+      "vpn"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "5-06",
+    "title": "Wireless Security Protocols",
+    "domain": "d5",
+    "chapter": "d5c3",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "5.9",
+      "5.10"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Generations",
+      "Personal vs Enterprise",
+      "Why SAE matters",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Corporate",
+      "Guest",
+      "Fixture, command context, and restoration",
+      "GUI workflow, not terminal commands",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "PSK",
+      "SAE",
+      "802.1X",
+      "PMF"
+    ],
+    "diagramReferences": [
+      "dot1x"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector",
+      "Add release-specific WLAN security GUI screenshots and exact steps"
+    ]
+  },
+  {
+    "lessonId": "6-01",
+    "title": "Automation and Controller-Based Networking",
+    "domain": "d6",
+    "chapter": "d6c1",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "6.1",
+      "6.2",
+      "6.3"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "Objectives 6.1-6.3 explain architecture and impact. Controller APIs and device programming differ by product; this lesson does not invent a universal controller command.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Why automate",
+      "Planes and controllers",
+      "SDN architectures: underlay, overlay, fabric",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Adding a VLAN to 200 switches",
+      "SD-WAN",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Data plane",
+      "Control plane",
+      "Management plane",
+      "NBI / SBI",
+      "Overlay / Underlay"
+    ],
+    "diagramReferences": [
+      "sdn"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "6-02",
+    "title": "AI and Machine Learning in Network Operations",
+    "domain": "d6",
+    "chapter": "d6c1",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "6.4"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "The objective is explaining AI/ML in operations, not training a model or connecting an AI service. No production mutation or synthetic telemetry is performed by this lesson.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Basic definitions",
+      "Predictive AI in networking",
+      "Generative AI and responsible use",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Predictive",
+      "Generative",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "Machine learning",
+      "Predictive AI",
+      "Generative AI",
+      "Baseline"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "6-03",
+    "title": "REST APIs and JSON",
+    "domain": "d6",
+    "chapter": "d6c2",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "6.5",
+      "6.7"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 4
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "REST and CRUD",
+      "REST characteristics and authentication",
+      "JSON components",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Existing conceptual illustration",
+      "Follow the behavior",
+      "Read device list",
+      "Count JSON elements",
+      "Fixture, command context, and restoration",
+      "JSON data, not terminal commands",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation"
+    ],
+    "technicalTerminology": [
+      "API",
+      "REST",
+      "CRUD",
+      "JSON"
+    ],
+    "diagramReferences": [
+      "rest_api"
+    ],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  },
+  {
+    "lessonId": "6-04",
+    "title": "Configuration Management: Ansible and Terraform",
+    "domain": "d6",
+    "chapter": "d6c2",
+    "blueprintVersion": "v1.1",
+    "objectives": [
+      "6.6"
+    ],
+    "migrationStatus": "migrated-source-draft",
+    "acceptanceStatus": "pending",
+    "newlyMigratedThisDelivery": true,
+    "stageCoverage": [
+      {
+        "stage": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 7
+      },
+      {
+        "stage": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 3
+      },
+      {
+        "stage": "Configure",
+        "applicable": false,
+        "reason": "Objective 6.6 recognizes capabilities. No runnable playbook/provider example is supplied without a defined lab inventory and supported module versions; the lesson teaches safe workflow and interpretation.",
+        "blockCount": 0
+      },
+      {
+        "stage": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 1
+      },
+      {
+        "stage": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 2
+      },
+      {
+        "stage": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blockCount": 5
+      }
+    ],
+    "requiredConcepts": [
+      "Start with the problem",
+      "Build the mental model",
+      "Revisit the core explanation",
+      "Why this matters in practice",
+      "Infrastructure as Code",
+      "Ansible",
+      "Terraform and comparison",
+      "Separate the similar ideas",
+      "Use the technical vocabulary",
+      "Read the relationships",
+      "Follow the behavior",
+      "Ansible playbook",
+      "Terraform",
+      "What evidence should show",
+      "Diagnose, correct, and retest",
+      "Mistakes to avoid",
+      "Apply the idea",
+      "Explain it in your own words",
+      "Facts worth retrieving from memory",
+      "Exam interpretation",
+      "Beyond the exam: supplementary context"
+    ],
+    "technicalTerminology": [
+      "Playbook",
+      "Inventory",
+      "HCL",
+      "State file",
+      "Agentless"
+    ],
+    "diagramReferences": [],
+    "visualCoverage": "Existing conceptual diagrams reused where present; guided text otherwise; new scenario-specific assets not created",
+    "cliCoverage": "New fixture or explicit not-applicable reason; original technical material and walkthroughs retained; full platform review pending",
+    "verificationCoverage": "Topic-specific evidence interpretation plus existing output activities; no live devices used",
+    "troubleshootingCoverage": "Topic-specific symptom, evidence, correction and retest narrative; original mistakes retained",
+    "knowledgeCheckCoverage": {
+      "originalScoredQuizQuestions": 3,
+      "newInteractivePracticeChecks": 1,
+      "practiceRecordedInAnalytics": false
+    },
+    "technicalValidationStatus": "Partial source-informed review; original technical text preserved, not comprehensively revalidated",
+    "remaining": [
+      "Android/Kotlin build and tests",
+      "Device layout/accessibility/persistence review",
+      "Full technical and CLI platform acceptance",
+      "Visual asset review and missing scenario diagrams",
+      "Interactive packet/header inspector"
+    ]
+  }
+]

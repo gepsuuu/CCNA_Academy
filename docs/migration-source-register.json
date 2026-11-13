@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Official CCNA v1.1 objectives",
+    "url": "https://learningnetwork.cisco.com/s/ccna-exam-topics",
+    "scope": "Objective mapping across all six domains; not a claim of complete technical validation"
+  },
+  {
+    "title": "ARP specification",
+    "url": "https://www.rfc-editor.org/rfc/rfc826",
+    "scope": "1-05: local next-hop address resolution"
+  },
+  {
+    "title": "TCP specification",
+    "url": "https://www.rfc-editor.org/rfc/rfc9293",
+    "scope": "1-06: byte stream, sequence and acknowledgment behavior"
+  },
+  {
+    "title": "IPv6 specification",
+    "url": "https://www.rfc-editor.org/rfc/rfc8200",
+    "scope": "1-10: base header, Hop Limit, fragmentation"
+  },
+  {
+    "title": "DHCPv4 specification",
+    "url": "https://www.rfc-editor.org/rfc/rfc2131",
+    "scope": "4-01: initial allocation, relay, renewal versus broadcast"
+  },
+  {
+    "title": "JSON specification",
+    "url": "https://www.rfc-editor.org/rfc/rfc8259",
+    "scope": "6-03: data types, object/array semantics, syntax"
+  },
+  {
+    "title": "HTTP semantics",
+    "url": "https://www.rfc-editor.org/rfc/rfc9110",
+    "scope": "6-03: methods, status, idempotence"
+  },
+  {
+    "title": "Cisco EtherChannel configuration guide",
+    "url": "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9600/software/release/17-3/configuration_guide/lyr2/b_173_lyr2_9600_cg/configuring_etherchannels.html",
+    "scope": "2-05: LACP, logical channel, configuration consistency; exact lab hardware still needs review"
+  },
+  {
+    "title": "Cisco Dynamic ARP Inspection guide",
+    "url": "https://www.cisco.com/c/en/us/td/docs/switches/lan/c9000/sec-crypto/fhs-sisf/fhs-and-sisf-configuration-guide/dynamic-arp-inspection.html",
+    "scope": "5-04: binding validation and trust; platform-specific support"
+  },
+  {
+    "title": "Cisco NAT address conservation guide",
+    "url": "https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipaddr_nat/configuration/xe-3s/nat-xe-3s-book/iadnat-addr-consv.html",
+    "scope": "4-02: inside source translation and variants"
+  },
+  {
+    "title": "VRRPv3 historical specification",
+    "url": "https://www.rfc-editor.org/rfc/rfc5798",
+    "scope": "3-04: virtual-router concept only; this RFC is obsolete and is not used as current normative configuration guidance"
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "baseline": "original uploaded source",
+  "modified": [
+    "README.md",
+    "content-source/build.py",
+    ".github/workflows/android.yml",
+    "app/src/main/assets/curriculum.json",
+    "app/src/main/java/com/ccnaacademy/app/data/MemoryModels.kt",
+    "app/src/main/java/com/ccnaacademy/app/data/Models.kt",
+    "app/src/main/java/com/ccnaacademy/app/data/Search.kt",
+    "app/src/main/java/com/ccnaacademy/app/data/Tutor.kt",
+    "app/src/main/java/com/ccnaacademy/app/ui/components/BlockView.kt",
+    "app/src/main/java/com/ccnaacademy/app/ui/screens/LessonScreen.kt",
+    "app/src/main/java/com/ccnaacademy/app/ui/screens/TutorScreen.kt"
+  ],
+  "added": [
+    "content-source/legacy_lesson_fingerprints.json",
+    "content-source/migrate_lessons.py",
+    "content-source/migration_authoring.py",
+    "content-source/pilot_lessons.json",
+    "content-source/validate_pilots.py",
+    "docs/ALL_LESSONS_MIGRATION_REPORT.md",
+    "docs/PILOT_REDESIGN_REPORT.md",
+    "docs/migration-android-build-status.txt",
+    "docs/migration-python-test-results.txt",
+    "docs/migration-source-register.json",
+    "docs/migration-validation-summary.json",
+    "docs/pilot-android-build-attempt.txt",
+    "docs/pilot-python-test-results.txt",
+    "docs/pilot-validation-summary.json",
+    "docs/redesign-change-manifest.json",
+    "docs/redesign-coverage.json",
+    "app/src/test/java/com/ccnaacademy/app/MigratedLessonTest.kt",
+    "app/src/test/java/com/ccnaacademy/app/PilotLessonTest.kt",
+    "content-source/tests/test_migration.py",
+    "content-source/tests/test_pilots.py",
+    "docs/migration-change-manifest.json"
+  ],
+  "deleted": [],
+  "legacyCurriculumSemanticEquality": true
+}

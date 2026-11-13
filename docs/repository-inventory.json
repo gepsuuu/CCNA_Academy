@@ -1,0 +1,847 @@
+[
+  {
+    "path": ".github/workflows/android.yml",
+    "bytes": 1773,
+    "sha256": "b1669e4be1615cb172503c9614805e7c80ab3afda5ed85c7727cc88c71f9e813"
+  },
+  {
+    "path": ".gitignore",
+    "bytes": 90,
+    "sha256": "ad31c5f6925aa250aa4cb935444f0dc5d44120fe2448811361c5dda520023bb8"
+  },
+  {
+    "path": "CHANGELOG.md",
+    "bytes": 5509,
+    "sha256": "f9b07c313e03c64301fcbc11472abffd186602cc29f13140205662ed430f028c"
+  },
+  {
+    "path": "README.md",
+    "bytes": 15324,
+    "sha256": "69b1f4709fb102e538c6234a6fae70839171b5a3f88c4b0bd8f80826a2f522dc"
+  },
+  {
+    "path": "app/build.gradle.kts",
+    "bytes": 2699,
+    "sha256": "02ede28646099467482629dbd622b8757a3f28c80ead3cb820a8de87d9a558a0"
+  },
+  {
+    "path": "app/proguard-rules.pro",
+    "bytes": 296,
+    "sha256": "de79d3a31252d16f90a506b1cc25cfcca087d58f97679df4773ee423682781e2"
+  },
+  {
+    "path": "app/src/main/AndroidManifest.xml",
+    "bytes": 1557,
+    "sha256": "958a8b1820f3e2a2c008df853fd2ad804a33122889aafa81d0feeee8e75b7fca"
+  },
+  {
+    "path": "app/src/main/assets/curriculum.json",
+    "bytes": 887709,
+    "sha256": "acaecb9c3b631fa070ff71fc104f436591e78a059ed29a7a2b3ec17f1697cc9e"
+  },
+  {
+    "path": "app/src/main/assets/diagrams.json",
+    "bytes": 119212,
+    "sha256": "f3b19c2f520b592402ddaf92aacfe67df6154ca203be4e7a62aa3679855914ff"
+  },
+  {
+    "path": "app/src/main/assets/memory.json",
+    "bytes": 239842,
+    "sha256": "b2ccb6579c68d4d92d3456ac82a2de493822df13ba526455c2129a783dcf2a1a"
+  },
+  {
+    "path": "app/src/main/assets/packs/core-d1.json",
+    "bytes": 60843,
+    "sha256": "2bdf78fd9269c4e65a9707809ca63288d282a0df187ea38df2c78d7233c9b40b"
+  },
+  {
+    "path": "app/src/main/assets/packs/core-d2.json",
+    "bytes": 52173,
+    "sha256": "0ca9a820342dd26137e104abf78d59f7786d60cca225dadb3c1bced5f5537765"
+  },
+  {
+    "path": "app/src/main/assets/packs/core-d3.json",
+    "bytes": 70389,
+    "sha256": "03e2fdfa6b03181396488c48193190c1570333024f85cad4c560e3cca02489e2"
+  },
+  {
+    "path": "app/src/main/assets/packs/core-d4.json",
+    "bytes": 27417,
+    "sha256": "895184aa4690cbc0e1d7d36fc6dbe30cdb9f1c48b9f4f40b16a46bbce9aa82e6"
+  },
+  {
+    "path": "app/src/main/assets/packs/core-d5.json",
+    "bytes": 37389,
+    "sha256": "933393243ffab2ed5f96fa6ab98e71baabe0e82c60d3396e6c2c786ee646c80c"
+  },
+  {
+    "path": "app/src/main/assets/packs/core-d6.json",
+    "bytes": 25240,
+    "sha256": "87c89029cc39eca84a8c73e20f67fce6af7178c4d2b1eec44111264d0d1c9165"
+  },
+  {
+    "path": "app/src/main/assets/packs/index.json",
+    "bytes": 125,
+    "sha256": "13f66cbd43149decf183b7aabe523ff5d070158edd2b192aeaf59ff618f5ca48"
+  },
+  {
+    "path": "app/src/main/assets/study.json",
+    "bytes": 71272,
+    "sha256": "5364d17fc8d94a974b8989219f4ad6afe9cea7d556d64003313abebbe4693c53"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/AppViewModel.kt",
+    "bytes": 15869,
+    "sha256": "52269383dc28b5c46e609d5dc139cb5d8c678cd6772059913a5b9103bbe7f476"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/MainActivity.kt",
+    "bytes": 1005,
+    "sha256": "93a248ce2e26cdf68fc76ea99a4babbece4817f38510643407c435cbdda689c9"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/Achievements.kt",
+    "bytes": 3269,
+    "sha256": "4f636027df2699bf5a73ac287279c89d86d51188964275bdc4336567a66414be"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/Analytics.kt",
+    "bytes": 5013,
+    "sha256": "b582f706ed3df07802014090bdd46eef7102c3e1801b9b49493aa8c546640a36"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/BankEngine.kt",
+    "bytes": 7301,
+    "sha256": "b4d4e48f81971f445dd5f634e0218c363dbb5d709945e2242c14ded8dc6865c5"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/BankModels.kt",
+    "bytes": 3506,
+    "sha256": "04ca7bf5b2c560667c1a5d4daedee4e5d68cb07917a0452a838561beffe01f7e"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/DailyChallenge.kt",
+    "bytes": 2418,
+    "sha256": "6dedb147955745e24b12a8e12ac7d2aa52354024aed0a64db18080762fc3e748"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/DailyPlan.kt",
+    "bytes": 5395,
+    "sha256": "de0484de191996d8c6e61a27ef376134a134e86fd031b5ebaedd8a9832e0fc20"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/Generators.kt",
+    "bytes": 16719,
+    "sha256": "fff89a14bfe295dcca760e7c70e467922cf5e15b474732c5a75fbb4441803b06"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/Json.kt",
+    "bytes": 301,
+    "sha256": "0eee95729be4fbcfeb2006295a10835bed5afff0fc48a8665e0ea0e81ab97657"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/MemoryModels.kt",
+    "bytes": 4467,
+    "sha256": "8bd4f514c511fd90c89285bf04240822b60c654ed6bfb8a81c299620952b159e"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/Models.kt",
+    "bytes": 9076,
+    "sha256": "8b396ef6e3691a406094f6f3c56dd05c9d7f0f3e740837acb94f4d94d64d3475"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/PackRepository.kt",
+    "bytes": 6511,
+    "sha256": "346f53f57351a2daf45cb945f7addc4771700cb35305b2d6dd0882af1696a044"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/Planner.kt",
+    "bytes": 10374,
+    "sha256": "fd3206f9f46e0c046d036b0dea8ac8662f6d8d3ad58add53f1d75c3c5dccfda8"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/Repositories.kt",
+    "bytes": 3194,
+    "sha256": "ca84454531d2127f8bd0398963158bcc4cd8d43b082b1d79b15b84420befbff4"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/Search.kt",
+    "bytes": 3697,
+    "sha256": "d789ce1ef10f33ebe11d33a695c6bc61b2d0838256d6a00e3dd7136504e1c3b5"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/Srs.kt",
+    "bytes": 2694,
+    "sha256": "aa415455c983d02f75764031a26097aeadd54e098654bcfd074b4ece28bf5e5d"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/StudyModels.kt",
+    "bytes": 1710,
+    "sha256": "7177d18b8e8132720ecb74a8f2298f0644ca397d429f6d676c3155596d8890a9"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/Tutor.kt",
+    "bytes": 17638,
+    "sha256": "cc2edf9e035ce8b5a4601aa76226231f095fb19b23f38cf31b146646119fd591"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/lab/Animations.kt",
+    "bytes": 41466,
+    "sha256": "4d64df5648655fa0a7cfd8ae62cbd081651b81e39274aafcf323bfdca95193b2"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/lab/CliEngine.kt",
+    "bytes": 55164,
+    "sha256": "8693bae7355139e44efd517b5c8008d547266ae962e600f96bcea35e73524d43"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/lab/LabModel.kt",
+    "bytes": 11044,
+    "sha256": "895ee8d91a91c91d32e0a3b543a826de89241533e0c0f89d2c2de467ee0aa7b5"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/lab/Labs.kt",
+    "bytes": 32652,
+    "sha256": "7d0b74ed837d3ab89c6c1497e00a350a40e3ca192cca353c336b31b33201f9d7"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/lab/LessonExtras.kt",
+    "bytes": 50707,
+    "sha256": "6e54aa22038fba692b3ea0eb9d0c083bda889ca479a7eabaef238a2308673182"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/lab/Network.kt",
+    "bytes": 17152,
+    "sha256": "6eda59069ca237d932b84d1e7a7029489426e6c15b90bd3592f06fd4384a4fdf"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/components/BlockView.kt",
+    "bytes": 12654,
+    "sha256": "71ad813f228ba5bebf7434292c31e4eb68cfddce45994cbdcaabb06392a1b307"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/components/Common.kt",
+    "bytes": 9421,
+    "sha256": "6fe7b7e88be26a635a40644377dda79333e633da5991fc8d08be4774a6502f14"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/components/DiagramView.kt",
+    "bytes": 12599,
+    "sha256": "6f62dd447081b5754d62ab6c716e5d48dcddf911820a177fd4c1b7b440316c8e"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/components/InteractiveTeaching.kt",
+    "bytes": 6663,
+    "sha256": "c8ac97eeaa9c4f3b42e1125e1b68d5f0df10d5062aca256255d36154e23b9a5a"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/components/QuestionCard.kt",
+    "bytes": 13035,
+    "sha256": "1ef30bbce1659f444dd1f922b6f0b0fe880839277d80d4ab025abc73c0d17b65"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/lab/LabScreens.kt",
+    "bytes": 44206,
+    "sha256": "5c3e2c044282f584ca2f426a59252e06ab41c9f07645ef0aecd93d4b753c7c44"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/lab/LessonSections.kt",
+    "bytes": 11056,
+    "sha256": "89f7109174376ca07eea1efdc7c707af0309c3834d7f9c8909d2a4f8263c729c"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/lab/Visuals.kt",
+    "bytes": 27720,
+    "sha256": "bd6967b510c9b502d125d456fd47cefd67dd3b8c1ec5a41b084b9169f2be057b"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/nav/AppRoot.kt",
+    "bytes": 14970,
+    "sha256": "9f736d8aa4e81219f87f14416030cf4f56f70a0275becda301ad57ba1dea36ad"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/AchievementsScreen.kt",
+    "bytes": 3620,
+    "sha256": "9f4d5b64f2b6466333c02bf46afa529b1bd3d45d9e42eea090c295b2a6cc1fd4"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/BankScreens.kt",
+    "bytes": 27367,
+    "sha256": "c3bc62e18adc1bc5b62fa16837009771d310fc04c76ea5ae3ce3b1dbfa3f2d3e"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/CheatsheetScreens.kt",
+    "bytes": 9561,
+    "sha256": "3fcd0ea97517e67b5c7ed32fe0f7152aa6e95b488f1125a3a5f698636d8a0969"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/DailyChallengeScreen.kt",
+    "bytes": 9073,
+    "sha256": "2d002d66ca210478b319d29e15e6040926f3a739102456d0ae90de51b6fe771b"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/DashboardScreen.kt",
+    "bytes": 14272,
+    "sha256": "23ca24fd65c3dcbafbe5b70b492ab6be7b256f32464803acb8c7cbab8502f391"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/DrillScreen.kt",
+    "bytes": 11677,
+    "sha256": "cb6385a8931085c0821befca5a6cc09cac9706753b3308b2e4e989125be362b7"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/ExamScreens.kt",
+    "bytes": 14378,
+    "sha256": "95178ff58715d049f9b8941be9734c2cfe5e913dcfb8cf0c07c91f1a53ee9d23"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/FlashcardScreens.kt",
+    "bytes": 24761,
+    "sha256": "764d15638c6f12c755bdfc861b91bd57fbc70d95edd5fc2b64a105ca179bbb5c"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/LearnScreens.kt",
+    "bytes": 7629,
+    "sha256": "05304e116e00c197f1aed856f78f273b55aa1fcb69bb1abaa2a43b10578a2663"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/LessonScreen.kt",
+    "bytes": 18770,
+    "sha256": "8794b87fc123c501d871dc8c2064c53c6392f5d20bc147c62cd8c7fa75b65d6e"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/LibraryScreens.kt",
+    "bytes": 14873,
+    "sha256": "b8b4a17a020f06273fed42ad92af27ab4e7fe164397f9802b3a883f13af3c966"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/MemoryScreens.kt",
+    "bytes": 12765,
+    "sha256": "a12b827612ccddba9d4bc5a406de987157deec51ff4e984e25a9e04ea791b857"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/PackScreens.kt",
+    "bytes": 13257,
+    "sha256": "3d0515044f5dff1cc4aad9c25babab6fd9e97e69380faa79328dcc8ae564eb12"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/PlannerScreens.kt",
+    "bytes": 13065,
+    "sha256": "489bb8636f642c10e1211fb83c60ff77eef7441867879970604c4e30110ea6ce"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/ProgressScreen.kt",
+    "bytes": 9683,
+    "sha256": "b38e8521d71ceedec5fcbcd4c42711231bf7dfe010e0355157c32b54d784ba44"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/ReviseScreens.kt",
+    "bytes": 8466,
+    "sha256": "7379ef21f8a49edc2caa0347337027afaa662843540ed3ff58bd928f38adf3a2"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/SearchScreen.kt",
+    "bytes": 4000,
+    "sha256": "77bd341e1ecea55d554aad67b724d62570b2f204d9f39aa5fd7d103fae82462d"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/SettingsScreen.kt",
+    "bytes": 11220,
+    "sha256": "658a909e73466638a7961d2144d407f5244ef0668ca2cba5837df215b1451491"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/SpeedSubnetScreens.kt",
+    "bytes": 13960,
+    "sha256": "1f9989cf826cd432f9030c5ecc4c369f802f70071fd12f0920bdcebf634a2490"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/StudyScreens.kt",
+    "bytes": 12549,
+    "sha256": "74cf55b2d3c4b9cf82f0ead3b45eff730ce001dc832fb427cb5c1fd094a73eaa"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/TutorScreen.kt",
+    "bytes": 9925,
+    "sha256": "228b11d25287a63a95b231a061d2969b61da2572bcc637c1e0b1fd472c60cdbe"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/theme/Theme.kt",
+    "bytes": 4287,
+    "sha256": "fe69959b8896eec9cf3e8368c823cac9d18b54540fdd945fd4c646d91a82e94e"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/util/PdfExport.kt",
+    "bytes": 7315,
+    "sha256": "0bec56cc20ebfb40dcbbff3a12c05a5cf9a18b22fc71c3ad805cf56d32a79c4b"
+  },
+  {
+    "path": "app/src/main/res/drawable/ic_launcher_foreground.xml",
+    "bytes": 861,
+    "sha256": "cb16f10c472e6acbcaf05d5a53e712adab614ded45dcf6064fdef2dda880642c"
+  },
+  {
+    "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+    "bytes": 326,
+    "sha256": "27466d622add918b75992d1cc775e844ddbcf6854db873206bf8db21562878cb"
+  },
+  {
+    "path": "app/src/main/res/values/colors.xml",
+    "bytes": 108,
+    "sha256": "ffdc33bf1cdaf25b01ad98de25e60abe33c5fb813a4ca1890c70ece3336277d3"
+  },
+  {
+    "path": "app/src/main/res/values/strings.xml",
+    "bytes": 75,
+    "sha256": "01aea6086897891c2fc3e13c363b5518e558e567892627a2f9e5f756184e05fc"
+  },
+  {
+    "path": "app/src/main/res/values/themes.xml",
+    "bytes": 348,
+    "sha256": "088100effd4c8e7c1d7c8b9553a9eb70869538f9aee69c6bc5169a2b6eb33e6e"
+  },
+  {
+    "path": "app/src/main/res/values-night/colors.xml",
+    "bytes": 64,
+    "sha256": "88055cd359002e44085b512051d7423806d057a9b71ba45e1f1f2eb0e3d31353"
+  },
+  {
+    "path": "app/src/main/res/values-night/themes.xml",
+    "bytes": 342,
+    "sha256": "a9a314b4cc6dfb902b3f8370bd696412d9eac8d51126f09d738ba796c20accc9"
+  },
+  {
+    "path": "app/src/main/res/xml/backup_rules.xml",
+    "bytes": 276,
+    "sha256": "4557a59c76bb2db91fc177523370b58ee170b7c311c7a64f229b4a5e4e9a3f21"
+  },
+  {
+    "path": "app/src/main/res/xml/data_extraction_rules.xml",
+    "bytes": 543,
+    "sha256": "316a58f5dd81f574b1fc6a9a1d8961e8dc1b9e255d8ba587c7c329adc80ddcc9"
+  },
+  {
+    "path": "app/src/main/res/xml/file_paths.xml",
+    "bytes": 106,
+    "sha256": "c97a012c149d76ab14ee2bee655f776080f92d7dc2f9b389fb13c7444a76374d"
+  },
+  {
+    "path": "app/src/test/java/com/ccnaacademy/app/ContentTest.kt",
+    "bytes": 3184,
+    "sha256": "2543d72c65020ad8ef51a632974004ea0769ca1290918bcdee343f4a5bdd1794"
+  },
+  {
+    "path": "app/src/test/java/com/ccnaacademy/app/InteractiveTeachingTest.kt",
+    "bytes": 2081,
+    "sha256": "9737c3302156793221374c602e4b91ff67d57020aac26eef70e8097053937860"
+  },
+  {
+    "path": "app/src/test/java/com/ccnaacademy/app/LabContentTest.kt",
+    "bytes": 8214,
+    "sha256": "4c05833f1b801bd014bae82ce7b511b21ade4db79639b5d4ebe1e8e6f4708e56"
+  },
+  {
+    "path": "app/src/test/java/com/ccnaacademy/app/LabEngineTest.kt",
+    "bytes": 19062,
+    "sha256": "e86029d8d35acb14e415057e1626882ef7e904db9fb0304c531b1f96c9dffaef"
+  },
+  {
+    "path": "app/src/test/java/com/ccnaacademy/app/LogicTest.kt",
+    "bytes": 8574,
+    "sha256": "0956c7b8cd536fdbc19354e5034980b0462c1590901c5780ee5791f8c79bd1ab"
+  },
+  {
+    "path": "app/src/test/java/com/ccnaacademy/app/MigratedLessonTest.kt",
+    "bytes": 1226,
+    "sha256": "59e9f363cc94ba6a206c6bebcf3ce4236c1c91cb0fec1aafa28aa899eb6da7cb"
+  },
+  {
+    "path": "app/src/test/java/com/ccnaacademy/app/PilotLessonTest.kt",
+    "bytes": 1331,
+    "sha256": "a91192d78bc2abb07efffdfe396bb46e7eded65455ead3f6e585a4b0872d6b4e"
+  },
+  {
+    "path": "app/src/test/java/com/ccnaacademy/app/TestData.kt",
+    "bytes": 1178,
+    "sha256": "a831100e5e43c9bebc2c4451d72e2c14e14a5d739cbf06446347a23f6037d694"
+  },
+  {
+    "path": "build.gradle.kts",
+    "bytes": 295,
+    "sha256": "e7debce6ed999f89a40628d5b054db7b539598eb7b73d31b47f26b840ae7993f"
+  },
+  {
+    "path": "content-source/build.py",
+    "bytes": 6941,
+    "sha256": "c32f7ff1b4a0e5e84cc50f09e063676ca23577cdae569d6decb1b4fed194aeff"
+  },
+  {
+    "path": "content-source/build_memory.py",
+    "bytes": 2135,
+    "sha256": "dce82dc5cfe13f91ff2dda8169f9e95ec6fd8cefd44929d2f7bb6e87254452bd"
+  },
+  {
+    "path": "content-source/build_study.py",
+    "bytes": 1482,
+    "sha256": "bb3e2e89d1085a79eaa238ba0b2d0de009f1a01d2acf5cea2333e5d30a53c81e"
+  },
+  {
+    "path": "content-source/cards.py",
+    "bytes": 56327,
+    "sha256": "f906bb82d94cedb7521906d1b6dd3b0c8b03529d350fc3ad8e981dc0fd40371c"
+  },
+  {
+    "path": "content-source/cheatsheets.py",
+    "bytes": 25083,
+    "sha256": "791e079181ad7bdb20bcc60c19fee5aa186f8d09206363dd41b8ef945671c73d"
+  },
+  {
+    "path": "content-source/compare.py",
+    "bytes": 12017,
+    "sha256": "eb061af000d9539afbec0c636a7b017d1b6584a20c5db810ab5c794cfe171fb9"
+  },
+  {
+    "path": "content-source/configuration_expansions.py",
+    "bytes": 16210,
+    "sha256": "edb48baad43b0309ef8be6ea4528f1435a378805485b890180b37155c91de840"
+  },
+  {
+    "path": "content-source/d1.py",
+    "bytes": 51095,
+    "sha256": "e63d730efaadc1d941ef4f91b7b75312681813e03f81fda560b99b1f4fdad22e"
+  },
+  {
+    "path": "content-source/d2.py",
+    "bytes": 31090,
+    "sha256": "97309d27297ebb248ef98831638d88e9247db75a512017b1c1bc57f174f44532"
+  },
+  {
+    "path": "content-source/d3.py",
+    "bytes": 15405,
+    "sha256": "18b1e27116d0ae4455141bd81321940255843d6864d07b2b3ae06cda1a2a06b4"
+  },
+  {
+    "path": "content-source/d4.py",
+    "bytes": 14380,
+    "sha256": "ae2060d5c685c9b94457d0c77844a3cae888ef32b86c5ea5af58b0f65d678019"
+  },
+  {
+    "path": "content-source/d5.py",
+    "bytes": 21446,
+    "sha256": "9c4b93a0c76f5937b47378c2374a52bebeb86efda811555a091a1617b9e56bc7"
+  },
+  {
+    "path": "content-source/d6.py",
+    "bytes": 14427,
+    "sha256": "fff2d3b5f9b114e362e1674e351f7d0562132c9d8f5128039f2811d1c76d68cd"
+  },
+  {
+    "path": "content-source/diagrams.py",
+    "bytes": 31911,
+    "sha256": "877643109ed389b08fbbdfa8450d1d552117502c498b15cad45f8f4536a495db"
+  },
+  {
+    "path": "content-source/glossary.py",
+    "bytes": 27038,
+    "sha256": "d9d4a74271f459d3902b8ee97969609125cac67bfe83af742ed7d3c66b14d0c5"
+  },
+  {
+    "path": "content-source/interactive_authoring.py",
+    "bytes": 22361,
+    "sha256": "8ab86d6636e8596ada90a6b66040c6b63fa72dae7c16e4590543d35eaee144b6"
+  },
+  {
+    "path": "content-source/legacy_lesson_fingerprints.json",
+    "bytes": 3201,
+    "sha256": "4c752b84055bb5267299017559ee80d36f74003556cc8577731ded313be891d2"
+  },
+  {
+    "path": "content-source/lib.py",
+    "bytes": 921,
+    "sha256": "455f63da48cc3e21bc5f2cc7bc7f5127d22504b01e4c64ef5fc96367718fb115"
+  },
+  {
+    "path": "content-source/mechanism_diagrams.py",
+    "bytes": 12613,
+    "sha256": "c71a3d8431cea72960c1e12dee261f0144844520fee54724f0cbc97813dda6b4"
+  },
+  {
+    "path": "content-source/memorize.py",
+    "bytes": 30746,
+    "sha256": "1b88ea91eb9b075f13cd04cef4a16d7eeac0d77ca0743f16b4073019c6360e63"
+  },
+  {
+    "path": "content-source/migrate_lessons.py",
+    "bytes": 9938,
+    "sha256": "fdac88d3d815643f729351a2678c7cfd49d9e78196aa8786f0581ea0676e06a9"
+  },
+  {
+    "path": "content-source/migration_authoring.py",
+    "bytes": 117361,
+    "sha256": "1f8dc10821fb4a3eeb7e8d37aadf49d756a2a309a60d351eb076614dd6a38d4e"
+  },
+  {
+    "path": "content-source/mistakes.py",
+    "bytes": 7756,
+    "sha256": "318b400705c0b2b6cf762d4b0c546ed3706d1480124244c8631d20d9f885202d"
+  },
+  {
+    "path": "content-source/pilot_lessons.json",
+    "bytes": 39811,
+    "sha256": "0ff1e5efc9b5b56c4afaf9534eb057312cd8be2040d386e1e839bacdf41dd4c8"
+  },
+  {
+    "path": "content-source/qbank/build_bank.py",
+    "bytes": 5159,
+    "sha256": "230e0d4d19bf572dacfc37835c780953558569560e2c8f450064bcd107cc97a7"
+  },
+  {
+    "path": "content-source/qbank/export_review.py",
+    "bytes": 1965,
+    "sha256": "33665aaba09a2db92bc30cf29e64b9a196b77de505f9d08a8486b375cf3b1d04"
+  },
+  {
+    "path": "content-source/qbank/q_d1.py",
+    "bytes": 35778,
+    "sha256": "2ff07994aba52a036bf5de089e32792c5a799e7be9cff599ff58887ac4e1d7e4"
+  },
+  {
+    "path": "content-source/qbank/q_d2.py",
+    "bytes": 29150,
+    "sha256": "9d5dccbb3636a16253b5f4590406cbf01d455b2db79895ff16550db7dafbdc40"
+  },
+  {
+    "path": "content-source/qbank/q_d3.py",
+    "bytes": 39418,
+    "sha256": "eafe9f414c58d872555d72368204da26df3b408fbf552b8dfb36fe7ac9cd9fbd"
+  },
+  {
+    "path": "content-source/qbank/q_d4.py",
+    "bytes": 14221,
+    "sha256": "1e03025763ae1d599a215ff161ebf305fe121f6d70ac3a64fa8d3b99b0af88a2"
+  },
+  {
+    "path": "content-source/qbank/q_d5.py",
+    "bytes": 19841,
+    "sha256": "71912a171632e8d92544c4f726f11961f8702c53722529f2cfd49a4fdc813b73"
+  },
+  {
+    "path": "content-source/qbank/q_d6.py",
+    "bytes": 13086,
+    "sha256": "1a7264e50b23b48c28c8e813ea14e936eb74c6cecd742250057579cfaa0be90c"
+  },
+  {
+    "path": "content-source/qbank/qlib.py",
+    "bytes": 7151,
+    "sha256": "7ec821b14e448f3e68afb3560a7988f375abc597f731794f7d7028b5ec9ef426"
+  },
+  {
+    "path": "content-source/scenario_diagrams.py",
+    "bytes": 3678,
+    "sha256": "505827841c55f97548cd409e1b05b77ca25c6ee553cb2962cbd01a3e6abe93d2"
+  },
+  {
+    "path": "content-source/speed.py",
+    "bytes": 17421,
+    "sha256": "e1a7a4d9607c5272a3d651d70fd6a3a9750c34fe4ab5e0c0d5c97d8d566ecdc6"
+  },
+  {
+    "path": "content-source/subnet_lessons.py",
+    "bytes": 3419,
+    "sha256": "e8907f1c6c06bfc84a264a295df28b4c9f776bdfb3bb1905b6d962354e389c4f"
+  },
+  {
+    "path": "content-source/tests/test_interactive.py",
+    "bytes": 7174,
+    "sha256": "69a21895b3f5023d14ee1206d3c0b618736730287b9421de1a10f92ab3ea0896"
+  },
+  {
+    "path": "content-source/tests/test_migration.py",
+    "bytes": 4884,
+    "sha256": "efd4ad51c8a962951bfca815eb8834115991868260f2566b3a063b2a172be8bd"
+  },
+  {
+    "path": "content-source/tests/test_pilots.py",
+    "bytes": 2685,
+    "sha256": "1e4e6cfbc628bcdeb0a7f0efefd5d27c6af1e08851c04db791de74bfa9527c94"
+  },
+  {
+    "path": "content-source/validate_pilots.py",
+    "bytes": 1547,
+    "sha256": "d8ad7e0ecfd4724794a9afe65df99e7722b2b7bcdd3cdf3a989faffa4dc68838"
+  },
+  {
+    "path": "docs/ALL_LESSONS_MIGRATION_REPORT.md",
+    "bytes": 6086,
+    "sha256": "6aea7b654706f246650d594148e5fbd93d10bd8ebdb472c0d757fca624c43d6e"
+  },
+  {
+    "path": "docs/CLI_TRAINER.md",
+    "bytes": 8120,
+    "sha256": "410bbe09c89dd5c0b7cdfcec514cb01d89b998d8684b805a533760b535745e74"
+  },
+  {
+    "path": "docs/DATA_MODEL.md",
+    "bytes": 3754,
+    "sha256": "f3c01c0ba2b523fcc838442b6524a8ed7ecd48c7fd1e4f49b2082224ec487904"
+  },
+  {
+    "path": "docs/LESSON_COVERAGE.md",
+    "bytes": 9820,
+    "sha256": "dd44f6324a47b9f88e69f7e5a29300f8408bc9f025e2615d7b11bd8553e0876a"
+  },
+  {
+    "path": "docs/PILOT_REDESIGN_REPORT.md",
+    "bytes": 4231,
+    "sha256": "b5e303befb642b85400d3ce9c207d0efda9f72417db1e03357e16a8f360e9843"
+  },
+  {
+    "path": "docs/QA_REPORT.md",
+    "bytes": 7335,
+    "sha256": "1728de743170164a15a1e9efed48a15fdf8f420731fdaebd0befe4bc6c505fdb"
+  },
+  {
+    "path": "docs/RELEASE_CANDIDATE_REPORT.md",
+    "bytes": 7772,
+    "sha256": "32eafaf7232be13dd5e263d3b9ae94e78679a67ef4056b06f2228a8df304985c"
+  },
+  {
+    "path": "docs/REPOSITORY_AUDIT.md",
+    "bytes": 1933,
+    "sha256": "4bf0b81f9f64efefa496c811283e0ed293513447dbff4d1026a27aeb2f274be6"
+  },
+  {
+    "path": "docs/SETUP_AND_INSTALL.md",
+    "bytes": 3904,
+    "sha256": "62ccef9fb75b284bacab570766a84dc12b994366ac0c78ed42381372bc21fea7"
+  },
+  {
+    "path": "docs/SYSTEM_DESIGN.md",
+    "bytes": 3998,
+    "sha256": "89defc6e0b018268cecd19bca8998eb5a7bd1c6b2a235d9d1f3ec2c596bc8c43"
+  },
+  {
+    "path": "docs/android-build-attempt.txt",
+    "bytes": 286,
+    "sha256": "fd8bbd6038c1dc51b9e87e211c5a03bd6802f590bf7adf18ef4f62e66c295713"
+  },
+  {
+    "path": "docs/migration-android-build-status.txt",
+    "bytes": 166,
+    "sha256": "d4bdf9d7349dadb24e96d71f25fc5ada4db63cf36c4e03c73660cb94d60d8aae"
+  },
+  {
+    "path": "docs/migration-change-manifest.json",
+    "bytes": 1684,
+    "sha256": "ed28976c0c419c9bddf8aca1214d6782d93b652fe9fe003fb482f169373fa28c"
+  },
+  {
+    "path": "docs/migration-python-test-results.txt",
+    "bytes": 2787,
+    "sha256": "bc460ee9f51bde0f77aba9c2906ac60b7c499ae667571e03a4c8f5bb2fd601f1"
+  },
+  {
+    "path": "docs/migration-source-register.json",
+    "bytes": 2309,
+    "sha256": "89ec1c109b587db62ac8fa1ecca8e78cb4297e1d1edb9469b8b83a8caa6ea520"
+  },
+  {
+    "path": "docs/migration-validation-summary.json",
+    "bytes": 489,
+    "sha256": "70b84ad4fe44767578d3fa14d7020a7544b4a1a0b2ffb83edcbf21b1a25f33c3"
+  },
+  {
+    "path": "docs/pilot-android-build-attempt.txt",
+    "bytes": 45,
+    "sha256": "e0d0fcc903772a2c75d906e44260a35c27f3af35654f7311b4a0c654f6419998"
+  },
+  {
+    "path": "docs/pilot-python-test-results.txt",
+    "bytes": 865,
+    "sha256": "479127e7b926b137be9e553b1a59e58c000dfaf9f5d0ffd5937b6c595e133cea"
+  },
+  {
+    "path": "docs/pilot-validation-summary.json",
+    "bytes": 454,
+    "sha256": "7db344aef8b5e24bfde1027df165d4ef453d5239d7a45af4e7ab2597081206cc"
+  },
+  {
+    "path": "docs/protected-source-hashes.json",
+    "bytes": 891,
+    "sha256": "cb82671b0697c8412b0af466ae6dcbd81fd0465cbea5124415aba695df5b0415"
+  },
+  {
+    "path": "docs/question-bank-review.md",
+    "bytes": 148061,
+    "sha256": "7a0a3711f0062a534a382cf4640f801435ff84b07c0849c955ce2afb06161704"
+  },
+  {
+    "path": "docs/question-pack-format.md",
+    "bytes": 2408,
+    "sha256": "663546445f4474d473d77ea1c74f70b791683387df33b435cd8a11c8c3f94dc1"
+  },
+  {
+    "path": "docs/redesign-change-manifest.json",
+    "bytes": 111,
+    "sha256": "c7aa4e96c965ec941a095387e023db9dfb12145fbd8352723bb0b76694acf3a2"
+  },
+  {
+    "path": "docs/redesign-coverage.json",
+    "bytes": 144121,
+    "sha256": "462d0c9c1132cfc984b2e23216d0a8779542bc60d44bbd00992280b12da731af"
+  },
+  {
+    "path": "docs/release-acceptance.json",
+    "bytes": 10022,
+    "sha256": "fe2285121c803b5338dd6f3dafc03bddd048be32f3929df469a64f64d10da2f9"
+  },
+  {
+    "path": "docs/release-metrics.json",
+    "bytes": 310,
+    "sha256": "8e70651f9e147ef5a78df5e97b48d6e012fdca1d10ba9b4896f996e12d5ea939"
+  },
+  {
+    "path": "docs/release-python-tests.txt",
+    "bytes": 6181,
+    "sha256": "1e9bd6f04350f0ee13bf0e4db4a846b9b45ed553c2259c51f59248ac79326042"
+  },
+  {
+    "path": "docs/release-source-register.json",
+    "bytes": 2871,
+    "sha256": "346ea6cb1c4296946269b645a55ca96f69dd732df889ef87991b61824602172d"
+  },
+  {
+    "path": "docs/sample-pack.json",
+    "bytes": 2705,
+    "sha256": "f172f44245bc851bfeef6f8a04cf2d9180cc096c9b2dd6c5006fff1c6261cca5"
+  },
+  {
+    "path": "gradle/wrapper/gradle-wrapper.properties",
+    "bytes": 203,
+    "sha256": "dcb542328654fb670759f0cbf4710c873c585bbb52896f0c836b7b3c69d472ac"
+  },
+  {
+    "path": "gradle.properties",
+    "bytes": 133,
+    "sha256": "9ea6d394c7683b725ea86c9d50d77c75470c7f55d1d16c8d74f10bb16c8c63d5"
+  },
+  {
+    "path": "scripts/acceptance_gate.py",
+    "bytes": 1059,
+    "sha256": "8643256cba87b9fc09fa0873666d025a5641a5194e91bab0c284fb4c8d6855e5"
+  },
+  {
+    "path": "scripts/build_candidate.sh",
+    "bytes": 403,
+    "sha256": "2c598c119b78239be180e9129f484270588484173c965823fd3a6d0e9e18c142"
+  },
+  {
+    "path": "scripts/validate_content.py",
+    "bytes": 683,
+    "sha256": "286fb9be60238be5bb3a03c55183abbf1872dad228f00096fe026d691a492d0d"
+  },
+  {
+    "path": "settings.gradle.kts",
+    "bytes": 284,
+    "sha256": "b34d25b431b175676169bf31f0b5685236868ef4688e2d86c42b814e9db668eb"
+  }
+]

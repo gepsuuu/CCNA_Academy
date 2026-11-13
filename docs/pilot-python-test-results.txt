@@ -1,0 +1,15 @@
+test_assets_match_authoring (test_pilots.PilotTests.test_assets_match_authoring) ... ok
+test_bad_diagram (test_pilots.PilotTests.test_bad_diagram) ... ok
+test_bad_lesson (test_pilots.PilotTests.test_bad_lesson) ... ok
+test_empty_stage (test_pilots.PilotTests.test_empty_stage) ... ok
+test_explained_not_applicable (test_pilots.PilotTests.test_explained_not_applicable) ... ok
+test_missing_stage (test_pilots.PilotTests.test_missing_stage) ... ok
+test_output_provenance (test_pilots.PilotTests.test_output_provenance) ... ok
+test_scope_remains_two_pilots (test_pilots.PilotTests.test_scope_remains_two_pilots) ... ok
+test_unexplained_not_applicable (test_pilots.PilotTests.test_unexplained_not_applicable) ... ok
+test_valid (test_pilots.PilotTests.test_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.901s
+
+OK

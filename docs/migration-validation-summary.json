@@ -1,0 +1,18 @@
+{
+  "lessons": 41,
+  "newlyMigrated": 39,
+  "stages": 328,
+  "blocks": 925,
+  "interactiveChecks": 39,
+  "originalQuizQuestions": 124,
+  "legacyCurriculumSemanticEquality": true,
+  "pythonTests": {
+    "run": 30,
+    "passed": 30
+  },
+  "pythonCompileall": "passed",
+  "androidBuild": "not executed: Gradle unavailable; Android SDK not configured",
+  "kotlinTests": "not executed",
+  "deviceAcceptance": "pending",
+  "technicalAcceptance": "partial source-informed review; not complete"
+}

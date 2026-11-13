@@ -1,0 +1,222 @@
+[
+  {
+    "path": ".github/workflows/android.yml",
+    "change": "modified"
+  },
+  {
+    "path": "README.md",
+    "change": "modified"
+  },
+  {
+    "path": "app/build.gradle.kts",
+    "change": "modified"
+  },
+  {
+    "path": "app/src/main/assets/curriculum.json",
+    "change": "modified"
+  },
+  {
+    "path": "app/src/main/assets/diagrams.json",
+    "change": "modified"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/MemoryModels.kt",
+    "change": "modified"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/Models.kt",
+    "change": "modified"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/Search.kt",
+    "change": "modified"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/data/Tutor.kt",
+    "change": "modified"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/components/BlockView.kt",
+    "change": "modified"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/components/InteractiveTeaching.kt",
+    "change": "added"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/LessonScreen.kt",
+    "change": "modified"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/LibraryScreens.kt",
+    "change": "modified"
+  },
+  {
+    "path": "app/src/main/java/com/ccnaacademy/app/ui/screens/TutorScreen.kt",
+    "change": "modified"
+  },
+  {
+    "path": "app/src/test/java/com/ccnaacademy/app/InteractiveTeachingTest.kt",
+    "change": "added"
+  },
+  {
+    "path": "app/src/test/java/com/ccnaacademy/app/MigratedLessonTest.kt",
+    "change": "added"
+  },
+  {
+    "path": "app/src/test/java/com/ccnaacademy/app/PilotLessonTest.kt",
+    "change": "added"
+  },
+  {
+    "path": "content-source/build.py",
+    "change": "modified"
+  },
+  {
+    "path": "content-source/configuration_expansions.py",
+    "change": "added"
+  },
+  {
+    "path": "content-source/interactive_authoring.py",
+    "change": "added"
+  },
+  {
+    "path": "content-source/legacy_lesson_fingerprints.json",
+    "change": "added"
+  },
+  {
+    "path": "content-source/mechanism_diagrams.py",
+    "change": "added"
+  },
+  {
+    "path": "content-source/migrate_lessons.py",
+    "change": "added"
+  },
+  {
+    "path": "content-source/migration_authoring.py",
+    "change": "added"
+  },
+  {
+    "path": "content-source/pilot_lessons.json",
+    "change": "added"
+  },
+  {
+    "path": "content-source/scenario_diagrams.py",
+    "change": "added"
+  },
+  {
+    "path": "content-source/tests/test_interactive.py",
+    "change": "added"
+  },
+  {
+    "path": "content-source/tests/test_migration.py",
+    "change": "added"
+  },
+  {
+    "path": "content-source/tests/test_pilots.py",
+    "change": "added"
+  },
+  {
+    "path": "content-source/validate_pilots.py",
+    "change": "added"
+  },
+  {
+    "path": "docs/ALL_LESSONS_MIGRATION_REPORT.md",
+    "change": "added"
+  },
+  {
+    "path": "docs/PILOT_REDESIGN_REPORT.md",
+    "change": "added"
+  },
+  {
+    "path": "docs/QA_REPORT.md",
+    "change": "modified"
+  },
+  {
+    "path": "docs/RELEASE_CANDIDATE_REPORT.md",
+    "change": "added"
+  },
+  {
+    "path": "docs/REPOSITORY_AUDIT.md",
+    "change": "added"
+  },
+  {
+    "path": "docs/SYSTEM_DESIGN.md",
+    "change": "added"
+  },
+  {
+    "path": "docs/android-build-attempt.txt",
+    "change": "added"
+  },
+  {
+    "path": "docs/migration-android-build-status.txt",
+    "change": "added"
+  },
+  {
+    "path": "docs/migration-change-manifest.json",
+    "change": "added"
+  },
+  {
+    "path": "docs/migration-python-test-results.txt",
+    "change": "added"
+  },
+  {
+    "path": "docs/migration-source-register.json",
+    "change": "added"
+  },
+  {
+    "path": "docs/migration-validation-summary.json",
+    "change": "added"
+  },
+  {
+    "path": "docs/pilot-android-build-attempt.txt",
+    "change": "added"
+  },
+  {
+    "path": "docs/pilot-python-test-results.txt",
+    "change": "added"
+  },
+  {
+    "path": "docs/pilot-validation-summary.json",
+    "change": "added"
+  },
+  {
+    "path": "docs/protected-source-hashes.json",
+    "change": "added"
+  },
+  {
+    "path": "docs/redesign-change-manifest.json",
+    "change": "added"
+  },
+  {
+    "path": "docs/redesign-coverage.json",
+    "change": "added"
+  },
+  {
+    "path": "docs/release-acceptance.json",
+    "change": "added"
+  },
+  {
+    "path": "docs/release-metrics.json",
+    "change": "added"
+  },
+  {
+    "path": "docs/release-python-tests.txt",
+    "change": "added"
+  },
+  {
+    "path": "docs/release-source-register.json",
+    "change": "added"
+  },
+  {
+    "path": "scripts/acceptance_gate.py",
+    "change": "added"
+  },
+  {
+    "path": "scripts/build_candidate.sh",
+    "change": "added"
+  },
+  {
+    "path": "scripts/validate_content.py",
+    "change": "added"
+  }
+]

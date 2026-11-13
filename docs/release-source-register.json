@@ -1,0 +1,60 @@
+{
+  "reviewScope": "Selected new/clarified topics only. Not a complete independent review of all 41 lessons.",
+  "sources": [
+    {
+      "title": "Layer 3 EtherChannel and LACP",
+      "url": "https://www.cisco.com/c/en/us/td/docs/switches/lan/c9000/lyr2-fwd/etherchannel/etherchannel-configuration-guide/m_ethernetchannel.html",
+      "scope": "Routed members and logical port-channel addressing; platform-specific guide."
+    },
+    {
+      "title": "NAT configuration",
+      "url": "https://www.cisco.com/c/en/us/support/docs/ip/network-address-translation-nat/13772-12.html",
+      "scope": "Inside/outside roles, dynamic pools, overload; guide includes historical IOS lab context."
+    },
+    {
+      "title": "Voice VLAN",
+      "url": "https://www.cisco.com/c/en/us/td/docs/switches/lan/c9000/lyr2-fwd/vlan/vlan-configuration-guide/configure-voice-vlan.html",
+      "scope": "Voice VLAN access-port behavior; platform support and QoS prerequisites vary."
+    },
+    {
+      "title": "NTP",
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/syst-mgmt/b-system-management/m_bsm-time-calendar-set.html",
+      "scope": "Client/server and local clock-master behavior."
+    },
+    {
+      "title": "Dynamic ARP Inspection",
+      "url": "https://www.cisco.com/c/en/us/td/docs/switches/lan/c9000/sec-crypto/fhs-sisf/fhs-and-sisf-configuration-guide/dynamic-arp-inspection.html",
+      "scope": "DHCP bindings, ARP ACL fallback, trust boundaries, platform-specific limits."
+    },
+    {
+      "title": "Port security",
+      "url": "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9200/software/release/17-15/configuration_guide/sec/b_1715_sec_9200_cg/port_security.html",
+      "scope": "Sticky learning, maximums and violation behavior."
+    },
+    {
+      "title": "IPv6 static routing",
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/ip-routing/b-ip-routing/m_ip6-route-static-xe.html",
+      "scope": "Static-route forms and link-local next-hop interface context."
+    },
+    {
+      "title": "T568A/T568B",
+      "url": "https://www.flukenetworks.com/knowledge-base/application-or-standards-articles-copper/differences-between-wiring-codes-t568a-vs",
+      "scope": "Green/orange pair placement and viewing-orientation cautions."
+    },
+    {
+      "title": "HTTP semantics",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110",
+      "scope": "HTTP/HTTPS distinctions and 401/403 semantics."
+    },
+    {
+      "title": "IPv6 specification",
+      "url": "https://www.rfc-editor.org/rfc/rfc8200",
+      "scope": "IPv6 header/hop-limit and source fragmentation concepts; consult updates for full standards context."
+    },
+    {
+      "title": "JSON specification",
+      "url": "https://www.rfc-editor.org/rfc/rfc8259",
+      "scope": "Structured JSON syntax and interoperability."
+    }
+  ]
+}

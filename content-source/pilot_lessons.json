@@ -1,0 +1,600 @@
+{
+  "blueprintVersion": "v1.1",
+  "status": "draft-awaiting-build-and-device-review",
+  "lessons": {
+    "2-01": [
+      {
+        "id": "understand",
+        "title": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "text",
+            "title": "One office, two conversations",
+            "text": "Finance and Engineering share the same switches. Finance needs to discover a local printer without sending its discovery broadcasts to every Engineering computer. Buying separate switches would work, but it would tie the network design to the physical cabling.\n\nA virtual LAN, or VLAN, lets a switch keep separate Layer 2 conversations on the same hardware. Think of departments in separate rooms: a broadcast is heard inside its room, not automatically in the next room. This is an analogy for forwarding boundaries, not encryption or a complete security policy."
+          },
+          {
+            "type": "text",
+            "title": "From the analogy to the mechanism",
+            "text": "A broadcast domain is the set of interfaces that can receive a Layer 2 broadcast. A VLAN creates one such domain. A switch associates an incoming frame with a VLAN, learns the source MAC address within that VLAN, and looks up the destination within that VLAN.\n\nA known unicast goes toward its learned destination. An unknown unicast or broadcast is flooded only through eligible forwarding ports in the same VLAN, excluding the incoming port. Spanning Tree state and trunk filtering still matter.\n\nVLAN membership is not an IP address. Hosts normally use one IP subnet per VLAN in this design. A router or Layer 3 switch forwards between those subnets; an access switch does not do that merely because both VLANs exist."
+          },
+          {
+            "type": "text",
+            "title": "What this pilot covers",
+            "text": "Required CCNA v1.1: objectives 2.1 and 2.2, including access ports, inter-VLAN connectivity, trunks, 802.1Q, and native VLANs. Voice VLAN configuration remains in the preserved reference material and must be reviewed before this pilot can be marked complete."
+          }
+        ]
+      },
+      {
+        "id": "compare",
+        "title": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Access port: one ordinary data VLAN",
+            "text": "A normal PC sends untagged Ethernet frames. On an access port, SW1 classifies those frames into the configured access VLAN. When sending ordinary data back to the PC, SW1 sends untagged frames. The PC does not need to understand the trunk between switches."
+          },
+          {
+            "type": "text",
+            "title": "Trunk: several VLANs on one link",
+            "text": "A trunk carries multiple VLANs while preserving their identities. For the non-native VLANs in this scenario, an 802.1Q tag identifies the VLAN. A trunk does not merge broadcast domains. An allowed-VLAN list can prevent a particular VLAN from crossing an otherwise healthy trunk."
+          },
+          {
+            "type": "text",
+            "title": "Native VLAN is not the management VLAN",
+            "text": "In the conventional untagged-native configuration used here, untagged data arriving on a trunk is associated with its native VLAN. Both ends use VLAN 999. VLAN 10 and VLAN 20 remain tagged. Native-VLAN tagging can be enabled on supported platforms; verify actual configuration rather than assuming every native frame is always untagged.\n\nThe management VLAN is the VLAN used for management IP connectivity. It need not be the native VLAN. VLAN 1 is the default access/native VLAN on common Catalyst configurations, but this pilot explicitly configures membership and native behavior."
+          }
+        ]
+      },
+      {
+        "id": "visualize",
+        "title": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "visual",
+            "title": "Read the existing VLAN illustration",
+            "text": "Open the VLAN diagram below. Treat each colored group as a separate broadcast domain. Links show connectivity, not permission to cross VLANs. Follow a broadcast within one group before considering the router. The illustration is conceptual; the named port/address fixture for the commands is defined next.",
+            "diagram": "vlan_trunk"
+          },
+          {
+            "type": "text",
+            "title": "Command fixture: keep these connections in mind",
+            "text": "SW1 Gi0/1 connects to SW2 Gi0/1 as an 802.1Q trunk. SW1 Gi0/2 connects to R1 Gi0/0 as another trunk. Both carry VLANs 10,20,999 with native VLAN 999.\n\nPC-A: SW1 Fa0/1, VLAN 10, 192.168.10.10/24, gateway 192.168.10.1.\nPC-B: SW2 Fa0/1, VLAN 10, 192.168.10.20/24, gateway 192.168.10.1.\nPC-C: SW2 Fa0/2, VLAN 20, 192.168.20.20/24, gateway 192.168.20.1.\nR1 Gi0/0.10: 192.168.10.1/24. R1 Gi0/0.20: 192.168.20.1/24.\n\nAssume links are connected, interfaces support the stated modes, and Spanning Tree has converged. Interface names vary by hardware; this fixture uses a Catalyst-style Layer 2 switch and an IOS router with 802.1Q subinterfaces."
+          }
+        ]
+      },
+      {
+        "id": "observe",
+        "title": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Follow a local broadcast, then a known unicast",
+            "text": "1. PC-A needs PC-B's MAC address. Its /24 mask places PC-B in the local subnet, so it broadcasts an ARP request for 192.168.10.20.\n\n2. SW1 receives the untagged request on Fa0/1 and classifies it into VLAN 10. It learns PC-A's source MAC on that port in VLAN 10.\n\n3. SW1 floods the broadcast through eligible VLAN 10 ports, including the trunk. On Gi0/1, the frame carries an 802.1Q VLAN 10 tag. It can also reach R1's VLAN 10 subinterface; R1 does not route this ARP broadcast into VLAN 20.\n\n4. SW2 receives the tagged frame and forwards an untagged copy out its VLAN 10 access port toward PC-B, not the VLAN 20 port toward PC-C.\n\n5. PC-B replies with a unicast ARP reply. The switches learn PC-B's MAC from its source field. Subsequent known unicast frames use the learned paths instead of being flooded."
+          },
+          {
+            "type": "text",
+            "title": "Now follow a routed packet",
+            "text": "PC-A sending to PC-C sees a remote /24 destination and resolves its gateway MAC, not PC-C's MAC. Its first frame has PC-A's source MAC and R1's VLAN 10 destination MAC. Its IP packet is 192.168.10.10 to 192.168.20.20.\n\nR1 removes the incoming Layer 2 header, performs a route lookup, decrements IPv4 TTL, and updates the IPv4 header checksum. It resolves PC-C with ARP on VLAN 20 if needed, then creates a new Ethernet frame with R1's VLAN 20 source MAC and PC-C's destination MAC.\n\nThe source and destination IP addresses remain 192.168.10.10 and 192.168.20.20 because no NAT is configured. The return traffic needs its own routing and address-resolution decisions."
+          },
+          {
+            "type": "detail",
+            "title": "Inspect the tag",
+            "text": "An 802.1Q tag is four bytes inserted after the source MAC field: a tag protocol identifier and tag control information. The latter includes priority, drop eligibility, and a 12-bit VLAN identifier. The tag is a Layer 2 field, not an IP header field. In this example, VLAN 10 is tagged on trunks and untagged on ordinary PC access links.",
+            "items": [
+              "The conventional 0x8100 tag identifies customer VLAN tagging. VLAN IDs 1 through 4094 are usable VLAN identifiers; 0 and 4095 have reserved meanings. A switch recalculates the frame check sequence when changing the frame. Voice VLANs and platform-specific control traffic require separate treatment; do not generalize the ordinary-PC example to every frame."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "configure",
+        "title": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Objective and safety",
+            "text": "Build the fixture above on isolated training devices. These commands change port membership and replace trunk allowed lists; do not paste them into production. VLAN creation is repeated on both switches because a trunk does not create VLANs automatically. No VTP propagation is assumed."
+          },
+          {
+            "type": "code",
+            "title": "SW1: create VLANs, attach PC-A, and build both trunks",
+            "text": "Copyable configuration for SW1. On platforms supporting multiple trunk encapsulations, selecting dot1q may be required before trunk mode. Do not add an unsupported encapsulation command on fixed-802.1Q switches.",
+            "items": [
+              "enable",
+              "configure terminal",
+              "vlan 10",
+              " name FINANCE",
+              "vlan 20",
+              " name ENGINEERING",
+              "vlan 999",
+              " name NATIVE_UNUSED",
+              "interface FastEthernet0/1",
+              " switchport mode access",
+              " switchport access vlan 10",
+              " no shutdown",
+              "interface GigabitEthernet0/1",
+              " switchport mode trunk",
+              " switchport trunk native vlan 999",
+              " switchport trunk allowed vlan 10,20,999",
+              " no shutdown",
+              "interface GigabitEthernet0/2",
+              " switchport mode trunk",
+              " switchport trunk native vlan 999",
+              " switchport trunk allowed vlan 10,20,999",
+              " no shutdown",
+              "end"
+            ]
+          },
+          {
+            "type": "code",
+            "title": "SW2: attach both departments",
+            "text": "PC-B and PC-C now occupy different broadcast domains even though they share SW2.",
+            "items": [
+              "enable",
+              "configure terminal",
+              "vlan 10",
+              " name FINANCE",
+              "vlan 20",
+              " name ENGINEERING",
+              "vlan 999",
+              " name NATIVE_UNUSED",
+              "interface FastEthernet0/1",
+              " switchport mode access",
+              " switchport access vlan 10",
+              " no shutdown",
+              "interface FastEthernet0/2",
+              " switchport mode access",
+              " switchport access vlan 20",
+              " no shutdown",
+              "interface GigabitEthernet0/1",
+              " switchport mode trunk",
+              " switchport trunk native vlan 999",
+              " switchport trunk allowed vlan 10,20,999",
+              " no shutdown",
+              "end"
+            ]
+          },
+          {
+            "type": "code",
+            "title": "R1: route between VLANs",
+            "text": "The physical router interface has no IP address in this fixture. VLAN 999 has no gateway address or end hosts.",
+            "items": [
+              "enable",
+              "configure terminal",
+              "interface GigabitEthernet0/0",
+              " no ip address",
+              " no shutdown",
+              "interface GigabitEthernet0/0.10",
+              " encapsulation dot1Q 10",
+              " ip address 192.168.10.1 255.255.255.0",
+              "interface GigabitEthernet0/0.20",
+              " encapsulation dot1Q 20",
+              " ip address 192.168.20.1 255.255.255.0",
+              "interface GigabitEthernet0/0.999",
+              " encapsulation dot1Q 999 native",
+              "end"
+            ]
+          },
+          {
+            "type": "text",
+            "title": "Read the modes and parameters",
+            "text": "enable moves from User EXEC (>) to Privileged EXEC (#). configure terminal enters global configuration. vlan creates/selects a VLAN; name is entered in VLAN configuration mode. interface selects interface configuration. switchport mode access fixes the data port role; switchport access vlan selects its VLAN.\n\nswitchport mode trunk fixes trunking. native vlan sets the untagged-native association. allowed vlan replaces the permitted list; use add when deliberately extending an existing list. no shutdown removes administrative shutdown but cannot repair a missing cable.\n\nOn R1, encapsulation dot1Q binds a subinterface to a VLAN; native marks the untagged-native association. ip address creates the gateway address. end returns to Privileged EXEC. copy running-config startup-config saves the working configuration after verification."
+          }
+        ]
+      },
+      {
+        "id": "verify",
+        "title": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Use evidence from both ends",
+            "text": "Run show vlan brief, show interfaces trunk, show interfaces FastEthernet0/1 switchport, and show mac address-table on each switch. On R1 use show ip interface brief and show ip route connected. Check actual port membership, operational trunk state, allowed/active/forwarding VLAN lists, and connected gateway networks before pinging.\n\nA VLAN shown as active does not prove the trunk carries it. A trunk shown as trunking does not prove VLAN 20 is allowed. MAC entries appear only after traffic has been learned."
+          },
+          {
+            "type": "code",
+            "title": "SW2# show vlan brief: simulated excerpt",
+            "text": "Authored simulated excerpt, not a live device connection. Other VLANs and unused ports are omitted. Trunk Gi0/1 is not listed as an ordinary access member.",
+            "items": [
+              "VLAN Name                             Status    Ports",
+              "10   FINANCE                          active    Fa0/1",
+              "20   ENGINEERING                      active    Fa0/2",
+              "999  NATIVE_UNUSED                    active"
+            ]
+          },
+          {
+            "type": "code",
+            "title": "SW2# show interfaces trunk: simulated excerpt",
+            "text": "Authored simulated excerpt after convergence. Healthy evidence: trunking, native 999, and VLAN 20 present in all three lists. A missing VLAN in the first list is a configuration restriction; a missing VLAN in later lists needs further investigation.",
+            "items": [
+              "Port        Mode         Encapsulation  Status        Native vlan",
+              "Gi0/1       on           802.1q         trunking      999",
+              "",
+              "Port        Vlans allowed on trunk",
+              "Gi0/1       10,20,999",
+              "",
+              "Port        Vlans allowed and active in management domain",
+              "Gi0/1       10,20,999",
+              "",
+              "Port        Vlans in spanning tree forwarding state and not pruned",
+              "Gi0/1       10,20,999"
+            ]
+          },
+          {
+            "type": "detail",
+            "title": "Interpret before testing",
+            "text": "If VLAN 20 is active but missing from the allowed list, will PC-C reach its gateway through this trunk?\n\nExplain your reasoning before opening the answer.",
+            "items": [
+              "No. VLAN existence does not override trunk filtering. Restore VLAN 20 on the relevant trunks, verify the forwarding list, and then test the gateway."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "troubleshoot",
+        "title": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Failure 1: PC-C cannot reach its gateway",
+            "text": "Symptom: PC-B reaches 192.168.10.1, but PC-C cannot reach 192.168.20.1. Possible causes include the wrong access VLAN, VLAN 20 missing from a trunk, wrong host mask/gateway, or a router subinterface problem.\n\nStart with PC-C's IP settings, then SW2 Fa0/2 switchport membership. Check both switches' trunk lists and R1's subinterface. Do not infer an ACL problem before proving the local forwarding path.\n\nIf show interfaces trunk reveals only 10,999 allowed on SW2 Gi0/1, the evidence identifies a missing VLAN 20, not a failed physical link."
+          },
+          {
+            "type": "code",
+            "title": "Correct the demonstrated allowed-list failure",
+            "text": "On SW2, add VLAN 20 without replacing other permitted VLANs. Check the peer and SW1-to-R1 trunk as well, then ping PC-C's gateway and PC-A. A successful ping tests ICMP reachability, not every application service.",
+            "items": [
+              "configure terminal",
+              "interface GigabitEthernet0/1",
+              " switchport trunk allowed vlan add 20",
+              "end",
+              "show interfaces trunk"
+            ]
+          },
+          {
+            "type": "code",
+            "title": "Correct an access-port assignment instead",
+            "text": "Use only when evidence shows the wrong access VLAN. Moving a port to VLAN 20 does not automatically change the PC's IP address.",
+            "items": [
+              "configure terminal",
+              "interface FastEthernet0/2",
+              " switchport access vlan 20",
+              "end",
+              "show interfaces FastEthernet0/2 switchport"
+            ]
+          },
+          {
+            "type": "text",
+            "title": "Safe undo in the training fixture",
+            "text": "Capture the original configuration before the exercise. Restore the original access VLAN and trunk lists explicitly; removing an allowed-list restriction can permit more VLANs, not fewer. Shut the training router parent interface before removing subinterfaces with no interface GigabitEthernet0/0.10, .20, and .999 in global configuration.\n\nDo not delete VLANs still used by other ports. Removing a VLAN does not safely migrate its hosts. Undo is a planned restoration, not indiscriminately adding no before every command."
+          }
+        ]
+      },
+      {
+        "id": "recall",
+        "title": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "detail",
+            "title": "Choose the forwarding boundary",
+            "text": "PC-A broadcasts ARP for PC-B. Which receives it: PC-B, PC-C, both, or neither?\n\nExplain your reasoning before opening the answer.",
+            "items": [
+              "PC-B receives it because it shares VLAN 10 and the trunk carries VLAN 10. PC-C is in VLAN 20. Both is wrong because trunks preserve VLAN separation. Neither is wrong under the stated forwarding assumptions. PC-C alone reverses the VLAN memberships."
+            ]
+          },
+          {
+            "type": "detail",
+            "title": "Reason about the header",
+            "text": "After R1 forwards PC-A's packet to PC-C, which addresses change: Ethernet MACs, original IP endpoints, both, or neither?\n\nExplain your reasoning before opening the answer.",
+            "items": [
+              "Ethernet MAC addresses change because R1 constructs a new frame for VLAN 20. Original IP endpoints do not change without NAT. Both confuses routing with translation. Neither ignores the new link-layer frame. IP-only is the reverse of ordinary routing; TTL and checksum are separate IP fields that do change."
+            ]
+          },
+          {
+            "type": "detail",
+            "title": "Explain the failure",
+            "text": "A learner says: the trunk is up, so every VLAN must work. What evidence would you request?\n\nExplain your reasoning before opening the answer.",
+            "items": [
+              "Request allowed, active, and forwarding VLAN lists on both ends, access-port membership, and host/gateway settings. Trunking proves the operational link role, not every VLAN's eligibility or end-to-end reachability."
+            ]
+          }
+        ]
+      }
+    ],
+    "3-03": [
+      {
+        "id": "understand",
+        "title": "Understand",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "text",
+            "title": "When static routes become a maintenance problem",
+            "text": "Two branches are connected by routers. Each router knows its directly connected networks, but not the LAN behind the other router. Static routes could teach those destinations. As the network grows or links fail, manually maintaining every route becomes difficult.\n\nOSPF, Open Shortest Path First, lets routers describe their links and build a shared topology view within an area. Each router then calculates its own best paths. Think of sharing road maps rather than accepting a neighbor's directions blindly. The analogy stops at the calculation: OSPF uses configured link costs, not live road congestion."
+          },
+          {
+            "type": "text",
+            "title": "Map, calculation, and forwarding table",
+            "text": "A link-state advertisement (LSA) describes topology information. The link-state database (LSDB) holds the advertisements. Shortest Path First (SPF) calculates paths from the local router's perspective. Eligible routes are offered to the routing table.\n\nThese are different objects. Two routers in the same area aim to synchronize their area LSDBs, but their shortest-path trees and next hops differ because each starts from itself. An OSPF neighbor relationship is not proof that every desired route has been installed."
+          },
+          {
+            "type": "text",
+            "title": "Scope and simulation boundary",
+            "text": "Required CCNA v1.1 objective 3.4: single-area OSPFv2, neighbor adjacencies, point-to-point, broadcast DR/BDR selection, and router ID. Packet-exchange detail supports understanding. This lesson uses authored simulated IOS output. The offline CLI trainer does not implement OSPF."
+          }
+        ]
+      },
+      {
+        "id": "compare",
+        "title": "Compare",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Static routes versus OSPF",
+            "text": "A static route is an administrator's explicit forwarding instruction. OSPF learns topology and recalculates after changes. Static routes remain useful for simple paths and defaults; OSPF is not automatically better for every network.\n\nFor competing routes to the same prefix, Cisco administrative distance helps select the source; OSPF cost chooses among OSPF paths. Forwarding then uses longest prefix match among installed routes. Do not compare administrative distance across different prefix lengths to make a forwarding decision."
+          },
+          {
+            "type": "text",
+            "title": "Broadcast Ethernet versus point-to-point",
+            "text": "On broadcast Ethernet, routers elect a designated router (DR) and backup (BDR) to limit full adjacency relationships. Two DROTHER routers normally remain 2-Way with each other. Each becomes fully adjacent with the DR and BDR.\n\nOn an OSPF point-to-point network, there is no DR/BDR election; the two routers can become fully adjacent directly. The configuration below explicitly selects point-to-point even though the physical link is Ethernet. Network type is protocol behavior, not just the cable type."
+          }
+        ]
+      },
+      {
+        "id": "visualize",
+        "title": "Visualize",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "visual",
+            "title": "Read the OSPF illustration",
+            "text": "Open the existing OSPF diagram. Identify routers, the shared area, and the path choices. A link represents an OSPF-enabled connection, not a guarantee of Full adjacency. Use the next fixture for exact interfaces and addresses; the general illustration is not an exact wiring diagram for this fixture.",
+            "diagram": "ospf_states"
+          },
+          {
+            "type": "text",
+            "title": "Point-to-point command fixture",
+            "text": "R1 Gi0/0 = 10.0.12.1/30 connects directly to R2 Gi0/0 = 10.0.12.2/30. Both use area 0 and point-to-point network type.\n\nR1 Loopback0 = 192.168.1.1/32; router ID = 1.1.1.1. R2 Loopback0 = 192.168.2.1/32; router ID = 2.2.2.2. Both advertise the loopback passively.\n\nThe fixture sets the transit interface cost to 10 and loopback cost to 1 on both routers. R1's cost to R2's loopback is therefore 11. No competing static route or other routing protocol is configured."
+          }
+        ]
+      },
+      {
+        "id": "observe",
+        "title": "Observe",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Identity comes before discovery",
+            "text": "The router ID is a 32-bit OSPF identifier displayed like an IPv4 address; it need not be a reachable interface address. Configure it explicitly for predictable labs. On common IOS behavior, absent an explicit ID, selection prefers the highest loopback IPv4 address, then the highest active non-loopback IPv4 address when the process selects its ID.\n\nChanging a configured router ID may require restarting the OSPF process to take effect. That disrupts adjacencies; do not clear a production process casually."
+          },
+          {
+            "type": "text",
+            "title": "Watch the neighbor relationship develop",
+            "text": "1. Down: no recent valid Hello from the neighbor.\n2. Attempt: applicable to manually configured NBMA neighbors, not a mandatory step on this point-to-point link.\n3. Init: R1 receives R2's Hello but does not yet see its own router ID in R2's neighbor list.\n4. 2-Way: R1 sees its own ID in the received Hello; bidirectional discovery is established. Whether to form a full adjacency depends on network type and role.\n5. ExStart: neighbors negotiate database-description exchange roles and initial sequencing.\n6. Exchange: Database Description (DBD) packets summarize LSA headers.\n7. Loading: Link State Requests (LSRs) request needed advertisements; Link State Updates (LSUs) carry LSAs, and Link State Acknowledgments (LSAcks) acknowledge advertisements.\n8. Full: the adjacency's database synchronization is complete. Loading may be brief or unnecessary if nothing needs requesting. This is a conceptual progression, not a claim that every adjacency visibly pauses in every state."
+          },
+          {
+            "type": "text",
+            "title": "What the packets actually carry",
+            "text": "OSPFv2 runs directly over IPv4 protocol 89, not TCP or UDP. Hello packets discover and maintain neighbors. DBD packets summarize databases; they are not the complete LSDB. An LSU can carry multiple LSAs; an LSA is not itself one of the five OSPF packet types.\n\n224.0.0.5 is AllSPFRouters; 224.0.0.6 is AllDRouters. On broadcast networks, DROTHERs use AllDRouters for applicable flooding toward the DR/BDR, while the DR floods to AllSPFRouters. Some exchanges are unicast; not every OSPF packet uses multicast. Point-to-point behavior does not introduce a DR just because multicast is used."
+          },
+          {
+            "type": "detail",
+            "title": "DR/BDR and cost details",
+            "text": "On broadcast networks, priority determines election eligibility and preference; priority 0 is ineligible. Router ID breaks ties. Elections are not simply preempted when a higher-priority router joins. The DR is an adjacency/flooding role, not the default gateway or necessarily the best transit path.\n\nCisco automatic cost is based on reference bandwidth divided by interface bandwidth, with a minimum cost of 1 and integer treatment. Interface bandwidth is an administrative value, not measured throughput.",
+            "items": [
+              "Classic IOS commonly uses a 100-Mbps reference bandwidth, so faster links can all receive cost 1. Verify the platform and configuration. auto-cost reference-bandwidth uses Mbps and should be planned consistently across the OSPF domain. An explicit ip ospf cost overrides automatic interface cost. This fixture uses explicit costs to make the expected route metric deterministic."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "configure",
+        "title": "Configure",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Objective and IOS context",
+            "text": "Configure two isolated IOS/IOS XE routers supporting interface-based OSPFv2. Interface names may differ. Start with no existing OSPF process 1 or competing route for the loopbacks. The commands intentionally set router IDs before enabling interfaces. They are instructional configurations, not commands supported by the offline trainer."
+          },
+          {
+            "type": "code",
+            "title": "R1: identity, interfaces, and area",
+            "text": "The transit link exchanges Hellos; the loopback is advertised without forming neighbors.",
+            "items": [
+              "enable",
+              "configure terminal",
+              "router ospf 1",
+              " router-id 1.1.1.1",
+              " passive-interface default",
+              " no passive-interface GigabitEthernet0/0",
+              "exit",
+              "interface GigabitEthernet0/0",
+              " ip address 10.0.12.1 255.255.255.252",
+              " ip ospf network point-to-point",
+              " ip ospf cost 10",
+              " ip ospf 1 area 0",
+              " no shutdown",
+              "interface Loopback0",
+              " ip address 192.168.1.1 255.255.255.255",
+              " ip ospf cost 1",
+              " ip ospf 1 area 0",
+              "end"
+            ]
+          },
+          {
+            "type": "code",
+            "title": "R2: matching area and network type",
+            "text": "Area 0 and compatible link parameters are shared. Router IDs must be unique; process numbers are locally significant and need not match.",
+            "items": [
+              "enable",
+              "configure terminal",
+              "router ospf 1",
+              " router-id 2.2.2.2",
+              " passive-interface default",
+              " no passive-interface GigabitEthernet0/0",
+              "exit",
+              "interface GigabitEthernet0/0",
+              " ip address 10.0.12.2 255.255.255.252",
+              " ip ospf network point-to-point",
+              " ip ospf cost 10",
+              " ip ospf 1 area 0",
+              " no shutdown",
+              "interface Loopback0",
+              " ip address 192.168.2.1 255.255.255.255",
+              " ip ospf cost 1",
+              " ip ospf 1 area 0",
+              "end"
+            ]
+          },
+          {
+            "type": "text",
+            "title": "Explain the configuration modes",
+            "text": "enable enters Privileged EXEC; configure terminal enters global configuration. router ospf 1 creates/selects local process 1 and enters router configuration. router-id assigns its identity. passive-interface default suppresses OSPF neighbor exchanges on interfaces by default; no passive-interface permits them on the transit interface.\n\nexit returns from router to global configuration. interface enters interface configuration. ip address assigns the link address and mask. ip ospf network point-to-point selects the OSPF network type. ip ospf cost sets the outgoing cost. ip ospf 1 area 0 enables process 1 on that interface in area 0. end returns to Privileged EXEC.\n\nAn alternative network/wildcard command under router configuration selects local interfaces for OSPF; it does not mean advertise any arbitrary remote network. This fixture uses interface-based activation to make the relationship explicit."
+          }
+        ]
+      },
+      {
+        "id": "verify",
+        "title": "Verify",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Verify identity, adjacency, database, and route separately",
+            "text": "On both routers, run show ip ospf, show ip ospf interface GigabitEthernet0/0, show ip ospf neighbor, show ip ospf database, and show ip route ospf.\n\nCheck router ID, area, network type, cost, timers, passive status, and neighbor address. Then inspect the remote loopback route. Full adjacency is necessary for this fixture, but it is not proof that the remote loopback was enabled in OSPF."
+          },
+          {
+            "type": "code",
+            "title": "R1# show ip ospf neighbor: simulated excerpt",
+            "text": "Authored simulated IOS-style excerpt, not a live connection. Neighbor ID is R2's OSPF identity; Address is R2's transit IP. FULL indicates synchronized adjacency. The dash means no DR/BDR role on this point-to-point network. Timer formatting and displayed priority can vary by platform.",
+            "items": [
+              "Neighbor ID     Pri   State           Dead Time   Address         Interface",
+              "2.2.2.2           0   FULL/  -        00:00:33    10.0.12.2       GigabitEthernet0/0"
+            ]
+          },
+          {
+            "type": "code",
+            "title": "R1# show ip route ospf: simulated route excerpt",
+            "text": "Authored simulated excerpt. O identifies an intra-area OSPF route. 110 is the conventional Cisco OSPF administrative distance; 11 is this fixture's cost: transit 10 plus remote loopback 1. The next hop is R2's link address, not its router ID. The age is illustrative, not a measured convergence time.",
+            "items": [
+              "O    192.168.2.1/32 [110/11] via 10.0.12.2, 00:02:10, GigabitEthernet0/0"
+            ]
+          },
+          {
+            "type": "detail",
+            "title": "Interpret the route",
+            "text": "Why does the next hop show 10.0.12.2 instead of 2.2.2.2?\n\nExplain your reasoning before opening the answer.",
+            "items": [
+              "10.0.12.2 is the reachable neighbor interface on the outgoing link. 2.2.2.2 identifies the OSPF router but is not configured as a reachable interface in this fixture. Router identity and packet forwarding address serve different purposes."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "troubleshoot",
+        "title": "Troubleshoot",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "text",
+            "title": "Failure 1: no neighbor on an up/up link",
+            "text": "Possible causes include OSPF not enabled on the interface, a passive transit interface, area mismatch, incompatible Hello/dead intervals, authentication mismatch, subnet issues, or filtering of protocol 89.\n\nCheck show ip interface brief first, then show ip ospf interface GigabitEthernet0/0 on both routers. Compare area, network type, timers, and passive status. An up/up link proves neither OSPF activation nor compatible Hellos.\n\nIf R2's transit interface is passive, correct that specific cause:"
+          },
+          {
+            "type": "code",
+            "title": "R2: restore Hello exchanges",
+            "text": "Allow time for neighbor formation. Verify Full and the remote loopback route, then test ping 192.168.1.1 source Loopback0 from R2. The source tests the return path to R2's advertised loopback.",
+            "items": [
+              "configure terminal",
+              "router ospf 1",
+              " no passive-interface GigabitEthernet0/0",
+              "end",
+              "show ip ospf neighbor",
+              "show ip route ospf"
+            ]
+          },
+          {
+            "type": "text",
+            "title": "Failure 2: ExStart or Exchange persists",
+            "text": "Investigate interface MTU mismatch, duplicate router IDs, and exchange problems using show interfaces, show ip ospf, and show ip ospf neighbor detail. Match the intended MTU and correct the actual cause. Do not use ip ospf mtu-ignore as a universal fix; bypassing a check does not repair an underlying data-plane MTU problem."
+          },
+          {
+            "type": "text",
+            "title": "Failure 3: 2-Way on broadcast Ethernet",
+            "text": "First identify roles and network type. Two DROTHERs remaining 2-Way is normal; trying to force every pair to Full is incorrect. The point-to-point fixture above should reach Full, so do not apply the broadcast explanation to it without checking the configuration."
+          },
+          {
+            "type": "text",
+            "title": "Undo without removing unrelated configuration",
+            "text": "In this isolated fixture, remove interface OSPF activation with no ip ospf 1 area 0 on each participating interface. Remove explicit interface settings with no ip ospf cost and no ip ospf network point-to-point where supported by the stated IOS context.\n\nOnly remove the entire process with no router ospf 1 after confirming no other interfaces depend on it. Preserve interface addresses if they serve another exercise. Restore the saved baseline rather than deleting unrelated interfaces."
+          }
+        ]
+      },
+      {
+        "id": "recall",
+        "title": "Recall",
+        "applicable": true,
+        "reason": "",
+        "blocks": [
+          {
+            "type": "detail",
+            "title": "Choose the correct state interpretation",
+            "text": "Two DROTHERs on one broadcast LAN remain 2-Way. Is the likely conclusion failed MTU negotiation, normal behavior, missing TCP connectivity, or duplicate VLAN IDs?\n\nExplain your reasoning before opening the answer.",
+            "items": [
+              "Normal behavior: DROTHERs form full adjacencies with the DR/BDR, not every other DROTHER. MTU negotiation problems typically affect ExStart/Exchange, not this normal role relationship. OSPF does not require TCP. Duplicate VLAN IDs do not explain the stated neighbor roles."
+            ]
+          },
+          {
+            "type": "detail",
+            "title": "Calculate the path",
+            "text": "In the stated fixture, is R1's cost to R2's loopback 1, 10, 11, or 110?\n\nExplain your reasoning before opening the answer.",
+            "items": [
+              "11: add R1's outgoing transit cost 10 and the destination loopback cost 1. 1 omits the transit link. 10 omits the destination stub cost. 110 is Cisco administrative distance, not OSPF path cost."
+            ]
+          },
+          {
+            "type": "detail",
+            "title": "Distinguish the packet types",
+            "text": "Which carries actual advertisements: DBD, LSR, LSU, or Hello?\n\nExplain your reasoning before opening the answer.",
+            "items": [
+              "LSU carries one or more LSAs. DBD summarizes LSA headers. LSR requests specific advertisements. Hello discovers and maintains neighbors. An LSA is an advertisement inside protocol exchanges, not a sixth OSPF packet type."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sources": [
+    "https://learningnetwork.cisco.com/s/ccna-exam-topics",
+    "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/software/release/17-16/configuration_guide/vlan/b_1716_vlan_9500_cg/configuring_vlan_trunks.pdf",
+    "https://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/13685-13.html",
+    "https://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/13699-29.html",
+    "https://www.rfc-editor.org/rfc/rfc2328"
+  ]
+}

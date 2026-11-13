@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "sample-verification",
+  "name": "Sample: Verification commands",
+  "version": 1,
+  "category": "Sample / template",
+  "description": "A small example pack showing every field. Import it from Practice > Question packs > Import file.",
+  "author": "CCNA Academy",
+  "topics": [
+    { "id": "verification", "title": "Verification commands", "domainId": "d2", "lessonId": "2-09" }
+  ],
+  "questions": [
+    {
+      "id": "sample-verification-001", "domainId": "d2", "objective": "2.1", "topic": "verification", "difficulty": 1,
+      "format": "command", "type": "single",
+      "stem": "Which command lists each VLAN and the access ports assigned to it?",
+      "options": ["show vlan brief", "show interfaces trunk", "show mac address-table", "show ip interface brief"],
+      "correct": [0],
+      "explanation": "'show vlan brief' lists VLAN IDs, names, status and access ports. Trunk ports are listed by 'show interfaces trunk'.",
+      "whyCorrect": "It shows the VLAN-to-access-port mapping.",
+      "whyWrong": ["", "This shows trunk ports and their VLAN lists.", "This shows learned MAC addresses per port.", "This shows interface IP addresses and status."],
+      "concept": "VLAN verification", "tip": "Trunks hide from 'show vlan brief'.", "lessonId": "2-01"
+    },
+    {
+      "id": "sample-verification-002", "domainId": "d3", "objective": "3.1", "topic": "verification", "difficulty": 2,
+      "format": "command", "type": "order",
+      "stem": "Arrange a bottom-up check of a host that cannot reach a remote server.",
+      "items": ["Check the link light and interface status", "Check the VLAN and switch port", "Ping the default gateway", "Ping the remote server by IP", "Resolve the server name with DNS"],
+      "explanation": "Troubleshoot from Layer 1 upward so each test relies on layers already confirmed to work.",
+      "whyCorrect": "Physical → data link → local IP → remote IP → application.",
+      "concept": "Layered troubleshooting", "lessonId": "1-03"
+    },
+    {
+      "id": "sample-verification-003", "domainId": "d2", "objective": "2.3", "topic": "verification", "difficulty": 1,
+      "format": "command", "type": "match",
+      "stem": "Match each command to the information it shows.",
+      "left": ["show cdp neighbors detail", "show etherchannel summary", "show spanning-tree vlan 10"],
+      "right": ["Neighbor IP addresses and software versions", "Port-channel members and their flags", "Root bridge, port roles and states for VLAN 10"],
+      "explanation": "Each command is the first stop for its feature: CDP neighbors, EtherChannel bundles, and per-VLAN spanning tree.",
+      "concept": "Verification commands"
+    }
+  ]
+}

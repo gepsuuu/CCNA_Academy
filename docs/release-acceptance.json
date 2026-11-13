@@ -1,0 +1,381 @@
+{
+  "release": "1.5.0-rc1",
+  "releaseAccepted": false,
+  "gates": {
+    "python_content": {
+      "status": "passed",
+      "evidence": [
+        {
+          "path": "docs/release-python-tests.txt",
+          "sha256": "1e9bd6f04350f0ee13bf0e4db4a846b9b45ed553c2259c51f59248ac79326042"
+        }
+      ]
+    },
+    "android_compilation": {
+      "status": "blocked_toolchain",
+      "evidence": []
+    },
+    "kotlin_unit_tests": {
+      "status": "not_run",
+      "evidence": []
+    },
+    "android_lint": {
+      "status": "not_run",
+      "evidence": []
+    },
+    "apk_build": {
+      "status": "not_run",
+      "evidence": []
+    },
+    "pilot_device_review": {
+      "status": "not_run",
+      "evidence": []
+    },
+    "all_lesson_technical_review": {
+      "status": "partial",
+      "evidence": []
+    },
+    "mobile_accessibility_review": {
+      "status": "not_run",
+      "evidence": []
+    },
+    "upgrade_and_backup_restore": {
+      "status": "not_run",
+      "evidence": []
+    },
+    "final_acceptance": {
+      "status": "pending",
+      "evidence": []
+    }
+  },
+  "lessons": [
+    {
+      "id": "1-01",
+      "title": "Network Components and Their Roles",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "1-02",
+      "title": "Network Topology Architectures",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "1-03",
+      "title": "OSI and TCP/IP Models and Encapsulation",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "1-04",
+      "title": "Cabling, Interfaces, and Interface Issues",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "1-05",
+      "title": "Ethernet Frames, MAC Addresses, and ARP",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "1-06",
+      "title": "TCP vs UDP",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "1-07",
+      "title": "Binary and Hexadecimal Conversions",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "1-08",
+      "title": "IPv4 Addressing and Private Addresses",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "1-09",
+      "title": "IPv4 Subnetting and VLSM",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "1-10",
+      "title": "IPv6 Addressing and Address Types",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "1-11",
+      "title": "Verifying IP Parameters on Client Operating Systems",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "1-12",
+      "title": "Wireless Principles",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "1-13",
+      "title": "Virtualization and Cloud Fundamentals",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "1-14",
+      "title": "Switching Concepts: MAC Learning, Forwarding, and Flooding",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "2-01",
+      "title": "VLANs: Access, Voice, and Default VLAN",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "2-02",
+      "title": "Trunking: 802.1Q and the Native VLAN",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "2-03",
+      "title": "Inter-VLAN Routing",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "2-04",
+      "title": "Layer 2 Discovery: CDP and LLDP",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "2-05",
+      "title": "EtherChannel and LACP",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "2-06",
+      "title": "Spanning Tree Protocol and Rapid PVST+",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "2-07",
+      "title": "Cisco Wireless Architectures and AP Modes",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "2-08",
+      "title": "Interpreting WLAN Configuration in the WLC GUI",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "2-09",
+      "title": "Device Management Access",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "3-01",
+      "title": "Routing Fundamentals and the Routing Table",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "3-02",
+      "title": "Static Routing for IPv4 and IPv6",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "3-03",
+      "title": "OSPFv2 Single Area",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "3-04",
+      "title": "First Hop Redundancy Protocols",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "4-01",
+      "title": "DHCP and DNS",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "4-02",
+      "title": "NAT and PAT",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "4-03",
+      "title": "NTP, SNMP, and Syslog",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "4-04",
+      "title": "Quality of Service (QoS)",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "5-01",
+      "title": "Security Concepts and Security Program Elements",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "5-02",
+      "title": "Device Access Control, Passwords, and AAA",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "5-03",
+      "title": "Access Control Lists (ACLs)",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "5-04",
+      "title": "Layer 2 Security: Port Security, DHCP Snooping, and DAI",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "5-05",
+      "title": "VPN Fundamentals",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "5-06",
+      "title": "Wireless Security Protocols",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "6-01",
+      "title": "Automation and Controller-Based Networking",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "6-02",
+      "title": "AI and Machine Learning in Network Operations",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "6-03",
+      "title": "REST APIs and JSON",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    },
+    {
+      "id": "6-04",
+      "title": "Configuration Management: Ansible and Terraform",
+      "sourceStages": "present",
+      "visualReference": "present",
+      "practiceCheck": "present",
+      "acceptance": "pending"
+    }
+  ]
+}
