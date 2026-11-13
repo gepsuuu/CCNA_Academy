@@ -1,0 +1,4 @@
+-keepattributes *Annotation*, InnerClasses
+-keep,includedescriptorclasses class com.ccnaacademy.app.**$$serializer { *; }
+-keepclassmembers class com.ccnaacademy.app.** { *** Companion; }
+-keepclasseswithmembers class com.ccnaacademy.app.** { kotlinx.serialization.KSerializer serializer(...); }

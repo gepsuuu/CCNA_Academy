@@ -1,0 +1,1290 @@
+{
+ "schema": 1,
+ "id": "core-d5",
+ "name": "Core: Security Fundamentals",
+ "version": 1,
+ "category": "Core CCNA 200-301",
+ "description": "34 original questions for Security Fundamentals (15% of the v1.1 blueprint).",
+ "author": "CCNA Academy",
+ "topics": [
+  {
+   "id": "sec-concepts",
+   "title": "Threats and security programs",
+   "domainId": "d5",
+   "lessonId": "5-01"
+  },
+  {
+   "id": "aaa",
+   "title": "Device access, passwords and AAA",
+   "domainId": "d5",
+   "lessonId": "5-02"
+  },
+  {
+   "id": "acl",
+   "title": "Access control lists",
+   "domainId": "d5",
+   "lessonId": "5-03"
+  },
+  {
+   "id": "l2-security",
+   "title": "Layer 2 security",
+   "domainId": "d5",
+   "lessonId": "5-04"
+  },
+  {
+   "id": "vpn",
+   "title": "VPNs",
+   "domainId": "d5",
+   "lessonId": "5-05"
+  },
+  {
+   "id": "wireless-security",
+   "title": "Wireless security",
+   "domainId": "d5",
+   "lessonId": "5-06"
+  }
+ ],
+ "questions": [
+  {
+   "id": "core-d5-001",
+   "domainId": "d5",
+   "objective": "5.1",
+   "topic": "sec-concepts",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "match",
+   "stem": "Match each security term to its definition.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Example: unpatched software (vulnerability), an attacker (threat), a crafted packet (exploit), a patch or ACL (mitigation).",
+   "concept": "Security vocabulary",
+   "tip": "",
+   "lessonId": "5-01",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Vulnerability → A weakness in a system that could be attacked; Threat → A potential danger that could exploit a weakness; Exploit → The method or code used to take advantage of a weakness; Mitigation → A countermeasure that reduces the risk",
+   "whyWrong": [],
+   "left": [
+    "Vulnerability",
+    "Threat",
+    "Exploit",
+    "Mitigation"
+   ],
+   "right": [
+    "A weakness in a system that could be attacked",
+    "A potential danger that could exploit a weakness",
+    "The method or code used to take advantage of a weakness",
+    "A countermeasure that reduces the risk"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d5-002",
+   "domainId": "d5",
+   "objective": "5.1",
+   "topic": "sec-concepts",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "An attacker sends small DNS queries to many open resolvers with the victim's IP as the spoofed source. The resolvers send large responses to the victim. Which attack is this?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Reflection uses a spoofed source address; amplification exploits protocols whose responses are larger than requests. Together they create a DDoS.",
+   "concept": "Reflection/amplification",
+   "tip": "",
+   "lessonId": "5-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Reflection and amplification",
+    "Man-in-the-middle",
+    "Brute-force password attack",
+    "Phishing"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Spoofing reflects traffic toward the victim, and small queries produce much larger responses.",
+   "whyWrong": [
+    "",
+    "A MITM attacker intercepts traffic between two parties.",
+    "No credentials are being guessed.",
+    "Phishing tricks users with deceptive messages."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-003",
+   "domainId": "d5",
+   "objective": "5.1",
+   "topic": "sec-concepts",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "match",
+   "stem": "Match each social engineering technique to its description.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Social engineering targets people rather than technology. User awareness, training and physical access control are the main defenses.",
+   "concept": "Social engineering",
+   "tip": "",
+   "lessonId": "5-01",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Phishing → Fraudulent email that tricks users into revealing information; Vishing → Deception over a voice phone call; Smishing → Deception through SMS text messages; Whaling → Targeted phishing aimed at senior executives; Tailgating → Following an authorized person through a secured door",
+   "whyWrong": [],
+   "left": [
+    "Phishing",
+    "Vishing",
+    "Smishing",
+    "Whaling",
+    "Tailgating"
+   ],
+   "right": [
+    "Fraudulent email that tricks users into revealing information",
+    "Deception over a voice phone call",
+    "Deception through SMS text messages",
+    "Targeted phishing aimed at senior executives",
+    "Following an authorized person through a secured door"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d5-004",
+   "domainId": "d5",
+   "objective": "5.1",
+   "topic": "sec-concepts",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "single",
+   "stem": "Which type of malware spreads across networks by itself without requiring user action?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Malware types are defined by how they spread and what they do. Worms are especially dangerous because they need no interaction.",
+   "concept": "Malware types",
+   "tip": "",
+   "lessonId": "5-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Worm",
+    "Virus",
+    "Trojan horse",
+    "Ransomware"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Worms self-replicate by exploiting vulnerabilities on other systems.",
+   "whyWrong": [
+    "",
+    "A virus attaches to files or programs and needs user action to spread.",
+    "A Trojan disguises itself as legitimate software and relies on the user to run it.",
+    "Ransomware encrypts data for ransom; spreading is not its defining trait."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-005",
+   "domainId": "d5",
+   "objective": "5.2",
+   "topic": "sec-concepts",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "multi",
+   "stem": "Which items are security program elements listed in the CCNA objectives? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "The three program elements are user awareness, user training and physical access control.",
+   "concept": "Security program elements",
+   "tip": "",
+   "lessonId": "5-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "User awareness",
+    "Physical access control",
+    "OSPF authentication",
+    "Trunk pruning",
+    "Dynamic NAT"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "Making all users aware of threats such as phishing. Protecting equipment rooms with badges, locks and cameras.",
+   "whyWrong": [
+    "",
+    "",
+    "A useful technical control, but not a security program element.",
+    "A VLAN optimization, not a security program element.",
+    "An address translation feature, not a security program element."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-006",
+   "domainId": "d5",
+   "objective": "5.3",
+   "topic": "aaa",
+   "difficulty": 2,
+   "format": "config",
+   "type": "single",
+   "stem": "Both 'enable password Cisco1' and 'enable secret Cisco2' are configured. Which password grants privileged EXEC access?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Always use 'enable secret', which is stored as a hash.",
+   "concept": "enable secret precedence",
+   "tip": "",
+   "lessonId": "5-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Cisco2",
+    "Cisco1",
+    "Either password",
+    "Neither; the configuration is rejected"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "When both exist, IOS uses the enable secret and ignores the enable password.",
+   "whyWrong": [
+    "",
+    "The enable password is ignored while an enable secret is configured.",
+    "Only the secret is checked.",
+    "IOS accepts both but warns that they should differ."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-007",
+   "domainId": "d5",
+   "objective": "5.3",
+   "topic": "aaa",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: 'service password-encryption' protects passwords with strong, irreversible hashing.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "It applies weak, reversible type 7 encryption to clear-text passwords in the configuration. Use 'secret' commands for hashed passwords.",
+   "concept": "Type 7 encryption",
+   "tip": "",
+   "lessonId": "5-02",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    1
+   ],
+   "whyCorrect": "The statement is false. It applies weak, reversible type 7 encryption to clear-text passwords in the configuration. Use 'secret' commands for hashed passwords.",
+   "whyWrong": [
+    "The statement is false, so this choice is incorrect.",
+    ""
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-008",
+   "domainId": "d5",
+   "objective": "5.4",
+   "topic": "aaa",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "Which login method is an example of multifactor authentication?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "MFA requires factors from different categories: knowledge, possession and inherence.",
+   "concept": "MFA",
+   "tip": "",
+   "lessonId": "5-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "A password plus a code from a phone app",
+    "A password plus a four-digit PIN",
+    "Two different passwords in a row",
+    "A fingerprint scan on its own"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "This combines something you know with something you have.",
+   "whyWrong": [
+    "",
+    "Both are something you know — one factor.",
+    "Still a single factor type.",
+    "One factor (something you are)."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-009",
+   "domainId": "d5",
+   "objective": "5.8",
+   "topic": "aaa",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "match",
+   "stem": "Match each AAA function to its purpose.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "AAA: who are you, what can you do, what did you do.",
+   "concept": "AAA",
+   "tip": "",
+   "lessonId": "5-02",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Authentication → Verifies who the user is; Authorization → Determines what the user is allowed to do; Accounting → Records what the user did and when",
+   "whyWrong": [],
+   "left": [
+    "Authentication",
+    "Authorization",
+    "Accounting"
+   ],
+   "right": [
+    "Verifies who the user is",
+    "Determines what the user is allowed to do",
+    "Records what the user did and when"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d5-010",
+   "domainId": "d5",
+   "objective": "5.8",
+   "topic": "aaa",
+   "difficulty": 2,
+   "format": "protocol-id",
+   "type": "multi",
+   "stem": "Which statements about TACACS+ are true? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "TACACS+ is preferred for device administration (per-command authorization and full encryption). RADIUS is common for network access such as 802.1X and VPN.",
+   "concept": "TACACS+ vs RADIUS",
+   "tip": "",
+   "lessonId": "5-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "It uses TCP port 49",
+    "It encrypts the entire packet payload",
+    "It combines authentication and authorization in one exchange",
+    "It uses UDP 1812"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "TACACS+ runs over TCP. RADIUS encrypts only the password.",
+   "whyWrong": [
+    "",
+    "",
+    "That describes RADIUS; TACACS+ separates the three AAA functions.",
+    "UDP 1812 is RADIUS authentication."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-011",
+   "domainId": "d5",
+   "objective": "5.8",
+   "topic": "aaa",
+   "difficulty": 3,
+   "format": "config",
+   "type": "single",
+   "stem": "Which command authenticates logins against TACACS+ but falls back to local accounts if the TACACS+ server is unreachable?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Method lists are evaluated left to right. A rejection from the server does not fall through; only an error does.",
+   "concept": "AAA method lists",
+   "tip": "",
+   "lessonId": "5-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "aaa authentication login default group tacacs+ local",
+    "aaa authentication login default local group tacacs+",
+    "login local",
+    "aaa fallback local"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Methods are tried in order; 'local' is used only if TACACS+ returns an error.",
+   "whyWrong": [
+    "",
+    "This checks local accounts first.",
+    "This line command uses only the local database.",
+    "This is not valid IOS syntax."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-012",
+   "domainId": "d5",
+   "objective": "5.3",
+   "topic": "aaa",
+   "difficulty": 2,
+   "format": "command",
+   "type": "single",
+   "stem": "Which command blocks login attempts for 120 seconds after 3 failures within 60 seconds?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Combine login block-for with strong passwords, SSH only and access-class ACLs on VTY lines.",
+   "concept": "Login protection",
+   "tip": "",
+   "lessonId": "5-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "login block-for 120 attempts 3 within 60",
+    "login delay 120",
+    "exec-timeout 120 3",
+    "security passwords min-length 3"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "This enables login quiet-mode against brute-force attempts.",
+   "whyWrong": [
+    "",
+    "This adds a delay between attempts but does not count failures.",
+    "This sets an idle timeout for sessions.",
+    "This enforces minimum password length."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-013",
+   "domainId": "d5",
+   "objective": "5.6",
+   "topic": "acl",
+   "difficulty": 2,
+   "format": "calculation",
+   "type": "single",
+   "stem": "Which wildcard mask matches all addresses from 172.16.32.0 through 172.16.47.255?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Wildcard = all-255s minus the subnet mask. Quick check: the interesting octet equals block size − 1.",
+   "concept": "Wildcard masks",
+   "tip": "",
+   "lessonId": "5-03",
+   "verified": true,
+   "shuffle": true,
+   "options": [
+    "0.0.15.255",
+    "0.0.16.255",
+    "255.255.240.0",
+    "0.0.31.255"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The range is a /20 (block of 16 in the third octet); wildcard = 255.255.255.255 − 255.255.240.0.",
+   "whyWrong": [
+    "",
+    "Wildcard octets for a contiguous block are always 2^n − 1.",
+    "This is the subnet mask, not the wildcard.",
+    "This matches 32 third-octet values (172.16.32.0–172.16.63.255)."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-014",
+   "domainId": "d5",
+   "objective": "5.6",
+   "topic": "acl",
+   "difficulty": 2,
+   "format": "diagram",
+   "type": "single",
+   "stem": "Refer to the ACL. Host 10.1.1.20 opens an SSH session (TCP 22) to 10.2.2.10. What happens?",
+   "exhibit": null,
+   "diagram": "acl_flow",
+   "explanation": "ACLs are processed top-down and stop at the first match; each line must match protocol, addresses and ports.",
+   "concept": "ACL processing",
+   "tip": "",
+   "lessonId": "5-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "It is denied by line 20",
+    "It is permitted by line 10",
+    "It is permitted by line 30",
+    "It is denied by the implicit deny"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Line 10 permits only port 443; line 20 denies any IP traffic to 10.2.2.10.",
+   "whyWrong": [
+    "",
+    "Line 10 requires destination port 443.",
+    "Processing stops at the first match, line 20.",
+    "An explicit line matches first."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-015",
+   "domainId": "d5",
+   "objective": "5.6",
+   "topic": "acl",
+   "difficulty": 3,
+   "format": "diagram",
+   "type": "multi",
+   "stem": "Refer to the ACL. Which flows are permitted? (Choose two.)",
+   "exhibit": null,
+   "diagram": "acl_flow",
+   "explanation": "Check every field of each line before moving to the next. A permit for one port does not permit other protocols to the same host.",
+   "concept": "ACL matching",
+   "tip": "",
+   "lessonId": "5-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "10.1.1.20 to 10.2.2.10 on TCP 443",
+    "10.9.9.9 to 8.8.8.8 on UDP 53",
+    "10.9.9.9 to 10.2.2.10 on TCP 443",
+    "10.1.1.20 to 10.2.2.10 using ICMP"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "Line 10 matches source, destination and port. Lines 10 and 20 do not match; line 30 permits it.",
+   "whyWrong": [
+    "",
+    "",
+    "The source is outside 10.1.1.0/24, so line 20 denies it.",
+    "Line 10 matches only TCP, so line 20 denies it."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-016",
+   "domainId": "d5",
+   "objective": "5.6",
+   "topic": "acl",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "Host 10.1.1.50 must be blocked from reaching server 10.3.3.3, and all other traffic must be allowed. Which approach is best?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Place extended ACLs near the source and standard ACLs near the destination.",
+   "concept": "ACL placement",
+   "tip": "Extended → near Source; Standard → near Destination.",
+   "lessonId": "5-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "An extended ACL inbound near 10.1.1.50",
+    "A standard ACL inbound near 10.1.1.50",
+    "An extended ACL outbound on every router interface",
+    "Port security on the server's switch port"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "It matches source and destination and drops the traffic before it crosses the network.",
+   "whyWrong": [
+    "",
+    "A standard ACL matches only the source, so it would block the host from everything.",
+    "One well-placed ACL is enough.",
+    "Port security restricts MAC addresses, not IP flows."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-017",
+   "domainId": "d5",
+   "objective": "5.6",
+   "topic": "acl",
+   "difficulty": 2,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "After this ACL is applied, users lose all connectivity through Gi0/1. Why?",
+   "exhibit": "ip access-list extended BLOCK-TELNET\n 10 deny tcp any any eq 23\n!\ninterface GigabitEthernet0/1\n ip access-group BLOCK-TELNET in",
+   "diagram": null,
+   "explanation": "Add 'permit ip any any' (or more specific permits) after the deny.",
+   "concept": "Implicit deny",
+   "tip": "",
+   "lessonId": "5-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "There is no permit statement",
+    "Telnet is required for routing updates",
+    "ACL names must be numbers",
+    "Extended ACLs cannot be applied inbound"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Every ACL ends with an invisible 'deny any'.",
+   "whyWrong": [
+    "",
+    "Routing protocols do not use Telnet.",
+    "Named ACLs are fully supported.",
+    "Extended ACLs can be applied in either direction."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-018",
+   "domainId": "d5",
+   "objective": "5.6",
+   "topic": "acl",
+   "difficulty": 3,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "With this ACL applied, is traffic from 192.168.1.66 denied?",
+   "exhibit": "access-list 10 permit 192.168.1.0 0.0.0.255\naccess-list 10 deny host 192.168.1.66",
+   "diagram": null,
+   "explanation": "Place specific entries before general ones: deny host 192.168.1.66 first, then permit the subnet.",
+   "concept": "ACL order",
+   "tip": "",
+   "lessonId": "5-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "No; line 1 permits it first",
+    "Yes; specific entries are always checked first",
+    "Yes; it is denied by the implicit deny",
+    "It depends on the interface direction"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "ACLs stop at the first match.",
+   "whyWrong": [
+    "",
+    "IOS does not reorder entries by specificity for you.",
+    "The explicit permit matches first.",
+    "Direction does not change the order of evaluation."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-019",
+   "domainId": "d5",
+   "objective": "5.6",
+   "topic": "acl",
+   "difficulty": 1,
+   "format": "command",
+   "type": "single",
+   "stem": "Which command applies standard ACL 5 to restrict who can open SSH sessions to the device's VTY lines?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Interfaces use 'ip access-group'; VTY lines use 'access-class'.",
+   "concept": "VTY access control",
+   "tip": "",
+   "lessonId": "5-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "access-class 5 in (under line vty)",
+    "ip access-group 5 in (under line vty)",
+    "access-list 5 vty",
+    "ip ssh access-list 5"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "access-class filters connections to the device's lines.",
+   "whyWrong": [
+    "",
+    "ip access-group is an interface command.",
+    "This is not valid syntax.",
+    "This is not standard IOS syntax for VTY filtering."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-020",
+   "domainId": "d5",
+   "objective": "5.6",
+   "topic": "acl",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: Only one IPv4 ACL can be applied to an interface per direction.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "The rule is one ACL per interface, per direction, per protocol. Applying a new one replaces the old one.",
+   "concept": "ACL application rules",
+   "tip": "",
+   "lessonId": "5-03",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The statement is true. The rule is one ACL per interface, per direction, per protocol. Applying a new one replaces the old one.",
+   "whyWrong": [
+    "",
+    "The statement is true, so this choice is incorrect."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-021",
+   "domainId": "d5",
+   "objective": "5.7",
+   "topic": "l2-security",
+   "difficulty": 3,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "Based on the output, what is happening on Gi0/5?",
+   "exhibit": "SW1# show port-security interface gi0/5\nPort Security              : Enabled\nPort Status                : Secure-up\nViolation Mode             : Restrict\nMaximum MAC Addresses      : 1\nTotal MAC Addresses        : 1\nSticky MAC Addresses       : 0\nSecurity Violation Count   : 7",
+   "diagram": null,
+   "explanation": "Violation modes: protect (drop silently), restrict (drop + log + count), shutdown (err-disable, the default).",
+   "concept": "Port security violation modes",
+   "tip": "",
+   "lessonId": "5-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Violations are dropped and logged; the port stays up",
+    "The port has been err-disabled",
+    "Violating frames are dropped silently without counting",
+    "Seven sticky MAC addresses were learned"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Restrict mode drops, logs and counts violations without err-disabling the port.",
+   "whyWrong": [
+    "",
+    "Port status 'Secure-up' shows it is operational.",
+    "That describes protect mode.",
+    "Only 1 MAC address is allowed and present."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-022",
+   "domainId": "d5",
+   "objective": "5.7",
+   "topic": "l2-security",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "match",
+   "stem": "Match each port-security violation mode to its behavior.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Shutdown is the default and the most disruptive; restrict is common where visibility matters but uptime is important.",
+   "concept": "Port security modes",
+   "tip": "",
+   "lessonId": "5-04",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Protect → Drops offending frames without logging or counting; Restrict → Drops offending frames, logs and increments the counter; Shutdown → Puts the port into the err-disabled state",
+   "whyWrong": [],
+   "left": [
+    "Protect",
+    "Restrict",
+    "Shutdown"
+   ],
+   "right": [
+    "Drops offending frames without logging or counting",
+    "Drops offending frames, logs and increments the counter",
+    "Puts the port into the err-disabled state"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d5-023",
+   "domainId": "d5",
+   "objective": "5.7",
+   "topic": "l2-security",
+   "difficulty": 2,
+   "format": "config",
+   "type": "single",
+   "stem": "What are the default settings after entering only 'switchport port-security' on an access port?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Port security works on access ports (or static trunks), not on dynamic DTP ports.",
+   "concept": "Port security defaults",
+   "tip": "",
+   "lessonId": "5-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Maximum of 1 MAC address and violation mode shutdown",
+    "Maximum of 2 MAC addresses and violation mode restrict",
+    "Maximum of 1 MAC address and violation mode protect",
+    "Unlimited MAC addresses with logging only"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "These are the IOS defaults.",
+   "whyWrong": [
+    "",
+    "These must be configured explicitly.",
+    "The default mode is shutdown.",
+    "Port security limits addresses by default."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-024",
+   "domainId": "d5",
+   "objective": "5.7",
+   "topic": "l2-security",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "A user plugs in a home router that starts handing out 192.168.0.x addresses to colleagues. Which feature prevents this?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "DHCP snooping trusts only uplinks toward legitimate servers and builds the binding table that DAI uses.",
+   "concept": "DHCP snooping",
+   "tip": "",
+   "lessonId": "5-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "DHCP snooping",
+    "Dynamic ARP Inspection alone",
+    "PortFast",
+    "Root Guard"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Untrusted ports drop DHCP server messages such as OFFER and ACK.",
+   "whyWrong": [
+    "",
+    "DAI validates ARP; it does not block rogue DHCP servers.",
+    "PortFast only speeds up port transitions.",
+    "Root Guard protects the STP root placement."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-025",
+   "domainId": "d5",
+   "objective": "5.7",
+   "topic": "l2-security",
+   "difficulty": 3,
+   "format": "config",
+   "type": "multi",
+   "stem": "DHCP snooping is enabled globally. The legitimate DHCP server is reached through uplink Gi0/24, and clients are in VLAN 10. Which additional commands are required? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Without trusting the uplink, the switch drops the real server's OFFERs and clients get no addresses.",
+   "concept": "DHCP snooping configuration",
+   "tip": "",
+   "lessonId": "5-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "ip dhcp snooping vlan 10",
+    "ip dhcp snooping trust (on Gi0/24)",
+    "ip dhcp snooping trust (on every access port)",
+    "ip arp inspection vlan 10"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "Snooping must be enabled for each VLAN. Server replies must be accepted on the uplink.",
+   "whyWrong": [
+    "",
+    "",
+    "Trusting user ports defeats the protection.",
+    "DAI is a separate, optional feature built on top of snooping."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-026",
+   "domainId": "d5",
+   "objective": "5.7",
+   "topic": "l2-security",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "single",
+   "stem": "Dynamic ARP Inspection validates ARP packets on untrusted ports against which information?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "DAI prevents ARP spoofing/poisoning, a common man-in-the-middle technique.",
+   "concept": "Dynamic ARP Inspection",
+   "tip": "",
+   "lessonId": "5-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The DHCP snooping binding table",
+    "The MAC address table on the switch",
+    "The router's IP routing table",
+    "The CDP neighbor table entries"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "DAI checks that the IP-to-MAC mapping matches a known binding.",
+   "whyWrong": [
+    "",
+    "The MAC table does not contain IP addresses.",
+    "Routes are unrelated to ARP validation.",
+    "CDP is unrelated to ARP validation."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-027",
+   "domainId": "d5",
+   "objective": "5.5",
+   "topic": "vpn",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "A branch and headquarters must communicate securely over the internet, and branch hosts must not need any VPN software. Which solution fits?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Site-to-site VPNs connect networks; remote-access VPNs connect individual users.",
+   "concept": "Site-to-site VPN",
+   "tip": "",
+   "lessonId": "5-05",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "A site-to-site IPsec VPN between the two gateways",
+    "A remote-access VPN client on every branch PC",
+    "Clientless SSL VPN",
+    "GRE without IPsec"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The gateways build the tunnel; hosts are unaware of it.",
+   "whyWrong": [
+    "",
+    "This requires software on each host.",
+    "This gives individual users browser-based access to specific applications.",
+    "GRE alone provides no encryption."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-028",
+   "domainId": "d5",
+   "objective": "5.5",
+   "topic": "vpn",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "multi",
+   "stem": "Which security services does IPsec provide? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "IPsec services: confidentiality, integrity, origin authentication and anti-replay.",
+   "concept": "IPsec services",
+   "tip": "",
+   "lessonId": "5-05",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Data confidentiality",
+    "Anti-replay protection",
+    "Dynamic routing",
+    "Bandwidth reservation"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "ESP encrypts the payload. Sequence numbers detect replayed packets.",
+   "whyWrong": [
+    "",
+    "",
+    "IPsec protects traffic but does not exchange routes.",
+    "QoS, not IPsec, manages bandwidth."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-029",
+   "domainId": "d5",
+   "objective": "5.9",
+   "topic": "wireless-security",
+   "difficulty": 2,
+   "format": "protocol-id",
+   "type": "match",
+   "stem": "Match each Wi-Fi security generation to its key mechanism.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Each generation strengthened protection; WPA3 also requires Protected Management Frames.",
+   "concept": "Wireless security protocols",
+   "tip": "",
+   "lessonId": "5-06",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "WEP → RC4 with static keys — considered broken; WPA → TKIP; WPA2 → AES-CCMP; WPA3-Personal → SAE",
+   "whyWrong": [],
+   "left": [
+    "WEP",
+    "WPA",
+    "WPA2",
+    "WPA3-Personal"
+   ],
+   "right": [
+    "RC4 with static keys — considered broken",
+    "TKIP",
+    "AES-CCMP",
+    "SAE"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d5-030",
+   "domainId": "d5",
+   "objective": "5.9",
+   "topic": "wireless-security",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "Each employee must authenticate to Wi-Fi with their own directory credentials, validated by a RADIUS server. Which option fits?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Personal mode = shared key (PSK/SAE). Enterprise mode = individual credentials via 802.1X/EAP and RADIUS.",
+   "concept": "WPA Enterprise",
+   "tip": "",
+   "lessonId": "5-06",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "WPA2- or WPA3-Enterprise using 802.1X",
+    "WPA2-Personal with a shared passphrase",
+    "An open network with MAC filtering",
+    "WEP with a long key"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Enterprise mode uses EAP with a RADIUS server for per-user authentication.",
+   "whyWrong": [
+    "",
+    "Everyone shares one key with no per-user identity.",
+    "MAC addresses are easily spoofed and provide no encryption.",
+    "WEP is insecure regardless of key length."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-031",
+   "domainId": "d5",
+   "objective": "5.10",
+   "topic": "wireless-security",
+   "difficulty": 2,
+   "format": "config",
+   "type": "single",
+   "stem": "In the WLC GUI, which Layer 2 security settings configure a WLAN for WPA2-Personal?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "On the WLAN's Security tab: Layer 2 = WPA+WPA2 with WPA2 policy, AES (CCMP) cipher and PSK authentication key management.",
+   "concept": "WPA2-PSK on a WLC",
+   "tip": "",
+   "lessonId": "5-06",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "WPA2 policy, AES encryption, PSK key management",
+    "WPA policy, TKIP encryption, 802.1X key management",
+    "Open security with web authentication",
+    "WEP with a 104-bit key"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "This is the standard WPA2-Personal combination.",
+   "whyWrong": [
+    "",
+    "This is legacy WPA-Enterprise.",
+    "This is a guest portal, not WPA2.",
+    "WEP is obsolete and insecure."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-032",
+   "domainId": "d5",
+   "objective": "5.9",
+   "topic": "wireless-security",
+   "difficulty": 2,
+   "format": "diagram",
+   "type": "single",
+   "stem": "Refer to the diagram. Which 802.1X role does the AP/WLC perform?",
+   "exhibit": null,
+   "diagram": "dot1x_quiz",
+   "explanation": "802.1X roles: supplicant (client), authenticator (switch/AP/WLC), authentication server (RADIUS).",
+   "concept": "802.1X roles",
+   "tip": "",
+   "lessonId": "5-06",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Authenticator",
+    "Supplicant",
+    "Authentication server",
+    "Certificate authority"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "It relays EAP between the client and the RADIUS server and enforces the result.",
+   "whyWrong": [
+    "",
+    "The supplicant is the client device.",
+    "That is the RADIUS server, such as ISE.",
+    "A CA issues certificates and is not an 802.1X role."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-033",
+   "domainId": "d5",
+   "objective": "5.9",
+   "topic": "wireless-security",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: WPA3-Personal uses SAE, which resists offline dictionary attacks against the passphrase.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "SAE replaces the WPA2 pre-shared key handshake, so capturing the handshake does not allow offline guessing. It also provides forward secrecy.",
+   "concept": "WPA3 SAE",
+   "tip": "",
+   "lessonId": "5-06",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The statement is true. SAE replaces the WPA2 pre-shared key handshake, so capturing the handshake does not allow offline guessing. It also provides forward secrecy.",
+   "whyWrong": [
+    "",
+    "The statement is true, so this choice is incorrect."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d5-034",
+   "domainId": "d5",
+   "objective": "5.1",
+   "topic": "sec-concepts",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "single",
+   "stem": "How does an IPS differ from an IDS?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Prevention requires being in the traffic path; detection can work from a SPAN copy.",
+   "concept": "IPS vs IDS",
+   "tip": "",
+   "lessonId": "5-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "An IPS is inline and can block; an IDS only alerts",
+    "An IDS is inline and blocks traffic; an IPS only alerts",
+    "Both only log traffic and cannot take action",
+    "An IPS replaces the need for firewalls"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Being inline lets the IPS drop packets in real time.",
+   "whyWrong": [
+    "",
+    "The roles are reversed.",
+    "An IPS can drop traffic.",
+    "IPS complements firewalls; NGFWs often integrate both."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  }
+ ]
+}

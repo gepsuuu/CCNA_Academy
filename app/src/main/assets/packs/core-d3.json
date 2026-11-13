@@ -1,0 +1,2155 @@
+{
+ "schema": 1,
+ "id": "core-d3",
+ "name": "Core: IP Connectivity",
+ "version": 1,
+ "category": "Core CCNA 200-301",
+ "description": "58 original questions for IP Connectivity (25% of the v1.1 blueprint).",
+ "author": "CCNA Academy",
+ "topics": [
+  {
+   "id": "routing-table",
+   "title": "Routing table and forwarding",
+   "domainId": "d3",
+   "lessonId": "3-01"
+  },
+  {
+   "id": "static",
+   "title": "Static routing",
+   "domainId": "d3",
+   "lessonId": "3-02"
+  },
+  {
+   "id": "ospf",
+   "title": "OSPFv2",
+   "domainId": "d3",
+   "lessonId": "3-03"
+  },
+  {
+   "id": "fhrp",
+   "title": "First hop redundancy",
+   "domainId": "d3",
+   "lessonId": "3-04"
+  }
+ ],
+ "questions": [
+  {
+   "id": "core-d3-001",
+   "domainId": "d3",
+   "objective": "3.1",
+   "topic": "routing-table",
+   "difficulty": 2,
+   "format": "routing-table",
+   "type": "single",
+   "stem": "Refer to the routing table. Which next hop does R1 use for a packet destined to 10.1.5.20?",
+   "exhibit": "R1# show ip route\nCodes: C - connected, S - static, O - OSPF, L - local, * - candidate default\n\nGateway of last resort is 203.0.113.1 to network 0.0.0.0\n\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n      10.0.0.0/8 is variably subnetted, 9 subnets, 5 masks\nC        10.0.12.0/30 is directly connected, GigabitEthernet0/1\nL        10.0.12.1/32 is directly connected, GigabitEthernet0/1\nC        10.0.13.0/30 is directly connected, GigabitEthernet0/2\nL        10.0.13.1/32 is directly connected, GigabitEthernet0/2\nC        10.0.14.0/30 is directly connected, GigabitEthernet0/3\nL        10.0.14.1/32 is directly connected, GigabitEthernet0/3\nO        10.1.0.0/16 [110/20] via 10.0.12.2, 00:10:11, GigabitEthernet0/1\nO        10.1.4.0/22 [110/30] via 10.0.13.3, 00:10:11, GigabitEthernet0/2\nS        10.1.5.0/24 [1/0] via 10.0.14.4\n      203.0.113.0/24 is variably subnetted, 2 subnets, 2 masks\nC        203.0.113.0/30 is directly connected, GigabitEthernet0/0\nL        203.0.113.2/32 is directly connected, GigabitEthernet0/0",
+   "diagram": null,
+   "explanation": "The router always picks the longest matching prefix first. Administrative distance only matters between routes to the same prefix.",
+   "concept": "Longest prefix match",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": true,
+   "shuffle": true,
+   "options": [
+    "10.0.14.4",
+    "10.0.13.3",
+    "10.0.12.2",
+    "203.0.113.1"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The static route 10.1.5.0/24 is the longest prefix that matches 10.1.5.20.",
+   "whyWrong": [
+    "",
+    "10.1.4.0/22 also matches, but /24 is more specific.",
+    "10.1.0.0/16 matches but is less specific.",
+    "The default route is used only when nothing more specific matches."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-002",
+   "domainId": "d3",
+   "objective": "3.2",
+   "topic": "routing-table",
+   "difficulty": 3,
+   "format": "routing-table",
+   "type": "multi",
+   "stem": "Refer to the routing table. Which destinations does R1 forward to next hop 10.0.13.3? (Choose two.)",
+   "exhibit": "R1# show ip route\nCodes: C - connected, S - static, O - OSPF, L - local, * - candidate default\n\nGateway of last resort is 203.0.113.1 to network 0.0.0.0\n\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n      10.0.0.0/8 is variably subnetted, 9 subnets, 5 masks\nC        10.0.12.0/30 is directly connected, GigabitEthernet0/1\nL        10.0.12.1/32 is directly connected, GigabitEthernet0/1\nC        10.0.13.0/30 is directly connected, GigabitEthernet0/2\nL        10.0.13.1/32 is directly connected, GigabitEthernet0/2\nC        10.0.14.0/30 is directly connected, GigabitEthernet0/3\nL        10.0.14.1/32 is directly connected, GigabitEthernet0/3\nO        10.1.0.0/16 [110/20] via 10.0.12.2, 00:10:11, GigabitEthernet0/1\nO        10.1.4.0/22 [110/30] via 10.0.13.3, 00:10:11, GigabitEthernet0/2\nS        10.1.5.0/24 [1/0] via 10.0.14.4\n      203.0.113.0/24 is variably subnetted, 2 subnets, 2 masks\nC        203.0.113.0/30 is directly connected, GigabitEthernet0/0\nL        203.0.113.2/32 is directly connected, GigabitEthernet0/0",
+   "diagram": null,
+   "explanation": "A /22 has a block size of 4 in the third octet: 10.1.4.0/22 covers third-octet values 4–7. More specific routes inside it (10.1.5.0/24) take precedence.",
+   "concept": "Overlapping routes",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": true,
+   "shuffle": true,
+   "options": [
+    "10.1.4.1",
+    "10.1.7.254",
+    "10.1.5.1",
+    "10.1.8.1",
+    "10.0.13.3"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "10.1.4.0/22 (10.1.4.0–10.1.7.255) is the longest match. Still inside 10.1.4.0/22, and no longer prefix covers it.",
+   "whyWrong": [
+    "",
+    "",
+    "The more specific static 10.1.5.0/24 wins, so it goes to 10.0.14.4.",
+    "Outside the /22, so only 10.1.0.0/16 matches (via 10.0.12.2).",
+    "This is a connected address on Gi0/2, delivered directly."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-003",
+   "domainId": "d3",
+   "objective": "3.1",
+   "topic": "routing-table",
+   "difficulty": 1,
+   "format": "routing-table",
+   "type": "single",
+   "stem": "Refer to the routing table. How does R1 forward a packet destined to 10.2.0.1?",
+   "exhibit": "R1# show ip route\nCodes: C - connected, S - static, O - OSPF, L - local, * - candidate default\n\nGateway of last resort is 203.0.113.1 to network 0.0.0.0\n\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n      10.0.0.0/8 is variably subnetted, 9 subnets, 5 masks\nC        10.0.12.0/30 is directly connected, GigabitEthernet0/1\nL        10.0.12.1/32 is directly connected, GigabitEthernet0/1\nC        10.0.13.0/30 is directly connected, GigabitEthernet0/2\nL        10.0.13.1/32 is directly connected, GigabitEthernet0/2\nC        10.0.14.0/30 is directly connected, GigabitEthernet0/3\nL        10.0.14.1/32 is directly connected, GigabitEthernet0/3\nO        10.1.0.0/16 [110/20] via 10.0.12.2, 00:10:11, GigabitEthernet0/1\nO        10.1.4.0/22 [110/30] via 10.0.13.3, 00:10:11, GigabitEthernet0/2\nS        10.1.5.0/24 [1/0] via 10.0.14.4\n      203.0.113.0/24 is variably subnetted, 2 subnets, 2 masks\nC        203.0.113.0/30 is directly connected, GigabitEthernet0/0\nL        203.0.113.2/32 is directly connected, GigabitEthernet0/0",
+   "diagram": null,
+   "explanation": "A route matches only if the destination is inside its prefix. When nothing else matches, the default route (0.0.0.0/0) is used.",
+   "concept": "Default route",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": true,
+   "shuffle": true,
+   "options": [
+    "Via the default route to 203.0.113.1",
+    "Via 10.0.12.2, because 10.1.0.0/16 is the closest match",
+    "R1 drops the packet",
+    "Via Gi0/1 as a connected route"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "No 10.2.x.x route exists, so the gateway of last resort is used.",
+   "whyWrong": [
+    "",
+    "10.2.0.1 is not inside 10.1.0.0/16.",
+    "A default route exists, so the packet is forwarded.",
+    "10.2.0.1 is not on any connected subnet."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-004",
+   "domainId": "d3",
+   "objective": "3.1",
+   "topic": "routing-table",
+   "difficulty": 2,
+   "format": "routing-table",
+   "type": "single",
+   "stem": "Refer to the routing table. What is the OSPF metric of the route used for 10.1.200.1?",
+   "exhibit": "R1# show ip route\nCodes: C - connected, S - static, O - OSPF, L - local, * - candidate default\n\nGateway of last resort is 203.0.113.1 to network 0.0.0.0\n\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n      10.0.0.0/8 is variably subnetted, 9 subnets, 5 masks\nC        10.0.12.0/30 is directly connected, GigabitEthernet0/1\nL        10.0.12.1/32 is directly connected, GigabitEthernet0/1\nC        10.0.13.0/30 is directly connected, GigabitEthernet0/2\nL        10.0.13.1/32 is directly connected, GigabitEthernet0/2\nC        10.0.14.0/30 is directly connected, GigabitEthernet0/3\nL        10.0.14.1/32 is directly connected, GigabitEthernet0/3\nO        10.1.0.0/16 [110/20] via 10.0.12.2, 00:10:11, GigabitEthernet0/1\nO        10.1.4.0/22 [110/30] via 10.0.13.3, 00:10:11, GigabitEthernet0/2\nS        10.1.5.0/24 [1/0] via 10.0.14.4\n      203.0.113.0/24 is variably subnetted, 2 subnets, 2 masks\nC        203.0.113.0/30 is directly connected, GigabitEthernet0/0\nL        203.0.113.2/32 is directly connected, GigabitEthernet0/0",
+   "diagram": null,
+   "explanation": "Routing table brackets show [administrative distance/metric]. For OSPF the metric is the total cost to the destination.",
+   "concept": "Reading [AD/metric]",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "20",
+    "110",
+    "30",
+    "0"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "10.1.200.1 matches only 10.1.0.0/16, shown as [110/20]: AD 110, metric 20.",
+   "whyWrong": [
+    "",
+    "110 is the administrative distance, not the metric.",
+    "30 belongs to 10.1.4.0/22, which does not contain 10.1.200.1.",
+    "[1/0] belongs to the static routes."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-005",
+   "domainId": "d3",
+   "objective": "3.1.b",
+   "topic": "routing-table",
+   "difficulty": 1,
+   "format": "routing-table",
+   "type": "single",
+   "stem": "In the entry 'O 10.1.4.0/22 [110/30] via 10.0.13.3', what do 110 and 30 represent?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "AD ranks route sources (OSPF = 110); the metric compares routes from the same source (OSPF cost).",
+   "concept": "Routing table fields",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Administrative distance 110 and OSPF cost 30",
+    "Hop count 110 and AD 30",
+    "Route age 110 seconds and 30 hops",
+    "Bandwidth 110 Mbps and delay 30 ms"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Brackets are [AD/metric].",
+   "whyWrong": [
+    "",
+    "OSPF does not use hop count, and the order is AD first.",
+    "Route age appears separately as hh:mm:ss.",
+    "These are not shown in the brackets."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-006",
+   "domainId": "d3",
+   "objective": "3.2.c",
+   "topic": "routing-table",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "A router learns 172.16.8.0/24 from OSPF and from EIGRP (internal), and also has a static route to 172.16.8.0/24 configured with administrative distance 200. Which route is installed?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Administrative distance can be changed. A static route with a raised AD is a floating static route that is only installed if better sources disappear.",
+   "concept": "Administrative distance",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The EIGRP route",
+    "The static route",
+    "The OSPF route",
+    "All three, load-balanced"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "For the same prefix, the lowest AD wins: EIGRP 90 < OSPF 110 < static 200.",
+   "whyWrong": [
+    "",
+    "Its AD was raised to 200, so it is now the least preferred.",
+    "OSPF's AD of 110 is higher than EIGRP's 90.",
+    "Load balancing happens only between equal routes from the same source."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-007",
+   "domainId": "d3",
+   "objective": "3.2.a",
+   "topic": "routing-table",
+   "difficulty": 3,
+   "format": "scenario",
+   "type": "single",
+   "stem": "A router has an OSPF route to 192.168.0.0/16 and a RIP route to 192.168.10.0/24. A packet arrives for 192.168.10.5. Which route is used?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Routes to different prefixes are not compared by AD. The most specific matching prefix always wins.",
+   "concept": "Longest match vs AD",
+   "tip": "Long beats low.",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The RIP route, because /24 is a longer prefix",
+    "The OSPF route, because its AD (110) is lower than RIP's (120)",
+    "Both routes are used for load sharing",
+    "The default route"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Longest prefix match is applied before administrative distance.",
+   "whyWrong": [
+    "",
+    "AD only compares routes to the identical prefix.",
+    "The prefixes differ, so the more specific one wins.",
+    "More specific routes exist."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-008",
+   "domainId": "d3",
+   "objective": "3.2.c",
+   "topic": "routing-table",
+   "difficulty": 2,
+   "format": "protocol-id",
+   "type": "match",
+   "stem": "Match each route source to its default administrative distance.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Lower administrative distance means more trusted: connected 0, static 1, eBGP 20, EIGRP 90, OSPF 110, IS-IS 115, RIP 120, iBGP 200.",
+   "concept": "Administrative distance values",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Connected → 0; Static → 1; eBGP → 20; EIGRP (internal) → 90; OSPF → 110; RIP → 120",
+   "whyWrong": [],
+   "left": [
+    "Connected",
+    "Static",
+    "eBGP",
+    "EIGRP (internal)",
+    "OSPF",
+    "RIP"
+   ],
+   "right": [
+    "0",
+    "1",
+    "20",
+    "90",
+    "110",
+    "120"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d3-009",
+   "domainId": "d3",
+   "objective": "3.2",
+   "topic": "routing-table",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "order",
+   "stem": "Arrange the criteria a router uses to choose a route, from first evaluated to last.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Prefix length decides first. AD resolves ties between different sources for the same prefix; the metric resolves ties within one routing protocol.",
+   "concept": "Route selection order",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Longest prefix match → Lowest administrative distance → Lowest metric",
+   "whyWrong": [],
+   "left": [],
+   "right": [],
+   "items": [
+    "Longest prefix match",
+    "Lowest administrative distance",
+    "Lowest metric"
+   ]
+  },
+  {
+   "id": "core-d3-010",
+   "domainId": "d3",
+   "objective": "3.1",
+   "topic": "routing-table",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: When a router forwards an IPv4 packet, it decrements the TTL and builds a new Layer 2 header for the outgoing link.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Routing is a per-hop process: the frame is removed, the TTL is decremented (packets with TTL 0 are dropped), and a new frame is built for the next hop.",
+   "concept": "Packet forwarding",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The statement is true. Routing is a per-hop process: the frame is removed, the TTL is decremented (packets with TTL 0 are dropped), and a new frame is built for the next hop.",
+   "whyWrong": [
+    "",
+    "The statement is true, so this choice is incorrect."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-011",
+   "domainId": "d3",
+   "objective": "3.1",
+   "topic": "routing-table",
+   "difficulty": 2,
+   "format": "diagram",
+   "type": "single",
+   "stem": "Refer to the diagram. As the PC sends a packet to the server, which destination MAC address is in the frame leaving the PC?",
+   "exhibit": null,
+   "diagram": "routing",
+   "explanation": "Hosts send off-subnet traffic to the default gateway's MAC. Each router builds a new frame for the next link.",
+   "concept": "Default gateway forwarding",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "R1 Gi0/0's MAC",
+    "The server's MAC",
+    "The MAC of R2's Gi0/1",
+    "FFFF.FFFF.FFFF"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The server is on another subnet, so the PC frames the packet to its default gateway.",
+   "whyWrong": [
+    "",
+    "The PC cannot reach the server's MAC across routers.",
+    "The PC only communicates directly with devices on its own subnet.",
+    "Unicast IP traffic uses the gateway's unicast MAC after ARP."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-012",
+   "domainId": "d3",
+   "objective": "3.1",
+   "topic": "routing-table",
+   "difficulty": 3,
+   "format": "diagram",
+   "type": "single",
+   "stem": "Refer to the diagram. If R1 loses its OSPF route to 10.2.2.0/24, how does it forward traffic to 10.2.2.10?",
+   "exhibit": null,
+   "diagram": "routing",
+   "explanation": "The default route catches every destination without a more specific match. Here it also points to R2, so connectivity continues.",
+   "concept": "Default route as backup",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Using the static default route via 10.0.12.2",
+    "It drops the traffic",
+    "It forwards out Gi0/0 toward the PC",
+    "It floods the packet out all interfaces"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "0.0.0.0/0 still matches every destination.",
+   "whyWrong": [
+    "",
+    "A matching default route exists.",
+    "No route points to Gi0/0 for 10.2.2.0/24.",
+    "Routers do not flood unknown destinations."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-013",
+   "domainId": "d3",
+   "objective": "3.1",
+   "topic": "routing-table",
+   "difficulty": 1,
+   "format": "routing-table",
+   "type": "single",
+   "stem": "What does a routing-table entry with code 'L', such as 'L 10.0.12.1/32', represent?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "IOS installs a connected (C) route for the subnet and a local (L) /32 route for the interface address itself.",
+   "concept": "Local routes",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The router's own interface IP",
+    "A loopback interface",
+    "A route learned by LDP",
+    "A manually configured host route"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Local routes are /32 host routes for each configured interface address.",
+   "whyWrong": [
+    "",
+    "Loopback subnets appear as C/L entries too, but L means local, not loopback.",
+    "LDP is a label protocol and does not install L routes.",
+    "Manual routes appear with code S."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-014",
+   "domainId": "d3",
+   "objective": "3.1",
+   "topic": "routing-table",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: If OSPF learns two paths to the same prefix with equal cost, the router can install both and load-share traffic.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Equal-cost multipath (ECMP) is supported by OSPF; IOS installs up to 4 equal-cost paths by default (configurable with maximum-paths).",
+   "concept": "ECMP",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The statement is true. Equal-cost multipath (ECMP) is supported by OSPF; IOS installs up to 4 equal-cost paths by default (configurable with maximum-paths).",
+   "whyWrong": [
+    "",
+    "The statement is true, so this choice is incorrect."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-015",
+   "domainId": "d3",
+   "objective": "3.1",
+   "topic": "routing-table",
+   "difficulty": 2,
+   "format": "routing-table",
+   "type": "single",
+   "stem": "Based on the output, how does the router forward traffic to 10.9.1.1?",
+   "exhibit": "O     10.9.0.0/16 [110/30] via 10.0.12.2, 00:02:41, GigabitEthernet0/1\n                  [110/30] via 10.0.13.3, 00:02:41, GigabitEthernet0/2",
+   "diagram": null,
+   "explanation": "When multiple next hops appear under one prefix with the same [AD/metric], the router shares traffic between them.",
+   "concept": "Equal-cost load sharing",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "It load-shares across both next hops",
+    "It uses only 10.0.12.2 because it is listed first",
+    "It drops the traffic because the routes conflict",
+    "It uses the default route"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Two equal-cost OSPF paths are installed for 10.9.0.0/16.",
+   "whyWrong": [
+    "",
+    "Both entries are active paths.",
+    "Equal-cost paths are not a conflict.",
+    "10.9.0.0/16 matches more specifically."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-016",
+   "domainId": "d3",
+   "objective": "3.1",
+   "topic": "routing-table",
+   "difficulty": 2,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "A router has no default route and receives a packet for a destination that matches no route. What happens?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Without a matching route, the packet cannot be forwarded. A default route provides a catch-all.",
+   "concept": "No matching route",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The packet is dropped",
+    "The packet is flooded out all interfaces",
+    "The router sends an ARP request for the destination",
+    "The packet is sent back out the interface it arrived on"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Routers never guess where to forward.",
+   "whyWrong": [
+    "",
+    "Flooding is a Layer 2 switch behavior.",
+    "ARP is only for directly connected subnets.",
+    "That would create a loop."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-017",
+   "domainId": "d3",
+   "objective": "3.3",
+   "topic": "static",
+   "difficulty": 1,
+   "format": "command",
+   "type": "single",
+   "stem": "Which command configures an IPv4 default route to next hop 198.51.100.1?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "The default route appears as S* and sets the gateway of last resort.",
+   "concept": "Default static route",
+   "tip": "",
+   "lessonId": "3-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "ip route 0.0.0.0 0.0.0.0 198.51.100.1",
+    "ip route 0.0.0.0 255.255.255.255 198.51.100.1",
+    "ip default-route 198.51.100.1",
+    "ip route default 198.51.100.1"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Destination 0.0.0.0 with mask 0.0.0.0 matches every address.",
+   "whyWrong": [
+    "",
+    "A /32 mask would match only 0.0.0.0.",
+    "This is not valid IOS syntax.",
+    "IOS requires the 0.0.0.0 0.0.0.0 form."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-018",
+   "domainId": "d3",
+   "objective": "3.3.d",
+   "topic": "static",
+   "difficulty": 2,
+   "format": "config",
+   "type": "single",
+   "stem": "R1 learns its default route from OSPF. An engineer wants a backup default route through ISP2 at 192.0.2.1 that is used only if the OSPF default disappears. Which command achieves this?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "A floating static route must use an AD higher than the route it backs up.",
+   "concept": "Floating static route",
+   "tip": "Float ABOVE the primary's AD.",
+   "lessonId": "3-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "ip route 0.0.0.0 0.0.0.0 192.0.2.1 115",
+    "ip route 0.0.0.0 0.0.0.0 192.0.2.1",
+    "ip route 0.0.0.0 0.0.0.0 192.0.2.1 90",
+    "ip route 0.0.0.0 0.0.0.0 192.0.2.1 100"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "AD 115 is higher than OSPF's 110, so it stays inactive while the OSPF route exists.",
+   "whyWrong": [
+    "",
+    "The default static AD of 1 would replace the OSPF route immediately.",
+    "AD 90 is lower than 110, so this would become the primary route.",
+    "AD 100 is still lower than 110."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-019",
+   "domainId": "d3",
+   "objective": "3.3",
+   "topic": "static",
+   "difficulty": 2,
+   "format": "command",
+   "type": "single",
+   "stem": "R1 reaches its IPv6 next hop through link-local address FE80::2 on Gi0/1. Which IPv6 default route is valid?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "IPv6 default route = ::/0. Also ensure 'ipv6 unicast-routing' is enabled.",
+   "concept": "IPv6 static routing",
+   "tip": "",
+   "lessonId": "3-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "ipv6 route ::/0 GigabitEthernet0/1 FE80::2",
+    "ipv6 route ::/0 FE80::2",
+    "ip route ::/0 GigabitEthernet0/1 FE80::2",
+    "ipv6 route ::/128 GigabitEthernet0/1 FE80::2"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "A link-local next hop must be paired with the exit interface.",
+   "whyWrong": [
+    "",
+    "Link-local addresses are only unique per link, so IOS needs the interface.",
+    "IPv6 routes use 'ipv6 route'.",
+    "::/128 is the unspecified address, not a default route."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-020",
+   "domainId": "d3",
+   "objective": "3.3",
+   "topic": "static",
+   "difficulty": 3,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "R1 has 'ip route 10.20.0.0 255.255.0.0 10.0.0.2', and the route appears in its table. Pings from a PC on R1's LAN (192.168.1.0/24) to 10.20.5.5 fail. R2 has no routes other than its connected networks. What is the most likely cause?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Routing must work in both directions. Add a return route on R2 (or a dynamic protocol) for 192.168.1.0/24.",
+   "concept": "Return routes",
+   "tip": "Ping needs a path there AND back.",
+   "lessonId": "3-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "R2 has no route back to 192.168.1.0/24",
+    "The static route's AD is too high",
+    "The static route mask should be 255.255.255.0",
+    "Static routes do not work for ping"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Echo requests reach the destination, but replies cannot be routed back.",
+   "whyWrong": [
+    "",
+    "AD only matters when competing routes exist.",
+    "A /16 correctly covers 10.20.5.5.",
+    "ICMP is routed like any other IP packet."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-021",
+   "domainId": "d3",
+   "objective": "3.3",
+   "topic": "static",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "multi",
+   "stem": "Which statements about IPv4 static routes are true? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Static routes are predictable and create no protocol overhead, but they do not react to failures except through floating backups.",
+   "concept": "Static route behavior",
+   "tip": "",
+   "lessonId": "3-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The default administrative distance is 1",
+    "A route with a next-hop address is installed only if the next hop is reachable",
+    "Static routes automatically adapt when the topology changes",
+    "Static routes are advertised to all neighbors by default"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "Only connected routes are more trusted. IOS needs a recursive lookup to succeed.",
+   "whyWrong": [
+    "",
+    "",
+    "They must be changed manually (unless a floating route takes over).",
+    "They are only advertised if redistributed into a routing protocol."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-022",
+   "domainId": "d3",
+   "objective": "3.3.c",
+   "topic": "static",
+   "difficulty": 1,
+   "format": "command",
+   "type": "single",
+   "stem": "Which command creates a host route to 10.9.9.9 via next hop 10.0.0.2?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Host routes (/32) are useful for steering traffic for a single server or loopback.",
+   "concept": "Host route",
+   "tip": "",
+   "lessonId": "3-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "ip route 10.9.9.9 255.255.255.255 10.0.0.2",
+    "ip route 10.9.9.9 255.255.255.0 10.0.0.2",
+    "ip route 10.9.9.9 0.0.0.0 10.0.0.2",
+    "ip host 10.9.9.9 10.0.0.2"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "A /32 mask matches exactly one address.",
+   "whyWrong": [
+    "",
+    "This mask describes a /24 network.",
+    "A 0.0.0.0 mask turns the route into a default route.",
+    "'ip host' creates a local name-to-address mapping."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-023",
+   "domainId": "d3",
+   "objective": "3.3",
+   "topic": "static",
+   "difficulty": 3,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "An engineer configures 'ip route 10.50.0.0 255.255.0.0 10.0.99.9', but it does not appear in 'show ip route'. What is the most likely reason?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Check that the next hop is on a connected subnet (or reachable via another route).",
+   "concept": "Static route installation",
+   "tip": "",
+   "lessonId": "3-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The next hop 10.0.99.9 is not reachable through any existing route",
+    "Its administrative distance is too high",
+    "Static routes are hidden from 'show ip route'",
+    "Static routing must be enabled with a global command"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "IOS installs the route only when the recursive lookup succeeds.",
+   "whyWrong": [
+    "",
+    "There is no competing route, and AD defaults to 1.",
+    "Static routes appear with code S.",
+    "IPv4 static routing works by default."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-024",
+   "domainId": "d3",
+   "objective": "3.3",
+   "topic": "static",
+   "difficulty": 3,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: A static route on an Ethernet interface configured with only an exit interface (no next-hop address) makes the router ARP for each destination, relying on the neighboring router's proxy ARP.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "With no next hop, the router treats destinations as directly connected and ARPs for them. Use a next-hop or fully specified route on multi-access links.",
+   "concept": "Exit-interface static routes",
+   "tip": "",
+   "lessonId": "3-02",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The statement is true. With no next hop, the router treats destinations as directly connected and ARPs for them. Use a next-hop or fully specified route on multi-access links.",
+   "whyWrong": [
+    "",
+    "The statement is true, so this choice is incorrect."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-025",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 2,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "R1 and R2 share a subnet in area 0 but never become OSPF neighbors. Based on the output, what is the cause?",
+   "exhibit": "R1# show ip ospf interface g0/0 | include Process|Network|Timer\n  Process ID 1, Router ID 1.1.1.1, Network Type BROADCAST, Cost: 1\n  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5\n\nR2# show ip ospf interface g0/0 | include Process|Network|Timer\n  Process ID 20, Router ID 2.2.2.2, Network Type BROADCAST, Cost: 1\n  Timer intervals configured, Hello 5, Dead 20, Wait 20, Retransmit 5",
+   "diagram": null,
+   "explanation": "OSPF neighbor requirements: same area, subnet/mask, Hello/Dead timers, authentication and stub flag; unique router IDs; matching MTU to reach Full.",
+   "concept": "OSPF adjacency requirements",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The Hello and Dead timers do not match",
+    "The process IDs differ",
+    "The router IDs differ",
+    "The network types are point-to-point"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Neighbors must agree on Hello (10 vs 5) and Dead (40 vs 20) intervals.",
+   "whyWrong": [
+    "",
+    "Process IDs are locally significant and need not match.",
+    "Router IDs must be unique, so differing is required.",
+    "Both show BROADCAST."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-026",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "multi",
+   "stem": "Which parameters must match for two OSPFv2 routers to become neighbors? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Matching: area, subnet, timers, authentication, stub flag (and MTU for Full). Unique: router ID. Irrelevant: process ID.",
+   "concept": "OSPF neighbor requirements",
+   "tip": "Process ID is local; area must match.",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Area ID",
+    "Hello and Dead intervals",
+    "Process ID",
+    "Router ID",
+    "Interface priority"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "Both interfaces must be in the same area. Mismatched timers prevent the adjacency.",
+   "whyWrong": [
+    "",
+    "",
+    "Process IDs are local to each router.",
+    "Router IDs must be different.",
+    "Priority only influences the DR/BDR election."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-027",
+   "domainId": "d3",
+   "objective": "3.4.e",
+   "topic": "ospf",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "R1 has no 'router-id' command. Its interfaces are Loopback0 1.1.1.1, Loopback1 10.10.10.10, Gi0/0 192.168.100.1 (up) and Gi0/1 172.16.1.1 (up). What is R1's OSPF router ID?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Router ID order: manual 'router-id' → highest loopback IPv4 → highest active physical IPv4.",
+   "concept": "OSPF router ID",
+   "tip": "Manual → Loopback → Physical.",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "10.10.10.10",
+    "192.168.100.1",
+    "1.1.1.1",
+    "172.16.1.1"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "With no manual router ID, the highest loopback IP is preferred over physical interfaces.",
+   "whyWrong": [
+    "",
+    "Physical interfaces are used only if no loopback exists.",
+    "The highest, not the lowest, loopback address is chosen.",
+    "It is neither a loopback nor the highest address."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-028",
+   "domainId": "d3",
+   "objective": "3.4.d",
+   "topic": "ospf",
+   "difficulty": 3,
+   "format": "scenario",
+   "type": "single",
+   "stem": "Three routers on one Ethernet segment start OSPF at the same time: R1 (priority 1, RID 3.3.3.3), R2 (priority 10, RID 1.1.1.1) and R3 (priority 0, RID 9.9.9.9). Which router becomes the DR?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "DR election: highest priority, then highest router ID. Priority 0 never becomes DR or BDR.",
+   "concept": "DR/BDR election",
+   "tip": "OSPF: highest wins (opposite of STP).",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "R2",
+    "R3",
+    "R1",
+    "No DR is elected on Ethernet"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The highest interface priority wins; R2's 10 beats R1's 1.",
+   "whyWrong": [
+    "",
+    "Priority 0 makes a router ineligible, even with the highest router ID.",
+    "Router ID is only a tiebreaker when priorities are equal; R1 becomes the BDR.",
+    "Broadcast networks elect a DR and BDR."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-029",
+   "domainId": "d3",
+   "objective": "3.4.d",
+   "topic": "ospf",
+   "difficulty": 3,
+   "format": "scenario",
+   "type": "single",
+   "stem": "R2 is the current DR on a LAN. An engineer raises R1's OSPF priority to 255. What happens?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "OSPF DR/BDR election is non-preemptive to avoid instability. Plan priorities before routers come up.",
+   "concept": "Non-preemptive DR election",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "R2 remains the DR; elections are not preemptive",
+    "R1 immediately becomes the DR on the LAN",
+    "R1 immediately becomes the BDR on the LAN",
+    "All adjacencies reset automatically"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "R1 becomes DR only after a new election, such as when the DR fails or OSPF is restarted.",
+   "whyWrong": [
+    "",
+    "The DR is not replaced just because a higher priority appears.",
+    "The BDR is not preempted either.",
+    "Changing priority does not reset the neighbors."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-030",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 3,
+   "format": "routing-table",
+   "type": "single",
+   "stem": "Based on the output from the local router, which statement is true?",
+   "exhibit": "R5# show ip ospf neighbor\nNeighbor ID   Pri   State           Dead Time   Address     Interface\n2.2.2.2         1   FULL/DR         00:00:35    10.1.1.2    Gi0/0\n3.3.3.3         1   2WAY/DROTHER    00:00:33    10.1.1.3    Gi0/0\n4.4.4.4         1   FULL/BDR        00:00:38    10.1.1.4    Gi0/0",
+   "diagram": null,
+   "explanation": "On broadcast segments, all routers become FULL with the DR and BDR. DROTHER-to-DROTHER neighbors stay in 2-Way.",
+   "concept": "OSPF neighbor states",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The local router is a DROTHER; this is normal",
+    "The adjacency with 3.3.3.3 has failed",
+    "The local router is the DR",
+    "There is an MTU mismatch with 3.3.3.3"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "DROTHERs form full adjacencies only with the DR and BDR.",
+   "whyWrong": [
+    "",
+    "2WAY between two DROTHERs is the expected final state.",
+    "The DR would be FULL with every neighbor.",
+    "MTU problems leave neighbors stuck in EXSTART/EXCHANGE."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-031",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 2,
+   "format": "calculation",
+   "type": "single",
+   "stem": "With the default OSPF reference bandwidth, what costs do a 1 Gbps and a 10 Gbps interface receive?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Raise the reference bandwidth on every router (auto-cost reference-bandwidth) so fast links can be distinguished.",
+   "concept": "OSPF cost",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": true,
+   "shuffle": true,
+   "options": [
+    "1 and 1",
+    "10 and 1",
+    "4 and 2",
+    "1 and 0.1"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Cost = 100 Mbps / bandwidth, with a minimum of 1, so all links of 100 Mbps or faster cost 1.",
+   "whyWrong": [
+    "",
+    "That requires a reference bandwidth of 10 Gbps.",
+    "These are STP path costs.",
+    "OSPF cost is an integer with a minimum of 1."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-032",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 3,
+   "format": "calculation",
+   "type": "single",
+   "stem": "After 'auto-cost reference-bandwidth 10000' is configured, what is the OSPF cost of a 1 Gbps interface?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "The reference-bandwidth value is in Mbps. Configure the same value on all routers so costs stay consistent.",
+   "concept": "OSPF reference bandwidth",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": true,
+   "shuffle": true,
+   "options": [
+    "10",
+    "1",
+    "100",
+    "4"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "10000 Mbps / 1000 Mbps = 10.",
+   "whyWrong": [
+    "",
+    "1 was the cost with the default 100 Mbps reference.",
+    "That would require a 100 Gbps reference.",
+    "4 is the STP cost for 1 Gbps."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-033",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 2,
+   "format": "calculation",
+   "type": "single",
+   "stem": "R1 can reach 10.5.5.0/24 through R2 (outgoing link costs 10 then 10) or through R3 (costs 5 then 20). Which path does OSPF install?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "SPF sums the outgoing interface costs along each path and picks the lowest total.",
+   "concept": "OSPF path selection",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": true,
+   "shuffle": true,
+   "options": [
+    "Through R2, total cost 20",
+    "Through R3, because its first link is cheaper",
+    "Both, as equal-cost paths",
+    "Through R3, because it has fewer hops"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "10 + 10 = 20 is lower than 5 + 20 = 25.",
+   "whyWrong": [
+    "",
+    "OSPF compares total path cost, not the first hop.",
+    "20 and 25 are not equal.",
+    "Both paths have the same hop count; OSPF uses cost anyway."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-034",
+   "domainId": "d3",
+   "objective": "3.4.a",
+   "topic": "ospf",
+   "difficulty": 3,
+   "format": "config",
+   "type": "single",
+   "stem": "Which command enables OSPF in area 0 only on the interface addressed 172.16.10.5/30, and on no other interface in 172.16.10.0/24?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "The OSPF 'network' statement uses a wildcard mask to select interfaces. Alternatively configure 'ip ospf 1 area 0' directly on the interface.",
+   "concept": "OSPF network command",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "network 172.16.10.4 0.0.0.3 area 0",
+    "network 172.16.10.4 255.255.255.252 area 0",
+    "network 172.16.10.0 0.0.0.255 area 0",
+    "network 172.16.10.5 0.0.0.3 area 1"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The wildcard 0.0.0.3 matches only 172.16.10.4–172.16.10.7.",
+   "whyWrong": [
+    "",
+    "The network command uses a wildcard mask, not a subnet mask.",
+    "This matches every interface in 172.16.10.0/24.",
+    "The area must be 0, as required."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-035",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "LAN interface Gi0/2 must be advertised into OSPF, but no OSPF adjacency should ever form on it. Which command achieves this?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Passive interfaces are best practice on user-facing LANs to prevent rogue OSPF neighbors.",
+   "concept": "OSPF passive interface",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "passive-interface GigabitEthernet0/2",
+    "no network 10.0.2.0 0.0.0.255 area 0",
+    "ip ospf priority 0 (on Gi0/2)",
+    "shutdown (on GigabitEthernet0/2)"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The subnet is still advertised, but no Hellos are sent or processed on that interface.",
+   "whyWrong": [
+    "",
+    "Removing the network statement covering Gi0/2 would stop advertising its subnet.",
+    "This only prevents DR/BDR election; adjacencies still form.",
+    "The interface and its subnet would go down."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-036",
+   "domainId": "d3",
+   "objective": "3.4.b",
+   "topic": "ospf",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: On an interface configured with 'ip ospf network point-to-point', no DR or BDR is elected.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Point-to-point networks have only two routers, so a DR is unnecessary. Neighbors appear as FULL/ - in 'show ip ospf neighbor'.",
+   "concept": "OSPF network types",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The statement is true. Point-to-point networks have only two routers, so a DR is unnecessary. Neighbors appear as FULL/ - in 'show ip ospf neighbor'.",
+   "whyWrong": [
+    "",
+    "The statement is true, so this choice is incorrect."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-037",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "order",
+   "stem": "Arrange the OSPF neighbor states in the order a new adjacency moves through them.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Hellos move neighbors from Down to Init and 2-Way; ExStart chooses master/slave; Exchange swaps DBD summaries; Loading requests missing LSAs; Full means synchronized LSDBs.",
+   "concept": "OSPF neighbor states",
+   "tip": "Don't Invite 2 Extra Exhausted Lazy Friends.",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Down → Init → 2-Way → ExStart → Exchange → Loading → Full",
+   "whyWrong": [],
+   "left": [],
+   "right": [],
+   "items": [
+    "Down",
+    "Init",
+    "2-Way",
+    "ExStart",
+    "Exchange",
+    "Loading",
+    "Full"
+   ]
+  },
+  {
+   "id": "core-d3-038",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 2,
+   "format": "config",
+   "type": "single",
+   "stem": "R1 has a static default route to the ISP. Which OSPF command advertises this default route to the other OSPF routers?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Add 'always' to advertise the default even if the router has none in its table.",
+   "concept": "OSPF default route",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "default-information originate",
+    "redistribute static subnets",
+    "network 0.0.0.0 255.255.255.255 area 0",
+    "ip default-network 0.0.0.0"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "It injects a default route into OSPF when one exists in R1's routing table.",
+   "whyWrong": [
+    "",
+    "This redistributes specific static routes; a default route needs default-information originate.",
+    "This enables OSPF on all interfaces; it does not advertise a default route.",
+    "This is not how OSPF advertises a default route."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-039",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "single",
+   "stem": "Which statement describes how OSPF builds its routes?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Link-state: share topology (LSAs) → synchronize the LSDB → each router computes shortest paths independently.",
+   "concept": "Link-state operation",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Each router runs SPF on a shared LSDB",
+    "Routers send their full routing tables to neighbors every 30 seconds",
+    "Routers choose paths with the fewest hops",
+    "The DR calculates the routes for every router on the segment"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "OSPF is a link-state protocol.",
+   "whyWrong": [
+    "",
+    "That describes RIP.",
+    "OSPF uses cost, not hop count.",
+    "The DR reduces flooding; each router still runs SPF itself."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-040",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 2,
+   "format": "protocol-id",
+   "type": "match",
+   "stem": "Match each OSPF item to its value.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "OSPF runs directly over IP (protocol 89), uses 224.0.0.5 and 224.0.0.6, and has AD 110.",
+   "concept": "OSPF facts",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Multicast address for all OSPF routers → 224.0.0.5; Multicast address for DR/BDR → 224.0.0.6; Administrative distance → 110; IP protocol number → 89",
+   "whyWrong": [],
+   "left": [
+    "Multicast address for all OSPF routers",
+    "Multicast address for DR/BDR",
+    "Administrative distance",
+    "IP protocol number"
+   ],
+   "right": [
+    "224.0.0.5",
+    "224.0.0.6",
+    "110",
+    "89"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d3-041",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 3,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "Two OSPF neighbors stay stuck in EXSTART/EXCHANGE and never reach FULL. What is the most likely cause?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Fix by matching the MTU on both interfaces (or, as a workaround, 'ip ospf mtu-ignore').",
+   "concept": "OSPF MTU mismatch",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "An interface MTU mismatch",
+    "An area ID mismatch",
+    "A Hello timer mismatch",
+    "A passive interface on one side"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Database description packets are rejected when the MTUs differ.",
+   "whyWrong": [
+    "",
+    "Routers with mismatched areas never get past Init.",
+    "Mismatched timers prevent the neighbor from being seen at all.",
+    "A passive interface sends no Hellos, so no neighbor appears."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-042",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 1,
+   "format": "command",
+   "type": "single",
+   "stem": "Which command shows, for each OSPF interface, its area, cost, state (DR/BDR/DROTHER/P2P) and neighbor count?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Use 'show ip ospf interface brief' for interface status, 'show ip ospf neighbor' for adjacencies and 'show ip protocols' for process settings.",
+   "concept": "OSPF verification",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "show ip ospf interface brief",
+    "show ip ospf neighbor",
+    "show ip route ospf",
+    "show ip protocols"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "It summarizes OSPF-enabled interfaces with area, cost, state and neighbors.",
+   "whyWrong": [
+    "",
+    "It lists neighbors, not per-interface cost.",
+    "It shows only OSPF-learned routes.",
+    "It shows process-level settings such as router ID and passive interfaces."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-043",
+   "domainId": "d3",
+   "objective": "3.5",
+   "topic": "fhrp",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "single",
+   "stem": "What problem do first hop redundancy protocols solve?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "HSRP, VRRP and GLBP let two or more routers present one virtual IP/MAC as the hosts' default gateway.",
+   "concept": "FHRP purpose",
+   "tip": "",
+   "lessonId": "3-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "They keep the hosts' default gateway available",
+    "They prevent Layer 2 loops",
+    "They balance traffic across WAN links to the internet",
+    "They provide redundant DHCP servers"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Routers share a virtual IP that stays reachable if one router fails.",
+   "whyWrong": [
+    "",
+    "That is the job of STP.",
+    "FHRPs protect the first hop, not WAN path selection.",
+    "DHCP redundancy uses separate mechanisms."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-044",
+   "domainId": "d3",
+   "objective": "3.5",
+   "topic": "fhrp",
+   "difficulty": 2,
+   "format": "diagram",
+   "type": "single",
+   "stem": "Refer to the diagram. If R1 fails, what must the hosts change to keep reaching other networks?",
+   "exhibit": null,
+   "diagram": "fhrp",
+   "explanation": "The new active router sends gratuitous ARPs so switches update their MAC tables for the virtual MAC.",
+   "concept": "FHRP failover",
+   "tip": "",
+   "lessonId": "3-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Nothing; R2 takes over the virtual IP",
+    "Their default gateway to 10.1.1.3",
+    "Renew their DHCP leases",
+    "Clear their ARP caches"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Hosts keep the same gateway IP and ARP entry.",
+   "whyWrong": [
+    "",
+    "The virtual IP removes the need to reconfigure hosts.",
+    "DHCP is not involved in FHRP failover.",
+    "The virtual MAC stays the same, so cached entries remain valid."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-045",
+   "domainId": "d3",
+   "objective": "3.5",
+   "topic": "fhrp",
+   "difficulty": 3,
+   "format": "diagram",
+   "type": "single",
+   "stem": "Refer to the diagram. When R1 recovers after the failure, will it become the active router again?",
+   "exhibit": null,
+   "diagram": "fhrp",
+   "explanation": "HSRP preemption is off by default and must be enabled with 'standby <group> preempt'.",
+   "concept": "HSRP preemption",
+   "tip": "",
+   "lessonId": "3-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Yes, because of preempt and priority 110",
+    "No, because HSRP never preempts",
+    "No, because R2 has the higher priority",
+    "Only if R2 is reloaded"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Preemption lets the higher-priority router reclaim the active role.",
+   "whyWrong": [
+    "",
+    "HSRP supports preemption, but it must be configured.",
+    "100 is lower than 110.",
+    "Preemption does not require reloading R2."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-046",
+   "domainId": "d3",
+   "objective": "3.5",
+   "topic": "fhrp",
+   "difficulty": 2,
+   "format": "protocol-id",
+   "type": "match",
+   "stem": "Match each description to its first hop redundancy protocol.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "HSRP and GLBP are Cisco protocols; VRRP is the open standard. Only GLBP natively load-balances among gateways.",
+   "concept": "FHRP comparison",
+   "tip": "",
+   "lessonId": "3-04",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Cisco proprietary; active and standby routers → HSRP; IETF standard; master and backup routers → VRRP; Cisco proprietary; multiple routers forward at once using different virtual MACs → GLBP",
+   "whyWrong": [],
+   "left": [
+    "Cisco proprietary; active and standby routers",
+    "IETF standard; master and backup routers",
+    "Cisco proprietary; multiple routers forward at once using different virtual MACs"
+   ],
+   "right": [
+    "HSRP",
+    "VRRP",
+    "GLBP"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d3-047",
+   "domainId": "d3",
+   "objective": "3.5",
+   "topic": "fhrp",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: HSRP preemption is enabled by default.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "HSRP preemption must be configured; VRRP enables preemption by default.",
+   "concept": "HSRP defaults",
+   "tip": "",
+   "lessonId": "3-04",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    1
+   ],
+   "whyCorrect": "The statement is false. HSRP preemption must be configured; VRRP enables preemption by default.",
+   "whyWrong": [
+    "The statement is false, so this choice is incorrect.",
+    ""
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-048",
+   "domainId": "d3",
+   "objective": "3.0",
+   "topic": "routing-table",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "single",
+   "stem": "Which routing protocol is a path-vector protocol used between autonomous systems on the internet?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "IGPs (OSPF, EIGRP, RIP, IS-IS) route within an organization; BGP routes between autonomous systems.",
+   "concept": "Routing protocol types",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "BGP",
+    "OSPF",
+    "RIP",
+    "EIGRP"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "BGP exchanges reachability with AS-path information between autonomous systems.",
+   "whyWrong": [
+    "",
+    "OSPF is a link-state interior gateway protocol.",
+    "RIP is a distance-vector IGP using hop count.",
+    "EIGRP is an advanced distance-vector IGP."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-049",
+   "domainId": "d3",
+   "objective": "3.1",
+   "topic": "routing-table",
+   "difficulty": 3,
+   "format": "routing-table",
+   "type": "single",
+   "stem": "Refer to the IPv6 routing table. Which next hop does R1 use for 2001:DB8:10:5::77?",
+   "exhibit": "R1# show ipv6 route\nO   2001:DB8:10::/48 [110/20]\n     via FE80::2, GigabitEthernet0/1\nS   2001:DB8:10:5::/64 [1/0]\n     via 2001:DB8:FF::3\nC   2001:DB8:FF::/64 [0/0]\n     via GigabitEthernet0/2, directly connected\nL   2001:DB8:FF::1/128 [0/0]\n     via GigabitEthernet0/2, receive\nS   ::/0 [1/0]\n     via 2001:DB8:FF::9",
+   "diagram": null,
+   "explanation": "Longest prefix match works the same way for IPv6. The fourth hextet (5) places the address inside 2001:DB8:10:5::/64.",
+   "concept": "IPv6 longest match",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": true,
+   "shuffle": true,
+   "options": [
+    "2001:DB8:FF::3",
+    "FE80::2",
+    "2001:DB8:FF::9",
+    "The packet is delivered directly out Gi0/2"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The static /64 is the longest prefix containing the destination.",
+   "whyWrong": [
+    "",
+    "The OSPF /48 also matches, but /64 is more specific.",
+    "The default route is used only when nothing else matches.",
+    "2001:DB8:10:5::/64 is not a connected prefix."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-050",
+   "domainId": "d3",
+   "objective": "3.1",
+   "topic": "routing-table",
+   "difficulty": 3,
+   "format": "routing-table",
+   "type": "multi",
+   "stem": "Refer to the IPv6 routing table. Which destinations are forwarded to FE80::2? (Choose two.)",
+   "exhibit": "R1# show ipv6 route\nO   2001:DB8:10::/48 [110/20]\n     via FE80::2, GigabitEthernet0/1\nS   2001:DB8:10:5::/64 [1/0]\n     via 2001:DB8:FF::3\nC   2001:DB8:FF::/64 [0/0]\n     via GigabitEthernet0/2, directly connected\nL   2001:DB8:FF::1/128 [0/0]\n     via GigabitEthernet0/2, receive\nS   ::/0 [1/0]\n     via 2001:DB8:FF::9",
+   "diagram": null,
+   "explanation": "A /48 fixes the first three hextets (2001:DB8:10); any value in the fourth hextet matches unless a longer prefix exists.",
+   "concept": "IPv6 prefix matching",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": true,
+   "shuffle": true,
+   "options": [
+    "2001:DB8:10:6::1",
+    "2001:DB8:10:FFFF::1",
+    "2001:DB8:10:5::1",
+    "2001:DB8:11::1"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "Inside the /48 and not covered by the more specific static /64. Still inside 2001:DB8:10::/48 (the fourth hextet can be 0–FFFF).",
+   "whyWrong": [
+    "",
+    "",
+    "The static 2001:DB8:10:5::/64 is more specific.",
+    "The third hextet 11 is outside the /48, so the default route is used."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-051",
+   "domainId": "d3",
+   "objective": "3.1.a",
+   "topic": "routing-table",
+   "difficulty": 2,
+   "format": "routing-table",
+   "type": "single",
+   "stem": "In 'show ip route', what does the code 'O IA' indicate?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "CCNA configuration focuses on single-area OSPF, but you should still recognize O, O IA and O E2 in routing tables.",
+   "concept": "OSPF route codes",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "An OSPF inter-area route learned from another area",
+    "An OSPF route inside the router's own area",
+    "An external route redistributed into OSPF",
+    "An inactive OSPF route"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "IA routes come from summary LSAs created by an ABR.",
+   "whyWrong": [
+    "",
+    "Intra-area routes are shown with just 'O'.",
+    "External routes are shown as O E1 or O E2.",
+    "Inactive routes are not shown in the routing table."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-052",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 3,
+   "format": "config",
+   "type": "single",
+   "stem": "R1 uses 'network 10.0.12.0 0.0.0.3 area 0'. R2's connected interface 10.0.12.2/30 uses 'ip ospf 1 area 1'. Both processes are otherwise correct. Will they become neighbors?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "The two configuration methods are equivalent; what matters is that both sides place the link in the same area.",
+   "concept": "OSPF area matching",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "No, because the area IDs do not match",
+    "Yes, because the network statement and interface command are interchangeable",
+    "Yes, because process IDs match",
+    "No, because one router uses a network statement and the other uses an interface command"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Hellos carry the area ID, and mismatched areas are rejected.",
+   "whyWrong": [
+    "",
+    "They are interchangeable, but the areas still differ.",
+    "Process IDs never need to match; areas do.",
+    "Mixing methods works fine."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-053",
+   "domainId": "d3",
+   "objective": "3.4",
+   "topic": "ospf",
+   "difficulty": 2,
+   "format": "routing-table",
+   "type": "single",
+   "stem": "'show ip ospf neighbor' shows neighbor 2.2.2.2 in state 'FULL/ -' on Gi0/1. What does the dash mean?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Serial links and Ethernet links set to 'ip ospf network point-to-point' show FULL/- neighbors.",
+   "concept": "OSPF point-to-point",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The link is point-to-point, so there is no DR/BDR",
+    "The neighbor is failing",
+    "The neighbor is a DROTHER",
+    "The neighbor's priority is 0 on a broadcast network"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Point-to-point links do not elect a DR.",
+   "whyWrong": [
+    "",
+    "FULL means the adjacency is complete.",
+    "DROTHERs appear as DROTHER.",
+    "It would show FULL/DROTHER or 2WAY/DROTHER."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-054",
+   "domainId": "d3",
+   "objective": "3.3",
+   "topic": "static",
+   "difficulty": 3,
+   "format": "scenario",
+   "type": "single",
+   "stem": "R1 has 'ip route 10.70.0.0 255.255.0.0 10.0.12.2' and 'ip route 10.70.0.0 255.255.0.0 10.0.13.3'. Both next hops are reachable. What does the routing table contain?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Equal static routes provide simple load sharing. Give one a higher AD to make it a floating backup instead.",
+   "concept": "Parallel static routes",
+   "tip": "",
+   "lessonId": "3-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Both static routes, and traffic is load-shared across them",
+    "Only the first route that was configured",
+    "Only the route with the lower next-hop address",
+    "Neither route, because they conflict"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Equal prefix, AD and metric → both are installed.",
+   "whyWrong": [
+    "",
+    "IOS installs equal static routes together.",
+    "Next-hop address is not a tiebreaker.",
+    "Parallel static routes are valid."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-055",
+   "domainId": "d3",
+   "objective": "3.3",
+   "topic": "static",
+   "difficulty": 2,
+   "format": "config",
+   "type": "single",
+   "stem": "R1 has 'ipv6 route ::/0 2001:DB8:1::1' and 'ipv6 route ::/0 2001:DB8:2::1 200'. Both next hops are reachable. Which route is used?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "The floating route is installed only if the primary route disappears, for example when its next hop becomes unreachable.",
+   "concept": "IPv6 floating static route",
+   "tip": "",
+   "lessonId": "3-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The route via 2001:DB8:1::1",
+    "The route via 2001:DB8:2::1",
+    "Both, load-shared",
+    "Neither, because IPv6 does not support floating routes"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "It has the default AD of 1; the other is a floating route with AD 200.",
+   "whyWrong": [
+    "",
+    "AD 200 is less preferred.",
+    "Their ADs differ, so only one is installed.",
+    "Floating static routes work for IPv6 too."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-056",
+   "domainId": "d3",
+   "objective": "3.5",
+   "topic": "fhrp",
+   "difficulty": 3,
+   "format": "scenario",
+   "type": "single",
+   "stem": "HSRP group 10 has no preempt configured. R2 (priority 100) is active. R1 (priority 120) boots and joins the group. Which router is active?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Configure preempt on the router that should always be active, usually with a delay so routing can converge first.",
+   "concept": "HSRP preemption",
+   "tip": "",
+   "lessonId": "3-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "R2 remains active",
+    "R1 becomes active immediately",
+    "Both routers become active",
+    "Neither; an election restarts and traffic stops"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Without preemption, a higher-priority router does not take over an established active router.",
+   "whyWrong": [
+    "",
+    "That requires 'standby 10 preempt' on R1.",
+    "HSRP has exactly one active router per group.",
+    "A router joining does not interrupt the active router."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-057",
+   "domainId": "d3",
+   "objective": "3.2",
+   "topic": "routing-table",
+   "difficulty": 3,
+   "format": "routing-table",
+   "type": "single",
+   "stem": "Refer to the routing table. An engineer adds 'ip route 10.1.4.0 255.255.252.0 10.0.14.4'. What happens to traffic for 10.1.6.1?",
+   "exhibit": "R1# show ip route\nCodes: C - connected, S - static, O - OSPF, L - local, * - candidate default\n\nGateway of last resort is 203.0.113.1 to network 0.0.0.0\n\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n      10.0.0.0/8 is variably subnetted, 9 subnets, 5 masks\nC        10.0.12.0/30 is directly connected, GigabitEthernet0/1\nL        10.0.12.1/32 is directly connected, GigabitEthernet0/1\nC        10.0.13.0/30 is directly connected, GigabitEthernet0/2\nL        10.0.13.1/32 is directly connected, GigabitEthernet0/2\nC        10.0.14.0/30 is directly connected, GigabitEthernet0/3\nL        10.0.14.1/32 is directly connected, GigabitEthernet0/3\nO        10.1.0.0/16 [110/20] via 10.0.12.2, 00:10:11, GigabitEthernet0/1\nO        10.1.4.0/22 [110/30] via 10.0.13.3, 00:10:11, GigabitEthernet0/2\nS        10.1.5.0/24 [1/0] via 10.0.14.4\n      203.0.113.0/24 is variably subnetted, 2 subnets, 2 masks\nC        203.0.113.0/30 is directly connected, GigabitEthernet0/0\nL        203.0.113.2/32 is directly connected, GigabitEthernet0/0",
+   "diagram": null,
+   "explanation": "When two sources offer exactly the same prefix, only the lowest-AD route is installed. The OSPF route remains in the OSPF database as a backup.",
+   "concept": "AD with identical prefixes",
+   "tip": "",
+   "lessonId": "3-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "It goes to 10.0.14.4 (static AD 1 wins)",
+    "It still goes to 10.0.13.3, because OSPF learned the route first",
+    "It is load-shared between 10.0.13.3 and 10.0.14.4",
+    "It goes to the default route"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Same prefix, so the lower AD wins.",
+   "whyWrong": [
+    "",
+    "Learning order does not matter.",
+    "Routes with different ADs are not combined.",
+    "A /22 route still matches."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d3-058",
+   "domainId": "d3",
+   "objective": "3.4.e",
+   "topic": "ospf",
+   "difficulty": 3,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "An engineer enters 'router-id 5.5.5.5' under a running OSPF process, but 'show ip protocols' still shows the old router ID. Why?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Changing the router ID resets adjacencies, so plan it during a maintenance window.",
+   "concept": "OSPF router ID changes",
+   "tip": "",
+   "lessonId": "3-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The OSPF process must be restarted",
+    "Router IDs must match a loopback address",
+    "Manual router IDs are ignored when a loopback exists",
+    "The router ID can only be changed by removing the network statements"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "IOS warns that a reload or process clear is required.",
+   "whyWrong": [
+    "",
+    "Any unique 32-bit value is allowed.",
+    "A manual router-id always has the highest preference.",
+    "Only a process restart is required."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  }
+ ]
+}

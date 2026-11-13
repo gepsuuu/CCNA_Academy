@@ -1,0 +1,1706 @@
+{
+ "schema": 1,
+ "id": "core-d2",
+ "name": "Core: Network Access",
+ "version": 1,
+ "category": "Core CCNA 200-301",
+ "description": "45 original questions for Network Access (20% of the v1.1 blueprint).",
+ "author": "CCNA Academy",
+ "topics": [
+  {
+   "id": "vlan",
+   "title": "VLANs",
+   "domainId": "d2",
+   "lessonId": "2-01"
+  },
+  {
+   "id": "trunking",
+   "title": "Trunking and 802.1Q",
+   "domainId": "d2",
+   "lessonId": "2-02"
+  },
+  {
+   "id": "intervlan",
+   "title": "Inter-VLAN routing",
+   "domainId": "d2",
+   "lessonId": "2-03"
+  },
+  {
+   "id": "cdp-lldp",
+   "title": "CDP and LLDP",
+   "domainId": "d2",
+   "lessonId": "2-04"
+  },
+  {
+   "id": "etherchannel",
+   "title": "EtherChannel",
+   "domainId": "d2",
+   "lessonId": "2-05"
+  },
+  {
+   "id": "stp",
+   "title": "Spanning Tree",
+   "domainId": "d2",
+   "lessonId": "2-06"
+  },
+  {
+   "id": "wlan-arch",
+   "title": "Wireless architectures and AP modes",
+   "domainId": "d2",
+   "lessonId": "2-07"
+  },
+  {
+   "id": "wlc-gui",
+   "title": "WLC GUI configuration",
+   "domainId": "d2",
+   "lessonId": "2-08"
+  },
+  {
+   "id": "mgmt-access",
+   "title": "Device management access",
+   "domainId": "d2",
+   "lessonId": "2-09"
+  }
+ ],
+ "questions": [
+  {
+   "id": "core-d2-001",
+   "domainId": "d2",
+   "objective": "2.1",
+   "topic": "vlan",
+   "difficulty": 1,
+   "format": "command",
+   "type": "single",
+   "stem": "After 'switchport mode access', which command places interface Gi0/4 in VLAN 30?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Access ports carry one untagged data VLAN set with 'switchport access vlan <id>'. If the VLAN does not exist, IOS typically creates it.",
+   "concept": "Access port configuration",
+   "tip": "",
+   "lessonId": "2-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "switchport access vlan 30",
+    "switchport vlan 30",
+    "vlan 30 access",
+    "switchport trunk native vlan 30"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "This assigns the access port's data VLAN.",
+   "whyWrong": [
+    "",
+    "This is not a valid IOS interface command.",
+    "'vlan 30' is a global command that creates the VLAN; it does not assign ports.",
+    "This sets the untagged VLAN on a trunk, not an access port's VLAN."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-002",
+   "domainId": "d2",
+   "objective": "2.1",
+   "topic": "vlan",
+   "difficulty": 2,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "A PC on Gi0/11 is configured as 192.168.10.50/24 with gateway 192.168.10.1, the VLAN 10 gateway. It cannot reach anything. Based on the output, what is the cause?",
+   "exhibit": "SW1# show vlan brief\nVLAN Name        Status    Ports\n---- ----------- --------- -------------------------------\n1    default     active    Gi0/12\n10   STAFF       active    Gi0/1, Gi0/2, Gi0/3, Gi0/4, Gi0/5\n                           Gi0/6, Gi0/7, Gi0/8, Gi0/9, Gi0/10\n20   GUEST       active    Gi0/11",
+   "diagram": null,
+   "explanation": "Always confirm the port's VLAN matches the host's subnet. Fix with 'switchport access vlan 10' on Gi0/11.",
+   "concept": "VLAN assignment",
+   "tip": "",
+   "lessonId": "2-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Gi0/11 is in VLAN 20 instead of VLAN 10",
+    "Gi0/11 is configured as a trunk port",
+    "VLAN 10 does not exist",
+    "The gateway must be in VLAN 1"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The PC is addressed for VLAN 10 but connected to a VLAN 20 port, so it cannot reach its gateway.",
+   "whyWrong": [
+    "",
+    "Trunk ports do not appear in 'show vlan brief'; Gi0/11 is listed as an access port in VLAN 20.",
+    "VLAN 10 is listed as active.",
+    "Each VLAN uses its own gateway in its own subnet."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-003",
+   "domainId": "d2",
+   "objective": "2.1",
+   "topic": "vlan",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "multi",
+   "stem": "Which statements about VLAN 1 on a Cisco switch are true? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "VLAN 1 is the default and default native VLAN. Best practice is to move unused ports and the native VLAN away from VLAN 1.",
+   "concept": "Default VLAN",
+   "tip": "",
+   "lessonId": "2-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "All switch ports belong to VLAN 1 by default",
+    "VLAN 1 cannot be deleted",
+    "VLAN 1 is in the extended VLAN range",
+    "Frames in VLAN 1 are always tagged on 802.1Q trunks"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "VLAN 1 is the default VLAN for every port. IOS does not allow removing the default VLAN.",
+   "whyWrong": [
+    "",
+    "",
+    "The extended range is 1006–4094.",
+    "By default VLAN 1 is also the native VLAN, which is sent untagged."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-004",
+   "domainId": "d2",
+   "objective": "2.1.b",
+   "topic": "vlan",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "An IP phone and a PC share Gi0/8, configured with 'switchport access vlan 10' and 'switchport voice vlan 20'. How is their traffic carried on the link to the switch?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "The voice VLAN lets one access port carry two VLANs: tagged voice (learned by the phone via CDP or LLDP) and untagged data.",
+   "concept": "Voice VLAN",
+   "tip": "Data untagged, voice tagged.",
+   "lessonId": "2-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Voice tagged VLAN 20; PC untagged VLAN 10",
+    "Both untagged in VLAN 10",
+    "Both tagged with their own VLAN IDs",
+    "Voice untagged; PC tagged VLAN 10"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The phone tags voice traffic with the voice VLAN and passes the PC's untagged frames through.",
+   "whyWrong": [
+    "",
+    "Voice would then share the data VLAN, defeating the voice VLAN's purpose.",
+    "The PC sends normal untagged frames.",
+    "This reverses the roles."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-005",
+   "domainId": "d2",
+   "objective": "2.1",
+   "topic": "vlan",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: Hosts in VLAN 10 and VLAN 20 on the same switch can communicate directly without a router or Layer 3 switch.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Each VLAN is a separate broadcast domain and normally a separate subnet, so traffic between them must be routed.",
+   "concept": "VLAN separation",
+   "tip": "",
+   "lessonId": "2-01",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    1
+   ],
+   "whyCorrect": "The statement is false. Each VLAN is a separate broadcast domain and normally a separate subnet, so traffic between them must be routed.",
+   "whyWrong": [
+    "The statement is false, so this choice is incorrect.",
+    ""
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-006",
+   "domainId": "d2",
+   "objective": "2.2",
+   "topic": "trunking",
+   "difficulty": 2,
+   "format": "diagram",
+   "type": "single",
+   "stem": "Refer to the diagram. PC1 sends a broadcast frame. Which devices receive it?",
+   "exhibit": null,
+   "diagram": "vlan_trunk",
+   "explanation": "A broadcast is flooded to all ports in the same VLAN, including across trunks that allow that VLAN. Other VLANs never see it.",
+   "concept": "VLAN broadcast domains",
+   "tip": "",
+   "lessonId": "2-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "PC3 and the phone's PC",
+    "PC3 only, across the trunk",
+    "PC2, PC3 and PC4",
+    "PC2 and PC4"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Both are in VLAN 10; the broadcast crosses the trunk tagged with VLAN 10.",
+   "whyWrong": [
+    "",
+    "The PC behind the phone is also in VLAN 10 on SW1.",
+    "PC2 and PC4 are in VLAN 20, a different broadcast domain.",
+    "These are in VLAN 20 and never receive VLAN 10 broadcasts."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-007",
+   "domainId": "d2",
+   "objective": "2.2",
+   "topic": "trunking",
+   "difficulty": 2,
+   "format": "config",
+   "type": "single",
+   "stem": "SW1 and SW2 are connected by an 802.1Q trunk, and both ends are configured with 'switchport trunk native vlan 99'. How do frames belonging to VLAN 99 cross the trunk?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "On an 802.1Q trunk, all VLANs are tagged except the native VLAN. Both ends must agree on the native VLAN.",
+   "concept": "Native VLAN",
+   "tip": "",
+   "lessonId": "2-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Untagged (native VLAN)",
+    "Tagged with VLAN ID 99",
+    "They are dropped by the trunk",
+    "Tagged with VLAN ID 1"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Native VLAN frames are sent without an 802.1Q tag.",
+   "whyWrong": [
+    "",
+    "Only non-native VLANs are tagged.",
+    "The native VLAN is carried untagged, not dropped.",
+    "The tag is never rewritten to VLAN 1."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-008",
+   "domainId": "d2",
+   "objective": "2.2",
+   "topic": "trunking",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "SW1 Gi0/1 and SW2 Gi0/1 are both configured with 'switchport mode dynamic auto'. What is the link's operational mode?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "DTP: desirable actively asks, auto only answers. auto + auto = access; desirable + auto/desirable/trunk = trunk.",
+   "concept": "DTP negotiation",
+   "tip": "Somebody has to be eager.",
+   "lessonId": "2-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Access",
+    "Trunk",
+    "Err-disabled",
+    "Trunk carrying only the native VLAN"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Dynamic auto only responds to trunk requests; neither side initiates, so no trunk forms.",
+   "whyWrong": [
+    "",
+    "A trunk needs at least one side set to trunk or dynamic desirable.",
+    "DTP disagreement does not err-disable the port.",
+    "There is no such DTP outcome."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-009",
+   "domainId": "d2",
+   "objective": "2.2",
+   "topic": "trunking",
+   "difficulty": 3,
+   "format": "config",
+   "type": "single",
+   "stem": "After the configuration shown, an engineer enters 'switchport trunk allowed vlan 30' on Gi0/1. Which VLANs are allowed on the trunk?",
+   "exhibit": "interface GigabitEthernet0/1\n switchport mode trunk\n switchport trunk allowed vlan 10,20",
+   "diagram": null,
+   "explanation": "Use 'switchport trunk allowed vlan add <id>' to append, 'remove' to delete, and a bare list to replace.",
+   "concept": "Trunk allowed VLAN list",
+   "tip": "ADD or you REPLACE.",
+   "lessonId": "2-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Only VLAN 30",
+    "VLANs 10, 20 and 30",
+    "VLANs 10 and 20 only",
+    "All VLANs (1–4094)"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Without the 'add' keyword, the command replaces the existing allowed list.",
+   "whyWrong": [
+    "",
+    "That result needs 'switchport trunk allowed vlan add 30'.",
+    "The new command overwrote the list.",
+    "The allowed list is restricted, not reset to all."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-010",
+   "domainId": "d2",
+   "objective": "2.2",
+   "topic": "trunking",
+   "difficulty": 3,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "CDP reports a native VLAN mismatch: SW1 uses native VLAN 99 and SW2 uses native VLAN 1. What is the main risk?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Configure the same native VLAN on both ends (ideally an unused VLAN) to prevent VLAN leakage and spanning-tree inconsistencies.",
+   "concept": "Native VLAN mismatch",
+   "tip": "",
+   "lessonId": "2-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Traffic can leak between VLANs",
+    "The 802.1Q tag grows to 8 bytes",
+    "All VLANs stop being tagged on the trunk",
+    "Both switches automatically change their native VLAN to 1"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Each side assigns untagged frames to its own native VLAN.",
+   "whyWrong": [
+    "",
+    "Tag size is always 4 bytes.",
+    "Non-native VLANs remain tagged.",
+    "Native VLANs are never adjusted automatically."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-011",
+   "domainId": "d2",
+   "objective": "2.2",
+   "topic": "trunking",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: An 802.1Q tag adds 4 bytes to an Ethernet frame and contains a 12-bit VLAN ID.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "The tag carries TPID 0x8100 (16 bits), PCP (3 bits), DEI (1 bit) and the VLAN ID (12 bits), for 4 bytes total.",
+   "concept": "802.1Q tag",
+   "tip": "",
+   "lessonId": "2-02",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The statement is true. The tag carries TPID 0x8100 (16 bits), PCP (3 bits), DEI (1 bit) and the VLAN ID (12 bits), for 4 bytes total.",
+   "whyWrong": [
+    "",
+    "The statement is true, so this choice is incorrect."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-012",
+   "domainId": "d2",
+   "objective": "2.1.c",
+   "topic": "intervlan",
+   "difficulty": 2,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "Hosts in VLAN 10 can reach their gateway, but hosts in VLAN 20 (192.168.20.0/24) cannot. Based on the configuration, what is wrong?",
+   "exhibit": "interface GigabitEthernet0/0.10\n encapsulation dot1Q 10\n ip address 192.168.10.1 255.255.255.0\ninterface GigabitEthernet0/0.20\n encapsulation dot1Q 30\n ip address 192.168.20.1 255.255.255.0",
+   "diagram": null,
+   "explanation": "In router-on-a-stick, each subinterface's 'encapsulation dot1Q <vlan>' must match the VLAN its hosts use, and the switch port must be a trunk.",
+   "concept": "Router-on-a-stick",
+   "tip": "",
+   "lessonId": "2-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Subinterface Gi0/0.20 uses 'encapsulation dot1Q 30' instead of 20",
+    "Routers need 'ip routing' to route between subinterfaces",
+    "The subinterface number must equal the VLAN ID",
+    "VLAN 20 must be the native VLAN"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The router expects VLAN 30 tags on that subinterface, so VLAN 20 frames never reach it.",
+   "whyWrong": [
+    "",
+    "IPv4 routing is enabled by default on routers.",
+    "The number is only a label; the encapsulation VLAN is what matters.",
+    "Only one VLAN can be native, and it is not required here."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-013",
+   "domainId": "d2",
+   "objective": "2.1.c",
+   "topic": "intervlan",
+   "difficulty": 3,
+   "format": "config",
+   "type": "multi",
+   "stem": "Which conditions are required for a Layer 3 switch to route between VLAN 10 and VLAN 20 using SVIs? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "SVI routing: create VLANs, assign ports, configure 'interface vlan X' with an IP and 'no shutdown', and enable 'ip routing'.",
+   "concept": "SVI inter-VLAN routing",
+   "tip": "",
+   "lessonId": "2-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "'ip routing' is enabled globally",
+    "Each SVI's VLAN exists and has at least one active port forwarding in it",
+    "A router-on-a-stick trunk to an external router",
+    "'encapsulation dot1Q' on each SVI"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "Without it, the switch does not route between its Layer 3 interfaces. An SVI is up/up only when its VLAN exists and has an active member port.",
+   "whyWrong": [
+    "",
+    "",
+    "SVIs route internally; no external router is needed.",
+    "That command is used on router subinterfaces, not SVIs."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-014",
+   "domainId": "d2",
+   "objective": "2.1.c",
+   "topic": "intervlan",
+   "difficulty": 1,
+   "format": "config",
+   "type": "single",
+   "stem": "A router routes between VLANs using subinterfaces Gi0/0.10 (encapsulation dot1Q 10) and Gi0/0.20 (encapsulation dot1Q 20). How must the switch port connected to the router's Gi0/0 be configured?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "One physical router link carries multiple VLANs only when it is an 802.1Q trunk, with one subinterface per VLAN on the router.",
+   "concept": "Router-on-a-stick trunk",
+   "tip": "",
+   "lessonId": "2-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "As an 802.1Q trunk",
+    "As an access port in VLAN 10",
+    "As a routed port",
+    "As a LACP EtherChannel member"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The router's subinterfaces expect tagged frames for VLANs 10 and 20.",
+   "whyWrong": [
+    "",
+    "An access port would carry only VLAN 10.",
+    "A routed port carries no VLANs to the router's subinterfaces.",
+    "Link aggregation is unrelated to carrying multiple VLANs."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-015",
+   "domainId": "d2",
+   "objective": "2.3",
+   "topic": "cdp-lldp",
+   "difficulty": 1,
+   "format": "command",
+   "type": "single",
+   "stem": "Which command shows the IP address and software version of a directly connected Cisco neighbor?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "CDP neighbor details are essential for documenting topology when diagrams are missing.",
+   "concept": "CDP verification",
+   "tip": "",
+   "lessonId": "2-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "show cdp neighbors detail",
+    "show cdp neighbors",
+    "show cdp interface",
+    "show ip interface brief"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The detail view includes management addresses and the IOS version.",
+   "whyWrong": [
+    "",
+    "The summary view lists device ID, local and remote ports, capability and platform, but not IP addresses.",
+    "This shows CDP timers and status per interface.",
+    "This shows the local device's interfaces only."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-016",
+   "domainId": "d2",
+   "objective": "2.3",
+   "topic": "cdp-lldp",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "A Cisco switch connects to a non-Cisco firewall. The engineer wants to see the firewall's system name and port from the switch. What should be done?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Use LLDP in multi-vendor environments. Verify with 'show lldp neighbors [detail]'.",
+   "concept": "LLDP",
+   "tip": "",
+   "lessonId": "2-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Enable LLDP with 'lldp run'",
+    "Enable CDP with 'cdp run'",
+    "Configure the port as a trunk",
+    "Check 'show mac address-table'"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "LLDP is the vendor-neutral IEEE 802.1AB discovery protocol, often disabled by default on IOS.",
+   "whyWrong": [
+    "",
+    "CDP is Cisco proprietary and usually not supported by other vendors.",
+    "Trunking does not exchange device identity.",
+    "This shows a MAC address only, not system name or port."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-017",
+   "domainId": "d2",
+   "objective": "2.3",
+   "topic": "cdp-lldp",
+   "difficulty": 2,
+   "format": "protocol-id",
+   "type": "match",
+   "stem": "Match each item to the correct value.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "CDP sends every 60 s with a 180 s holdtime. LLDP (802.1AB) sends every 30 s with a 120 s holdtime.",
+   "concept": "Discovery protocol timers",
+   "tip": "",
+   "lessonId": "2-04",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "CDP default advertisement interval → 60 seconds; CDP default holdtime → 180 seconds; LLDP default advertisement interval → 30 seconds; LLDP standard → IEEE 802.1AB",
+   "whyWrong": [],
+   "left": [
+    "CDP default advertisement interval",
+    "CDP default holdtime",
+    "LLDP default advertisement interval",
+    "LLDP standard"
+   ],
+   "right": [
+    "60 seconds",
+    "180 seconds",
+    "30 seconds",
+    "IEEE 802.1AB"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d2-018",
+   "domainId": "d2",
+   "objective": "2.4",
+   "topic": "etherchannel",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "SW1 and SW2 connect over two links. Both switches use 'channel-group 1 mode passive' on these ports. What is the result?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Working combinations: active/active, active/passive (LACP), desirable/desirable, desirable/auto (PAgP), on/on (static).",
+   "concept": "LACP modes",
+   "tip": "",
+   "lessonId": "2-05",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "No EtherChannel forms",
+    "An LACP EtherChannel forms",
+    "A PAgP EtherChannel forms",
+    "A static EtherChannel forms"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Passive only responds to LACP; neither side starts negotiation.",
+   "whyWrong": [
+    "",
+    "LACP needs at least one side in active mode.",
+    "Passive is an LACP mode, not PAgP.",
+    "Static bundling uses mode on."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-019",
+   "domainId": "d2",
+   "objective": "2.4",
+   "topic": "etherchannel",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "multi",
+   "stem": "Which mode combinations successfully form an EtherChannel? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "At least one side must actively negotiate, and both sides must use the same protocol (or both use 'on').",
+   "concept": "EtherChannel negotiation",
+   "tip": "",
+   "lessonId": "2-05",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "active on one switch and passive on the other",
+    "desirable on one switch and auto on the other",
+    "passive on both switches",
+    "auto on both switches",
+    "on on one switch and active on the other"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "LACP active initiates and passive responds. PAgP desirable initiates and auto responds.",
+   "whyWrong": [
+    "",
+    "",
+    "Neither side initiates LACP.",
+    "Neither side initiates PAgP.",
+    "Static 'on' does not negotiate, so it cannot pair with LACP."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-020",
+   "domainId": "d2",
+   "objective": "2.4",
+   "topic": "etherchannel",
+   "difficulty": 3,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "Based on the output, what is the status of Gi0/2?",
+   "exhibit": "SW1# show etherchannel summary\nFlags:  D - down        P - bundled in port-channel\n        I - stand-alone s - suspended\n        H - Hot-standby (LACP only)\n        R - Layer3      S - Layer2\n        U - in use\n\nGroup  Port-channel  Protocol    Ports\n------+-------------+-----------+------------------\n1      Po1(SU)         LACP      Gi0/1(P)    Gi0/2(s)",
+   "diagram": null,
+   "explanation": "All EtherChannel members must match in speed, duplex, switchport mode and VLAN settings. Correct the mismatch and the port joins the bundle.",
+   "concept": "EtherChannel verification",
+   "tip": "",
+   "lessonId": "2-05",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "It is suspended due to a mismatch",
+    "It is bundled and forwarding traffic",
+    "It is a hot-standby LACP member",
+    "It is operating as a Layer 3 port"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Flag (s) means suspended; common causes are VLAN, trunk or speed/duplex mismatches.",
+   "whyWrong": [
+    "",
+    "Bundled ports show flag (P), as Gi0/1 does.",
+    "Hot-standby ports show flag (H).",
+    "Layer 3 port-channels show flag R on the port-channel, and Po1 shows S (Layer 2)."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-021",
+   "domainId": "d2",
+   "objective": "2.4",
+   "topic": "etherchannel",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: EtherChannel load balancing is per flow, so one large file transfer between two hosts normally uses only one member link.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "A hash of addresses (and optionally ports) selects a member link per flow to keep packets in order. Many flows spread across links; a single flow does not.",
+   "concept": "EtherChannel load balancing",
+   "tip": "",
+   "lessonId": "2-05",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The statement is true. A hash of addresses (and optionally ports) selects a member link per flow to keep packets in order. Many flows spread across links; a single flow does not.",
+   "whyWrong": [
+    "",
+    "The statement is true, so this choice is incorrect."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-022",
+   "domainId": "d2",
+   "objective": "2.5",
+   "topic": "stp",
+   "difficulty": 1,
+   "format": "diagram",
+   "type": "single",
+   "stem": "Refer to the diagram. Which switch is the root bridge for VLAN 10, and why?",
+   "exhibit": null,
+   "diagram": "stp_quiz",
+   "explanation": "Bridge ID = priority (+ VLAN ID system-ID extension) + MAC. SW1's 24586 is lower than 32778, so SW1 is root regardless of MAC.",
+   "concept": "Root bridge election",
+   "tip": "Lowest wins in STP.",
+   "lessonId": "2-06",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "SW1, because it has the lowest bridge priority",
+    "SW3, because it has the highest MAC address",
+    "SW2, because it is connected to both other switches",
+    "No root is elected because priorities differ"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The lowest bridge ID wins, and priority is compared before MAC address.",
+   "whyWrong": [
+    "",
+    "The lowest MAC is used only as a tiebreaker, and lowest wins.",
+    "Topology position does not determine the root.",
+    "Different priorities simply decide the election."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-023",
+   "domainId": "d2",
+   "objective": "2.5",
+   "topic": "stp",
+   "difficulty": 2,
+   "format": "diagram",
+   "type": "single",
+   "stem": "Refer to the diagram. Which port is in the alternate (discarding) role?",
+   "exhibit": null,
+   "diagram": "stp_quiz",
+   "explanation": "Root ports point toward the root; each segment gets one designated port; remaining ports discard. Ties are broken by the lowest bridge ID.",
+   "concept": "STP port roles",
+   "tip": "",
+   "lessonId": "2-06",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "SW3's port toward SW2",
+    "SW2's port toward SW3",
+    "SW1's port toward SW2",
+    "SW3's port toward SW1"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "On the SW2–SW3 segment, SW2 has the lower bridge ID and owns the designated port, leaving SW3's port as alternate.",
+   "whyWrong": [
+    "",
+    "SW2's port is designated on that segment.",
+    "All root bridge ports are designated.",
+    "That is SW3's root port (lowest cost to the root)."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-024",
+   "domainId": "d2",
+   "objective": "2.5",
+   "topic": "stp",
+   "difficulty": 3,
+   "format": "calculation",
+   "type": "single",
+   "stem": "A non-root switch can reach the root through path A (one 100 Mbps link) or path B (two 1 Gbps links). Using default short path costs, which path is used for its root port?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Default short costs: 10 Mbps = 100, 100 Mbps = 19, 1 Gbps = 4, 10 Gbps = 2. Root path cost is the sum along the path.",
+   "concept": "STP path cost",
+   "tip": "100-19-4-2.",
+   "lessonId": "2-06",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Path B, with a total cost of 8",
+    "Path A, with a total cost of 19",
+    "Both paths, because STP load-balances equal-cost paths",
+    "Path A, because it crosses fewer switches"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Each 1 Gbps link costs 4, so 4 + 4 = 8, which is lower than 19.",
+   "whyWrong": [
+    "",
+    "19 is higher than 8.",
+    "STP picks a single root port.",
+    "STP compares cost, not hop count."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-025",
+   "domainId": "d2",
+   "objective": "2.5",
+   "topic": "stp",
+   "difficulty": 2,
+   "format": "command",
+   "type": "single",
+   "stem": "Which command makes SW2 the root bridge for VLAN 20 by automatically setting a low enough priority?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Use 'root primary' / 'root secondary', or set 'spanning-tree vlan X priority N' with N as a multiple of 4096.",
+   "concept": "Root bridge configuration",
+   "tip": "",
+   "lessonId": "2-06",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "spanning-tree vlan 20 root primary",
+    "spanning-tree vlan 20 priority 30000",
+    "spanning-tree root vlan 20",
+    "spanning-tree mode root"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "This sets priority to 24576, or lower if needed, to win the election.",
+   "whyWrong": [
+    "",
+    "Priority must be a multiple of 4096, so IOS rejects 30000.",
+    "This is not valid IOS syntax.",
+    "Mode selects the STP variant (e.g., rapid-pvst), not the root."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-026",
+   "domainId": "d2",
+   "objective": "2.5",
+   "topic": "stp",
+   "difficulty": 3,
+   "format": "concept",
+   "type": "match",
+   "stem": "Match each STP protection feature to its behavior.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "PortFast speeds up host ports; BPDU Guard protects them from switches; Root Guard protects root placement; Loop Guard protects against unidirectional-link loops.",
+   "concept": "STP protection features",
+   "tip": "",
+   "lessonId": "2-06",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "PortFast → Moves an edge port immediately to forwarding; BPDU Guard → Err-disables an edge port that receives a BPDU; Root Guard → Blocks a port that receives superior BPDUs (root-inconsistent); Loop Guard → Stops a non-designated port from forwarding when BPDUs stop arriving",
+   "whyWrong": [],
+   "left": [
+    "PortFast",
+    "BPDU Guard",
+    "Root Guard",
+    "Loop Guard"
+   ],
+   "right": [
+    "Moves an edge port immediately to forwarding",
+    "Err-disables an edge port that receives a BPDU",
+    "Blocks a port that receives superior BPDUs (root-inconsistent)",
+    "Stops a non-designated port from forwarding when BPDUs stop arriving"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d2-027",
+   "domainId": "d2",
+   "objective": "2.5",
+   "topic": "stp",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: In Rapid PVST+, the port states are discarding, learning and forwarding.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "RSTP merges the legacy disabled, blocking and listening states into one discarding state.",
+   "concept": "RSTP port states",
+   "tip": "",
+   "lessonId": "2-06",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The statement is true. RSTP merges the legacy disabled, blocking and listening states into one discarding state.",
+   "whyWrong": [
+    "",
+    "The statement is true, so this choice is incorrect."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-028",
+   "domainId": "d2",
+   "objective": "2.5",
+   "topic": "stp",
+   "difficulty": 2,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "A user plugs a small managed switch into a wall port configured with PortFast and BPDU Guard. The port immediately becomes err-disabled. Why?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "BPDU Guard keeps unauthorized switches off edge ports. After removing the switch, recover with shutdown/no shutdown or errdisable recovery.",
+   "concept": "BPDU Guard",
+   "tip": "",
+   "lessonId": "2-06",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The port received a BPDU from the new switch",
+    "Port security detected a second MAC address",
+    "A duplex mismatch occurred",
+    "CDP detected an unknown device"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "BPDU Guard err-disables a PortFast port that receives any BPDU.",
+   "whyWrong": [
+    "",
+    "Port security is not mentioned and would report a security violation.",
+    "Duplex problems do not err-disable ports.",
+    "CDP does not disable ports."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-029",
+   "domainId": "d2",
+   "objective": "2.5",
+   "topic": "stp",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "order",
+   "stem": "Arrange the spanning-tree decision process in order.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "STP elects the root first, then root ports (best path to root), then designated ports per segment; everything else discards.",
+   "concept": "STP election sequence",
+   "tip": "",
+   "lessonId": "2-06",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Elect the root bridge → Select one root port on each non-root switch → Select one designated port on each segment → Place all remaining ports in the alternate/blocking role",
+   "whyWrong": [],
+   "left": [],
+   "right": [],
+   "items": [
+    "Elect the root bridge",
+    "Select one root port on each non-root switch",
+    "Select one designated port on each segment",
+    "Place all remaining ports in the alternate/blocking role"
+   ]
+  },
+  {
+   "id": "core-d2-030",
+   "domainId": "d2",
+   "objective": "2.7",
+   "topic": "wlan-arch",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "Which AP mode lets a branch AP keep switching client traffic locally if the WAN link to the central WLC fails?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "FlexConnect is designed for branches across a WAN: control traffic goes to the WLC while client data can be switched locally.",
+   "concept": "AP modes",
+   "tip": "",
+   "lessonId": "2-07",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "FlexConnect",
+    "Local",
+    "Monitor",
+    "Sniffer"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "FlexConnect APs can switch client data locally and keep serving clients without the WLC.",
+   "whyWrong": [
+    "",
+    "Local-mode APs tunnel all client traffic to the WLC and depend on it.",
+    "Monitor mode serves no clients.",
+    "Sniffer mode captures traffic for an analyzer and serves no clients."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-031",
+   "domainId": "d2",
+   "objective": "2.6",
+   "topic": "wlan-arch",
+   "difficulty": 2,
+   "format": "diagram",
+   "type": "single",
+   "stem": "Refer to the diagram. The APs operate in Local mode. Why are they connected to access ports rather than trunk ports?",
+   "exhibit": null,
+   "diagram": "wireless",
+   "explanation": "Local mode → access port (management VLAN). FlexConnect with local switching → trunk. WLC → trunk to reach many client VLANs.",
+   "concept": "AP switch port types",
+   "tip": "",
+   "lessonId": "2-07",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Client traffic is tunneled to the WLC in CAPWAP",
+    "Lightweight APs cannot negotiate trunks",
+    "CAPWAP works only in VLAN 1",
+    "Trunk ports cannot provide PoE"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The WLC places client traffic into VLANs, not the access switch.",
+   "whyWrong": [
+    "",
+    "APs in FlexConnect mode use trunks when switching multiple VLANs locally.",
+    "CAPWAP uses any routable management VLAN.",
+    "PoE works on trunk ports too."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-032",
+   "domainId": "d2",
+   "objective": "2.6",
+   "topic": "wlan-arch",
+   "difficulty": 2,
+   "format": "protocol-id",
+   "type": "multi",
+   "stem": "Which statements about CAPWAP are correct? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "CAPWAP builds tunnels between lightweight APs and the WLC: control (5246) and data (5247).",
+   "concept": "CAPWAP",
+   "tip": "",
+   "lessonId": "2-07",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Control messages use UDP port 5246",
+    "Client data uses UDP port 5247",
+    "CAPWAP runs over TCP 443",
+    "Encrypting the data channel is mandatory"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "CAPWAP control is carried on UDP 5246 and protected by DTLS. The data channel uses UDP 5247.",
+   "whyWrong": [
+    "",
+    "",
+    "CAPWAP uses UDP.",
+    "Data-channel DTLS encryption is optional; control is always encrypted."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-033",
+   "domainId": "d2",
+   "objective": "2.6",
+   "topic": "wlan-arch",
+   "difficulty": 3,
+   "format": "config",
+   "type": "single",
+   "stem": "An AireOS WLC's distribution ports are bundled with LAG to a Catalyst switch. Which switch interface configuration is required?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "AireOS WLC LAG is static, so the switch side must be 'mode on', with matching trunk settings.",
+   "concept": "WLC LAG",
+   "tip": "",
+   "lessonId": "2-07",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "channel-group 1 mode on",
+    "channel-group 1 mode active",
+    "channel-group 1 mode desirable",
+    "channel-group 1 mode passive"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "AireOS LAG does not negotiate, so the switch must use a static EtherChannel.",
+   "whyWrong": [
+    "",
+    "LACP negotiation is not supported by AireOS LAG.",
+    "PAgP is not supported by AireOS LAG.",
+    "Passive LACP waits for a peer that will never negotiate."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-034",
+   "domainId": "d2",
+   "objective": "2.7",
+   "topic": "wlan-arch",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "match",
+   "stem": "Match each AP mode to its purpose.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Choose AP mode by purpose: Local for campus, FlexConnect for branches, Monitor for RF security/location, Sniffer for troubleshooting captures.",
+   "concept": "AP modes",
+   "tip": "",
+   "lessonId": "2-07",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Local → Serves clients and tunnels all client traffic to the WLC; FlexConnect → Serves clients and can switch traffic locally at a branch; Monitor → Serves no clients; scans RF for rogues and location; Sniffer → Captures 802.11 frames and forwards them to a packet analyzer",
+   "whyWrong": [],
+   "left": [
+    "Local",
+    "FlexConnect",
+    "Monitor",
+    "Sniffer"
+   ],
+   "right": [
+    "Serves clients and tunnels all client traffic to the WLC",
+    "Serves clients and can switch traffic locally at a branch",
+    "Serves no clients; scans RF for rogues and location",
+    "Captures 802.11 frames and forwards them to a packet analyzer"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d2-035",
+   "domainId": "d2",
+   "objective": "2.9",
+   "topic": "wlc-gui",
+   "difficulty": 1,
+   "format": "scenario",
+   "type": "single",
+   "stem": "In the WLC GUI, an administrator creates a WLAN dedicated to IP phones. Which QoS profile should be selected?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "WLC QoS profiles: Platinum (voice), Gold (video), Silver (best effort), Bronze (background).",
+   "concept": "WLC QoS profiles",
+   "tip": "Precious metals rank priority.",
+   "lessonId": "2-08",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Platinum",
+    "Gold",
+    "Silver",
+    "Bronze"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Platinum is intended for voice.",
+   "whyWrong": [
+    "",
+    "Gold is intended for video.",
+    "Silver is best effort (the default).",
+    "Bronze is for background traffic."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-036",
+   "domainId": "d2",
+   "objective": "2.9",
+   "topic": "wlc-gui",
+   "difficulty": 2,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "Clients connect to the 'Corp' SSID but receive addresses from the guest subnet. Which WLAN setting is most likely misconfigured?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "On a WLC, each WLAN is mapped to an interface (VLAN). A wrong mapping puts clients in the wrong subnet.",
+   "concept": "WLAN to VLAN mapping",
+   "tip": "",
+   "lessonId": "2-08",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The WLAN's interface mapping",
+    "The QoS profile",
+    "SSID broadcast",
+    "Layer 2 security method"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "This mapping decides which VLAN (and DHCP scope) clients join.",
+   "whyWrong": [
+    "",
+    "QoS affects prioritization, not addressing.",
+    "Broadcasting the SSID does not affect which subnet clients use.",
+    "Security controls authentication and encryption, not the client VLAN."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-037",
+   "domainId": "d2",
+   "objective": "2.8",
+   "topic": "mgmt-access",
+   "difficulty": 3,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "SSH connections to SW1 fail, although its management SVI is reachable. Based on the configuration, which step is missing?",
+   "exhibit": "hostname SW1\nip domain-name lab.local\nusername admin secret Str0ngPass!\n!\nline vty 0 15\n login local\n transport input ssh",
+   "diagram": null,
+   "explanation": "SSH prerequisites: hostname, ip domain-name, RSA keys (≥768 bits for SSHv2), local user (or AAA), 'login local' and 'transport input ssh' on the VTY lines.",
+   "concept": "SSH configuration",
+   "tip": "",
+   "lessonId": "2-09",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Generating RSA keys with 'crypto key generate rsa'",
+    "Configuring 'enable secret'",
+    "Configuring 'ip ssh version 1'",
+    "Configuring 'service password-encryption'"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "SSH stays disabled until RSA keys exist; hostname and domain name are already set.",
+   "whyWrong": [
+    "",
+    "Privileged EXEC access is not required to open an SSH session.",
+    "SSHv1 is obsolete and is not required.",
+    "This only obscures clear-text passwords in the config."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-038",
+   "domainId": "d2",
+   "objective": "2.8",
+   "topic": "mgmt-access",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "An engineer must copy an IOS image to a router across a network where credentials must not be sent in clear text. Which protocol is most appropriate?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "For secure file transfer to network devices, use SCP or SFTP. TFTP and FTP are acceptable only on trusted management networks.",
+   "concept": "Secure file transfer",
+   "tip": "",
+   "lessonId": "2-09",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "SCP",
+    "TFTP",
+    "FTP",
+    "Telnet"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "SCP runs over SSH, so both authentication and data transfer are encrypted.",
+   "whyWrong": [
+    "",
+    "TFTP has no authentication or encryption.",
+    "FTP authenticates, but credentials and data are sent in clear text.",
+    "Telnet is a remote CLI protocol, not file transfer, and is unencrypted."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-039",
+   "domainId": "d2",
+   "objective": "2.8",
+   "topic": "mgmt-access",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: Console access to a router works even if the router has no IP address configured.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "The console is an out-of-band serial connection that does not depend on IP, which is why it is used for initial setup and recovery.",
+   "concept": "Console access",
+   "tip": "",
+   "lessonId": "2-09",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The statement is true. The console is an out-of-band serial connection that does not depend on IP, which is why it is used for initial setup and recovery.",
+   "whyWrong": [
+    "",
+    "The statement is true, so this choice is incorrect."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-040",
+   "domainId": "d2",
+   "objective": "2.1",
+   "topic": "vlan",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "single",
+   "stem": "Which VLAN ID belongs to the extended VLAN range?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Normal range: 1–1005 (1002–1005 reserved). Extended range: 1006–4094. VLAN IDs are 12 bits.",
+   "concept": "VLAN ranges",
+   "tip": "",
+   "lessonId": "2-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "2000",
+    "1000",
+    "1",
+    "1005"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The extended range is 1006–4094.",
+   "whyWrong": [
+    "",
+    "1000 is in the normal range (1–1005).",
+    "VLAN 1 is the default VLAN in the normal range.",
+    "1002–1005 are reserved normal-range VLANs."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-041",
+   "domainId": "d2",
+   "objective": "2.2",
+   "topic": "trunking",
+   "difficulty": 1,
+   "format": "command",
+   "type": "single",
+   "stem": "Which command displays the native VLAN and the allowed VLANs of every trunk port?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "'show interfaces trunk' is the first command to run when a VLAN does not cross a trunk.",
+   "concept": "Trunk verification",
+   "tip": "",
+   "lessonId": "2-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "show interfaces trunk",
+    "show vlan brief",
+    "show spanning-tree",
+    "show cdp neighbors"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "It lists mode, encapsulation, native VLAN, allowed, active and forwarding VLANs per trunk.",
+   "whyWrong": [
+    "",
+    "It lists access ports per VLAN and omits trunks.",
+    "It shows STP roles and states, not trunk allowed lists.",
+    "It shows neighbors, not trunk configuration."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-042",
+   "domainId": "d2",
+   "objective": "2.8",
+   "topic": "mgmt-access",
+   "difficulty": 2,
+   "format": "config",
+   "type": "single",
+   "stem": "Which VTY line configuration allows only SSH logins authenticated against local usernames?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Combine local (or AAA) authentication with SSH-only transport, plus exec-timeout and an ACL with access-class for further hardening.",
+   "concept": "Secure VTY lines",
+   "tip": "",
+   "lessonId": "2-09",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "login local and transport input ssh",
+    "password cisco, login, transport input all",
+    "login local and transport input telnet ssh",
+    "no login and transport input ssh"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "'login local' uses the local user database and 'transport input ssh' rejects Telnet.",
+   "whyWrong": [
+    "",
+    "This uses a shared line password and allows Telnet.",
+    "Telnet is still permitted.",
+    "'no login' disables authentication entirely."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-043",
+   "domainId": "d2",
+   "objective": "2.5",
+   "topic": "stp",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "In VLAN 1, SW1 has bridge priority 32769 and MAC 0011.1111.1111; SW2 has bridge priority 32769 and MAC 0011.1111.0001. Which switch is the root bridge?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "32769 = 32768 default priority + VLAN 1 (system ID extension). Compare priority first, then MAC.",
+   "concept": "Bridge ID tiebreaker",
+   "tip": "",
+   "lessonId": "2-06",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "SW2, because the priorities tie and its MAC address is lower",
+    "SW1, because its MAC address is higher",
+    "Neither, because the priorities are identical",
+    "Both switches share the root bridge role"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The MAC address breaks the tie, and lower wins.",
+   "whyWrong": [
+    "",
+    "STP prefers the lowest bridge ID.",
+    "A tie in priority is always resolved by the MAC address.",
+    "Each STP instance has exactly one root bridge."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-044",
+   "domainId": "d2",
+   "objective": "2.4",
+   "topic": "etherchannel",
+   "difficulty": 3,
+   "format": "config",
+   "type": "multi",
+   "stem": "Which items are required to build a Layer 3 EtherChannel between two multilayer switches? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Layer 3 EtherChannel members appear with flag R (Layer 3) in show etherchannel summary.",
+   "concept": "Layer 3 EtherChannel",
+   "tip": "",
+   "lessonId": "2-05",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "'no switchport' on the member interfaces and the port-channel interface",
+    "The IP address configured on the port-channel interface",
+    "An IP address on each member interface",
+    "'switchport mode trunk' on the port-channel"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "Layer 3 port-channels use routed ports. The logical interface carries the address, not the members.",
+   "whyWrong": [
+    "",
+    "",
+    "Members carry no individual addresses.",
+    "Trunking is a Layer 2 concept."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d2-045",
+   "domainId": "d2",
+   "objective": "2.2",
+   "topic": "trunking",
+   "difficulty": 3,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "'show interfaces trunk' lists VLAN 30 under 'Vlans allowed on trunk' but not under 'Vlans allowed and active in management domain'. What is the most likely cause?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Create the VLAN ('vlan 30') or make sure VTP is propagating it. The trunk output lists allowed, active and forwarding VLANs separately.",
+   "concept": "Trunk VLAN lists",
+   "tip": "",
+   "lessonId": "2-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "VLAN 30 has not been created on this switch",
+    "VLAN 30 is the native VLAN",
+    "Spanning tree is blocking VLAN 30",
+    "The trunk uses ISL encapsulation"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "A VLAN must exist in the local VLAN database to be active on the trunk.",
+   "whyWrong": [
+    "",
+    "The native VLAN would still be active.",
+    "STP blocking is shown in the 'forwarding state and not pruned' list.",
+    "Encapsulation does not remove VLANs from the active list."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  }
+ ]
+}

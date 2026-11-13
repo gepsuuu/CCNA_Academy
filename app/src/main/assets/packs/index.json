@@ -1,0 +1,10 @@
+{
+ "packs": [
+  "core-d1.json",
+  "core-d2.json",
+  "core-d3.json",
+  "core-d4.json",
+  "core-d5.json",
+  "core-d6.json"
+ ]
+}

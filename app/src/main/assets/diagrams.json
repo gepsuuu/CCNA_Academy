@@ -1,0 +1,6027 @@
+{
+ "diagrams": [
+  {
+   "id": "osi_tcpip",
+   "title": "OSI vs TCP/IP model",
+   "width": 1000,
+   "height": 600,
+   "nodes": [
+    {
+     "id": "o0",
+     "x": 30,
+     "y": 70,
+     "w": 300,
+     "h": 64,
+     "label": "7 Application",
+     "sub": "",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "p0",
+     "x": 360,
+     "y": 70,
+     "w": 260,
+     "h": 64,
+     "label": "Data",
+     "sub": "",
+     "kind": "neutral",
+     "shape": "pill"
+    },
+    {
+     "id": "o1",
+     "x": 30,
+     "y": 144,
+     "w": 300,
+     "h": 64,
+     "label": "6 Presentation",
+     "sub": "",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "p1",
+     "x": 360,
+     "y": 144,
+     "w": 260,
+     "h": 64,
+     "label": "Data",
+     "sub": "",
+     "kind": "neutral",
+     "shape": "pill"
+    },
+    {
+     "id": "o2",
+     "x": 30,
+     "y": 218,
+     "w": 300,
+     "h": 64,
+     "label": "5 Session",
+     "sub": "",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "p2",
+     "x": 360,
+     "y": 218,
+     "w": 260,
+     "h": 64,
+     "label": "Data",
+     "sub": "",
+     "kind": "neutral",
+     "shape": "pill"
+    },
+    {
+     "id": "o3",
+     "x": 30,
+     "y": 292,
+     "w": 300,
+     "h": 64,
+     "label": "4 Transport",
+     "sub": "",
+     "kind": "transport",
+     "shape": "round"
+    },
+    {
+     "id": "p3",
+     "x": 360,
+     "y": 292,
+     "w": 260,
+     "h": 64,
+     "label": "Segment / Datagram",
+     "sub": "",
+     "kind": "neutral",
+     "shape": "pill"
+    },
+    {
+     "id": "o4",
+     "x": 30,
+     "y": 366,
+     "w": 300,
+     "h": 64,
+     "label": "3 Network",
+     "sub": "",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "p4",
+     "x": 360,
+     "y": 366,
+     "w": 260,
+     "h": 64,
+     "label": "Packet",
+     "sub": "",
+     "kind": "neutral",
+     "shape": "pill"
+    },
+    {
+     "id": "o5",
+     "x": 30,
+     "y": 440,
+     "w": 300,
+     "h": 64,
+     "label": "2 Data Link",
+     "sub": "",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "p5",
+     "x": 360,
+     "y": 440,
+     "w": 260,
+     "h": 64,
+     "label": "Frame",
+     "sub": "",
+     "kind": "neutral",
+     "shape": "pill"
+    },
+    {
+     "id": "o6",
+     "x": 30,
+     "y": 514,
+     "w": 300,
+     "h": 64,
+     "label": "1 Physical",
+     "sub": "",
+     "kind": "physical",
+     "shape": "round"
+    },
+    {
+     "id": "p6",
+     "x": 360,
+     "y": 514,
+     "w": 260,
+     "h": 64,
+     "label": "Bits",
+     "sub": "",
+     "kind": "neutral",
+     "shape": "pill"
+    },
+    {
+     "id": "t1",
+     "x": 650,
+     "y": 70,
+     "w": 320,
+     "h": 212,
+     "label": "Application",
+     "sub": "HTTP, DNS, DHCP, SSH, SNMP",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "t2",
+     "x": 650,
+     "y": 292,
+     "w": 320,
+     "h": 64,
+     "label": "Transport",
+     "sub": "TCP, UDP",
+     "kind": "transport",
+     "shape": "round"
+    },
+    {
+     "id": "t3",
+     "x": 650,
+     "y": 366,
+     "w": 320,
+     "h": 64,
+     "label": "Internet",
+     "sub": "IPv4, IPv6, ICMP",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "t4",
+     "x": 650,
+     "y": 440,
+     "w": 320,
+     "h": 138,
+     "label": "Network Access (Link)",
+     "sub": "Ethernet, 802.11, ARP*",
+     "kind": "datalink",
+     "shape": "round"
+    }
+   ],
+   "edges": [],
+   "texts": [
+    {
+     "x": 180,
+     "y": 35,
+     "text": "OSI model",
+     "size": 26,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 490,
+     "y": 35,
+     "text": "PDU name",
+     "size": 26,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 810,
+     "y": 35,
+     "text": "TCP/IP model",
+     "size": 26,
+     "bold": true,
+     "kind": "text"
+    }
+   ],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Upper layers (application data)"
+    },
+    {
+     "kind": "transport",
+     "label": "Transport (ports)"
+    },
+    {
+     "kind": "network",
+     "label": "Network (IP addressing)"
+    },
+    {
+     "kind": "datalink",
+     "label": "Data link (MAC/frames)"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical (signals)"
+    }
+   ],
+   "explanation": "Left: the 7 OSI layers. Middle: the PDU name at each layer. Right: the 4-layer TCP/IP model aligned to the OSI layers it covers. *ARP is often described as working between Layers 2 and 3."
+  },
+  {
+   "id": "encapsulation",
+   "title": "Encapsulation down the stack",
+   "width": 1270,
+   "height": 540,
+   "nodes": [
+    {
+     "id": "e00",
+     "x": 690,
+     "y": 40,
+     "w": 554,
+     "h": 70,
+     "label": "Application data",
+     "sub": "",
+     "kind": "app",
+     "shape": "rect"
+    },
+    {
+     "id": "e10",
+     "x": 550,
+     "y": 140,
+     "w": 134,
+     "h": 70,
+     "label": "TCP hdr",
+     "sub": "",
+     "kind": "transport",
+     "shape": "rect"
+    },
+    {
+     "id": "e11",
+     "x": 690,
+     "y": 140,
+     "w": 554,
+     "h": 70,
+     "label": "Application data",
+     "sub": "",
+     "kind": "app",
+     "shape": "rect"
+    },
+    {
+     "id": "e20",
+     "x": 430,
+     "y": 240,
+     "w": 114,
+     "h": 70,
+     "label": "IP hdr",
+     "sub": "",
+     "kind": "network",
+     "shape": "rect"
+    },
+    {
+     "id": "e21",
+     "x": 550,
+     "y": 240,
+     "w": 134,
+     "h": 70,
+     "label": "TCP hdr",
+     "sub": "",
+     "kind": "transport",
+     "shape": "rect"
+    },
+    {
+     "id": "e22",
+     "x": 690,
+     "y": 240,
+     "w": 554,
+     "h": 70,
+     "label": "Application data",
+     "sub": "",
+     "kind": "app",
+     "shape": "rect"
+    },
+    {
+     "id": "e30",
+     "x": 240,
+     "y": 340,
+     "w": 114,
+     "h": 70,
+     "label": "Eth hdr",
+     "sub": "",
+     "kind": "datalink",
+     "shape": "rect"
+    },
+    {
+     "id": "e31",
+     "x": 360,
+     "y": 340,
+     "w": 114,
+     "h": 70,
+     "label": "IP hdr",
+     "sub": "",
+     "kind": "network",
+     "shape": "rect"
+    },
+    {
+     "id": "e32",
+     "x": 480,
+     "y": 340,
+     "w": 134,
+     "h": 70,
+     "label": "TCP hdr",
+     "sub": "",
+     "kind": "transport",
+     "shape": "rect"
+    },
+    {
+     "id": "e33",
+     "x": 620,
+     "y": 340,
+     "w": 554,
+     "h": 70,
+     "label": "Application data",
+     "sub": "",
+     "kind": "app",
+     "shape": "rect"
+    },
+    {
+     "id": "e34",
+     "x": 1180,
+     "y": 340,
+     "w": 64,
+     "h": 70,
+     "label": "FCS",
+     "sub": "",
+     "kind": "datalink",
+     "shape": "rect"
+    },
+    {
+     "id": "e40",
+     "x": 240,
+     "y": 440,
+     "w": 1004,
+     "h": 70,
+     "label": "1 0 1 1 0 0 1 0 1 1 0 1 0 0 1 1 ...",
+     "sub": "",
+     "kind": "physical",
+     "shape": "rect"
+    }
+   ],
+   "edges": [],
+   "texts": [
+    {
+     "x": 110,
+     "y": 75,
+     "text": "Data (L7)",
+     "size": 22,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 110,
+     "y": 175,
+     "text": "Segment (L4)",
+     "size": 22,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 110,
+     "y": 275,
+     "text": "Packet (L3)",
+     "size": 22,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 110,
+     "y": 375,
+     "text": "Frame (L2)",
+     "size": 22,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 110,
+     "y": 475,
+     "text": "Bits (L1)",
+     "size": 22,
+     "bold": true,
+     "kind": "text"
+    }
+   ],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application data"
+    },
+    {
+     "kind": "transport",
+     "label": "TCP/UDP header"
+    },
+    {
+     "kind": "network",
+     "label": "IP header"
+    },
+    {
+     "kind": "datalink",
+     "label": "Ethernet header / FCS trailer"
+    },
+    {
+     "kind": "physical",
+     "label": "Signals on the medium"
+    }
+   ],
+   "explanation": "Each layer wraps the data from the layer above with its own header. Ethernet also adds a trailer (FCS). The receiver removes them in reverse order (de-encapsulation)."
+  },
+  {
+   "id": "ethernet_frame",
+   "title": "Ethernet II frame",
+   "width": 1000,
+   "height": 360,
+   "nodes": [
+    {
+     "id": "f0",
+     "x": 20,
+     "y": 110,
+     "w": 116,
+     "h": 110,
+     "label": "Preamble",
+     "sub": "7 B",
+     "kind": "physical",
+     "shape": "rect"
+    },
+    {
+     "id": "f1",
+     "x": 140,
+     "y": 110,
+     "w": 66,
+     "h": 110,
+     "label": "SFD",
+     "sub": "1 B",
+     "kind": "physical",
+     "shape": "rect"
+    },
+    {
+     "id": "f2",
+     "x": 210,
+     "y": 110,
+     "w": 166,
+     "h": 110,
+     "label": "Destination MAC",
+     "sub": "6 B",
+     "kind": "datalink",
+     "shape": "rect"
+    },
+    {
+     "id": "f3",
+     "x": 380,
+     "y": 110,
+     "w": 166,
+     "h": 110,
+     "label": "Source MAC",
+     "sub": "6 B",
+     "kind": "datalink",
+     "shape": "rect"
+    },
+    {
+     "id": "f4",
+     "x": 550,
+     "y": 110,
+     "w": 86,
+     "h": 110,
+     "label": "Type",
+     "sub": "2 B",
+     "kind": "network",
+     "shape": "rect"
+    },
+    {
+     "id": "f5",
+     "x": 640,
+     "y": 110,
+     "w": 246,
+     "h": 110,
+     "label": "Data (payload)",
+     "sub": "46-1500 B",
+     "kind": "app",
+     "shape": "rect"
+    },
+    {
+     "id": "f6",
+     "x": 890,
+     "y": 110,
+     "w": 86,
+     "h": 110,
+     "label": "FCS",
+     "sub": "4 B",
+     "kind": "security",
+     "shape": "rect"
+    }
+   ],
+   "edges": [],
+   "texts": [
+    {
+     "x": 115,
+     "y": 80,
+     "text": "L1 sync (not in frame size)",
+     "size": 16,
+     "bold": false,
+     "kind": "text"
+    },
+    {
+     "x": 560,
+     "y": 80,
+     "text": "Frame: 64 - 1518 bytes (untagged)",
+     "size": 20,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 500,
+     "y": 280,
+     "text": "Type examples: 0x0800 IPv4, 0x86DD IPv6, 0x0806 ARP. 802.1Q tag (4 B) goes between Source MAC and Type.",
+     "size": 18,
+     "bold": false,
+     "kind": "text"
+    }
+   ],
+   "legend": [
+    {
+     "kind": "physical",
+     "label": "Preamble/SFD"
+    },
+    {
+     "kind": "datalink",
+     "label": "Addressing"
+    },
+    {
+     "kind": "network",
+     "label": "Type (EtherType)"
+    },
+    {
+     "kind": "app",
+     "label": "Payload"
+    },
+    {
+     "kind": "security",
+     "label": "Error detection"
+    }
+   ],
+   "explanation": "Switches read the destination MAC to forward and the source MAC to learn. The FCS lets the receiver discard corrupted frames (counted as CRC errors)."
+  },
+  {
+   "id": "tcp_handshake",
+   "title": "TCP three-way handshake",
+   "width": 1000,
+   "height": 520,
+   "nodes": [
+    {
+     "id": "c",
+     "x": 40,
+     "y": 30,
+     "w": 220,
+     "h": 70,
+     "label": "Client",
+     "sub": "10.1.1.10:51515",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "s",
+     "x": 740,
+     "y": 30,
+     "w": 220,
+     "h": 70,
+     "label": "Server",
+     "sub": "203.0.113.5:443",
+     "kind": "server",
+     "shape": "round"
+    },
+    {
+     "id": "m1",
+     "x": 300,
+     "y": 140,
+     "w": 400,
+     "h": 60,
+     "label": "SYN  (seq = x)  →",
+     "sub": "",
+     "kind": "transport",
+     "shape": "pill"
+    },
+    {
+     "id": "m2",
+     "x": 300,
+     "y": 230,
+     "w": 400,
+     "h": 60,
+     "label": "←  SYN-ACK  (seq = y, ack = x+1)",
+     "sub": "",
+     "kind": "transport",
+     "shape": "pill"
+    },
+    {
+     "id": "m3",
+     "x": 300,
+     "y": 320,
+     "w": 400,
+     "h": 60,
+     "label": "ACK  (ack = y+1)  →",
+     "sub": "",
+     "kind": "transport",
+     "shape": "pill"
+    },
+    {
+     "id": "m4",
+     "x": 300,
+     "y": 420,
+     "w": 400,
+     "h": 60,
+     "label": "Connection established: data flows",
+     "sub": "",
+     "kind": "ok",
+     "shape": "pill"
+    }
+   ],
+   "edges": [
+    {
+     "src": "c",
+     "dst": "m1",
+     "label": "",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "neutral"
+    },
+    {
+     "src": "m1",
+     "dst": "s",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "s",
+     "dst": "m2",
+     "label": "",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "neutral"
+    },
+    {
+     "src": "m2",
+     "dst": "c",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "c",
+     "dst": "m3",
+     "label": "",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "neutral"
+    },
+    {
+     "src": "m3",
+     "dst": "s",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "transport",
+     "label": "TCP control segments"
+    },
+    {
+     "kind": "ok",
+     "label": "Established session"
+    }
+   ],
+   "explanation": "The client initiates with SYN, the server answers with SYN-ACK, the client completes with ACK. Sequence and acknowledgment numbers then track every byte for reliable delivery."
+  },
+  {
+   "id": "ipv4_structure",
+   "title": "IPv4 address structure (/24 example)",
+   "width": 1000,
+   "height": 470,
+   "nodes": [
+    {
+     "id": "a1",
+     "x": 40,
+     "y": 70,
+     "w": 220,
+     "h": 70,
+     "label": "192",
+     "sub": "11000000",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "a2",
+     "x": 270,
+     "y": 70,
+     "w": 220,
+     "h": 70,
+     "label": "168",
+     "sub": "10101000",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "a3",
+     "x": 500,
+     "y": 70,
+     "w": 220,
+     "h": 70,
+     "label": "10",
+     "sub": "00001010",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "a4",
+     "x": 730,
+     "y": 70,
+     "w": 220,
+     "h": 70,
+     "label": "25",
+     "sub": "00011001",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "m1",
+     "x": 40,
+     "y": 200,
+     "w": 220,
+     "h": 70,
+     "label": "255",
+     "sub": "11111111",
+     "kind": "mask",
+     "shape": "round"
+    },
+    {
+     "id": "m2",
+     "x": 270,
+     "y": 200,
+     "w": 220,
+     "h": 70,
+     "label": "255",
+     "sub": "11111111",
+     "kind": "mask",
+     "shape": "round"
+    },
+    {
+     "id": "m3",
+     "x": 500,
+     "y": 200,
+     "w": 220,
+     "h": 70,
+     "label": "255",
+     "sub": "11111111",
+     "kind": "mask",
+     "shape": "round"
+    },
+    {
+     "id": "m4",
+     "x": 730,
+     "y": 200,
+     "w": 220,
+     "h": 70,
+     "label": "0",
+     "sub": "00000000",
+     "kind": "neutral",
+     "shape": "round"
+    },
+    {
+     "id": "net",
+     "x": 40,
+     "y": 330,
+     "w": 680,
+     "h": 60,
+     "label": "Network portion: 24 bits → 192.168.10.0",
+     "sub": "",
+     "kind": "network",
+     "shape": "pill"
+    },
+    {
+     "id": "hst",
+     "x": 730,
+     "y": 330,
+     "w": 220,
+     "h": 60,
+     "label": "Host: 8 bits",
+     "sub": "",
+     "kind": "host",
+     "shape": "pill"
+    }
+   ],
+   "edges": [],
+   "texts": [
+    {
+     "x": 500,
+     "y": 40,
+     "text": "IP address 192.168.10.25",
+     "size": 22,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 500,
+     "y": 175,
+     "text": "Subnet mask 255.255.255.0 (/24)",
+     "size": 22,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 500,
+     "y": 430,
+     "text": "Network 192.168.10.0  •  Broadcast 192.168.10.255  •  Usable .1 - .254 (2^8 - 2 = 254 hosts)",
+     "size": 19,
+     "bold": false,
+     "kind": "text"
+    }
+   ],
+   "legend": [
+    {
+     "kind": "network",
+     "label": "Network bits"
+    },
+    {
+     "kind": "host",
+     "label": "Host bits"
+    },
+    {
+     "kind": "mask",
+     "label": "Mask 1-bits (network)"
+    }
+   ],
+   "explanation": "Each octet is 8 bits. Mask bits set to 1 mark the network portion; 0 bits mark the host portion. All-zero host bits = network address, all-one host bits = broadcast."
+  },
+  {
+   "id": "subnetting",
+   "title": "Subnetting 192.168.1.0/24 into /26",
+   "width": 1000,
+   "height": 430,
+   "nodes": [
+    {
+     "id": "big",
+     "x": 40,
+     "y": 40,
+     "w": 920,
+     "h": 70,
+     "label": "192.168.1.0/24 — 254 usable hosts",
+     "sub": "Borrow 2 host bits → 4 subnets of 64 addresses (block size 256 - 192 = 64)",
+     "kind": "neutral",
+     "shape": "round"
+    },
+    {
+     "id": "s0",
+     "x": 40,
+     "y": 200,
+     "w": 220,
+     "h": 140,
+     "label": "192.168.1.0/26",
+     "sub": "hosts .1 - .62\nbc .63",
+     "kind": "vlan10",
+     "shape": "round"
+    },
+    {
+     "id": "s1",
+     "x": 272,
+     "y": 200,
+     "w": 220,
+     "h": 140,
+     "label": "192.168.1.64/26",
+     "sub": "hosts .65 - .126\nbc .127",
+     "kind": "vlan20",
+     "shape": "round"
+    },
+    {
+     "id": "s2",
+     "x": 504,
+     "y": 200,
+     "w": 220,
+     "h": 140,
+     "label": "192.168.1.128/26",
+     "sub": "hosts .129 - .190\nbc .191",
+     "kind": "vlan30",
+     "shape": "round"
+    },
+    {
+     "id": "s3",
+     "x": 736,
+     "y": 200,
+     "w": 220,
+     "h": 140,
+     "label": "192.168.1.192/26",
+     "sub": "hosts .193 - .254\nbc .255",
+     "kind": "vlan99",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "big",
+     "dst": "s0",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "big",
+     "dst": "s1",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "big",
+     "dst": "s2",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "big",
+     "dst": "s3",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [
+    {
+     "x": 500,
+     "y": 390,
+     "text": "Mask 255.255.255.192 • 62 usable hosts per subnet (2^6 - 2)",
+     "size": 20,
+     "bold": true,
+     "kind": "text"
+    }
+   ],
+   "legend": [
+    {
+     "kind": "vlan10",
+     "label": "Subnet 1"
+    },
+    {
+     "kind": "vlan20",
+     "label": "Subnet 2"
+    },
+    {
+     "kind": "vlan30",
+     "label": "Subnet 3"
+    },
+    {
+     "kind": "vlan99",
+     "label": "Subnet 4"
+    }
+   ],
+   "explanation": "Subnets start at multiples of the block size (0, 64, 128, 192). Network = first address, broadcast = next subnet - 1, usable hosts lie in between."
+  },
+  {
+   "id": "ipv6_structure",
+   "title": "IPv6 global unicast address (/64 LAN)",
+   "width": 1000,
+   "height": 470,
+   "nodes": [
+    {
+     "id": "g",
+     "x": 40,
+     "y": 90,
+     "w": 420,
+     "h": 90,
+     "label": "Global routing prefix",
+     "sub": "48 bits (assigned by ISP/RIR)",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "sid",
+     "x": 470,
+     "y": 90,
+     "w": 140,
+     "h": 90,
+     "label": "Subnet ID",
+     "sub": "16 bits",
+     "kind": "vlan20",
+     "shape": "round"
+    },
+    {
+     "id": "iid",
+     "x": 620,
+     "y": 90,
+     "w": 340,
+     "h": 90,
+     "label": "Interface ID",
+     "sub": "64 bits (manual, EUI-64, random)",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "ex",
+     "x": 40,
+     "y": 220,
+     "w": 920,
+     "h": 60,
+     "label": "2001:0DB8:ACAD : 0001 : 0000:0000:0000:0001  →  2001:DB8:ACAD:1::1/64",
+     "sub": "",
+     "kind": "neutral",
+     "shape": "pill"
+    },
+    {
+     "id": "t1",
+     "x": 40,
+     "y": 320,
+     "w": 220,
+     "h": 70,
+     "label": "GUA 2000::/3",
+     "sub": "",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "t2",
+     "x": 270,
+     "y": 320,
+     "w": 220,
+     "h": 70,
+     "label": "ULA FC00::/7",
+     "sub": "",
+     "kind": "vlan30",
+     "shape": "round"
+    },
+    {
+     "id": "t3",
+     "x": 500,
+     "y": 320,
+     "w": 220,
+     "h": 70,
+     "label": "Link-local FE80::/10",
+     "sub": "",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "t4",
+     "x": 730,
+     "y": 320,
+     "w": 230,
+     "h": 70,
+     "label": "Multicast FF00::/8",
+     "sub": "",
+     "kind": "app",
+     "shape": "round"
+    }
+   ],
+   "edges": [],
+   "texts": [
+    {
+     "x": 500,
+     "y": 50,
+     "text": "128 bits = 8 hextets of 16 bits",
+     "size": 22,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 500,
+     "y": 430,
+     "text": "Rules: drop leading zeros; replace one run of all-zero hextets with ::",
+     "size": 19,
+     "bold": false,
+     "kind": "text"
+    }
+   ],
+   "legend": [
+    {
+     "kind": "network",
+     "label": "Prefix (network)"
+    },
+    {
+     "kind": "vlan20",
+     "label": "Subnet ID"
+    },
+    {
+     "kind": "host",
+     "label": "Interface ID"
+    }
+   ],
+   "explanation": "A typical LAN uses /64: 48-bit global routing prefix + 16-bit subnet ID + 64-bit interface ID. The bottom row shows the main address types by prefix."
+  },
+  {
+   "id": "wireless",
+   "title": "Controller-based wireless (split-MAC)",
+   "width": 1000,
+   "height": 560,
+   "nodes": [
+    {
+     "id": "wlc",
+     "x": 380,
+     "y": 20,
+     "w": 240,
+     "h": 80,
+     "label": "WLC",
+     "sub": "Trunk / static LAG",
+     "kind": "server",
+     "shape": "round"
+    },
+    {
+     "id": "sw",
+     "x": 380,
+     "y": 170,
+     "w": 240,
+     "h": 70,
+     "label": "Access switch",
+     "sub": "",
+     "kind": "switch",
+     "shape": "round"
+    },
+    {
+     "id": "ap1",
+     "x": 80,
+     "y": 320,
+     "w": 200,
+     "h": 70,
+     "label": "AP1 (Local)",
+     "sub": "Ch 1",
+     "kind": "router",
+     "shape": "round"
+    },
+    {
+     "id": "ap2",
+     "x": 400,
+     "y": 320,
+     "w": 200,
+     "h": 70,
+     "label": "AP2 (Local)",
+     "sub": "Ch 6",
+     "kind": "router",
+     "shape": "round"
+    },
+    {
+     "id": "ap3",
+     "x": 720,
+     "y": 320,
+     "w": 200,
+     "h": 70,
+     "label": "AP3 (Local)",
+     "sub": "Ch 11",
+     "kind": "router",
+     "shape": "round"
+    },
+    {
+     "id": "c1",
+     "x": 40,
+     "y": 460,
+     "w": 140,
+     "h": 60,
+     "label": "Laptop",
+     "sub": "",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "c2",
+     "x": 200,
+     "y": 460,
+     "w": 140,
+     "h": 60,
+     "label": "Phone",
+     "sub": "",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "c3",
+     "x": 430,
+     "y": 460,
+     "w": 140,
+     "h": 60,
+     "label": "Tablet",
+     "sub": "",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "c4",
+     "x": 760,
+     "y": 460,
+     "w": 140,
+     "h": 60,
+     "label": "Laptop",
+     "sub": "",
+     "kind": "host",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "wlc",
+     "dst": "sw",
+     "label": "trunk",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "neutral"
+    },
+    {
+     "src": "sw",
+     "dst": "ap1",
+     "label": "access port",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "neutral"
+    },
+    {
+     "src": "sw",
+     "dst": "ap2",
+     "label": "access",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "neutral"
+    },
+    {
+     "src": "sw",
+     "dst": "ap3",
+     "label": "access",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "neutral"
+    },
+    {
+     "src": "ap1",
+     "dst": "wlc",
+     "label": "CAPWAP",
+     "style": "dashed",
+     "arrow": "both",
+     "kind": "accent"
+    },
+    {
+     "src": "ap3",
+     "dst": "wlc",
+     "label": "CAPWAP",
+     "style": "dashed",
+     "arrow": "both",
+     "kind": "accent"
+    },
+    {
+     "src": "c1",
+     "dst": "ap1",
+     "label": "SSID Corp",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "app"
+    },
+    {
+     "src": "c2",
+     "dst": "ap1",
+     "label": "",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "app"
+    },
+    {
+     "src": "c3",
+     "dst": "ap2",
+     "label": "",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "app"
+    },
+    {
+     "src": "c4",
+     "dst": "ap3",
+     "label": "",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "app"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "accent",
+     "label": "CAPWAP tunnel (UDP 5246 control / 5247 data)"
+    },
+    {
+     "kind": "app",
+     "label": "802.11 RF association"
+    },
+    {
+     "kind": "neutral",
+     "label": "Wired Ethernet"
+    }
+   ],
+   "explanation": "Lightweight APs in Local mode tunnel client traffic to the WLC over CAPWAP, so they sit on access ports. Adjacent 2.4 GHz APs use non-overlapping channels 1, 6, 11. All APs share the SSID, forming an ESS for roaming."
+  },
+  {
+   "id": "mac_learning",
+   "title": "MAC learning and forwarding",
+   "width": 1000,
+   "height": 520,
+   "nodes": [
+    {
+     "id": "sw",
+     "x": 360,
+     "y": 180,
+     "w": 280,
+     "h": 90,
+     "label": "Switch",
+     "sub": "VLAN 1",
+     "kind": "switch",
+     "shape": "round"
+    },
+    {
+     "id": "a",
+     "x": 40,
+     "y": 40,
+     "w": 200,
+     "h": 70,
+     "label": "PC-A",
+     "sub": "AAAA.AAAA.AAAA",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "b",
+     "x": 760,
+     "y": 40,
+     "w": 200,
+     "h": 70,
+     "label": "PC-B",
+     "sub": "BBBB.BBBB.BBBB",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "c",
+     "x": 40,
+     "y": 330,
+     "w": 200,
+     "h": 70,
+     "label": "PC-C",
+     "sub": "CCCC.CCCC.CCCC",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "tbl",
+     "x": 560,
+     "y": 330,
+     "w": 400,
+     "h": 150,
+     "label": "MAC table",
+     "sub": "AAAA.AAAA.AAAA → Gi0/1 (learned)\nBBBB.BBBB.BBBB → ? (unknown)\nAging: 300 s",
+     "kind": "note",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "a",
+     "dst": "sw",
+     "label": "Gi0/1: frame src A, dst B",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "accent"
+    },
+    {
+     "src": "sw",
+     "dst": "b",
+     "label": "flood (unknown B)",
+     "style": "dashed",
+     "arrow": "end",
+     "kind": "warn"
+    },
+    {
+     "src": "sw",
+     "dst": "c",
+     "label": "flood",
+     "style": "dashed",
+     "arrow": "end",
+     "kind": "warn"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "accent",
+     "label": "Incoming frame (learn source)"
+    },
+    {
+     "kind": "warn",
+     "label": "Flooded copies"
+    },
+    {
+     "kind": "note",
+     "label": "MAC address table"
+    }
+   ],
+   "explanation": "The switch learns A's MAC on Gi0/1 from the source address. B is unknown, so the frame is flooded out every port in the VLAN except Gi0/1. When B replies, the switch learns B's port and future frames are forwarded only there."
+  },
+  {
+   "id": "vlan_trunk",
+   "title": "VLANs across an 802.1Q trunk",
+   "width": 1000,
+   "height": 520,
+   "nodes": [
+    {
+     "id": "s1",
+     "x": 120,
+     "y": 200,
+     "w": 240,
+     "h": 80,
+     "label": "SW1",
+     "sub": "",
+     "kind": "switch",
+     "shape": "round"
+    },
+    {
+     "id": "s2",
+     "x": 640,
+     "y": 200,
+     "w": 240,
+     "h": 80,
+     "label": "SW2",
+     "sub": "",
+     "kind": "switch",
+     "shape": "round"
+    },
+    {
+     "id": "h1",
+     "x": 20,
+     "y": 40,
+     "w": 170,
+     "h": 70,
+     "label": "PC1 VLAN 10",
+     "sub": "",
+     "kind": "vlan10",
+     "shape": "round"
+    },
+    {
+     "id": "h2",
+     "x": 210,
+     "y": 40,
+     "w": 170,
+     "h": 70,
+     "label": "PC2 VLAN 20",
+     "sub": "",
+     "kind": "vlan20",
+     "shape": "round"
+    },
+    {
+     "id": "h3",
+     "x": 620,
+     "y": 40,
+     "w": 170,
+     "h": 70,
+     "label": "PC3 VLAN 10",
+     "sub": "",
+     "kind": "vlan10",
+     "shape": "round"
+    },
+    {
+     "id": "h4",
+     "x": 810,
+     "y": 40,
+     "w": 170,
+     "h": 70,
+     "label": "PC4 VLAN 20",
+     "sub": "",
+     "kind": "vlan20",
+     "shape": "round"
+    },
+    {
+     "id": "ph",
+     "x": 120,
+     "y": 380,
+     "w": 240,
+     "h": 70,
+     "label": "IP phone (voice VLAN 30)",
+     "sub": "PC behind phone: VLAN 10",
+     "kind": "vlan30",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "h1",
+     "dst": "s1",
+     "label": "access",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "vlan10"
+    },
+    {
+     "src": "h2",
+     "dst": "s1",
+     "label": "access",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "vlan20"
+    },
+    {
+     "src": "h3",
+     "dst": "s2",
+     "label": "access",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "vlan10"
+    },
+    {
+     "src": "h4",
+     "dst": "s2",
+     "label": "access",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "vlan20"
+    },
+    {
+     "src": "s1",
+     "dst": "s2",
+     "label": "Trunk: tagged 10, 20, 30 • native 99 untagged",
+     "style": "solid",
+     "arrow": "both",
+     "kind": "accent"
+    },
+    {
+     "src": "ph",
+     "dst": "s1",
+     "label": "access + voice VLAN",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "vlan30"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "vlan10",
+     "label": "VLAN 10 (Data)"
+    },
+    {
+     "kind": "vlan20",
+     "label": "VLAN 20 (HR)"
+    },
+    {
+     "kind": "vlan30",
+     "label": "VLAN 30 (Voice)"
+    },
+    {
+     "kind": "accent",
+     "label": "802.1Q trunk"
+    }
+   ],
+   "explanation": "Access ports carry one untagged VLAN. The trunk carries all VLANs, tagging each frame with its VLAN ID; only the native VLAN crosses untagged. PC1 and PC3 share a broadcast domain; PC1 and PC2 do not."
+  },
+  {
+   "id": "dot1q_tag",
+   "title": "802.1Q tag inserted into the frame",
+   "width": 1000,
+   "height": 400,
+   "nodes": [
+    {
+     "id": "q0",
+     "x": 60,
+     "y": 60,
+     "w": 136,
+     "h": 90,
+     "label": "Dst MAC",
+     "sub": "6 B",
+     "kind": "datalink",
+     "shape": "rect"
+    },
+    {
+     "id": "q1",
+     "x": 200,
+     "y": 60,
+     "w": 136,
+     "h": 90,
+     "label": "Src MAC",
+     "sub": "6 B",
+     "kind": "datalink",
+     "shape": "rect"
+    },
+    {
+     "id": "q2",
+     "x": 340,
+     "y": 60,
+     "w": 156,
+     "h": 90,
+     "label": "802.1Q tag",
+     "sub": "4 B",
+     "kind": "accent",
+     "shape": "rect"
+    },
+    {
+     "id": "q3",
+     "x": 500,
+     "y": 60,
+     "w": 86,
+     "h": 90,
+     "label": "Type",
+     "sub": "2 B",
+     "kind": "network",
+     "shape": "rect"
+    },
+    {
+     "id": "q4",
+     "x": 590,
+     "y": 60,
+     "w": 236,
+     "h": 90,
+     "label": "Payload",
+     "sub": "46-1500 B",
+     "kind": "app",
+     "shape": "rect"
+    },
+    {
+     "id": "q5",
+     "x": 830,
+     "y": 60,
+     "w": 86,
+     "h": 90,
+     "label": "FCS",
+     "sub": "4 B",
+     "kind": "security",
+     "shape": "rect"
+    },
+    {
+     "id": "tp",
+     "x": 150,
+     "y": 240,
+     "w": 200,
+     "h": 80,
+     "label": "TPID",
+     "sub": "16 bits = 0x8100",
+     "kind": "accent",
+     "shape": "round"
+    },
+    {
+     "id": "pcp",
+     "x": 360,
+     "y": 240,
+     "w": 150,
+     "h": 80,
+     "label": "PCP",
+     "sub": "3 bits (CoS)",
+     "kind": "vlan30",
+     "shape": "round"
+    },
+    {
+     "id": "dei",
+     "x": 520,
+     "y": 240,
+     "w": 120,
+     "h": 80,
+     "label": "DEI",
+     "sub": "1 bit",
+     "kind": "neutral",
+     "shape": "round"
+    },
+    {
+     "id": "vid",
+     "x": 650,
+     "y": 240,
+     "w": 200,
+     "h": 80,
+     "label": "VLAN ID",
+     "sub": "12 bits (0-4095)",
+     "kind": "vlan10",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "q2",
+     "dst": "tp",
+     "label": "",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "neutral"
+    },
+    {
+     "src": "q2",
+     "dst": "vid",
+     "label": "",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [
+    {
+     "x": 500,
+     "y": 370,
+     "text": "Usable VLAN IDs 1-4094 (0 and 4095 reserved). Native VLAN frames are sent without this tag.",
+     "size": 19,
+     "bold": false,
+     "kind": "text"
+    }
+   ],
+   "legend": [
+    {
+     "kind": "accent",
+     "label": "Tag / TPID"
+    },
+    {
+     "kind": "vlan30",
+     "label": "Priority (CoS)"
+    },
+    {
+     "kind": "vlan10",
+     "label": "VLAN identifier"
+    }
+   ],
+   "explanation": "The 4-byte tag sits between the source MAC and Type fields. The receiving switch reads the 12-bit VLAN ID to keep VLANs separate across the trunk."
+  },
+  {
+   "id": "intervlan",
+   "title": "Inter-VLAN routing options",
+   "width": 1000,
+   "height": 500,
+   "nodes": [
+    {
+     "id": "r",
+     "x": 60,
+     "y": 30,
+     "w": 380,
+     "h": 90,
+     "label": "Router-on-a-stick",
+     "sub": "Gi0/0.10 dot1Q 10 • Gi0/0.20 dot1Q 20",
+     "kind": "router",
+     "shape": "round"
+    },
+    {
+     "id": "sw1",
+     "x": 140,
+     "y": 210,
+     "w": 220,
+     "h": 70,
+     "label": "L2 switch",
+     "sub": "",
+     "kind": "switch",
+     "shape": "round"
+    },
+    {
+     "id": "p1",
+     "x": 40,
+     "y": 370,
+     "w": 180,
+     "h": 70,
+     "label": "PC VLAN 10",
+     "sub": "gw 10.10.10.1",
+     "kind": "vlan10",
+     "shape": "round"
+    },
+    {
+     "id": "p2",
+     "x": 280,
+     "y": 370,
+     "w": 180,
+     "h": 70,
+     "label": "PC VLAN 20",
+     "sub": "gw 10.20.20.1",
+     "kind": "vlan20",
+     "shape": "round"
+    },
+    {
+     "id": "l3",
+     "x": 560,
+     "y": 30,
+     "w": 400,
+     "h": 90,
+     "label": "Layer 3 switch (ip routing)",
+     "sub": "SVI Vlan10 10.10.10.1 • SVI Vlan20 10.20.20.1",
+     "kind": "switch",
+     "shape": "round"
+    },
+    {
+     "id": "p3",
+     "x": 560,
+     "y": 370,
+     "w": 180,
+     "h": 70,
+     "label": "PC VLAN 10",
+     "sub": "",
+     "kind": "vlan10",
+     "shape": "round"
+    },
+    {
+     "id": "p4",
+     "x": 780,
+     "y": 370,
+     "w": 180,
+     "h": 70,
+     "label": "PC VLAN 20",
+     "sub": "",
+     "kind": "vlan20",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "r",
+     "dst": "sw1",
+     "label": "802.1Q trunk",
+     "style": "solid",
+     "arrow": "both",
+     "kind": "accent"
+    },
+    {
+     "src": "p1",
+     "dst": "sw1",
+     "label": "",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "vlan10"
+    },
+    {
+     "src": "p2",
+     "dst": "sw1",
+     "label": "",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "vlan20"
+    },
+    {
+     "src": "p3",
+     "dst": "l3",
+     "label": "access VLAN 10",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "vlan10"
+    },
+    {
+     "src": "p4",
+     "dst": "l3",
+     "label": "access VLAN 20",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "vlan20"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "vlan10",
+     "label": "VLAN 10"
+    },
+    {
+     "kind": "vlan20",
+     "label": "VLAN 20"
+    },
+    {
+     "kind": "accent",
+     "label": "Trunk to router"
+    }
+   ],
+   "explanation": "Left: a router with one subinterface per VLAN over a trunk. Right: a Layer 3 switch routes internally between SVIs. Each VLAN's hosts use their gateway IP on the routing device."
+  },
+  {
+   "id": "stp",
+   "title": "Spanning Tree roles (VLAN 10)",
+   "width": 1000,
+   "height": 560,
+   "nodes": [
+    {
+     "id": "s1",
+     "x": 380,
+     "y": 30,
+     "w": 240,
+     "h": 90,
+     "label": "SW1 — ROOT",
+     "sub": "Priority 24586 (24576 + 10)",
+     "kind": "ok",
+     "shape": "round"
+    },
+    {
+     "id": "s2",
+     "x": 60,
+     "y": 380,
+     "w": 240,
+     "h": 90,
+     "label": "SW2",
+     "sub": "Priority 32778",
+     "kind": "switch",
+     "shape": "round"
+    },
+    {
+     "id": "s3",
+     "x": 700,
+     "y": 380,
+     "w": 240,
+     "h": 90,
+     "label": "SW3",
+     "sub": "Priority 32778, higher MAC",
+     "kind": "switch",
+     "shape": "round"
+    },
+    {
+     "id": "l1",
+     "x": 140,
+     "y": 175,
+     "w": 170,
+     "h": 50,
+     "label": "DP  ⟷  RP",
+     "sub": "",
+     "kind": "note",
+     "shape": "pill"
+    },
+    {
+     "id": "l2",
+     "x": 690,
+     "y": 175,
+     "w": 170,
+     "h": 50,
+     "label": "DP  ⟷  RP",
+     "sub": "",
+     "kind": "note",
+     "shape": "pill"
+    },
+    {
+     "id": "l3",
+     "x": 380,
+     "y": 470,
+     "w": 240,
+     "h": 60,
+     "label": "SW2: DP  •  SW3: ALT",
+     "sub": "blocked (discarding)",
+     "kind": "danger",
+     "shape": "pill"
+    }
+   ],
+   "edges": [
+    {
+     "src": "s1",
+     "dst": "s2",
+     "label": "cost 4 (1G)",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "ok"
+    },
+    {
+     "src": "s1",
+     "dst": "s3",
+     "label": "cost 4 (1G)",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "ok"
+    },
+    {
+     "src": "s2",
+     "dst": "s3",
+     "label": "",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "danger"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "ok",
+     "label": "Root bridge / forwarding links"
+    },
+    {
+     "kind": "danger",
+     "label": "Alternate (blocked) port"
+    },
+    {
+     "kind": "note",
+     "label": "Port roles: DP designated, RP root, ALT alternate"
+    }
+   ],
+   "explanation": "SW1 has the lowest bridge ID and becomes root; all its ports are designated. SW2 and SW3 choose their direct links as root ports (cost 4). On the SW2-SW3 link, SW2 (lower bridge ID) owns the designated port, so SW3's port becomes alternate and discards, breaking the loop."
+  },
+  {
+   "id": "routing",
+   "title": "Packet forwarding across routers",
+   "width": 1000,
+   "height": 540,
+   "nodes": [
+    {
+     "id": "pc",
+     "x": 20,
+     "y": 60,
+     "w": 170,
+     "h": 80,
+     "label": "PC",
+     "sub": "10.1.1.10/24\ngw 10.1.1.1",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "r1",
+     "x": 280,
+     "y": 60,
+     "w": 180,
+     "h": 80,
+     "label": "R1",
+     "sub": "Gi0/0 10.1.1.1\nGi0/1 10.0.12.1",
+     "kind": "router",
+     "shape": "round"
+    },
+    {
+     "id": "r2",
+     "x": 560,
+     "y": 60,
+     "w": 180,
+     "h": 80,
+     "label": "R2",
+     "sub": "Gi0/1 10.0.12.2\nGi0/0 10.2.2.1",
+     "kind": "router",
+     "shape": "round"
+    },
+    {
+     "id": "sv",
+     "x": 820,
+     "y": 60,
+     "w": 160,
+     "h": 80,
+     "label": "Server",
+     "sub": "10.2.2.10",
+     "kind": "server",
+     "shape": "round"
+    },
+    {
+     "id": "tbl",
+     "x": 120,
+     "y": 260,
+     "w": 760,
+     "h": 220,
+     "label": "R1 routing table",
+     "sub": "C  10.1.1.0/24 is directly connected, Gi0/0\nL  10.1.1.1/32 is directly connected, Gi0/0\nC  10.0.12.0/30 is directly connected, Gi0/1\nO  10.2.2.0/24 [110/2] via 10.0.12.2, Gi0/1\nS* 0.0.0.0/0 [1/0] via 10.0.12.2",
+     "kind": "note",
+     "shape": "rect"
+    }
+   ],
+   "edges": [
+    {
+     "src": "pc",
+     "dst": "r1",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "accent"
+    },
+    {
+     "src": "r1",
+     "dst": "r2",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "accent"
+    },
+    {
+     "src": "r2",
+     "dst": "sv",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "accent"
+    },
+    {
+     "src": "r1",
+     "dst": "tbl",
+     "label": "",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [
+    {
+     "x": 235,
+     "y": 30,
+     "text": "10.1.1.0/24",
+     "size": 17,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 510,
+     "y": 30,
+     "text": "10.0.12.0/30",
+     "size": 17,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 780,
+     "y": 30,
+     "text": "10.2.2.0/24",
+     "size": 17,
+     "bold": true,
+     "kind": "text"
+    }
+   ],
+   "legend": [
+    {
+     "kind": "accent",
+     "label": "Packet path (dst 10.2.2.10)"
+    },
+    {
+     "kind": "note",
+     "label": "Routing table lookup"
+    }
+   ],
+   "explanation": "The PC sends to its gateway (R1). R1's longest match for 10.2.2.10 is the OSPF route 10.2.2.0/24 [AD 110 / cost 2] via 10.0.12.2. R2 delivers it on its connected network. MAC addresses change each hop; IPs stay the same."
+  },
+  {
+   "id": "ospf_states",
+   "title": "OSPF neighbor states and DR/BDR",
+   "width": 1000,
+   "height": 460,
+   "nodes": [
+    {
+     "id": "st0",
+     "x": 15,
+     "y": 70,
+     "w": 125,
+     "h": 80,
+     "label": "Down",
+     "sub": "No Hellos",
+     "kind": "neutral",
+     "shape": "round"
+    },
+    {
+     "id": "st1",
+     "x": 155,
+     "y": 70,
+     "w": 125,
+     "h": 80,
+     "label": "Init",
+     "sub": "Hello received",
+     "kind": "neutral",
+     "shape": "round"
+    },
+    {
+     "id": "st2",
+     "x": 295,
+     "y": 70,
+     "w": 125,
+     "h": 80,
+     "label": "2-Way",
+     "sub": "Own RID seen\n(DR/BDR elected)",
+     "kind": "vlan20",
+     "shape": "round"
+    },
+    {
+     "id": "st3",
+     "x": 435,
+     "y": 70,
+     "w": 125,
+     "h": 80,
+     "label": "ExStart",
+     "sub": "Master/slave",
+     "kind": "warn",
+     "shape": "round"
+    },
+    {
+     "id": "st4",
+     "x": 575,
+     "y": 70,
+     "w": 125,
+     "h": 80,
+     "label": "Exchange",
+     "sub": "DBD exchange",
+     "kind": "warn",
+     "shape": "round"
+    },
+    {
+     "id": "st5",
+     "x": 715,
+     "y": 70,
+     "w": 125,
+     "h": 80,
+     "label": "Loading",
+     "sub": "LSR / LSU",
+     "kind": "warn",
+     "shape": "round"
+    },
+    {
+     "id": "st6",
+     "x": 855,
+     "y": 70,
+     "w": 125,
+     "h": 80,
+     "label": "Full",
+     "sub": "LSDBs synced",
+     "kind": "ok",
+     "shape": "round"
+    },
+    {
+     "id": "dr",
+     "x": 40,
+     "y": 300,
+     "w": 280,
+     "h": 80,
+     "label": "DR",
+     "sub": "highest priority, then RID",
+     "kind": "ok",
+     "shape": "round"
+    },
+    {
+     "id": "bdr",
+     "x": 360,
+     "y": 300,
+     "w": 280,
+     "h": 80,
+     "label": "BDR",
+     "sub": "backup",
+     "kind": "vlan20",
+     "shape": "round"
+    },
+    {
+     "id": "do",
+     "x": 680,
+     "y": 300,
+     "w": 280,
+     "h": 80,
+     "label": "DROTHERs",
+     "sub": "2-Way with each other",
+     "kind": "neutral",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "st0",
+     "dst": "st1",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "st1",
+     "dst": "st2",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "st2",
+     "dst": "st3",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "st3",
+     "dst": "st4",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "st4",
+     "dst": "st5",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "st5",
+     "dst": "st6",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "do",
+     "dst": "dr",
+     "label": "FULL",
+     "style": "dashed",
+     "arrow": "both",
+     "kind": "ok"
+    },
+    {
+     "src": "do",
+     "dst": "bdr",
+     "label": "",
+     "style": "dashed",
+     "arrow": "both",
+     "kind": "ok"
+    }
+   ],
+   "texts": [
+    {
+     "x": 500,
+     "y": 35,
+     "text": "Hellos to 224.0.0.5 every 10 s • Dead 40 s (broadcast / point-to-point)",
+     "size": 20,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 500,
+     "y": 250,
+     "text": "Broadcast (Ethernet) segment",
+     "size": 20,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 500,
+     "y": 425,
+     "text": "Must match: area, subnet, Hello/Dead, auth, stub flag • unique RID • MTU for Full",
+     "size": 18,
+     "bold": false,
+     "kind": "text"
+    }
+   ],
+   "legend": [
+    {
+     "kind": "vlan20",
+     "label": "Neighbor (2-Way)"
+    },
+    {
+     "kind": "warn",
+     "label": "Database synchronization"
+    },
+    {
+     "kind": "ok",
+     "label": "Fully adjacent"
+    }
+   ],
+   "explanation": "Routers progress from Down to Full. On Ethernet, a DR and BDR are elected; DROTHERs become Full only with the DR and BDR and remain 2-Way with each other. Point-to-point links have no DR/BDR."
+  },
+  {
+   "id": "fhrp",
+   "title": "First Hop Redundancy (HSRP example)",
+   "width": 1000,
+   "height": 500,
+   "nodes": [
+    {
+     "id": "r1",
+     "x": 120,
+     "y": 40,
+     "w": 260,
+     "h": 90,
+     "label": "R1 — Active",
+     "sub": "10.1.1.2 • priority 110 • preempt",
+     "kind": "ok",
+     "shape": "round"
+    },
+    {
+     "id": "r2",
+     "x": 620,
+     "y": 40,
+     "w": 260,
+     "h": 90,
+     "label": "R2 — Standby",
+     "sub": "10.1.1.3 • priority 100",
+     "kind": "neutral",
+     "shape": "round"
+    },
+    {
+     "id": "v",
+     "x": 330,
+     "y": 200,
+     "w": 340,
+     "h": 70,
+     "label": "Virtual IP 10.1.1.1",
+     "sub": "vMAC 0000.0C07.AC01",
+     "kind": "accent",
+     "shape": "pill"
+    },
+    {
+     "id": "sw",
+     "x": 380,
+     "y": 320,
+     "w": 240,
+     "h": 60,
+     "label": "Switch",
+     "sub": "",
+     "kind": "switch",
+     "shape": "round"
+    },
+    {
+     "id": "h",
+     "x": 380,
+     "y": 420,
+     "w": 240,
+     "h": 60,
+     "label": "Hosts: gateway 10.1.1.1",
+     "sub": "",
+     "kind": "host",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "r1",
+     "dst": "v",
+     "label": "forwards",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "ok"
+    },
+    {
+     "src": "r2",
+     "dst": "v",
+     "label": "takes over on failure",
+     "style": "dashed",
+     "arrow": "end",
+     "kind": "warn"
+    },
+    {
+     "src": "v",
+     "dst": "sw",
+     "label": "",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "neutral"
+    },
+    {
+     "src": "sw",
+     "dst": "h",
+     "label": "",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "ok",
+     "label": "Active forwarder"
+    },
+    {
+     "kind": "warn",
+     "label": "Failover path"
+    },
+    {
+     "kind": "accent",
+     "label": "Shared virtual gateway"
+    }
+   ],
+   "explanation": "Hosts point to the virtual IP. The active router answers for the virtual MAC. If it fails, the standby becomes active and continues forwarding without any host reconfiguration."
+  },
+  {
+   "id": "dhcp_dora",
+   "title": "DHCP DORA with relay",
+   "width": 1000,
+   "height": 520,
+   "nodes": [
+    {
+     "id": "c",
+     "x": 20,
+     "y": 40,
+     "w": 200,
+     "h": 80,
+     "label": "Client",
+     "sub": "UDP 68",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "r",
+     "x": 400,
+     "y": 40,
+     "w": 200,
+     "h": 80,
+     "label": "Router (relay)",
+     "sub": "ip helper-address 10.0.0.50",
+     "kind": "router",
+     "shape": "round"
+    },
+    {
+     "id": "s",
+     "x": 780,
+     "y": 40,
+     "w": 200,
+     "h": 80,
+     "label": "DHCP server",
+     "sub": "10.0.0.50 • UDP 67",
+     "kind": "server",
+     "shape": "round"
+    },
+    {
+     "id": "d",
+     "x": 20,
+     "y": 170,
+     "w": 560,
+     "h": 55,
+     "label": "1 DISCOVER (broadcast) →  relayed as unicast →",
+     "sub": "",
+     "kind": "vlan10",
+     "shape": "pill"
+    },
+    {
+     "id": "o",
+     "x": 420,
+     "y": 245,
+     "w": 560,
+     "h": 55,
+     "label": "← 2 OFFER (proposed IP, mask, gw, DNS)",
+     "sub": "",
+     "kind": "vlan20",
+     "shape": "pill"
+    },
+    {
+     "id": "q",
+     "x": 20,
+     "y": 320,
+     "w": 560,
+     "h": 55,
+     "label": "3 REQUEST (broadcast) →  relayed →",
+     "sub": "",
+     "kind": "vlan10",
+     "shape": "pill"
+    },
+    {
+     "id": "a",
+     "x": 420,
+     "y": 395,
+     "w": 560,
+     "h": 55,
+     "label": "← 4 ACK (lease confirmed)",
+     "sub": "",
+     "kind": "vlan20",
+     "shape": "pill"
+    }
+   ],
+   "edges": [],
+   "texts": [
+    {
+     "x": 500,
+     "y": 490,
+     "text": "The relay sets giaddr so the server chooses the correct pool for the client's subnet.",
+     "size": 19,
+     "bold": false,
+     "kind": "text"
+    }
+   ],
+   "legend": [
+    {
+     "kind": "vlan10",
+     "label": "Client → server"
+    },
+    {
+     "kind": "vlan20",
+     "label": "Server → client"
+    }
+   ],
+   "explanation": "Discover, Offer, Request, Acknowledge. Routers do not forward broadcasts, so the client-facing interface uses ip helper-address to relay DHCP messages to a server on another subnet."
+  },
+  {
+   "id": "nat_pat",
+   "title": "PAT (NAT overload) at the internet edge",
+   "width": 1000,
+   "height": 560,
+   "nodes": [
+    {
+     "id": "h1",
+     "x": 20,
+     "y": 40,
+     "w": 220,
+     "h": 70,
+     "label": "PC1",
+     "sub": "192.168.1.10",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "h2",
+     "x": 20,
+     "y": 160,
+     "w": 220,
+     "h": 70,
+     "label": "PC2",
+     "sub": "192.168.1.11",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "r",
+     "x": 380,
+     "y": 90,
+     "w": 240,
+     "h": 100,
+     "label": "Edge router",
+     "sub": "Gi0/0 ip nat inside\nGi0/1 ip nat outside",
+     "kind": "router",
+     "shape": "round"
+    },
+    {
+     "id": "w",
+     "x": 760,
+     "y": 90,
+     "w": 220,
+     "h": 100,
+     "label": "Web server",
+     "sub": "198.51.100.80:443",
+     "kind": "cloud",
+     "shape": "round"
+    },
+    {
+     "id": "t",
+     "x": 20,
+     "y": 300,
+     "w": 960,
+     "h": 210,
+     "label": "show ip nat translations",
+     "sub": "Pro  Inside global          Inside local           Outside global\ntcp  203.0.113.2:51000    192.168.1.10:51000    198.51.100.80:443\ntcp  203.0.113.2:51001    192.168.1.11:51000    198.51.100.80:443",
+     "kind": "note",
+     "shape": "rect"
+    }
+   ],
+   "edges": [
+    {
+     "src": "h1",
+     "dst": "r",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "accent"
+    },
+    {
+     "src": "h2",
+     "dst": "r",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "accent"
+    },
+    {
+     "src": "r",
+     "dst": "w",
+     "label": "src 203.0.113.2",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "ok"
+    },
+    {
+     "src": "r",
+     "dst": "t",
+     "label": "",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [
+    {
+     "x": 310,
+     "y": 260,
+     "text": "INSIDE (private)",
+     "size": 20,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 800,
+     "y": 260,
+     "text": "OUTSIDE (internet)",
+     "size": 20,
+     "bold": true,
+     "kind": "text"
+    }
+   ],
+   "legend": [
+    {
+     "kind": "accent",
+     "label": "Inside local addresses"
+    },
+    {
+     "kind": "ok",
+     "label": "Translated to inside global"
+    },
+    {
+     "kind": "note",
+     "label": "Translation table"
+    }
+   ],
+   "explanation": "Both PCs share public address 203.0.113.2. PAT keeps sessions unique by translating source ports when needed (51000 → 51001 for PC2). Returning traffic is matched to the table and translated back."
+  },
+  {
+   "id": "qos",
+   "title": "QoS tools along the path",
+   "width": 1000,
+   "height": 420,
+   "nodes": [
+    {
+     "id": "c",
+     "x": 20,
+     "y": 100,
+     "w": 170,
+     "h": 100,
+     "label": "Classify",
+     "sub": "ACL / NBAR",
+     "kind": "vlan10",
+     "shape": "round"
+    },
+    {
+     "id": "m",
+     "x": 210,
+     "y": 100,
+     "w": 170,
+     "h": 100,
+     "label": "Mark",
+     "sub": "CoS / DSCP\nEF = 46",
+     "kind": "vlan20",
+     "shape": "round"
+    },
+    {
+     "id": "q",
+     "x": 400,
+     "y": 100,
+     "w": 190,
+     "h": 100,
+     "label": "Queue",
+     "sub": "LLQ priority\nCBWFQ",
+     "kind": "accent",
+     "shape": "round"
+    },
+    {
+     "id": "ca",
+     "x": 610,
+     "y": 100,
+     "w": 180,
+     "h": 100,
+     "label": "Avoid",
+     "sub": "WRED",
+     "kind": "warn",
+     "shape": "round"
+    },
+    {
+     "id": "ps",
+     "x": 810,
+     "y": 100,
+     "w": 170,
+     "h": 100,
+     "label": "Police / Shape",
+     "sub": "drop or buffer",
+     "kind": "danger",
+     "shape": "round"
+    },
+    {
+     "id": "tb",
+     "x": 20,
+     "y": 280,
+     "w": 360,
+     "h": 70,
+     "label": "Trust boundary at phone / access switch",
+     "sub": "",
+     "kind": "note",
+     "shape": "pill"
+    },
+    {
+     "id": "v",
+     "x": 420,
+     "y": 280,
+     "w": 560,
+     "h": 70,
+     "label": "Voice targets: delay ≤150 ms • jitter ≤30 ms • loss ≤1%",
+     "sub": "",
+     "kind": "note",
+     "shape": "pill"
+    }
+   ],
+   "edges": [
+    {
+     "src": "c",
+     "dst": "m",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "m",
+     "dst": "q",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "q",
+     "dst": "ca",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "ca",
+     "dst": "ps",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "vlan10",
+     "label": "Identify traffic"
+    },
+    {
+     "kind": "vlan20",
+     "label": "Mark headers"
+    },
+    {
+     "kind": "accent",
+     "label": "Schedule under congestion"
+    },
+    {
+     "kind": "danger",
+     "label": "Rate control"
+    }
+   ],
+   "explanation": "Traffic is classified, marked, queued (voice in the priority queue), protected from synchronized drops by WRED, and rate-controlled by policing (drop/re-mark) or shaping (buffer)."
+  },
+  {
+   "id": "acl_flow",
+   "title": "ACL processing (inbound)",
+   "width": 1000,
+   "height": 560,
+   "nodes": [
+    {
+     "id": "p",
+     "x": 20,
+     "y": 40,
+     "w": 200,
+     "h": 70,
+     "label": "Packet arrives",
+     "sub": "Gi0/1 in",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "a1",
+     "x": 300,
+     "y": 40,
+     "w": 400,
+     "h": 70,
+     "label": "10 permit tcp 10.1.1.0 0.0.0.255 host 10.2.2.10 eq 443",
+     "sub": "",
+     "kind": "vlan10",
+     "shape": "rect"
+    },
+    {
+     "id": "a2",
+     "x": 300,
+     "y": 160,
+     "w": 400,
+     "h": 70,
+     "label": "20 deny ip any host 10.2.2.10",
+     "sub": "",
+     "kind": "vlan10",
+     "shape": "rect"
+    },
+    {
+     "id": "a3",
+     "x": 300,
+     "y": 280,
+     "w": 400,
+     "h": 70,
+     "label": "30 permit ip any any",
+     "sub": "",
+     "kind": "vlan10",
+     "shape": "rect"
+    },
+    {
+     "id": "a4",
+     "x": 300,
+     "y": 400,
+     "w": 400,
+     "h": 70,
+     "label": "(implicit) deny any",
+     "sub": "",
+     "kind": "danger",
+     "shape": "rect"
+    },
+    {
+     "id": "fw",
+     "x": 800,
+     "y": 100,
+     "w": 180,
+     "h": 70,
+     "label": "Forward",
+     "sub": "",
+     "kind": "ok",
+     "shape": "round"
+    },
+    {
+     "id": "dr",
+     "x": 800,
+     "y": 400,
+     "w": 180,
+     "h": 70,
+     "label": "Drop",
+     "sub": "",
+     "kind": "danger",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "p",
+     "dst": "a1",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "a1",
+     "dst": "a2",
+     "label": "no match",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "a2",
+     "dst": "a3",
+     "label": "no match",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "a3",
+     "dst": "a4",
+     "label": "no match",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "a1",
+     "dst": "fw",
+     "label": "match",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "ok"
+    },
+    {
+     "src": "a3",
+     "dst": "fw",
+     "label": "match",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "ok"
+    },
+    {
+     "src": "a2",
+     "dst": "dr",
+     "label": "match",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "danger"
+    },
+    {
+     "src": "a4",
+     "dst": "dr",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "danger"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "vlan10",
+     "label": "Configured entries (top-down)"
+    },
+    {
+     "kind": "ok",
+     "label": "Permit"
+    },
+    {
+     "kind": "danger",
+     "label": "Deny / implicit deny"
+    }
+   ],
+   "explanation": "Entries are checked in sequence order. The first match decides and processing stops. If nothing matches, the hidden implicit deny drops the packet."
+  },
+  {
+   "id": "l2_security",
+   "title": "DHCP snooping, DAI and port security",
+   "width": 1000,
+   "height": 520,
+   "nodes": [
+    {
+     "id": "srv",
+     "x": 380,
+     "y": 20,
+     "w": 240,
+     "h": 70,
+     "label": "Legit DHCP server",
+     "sub": "",
+     "kind": "server",
+     "shape": "round"
+    },
+    {
+     "id": "sw",
+     "x": 360,
+     "y": 180,
+     "w": 280,
+     "h": 90,
+     "label": "Access switch",
+     "sub": "DHCP snooping + DAI on VLAN 10",
+     "kind": "switch",
+     "shape": "round"
+    },
+    {
+     "id": "u1",
+     "x": 20,
+     "y": 380,
+     "w": 220,
+     "h": 80,
+     "label": "User PC",
+     "sub": "port security max 1",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "rg",
+     "x": 390,
+     "y": 380,
+     "w": 220,
+     "h": 80,
+     "label": "Rogue DHCP",
+     "sub": "OFFER dropped",
+     "kind": "danger",
+     "shape": "round"
+    },
+    {
+     "id": "at",
+     "x": 760,
+     "y": 380,
+     "w": 220,
+     "h": 80,
+     "label": "Attacker",
+     "sub": "fake ARP dropped",
+     "kind": "danger",
+     "shape": "round"
+    },
+    {
+     "id": "bt",
+     "x": 700,
+     "y": 120,
+     "w": 280,
+     "h": 90,
+     "label": "Binding table",
+     "sub": "MAC • IP • VLAN • port • lease",
+     "kind": "note",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "srv",
+     "dst": "sw",
+     "label": "TRUSTED uplink",
+     "style": "solid",
+     "arrow": "both",
+     "kind": "ok"
+    },
+    {
+     "src": "u1",
+     "dst": "sw",
+     "label": "untrusted",
+     "style": "solid",
+     "arrow": "both",
+     "kind": "neutral"
+    },
+    {
+     "src": "rg",
+     "dst": "sw",
+     "label": "untrusted",
+     "style": "dashed",
+     "arrow": "end",
+     "kind": "danger"
+    },
+    {
+     "src": "at",
+     "dst": "sw",
+     "label": "untrusted",
+     "style": "dashed",
+     "arrow": "end",
+     "kind": "danger"
+    },
+    {
+     "src": "sw",
+     "dst": "bt",
+     "label": "",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "ok",
+     "label": "Trusted port"
+    },
+    {
+     "kind": "danger",
+     "label": "Blocked attack"
+    },
+    {
+     "kind": "note",
+     "label": "Snooping database used by DAI"
+    }
+   ],
+   "explanation": "Server messages are allowed only on trusted ports, so the rogue server's OFFERs are dropped. DAI checks ARP on untrusted ports against the binding table. Port security limits MAC addresses per port."
+  },
+  {
+   "id": "vpn",
+   "title": "Site-to-site and remote-access VPNs",
+   "width": 1000,
+   "height": 480,
+   "nodes": [
+    {
+     "id": "hq",
+     "x": 20,
+     "y": 60,
+     "w": 220,
+     "h": 90,
+     "label": "HQ firewall",
+     "sub": "VPN gateway",
+     "kind": "security",
+     "shape": "round"
+    },
+    {
+     "id": "br",
+     "x": 760,
+     "y": 60,
+     "w": 220,
+     "h": 90,
+     "label": "Branch router",
+     "sub": "VPN gateway",
+     "kind": "router",
+     "shape": "round"
+    },
+    {
+     "id": "net",
+     "x": 380,
+     "y": 60,
+     "w": 240,
+     "h": 90,
+     "label": "Internet",
+     "sub": "",
+     "kind": "cloud",
+     "shape": "round"
+    },
+    {
+     "id": "ru",
+     "x": 760,
+     "y": 300,
+     "w": 220,
+     "h": 90,
+     "label": "Remote user",
+     "sub": "VPN client (TLS / IPsec)",
+     "kind": "host",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "hq",
+     "dst": "net",
+     "label": "",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "neutral"
+    },
+    {
+     "src": "net",
+     "dst": "br",
+     "label": "",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "neutral"
+    },
+    {
+     "src": "hq",
+     "dst": "br",
+     "label": "IPsec site-to-site tunnel (ESP)",
+     "style": "dashed",
+     "arrow": "both",
+     "kind": "accent"
+    },
+    {
+     "src": "ru",
+     "dst": "hq",
+     "label": "Remote-access tunnel",
+     "style": "dashed",
+     "arrow": "both",
+     "kind": "ok"
+    }
+   ],
+   "texts": [
+    {
+     "x": 500,
+     "y": 440,
+     "text": "IPsec: confidentiality • integrity • authentication • anti-replay  |  IKE UDP 500, NAT-T UDP 4500",
+     "size": 18,
+     "bold": false,
+     "kind": "text"
+    }
+   ],
+   "legend": [
+    {
+     "kind": "accent",
+     "label": "Site-to-site (gateway to gateway)"
+    },
+    {
+     "kind": "ok",
+     "label": "Remote access (client to gateway)"
+    }
+   ],
+   "explanation": "Site-to-site tunnels are permanent and transparent to hosts. Remote-access tunnels are built on demand by client software on the user's device."
+  },
+  {
+   "id": "dot1x",
+   "title": "802.1X / WPA-Enterprise roles",
+   "width": 1000,
+   "height": 380,
+   "nodes": [
+    {
+     "id": "s",
+     "x": 20,
+     "y": 140,
+     "w": 240,
+     "h": 100,
+     "label": "Supplicant",
+     "sub": "Laptop / phone",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "a",
+     "x": 380,
+     "y": 140,
+     "w": 240,
+     "h": 100,
+     "label": "Authenticator",
+     "sub": "AP / WLC or switch",
+     "kind": "router",
+     "shape": "round"
+    },
+    {
+     "id": "as",
+     "x": 740,
+     "y": 140,
+     "w": 240,
+     "h": 100,
+     "label": "Authentication server",
+     "sub": "RADIUS (e.g., ISE)",
+     "kind": "server",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "s",
+     "dst": "a",
+     "label": "",
+     "style": "solid",
+     "arrow": "both",
+     "kind": "accent"
+    },
+    {
+     "src": "a",
+     "dst": "as",
+     "label": "",
+     "style": "solid",
+     "arrow": "both",
+     "kind": "ok"
+    }
+   ],
+   "texts": [
+    {
+     "x": 320,
+     "y": 100,
+     "text": "EAP (EAPOL)",
+     "size": 17,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 680,
+     "y": 100,
+     "text": "RADIUS UDP 1812/1813",
+     "size": 17,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 500,
+     "y": 300,
+     "text": "Personal mode skips RADIUS: WPA2 uses PSK; WPA3 uses SAE.",
+     "size": 19,
+     "bold": false,
+     "kind": "text"
+    }
+   ],
+   "legend": [
+    {
+     "kind": "accent",
+     "label": "EAP exchange"
+    },
+    {
+     "kind": "ok",
+     "label": "RADIUS"
+    }
+   ],
+   "explanation": "The client (supplicant) proves its identity through the authenticator to a RADIUS server. Each user gets unique credentials and encryption keys."
+  },
+  {
+   "id": "sdn",
+   "title": "Controller-based networking (SDN)",
+   "width": 1000,
+   "height": 560,
+   "nodes": [
+    {
+     "id": "apps",
+     "x": 200,
+     "y": 20,
+     "w": 600,
+     "h": 80,
+     "label": "Applications / scripts / Ansible / Terraform",
+     "sub": "",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "ctl",
+     "x": 200,
+     "y": 190,
+     "w": 600,
+     "h": 100,
+     "label": "Controller",
+     "sub": "Catalyst Center • SD-WAN Manager • APIC",
+     "kind": "accent",
+     "shape": "round"
+    },
+    {
+     "id": "d1",
+     "x": 40,
+     "y": 400,
+     "w": 200,
+     "h": 80,
+     "label": "Switch",
+     "sub": "data plane",
+     "kind": "switch",
+     "shape": "round"
+    },
+    {
+     "id": "d2",
+     "x": 290,
+     "y": 400,
+     "w": 200,
+     "h": 80,
+     "label": "Router",
+     "sub": "data plane",
+     "kind": "router",
+     "shape": "round"
+    },
+    {
+     "id": "d3",
+     "x": 540,
+     "y": 400,
+     "w": 200,
+     "h": 80,
+     "label": "WLC / AP",
+     "sub": "data plane",
+     "kind": "server",
+     "shape": "round"
+    },
+    {
+     "id": "d4",
+     "x": 780,
+     "y": 400,
+     "w": 200,
+     "h": 80,
+     "label": "Firewall",
+     "sub": "data plane",
+     "kind": "security",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "apps",
+     "dst": "ctl",
+     "label": "Northbound API (REST/JSON)",
+     "style": "solid",
+     "arrow": "both",
+     "kind": "app"
+    },
+    {
+     "src": "ctl",
+     "dst": "d1",
+     "label": "",
+     "style": "solid",
+     "arrow": "both",
+     "kind": "ok"
+    },
+    {
+     "src": "ctl",
+     "dst": "d2",
+     "label": "",
+     "style": "solid",
+     "arrow": "both",
+     "kind": "ok"
+    },
+    {
+     "src": "ctl",
+     "dst": "d3",
+     "label": "",
+     "style": "solid",
+     "arrow": "both",
+     "kind": "ok"
+    },
+    {
+     "src": "ctl",
+     "dst": "d4",
+     "label": "",
+     "style": "solid",
+     "arrow": "both",
+     "kind": "ok"
+    }
+   ],
+   "texts": [
+    {
+     "x": 500,
+     "y": 340,
+     "text": "Southbound: NETCONF • RESTCONF • OpenFlow • OpFlex • SSH/CLI • SNMP",
+     "size": 19,
+     "bold": true,
+     "kind": "text"
+    },
+    {
+     "x": 500,
+     "y": 520,
+     "text": "Underlay = physical IP network • Overlay = tunnels (e.g., VXLAN) • Fabric = both managed as one",
+     "size": 18,
+     "bold": false,
+     "kind": "text"
+    }
+   ],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Northbound interface"
+    },
+    {
+     "kind": "ok",
+     "label": "Southbound interfaces"
+    },
+    {
+     "kind": "accent",
+     "label": "Centralized control/management"
+    }
+   ],
+   "explanation": "Applications request outcomes from the controller via northbound REST APIs. The controller translates intent into device configuration using southbound protocols. Devices still forward traffic in their data planes."
+  },
+  {
+   "id": "rest_api",
+   "title": "REST API call and JSON response",
+   "width": 1000,
+   "height": 520,
+   "nodes": [
+    {
+     "id": "cl",
+     "x": 20,
+     "y": 40,
+     "w": 260,
+     "h": 90,
+     "label": "Client (Python script)",
+     "sub": "",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "sv",
+     "x": 720,
+     "y": 40,
+     "w": 260,
+     "h": 90,
+     "label": "Controller REST API",
+     "sub": "HTTPS",
+     "kind": "accent",
+     "shape": "round"
+    },
+    {
+     "id": "rq",
+     "x": 20,
+     "y": 180,
+     "w": 960,
+     "h": 70,
+     "label": "GET /api/v1/network-device   •   Authorization: Bearer <token>   •   Accept: application/json",
+     "sub": "",
+     "kind": "vlan10",
+     "shape": "rect"
+    },
+    {
+     "id": "rs",
+     "x": 20,
+     "y": 290,
+     "w": 960,
+     "h": 200,
+     "label": "200 OK  •  Content-Type: application/json",
+     "sub": "{ \"response\": [ { \"hostname\": \"SW1\", \"managementIp\": \"10.0.0.11\", \"reachable\": true, \"uptimeDays\": 42 } ] }",
+     "kind": "note",
+     "shape": "rect"
+    }
+   ],
+   "edges": [
+    {
+     "src": "cl",
+     "dst": "sv",
+     "label": "request",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "vlan10"
+    },
+    {
+     "src": "sv",
+     "dst": "cl",
+     "label": "",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "ok"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "vlan10",
+     "label": "HTTP request (verb + URI + headers)"
+    },
+    {
+     "kind": "note",
+     "label": "Response: status code + JSON body"
+    }
+   ],
+   "explanation": "CRUD maps to HTTP verbs (POST, GET, PUT/PATCH, DELETE). The JSON body here has one object containing an array with one object of four key/value pairs: two strings, a boolean, and a number."
+  },
+  {
+   "id": "stp_quiz",
+   "title": "Switched topology (VLAN 10)",
+   "width": 1000,
+   "height": 520,
+   "nodes": [
+    {
+     "id": "s1",
+     "x": 380,
+     "y": 30,
+     "w": 240,
+     "h": 90,
+     "label": "SW1",
+     "sub": "Priority 24586 (24576 + 10)",
+     "kind": "switch",
+     "shape": "round"
+    },
+    {
+     "id": "s2",
+     "x": 60,
+     "y": 380,
+     "w": 240,
+     "h": 90,
+     "label": "SW2",
+     "sub": "Priority 32778\nMAC 0011.2222.2222",
+     "kind": "switch",
+     "shape": "round"
+    },
+    {
+     "id": "s3",
+     "x": 700,
+     "y": 380,
+     "w": 240,
+     "h": 90,
+     "label": "SW3",
+     "sub": "Priority 32778\nMAC 0011.3333.3333",
+     "kind": "switch",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "s1",
+     "dst": "s2",
+     "label": "1 Gbps",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "neutral"
+    },
+    {
+     "src": "s1",
+     "dst": "s3",
+     "label": "1 Gbps",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "neutral"
+    },
+    {
+     "src": "s2",
+     "dst": "s3",
+     "label": "1 Gbps",
+     "style": "solid",
+     "arrow": "none",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "switch",
+     "label": "Switch running Rapid PVST+"
+    }
+   ],
+   "explanation": "All links are 1 Gbps (default cost 4). Determine the root bridge, root ports and designated ports from bridge IDs and costs."
+  },
+  {
+   "id": "mac_quiz",
+   "title": "Switch forwarding",
+   "width": 1000,
+   "height": 480,
+   "nodes": [
+    {
+     "id": "sw",
+     "x": 360,
+     "y": 180,
+     "w": 280,
+     "h": 90,
+     "label": "Switch",
+     "sub": "VLAN 1",
+     "kind": "switch",
+     "shape": "round"
+    },
+    {
+     "id": "a",
+     "x": 40,
+     "y": 40,
+     "w": 200,
+     "h": 70,
+     "label": "PC-A",
+     "sub": "AAAA.AAAA.AAAA",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "b",
+     "x": 760,
+     "y": 40,
+     "w": 200,
+     "h": 70,
+     "label": "PC-B",
+     "sub": "BBBB.BBBB.BBBB",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "c",
+     "x": 40,
+     "y": 330,
+     "w": 200,
+     "h": 70,
+     "label": "PC-C",
+     "sub": "CCCC.CCCC.CCCC",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "tbl",
+     "x": 560,
+     "y": 330,
+     "w": 400,
+     "h": 120,
+     "label": "MAC address table",
+     "sub": "AAAA.AAAA.AAAA → Gi0/1\n(no other entries)",
+     "kind": "note",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "a",
+     "dst": "sw",
+     "label": "Gi0/1: src AAAA…, dst BBBB…",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "accent"
+    },
+    {
+     "src": "sw",
+     "dst": "b",
+     "label": "Gi0/2",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "neutral"
+    },
+    {
+     "src": "sw",
+     "dst": "c",
+     "label": "Gi0/3",
+     "style": "dashed",
+     "arrow": "none",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "accent",
+     "label": "Incoming frame"
+    },
+    {
+     "kind": "note",
+     "label": "Current MAC table"
+    }
+   ],
+   "explanation": "PC-A sends a unicast frame to PC-B. The table contains only PC-A's entry."
+  },
+  {
+   "id": "dot1x_quiz",
+   "title": "Enterprise WLAN authentication",
+   "width": 1000,
+   "height": 340,
+   "nodes": [
+    {
+     "id": "s",
+     "x": 20,
+     "y": 120,
+     "w": 260,
+     "h": 100,
+     "label": "Employee laptop",
+     "sub": "",
+     "kind": "host",
+     "shape": "round"
+    },
+    {
+     "id": "a",
+     "x": 370,
+     "y": 120,
+     "w": 260,
+     "h": 100,
+     "label": "AP / WLC",
+     "sub": "",
+     "kind": "router",
+     "shape": "round"
+    },
+    {
+     "id": "as",
+     "x": 720,
+     "y": 120,
+     "w": 260,
+     "h": 100,
+     "label": "Cisco ISE",
+     "sub": "RADIUS server",
+     "kind": "server",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "s",
+     "dst": "a",
+     "label": "EAP",
+     "style": "solid",
+     "arrow": "both",
+     "kind": "accent"
+    },
+    {
+     "src": "a",
+     "dst": "as",
+     "label": "RADIUS",
+     "style": "solid",
+     "arrow": "both",
+     "kind": "ok"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "accent",
+     "label": "EAP exchange"
+    },
+    {
+     "kind": "ok",
+     "label": "RADIUS"
+    }
+   ],
+   "explanation": "The laptop authenticates with its own credentials before it is allowed onto the network."
+  },
+  {
+   "id": "frame_quiz",
+   "title": "Ethernet II frame layout",
+   "width": 1000,
+   "height": 300,
+   "nodes": [
+    {
+     "id": "f0",
+     "x": 20,
+     "y": 110,
+     "w": 116,
+     "h": 110,
+     "label": "Preamble",
+     "sub": "7 B",
+     "kind": "neutral",
+     "shape": "rect"
+    },
+    {
+     "id": "f1",
+     "x": 140,
+     "y": 110,
+     "w": 66,
+     "h": 110,
+     "label": "SFD",
+     "sub": "1 B",
+     "kind": "neutral",
+     "shape": "rect"
+    },
+    {
+     "id": "f2",
+     "x": 210,
+     "y": 110,
+     "w": 166,
+     "h": 110,
+     "label": "Destination MAC",
+     "sub": "6 B",
+     "kind": "neutral",
+     "shape": "rect"
+    },
+    {
+     "id": "f3",
+     "x": 380,
+     "y": 110,
+     "w": 166,
+     "h": 110,
+     "label": "Source MAC",
+     "sub": "6 B",
+     "kind": "neutral",
+     "shape": "rect"
+    },
+    {
+     "id": "f4",
+     "x": 550,
+     "y": 110,
+     "w": 86,
+     "h": 110,
+     "label": "Type",
+     "sub": "2 B",
+     "kind": "neutral",
+     "shape": "rect"
+    },
+    {
+     "id": "f5",
+     "x": 640,
+     "y": 110,
+     "w": 246,
+     "h": 110,
+     "label": "Data",
+     "sub": "46-1500 B",
+     "kind": "neutral",
+     "shape": "rect"
+    },
+    {
+     "id": "f6",
+     "x": 890,
+     "y": 110,
+     "w": 86,
+     "h": 110,
+     "label": "FCS",
+     "sub": "4 B",
+     "kind": "neutral",
+     "shape": "rect"
+    }
+   ],
+   "edges": [],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "neutral",
+     "label": "Frame field (size in bytes)"
+    }
+   ],
+   "explanation": "Fields of an Ethernet II frame in transmission order."
+  },
+  {
+   "id": "packet_web_fixture",
+   "title": "Packet walkthrough: exact routed fixture",
+   "width": 600,
+   "height": 1120,
+   "nodes": [
+    {
+     "id": "pc",
+     "x": 30,
+     "y": 40,
+     "w": 240,
+     "h": 110,
+     "label": "PC-A",
+     "sub": "192.168.10.10/24",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "dns",
+     "x": 330,
+     "y": 40,
+     "w": 240,
+     "h": 110,
+     "label": "DNS",
+     "sub": "192.168.10.53/24",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "sw",
+     "x": 180,
+     "y": 240,
+     "w": 240,
+     "h": 110,
+     "label": "SW1 | VLAN 10",
+     "sub": "Fa0/1 PC; Fa0/2 DNS",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "r1",
+     "x": 180,
+     "y": 470,
+     "w": 240,
+     "h": 110,
+     "label": "R1",
+     "sub": "LAN .10.1; transit .12.1",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "r2",
+     "x": 180,
+     "y": 700,
+     "w": 240,
+     "h": 110,
+     "label": "R2",
+     "sub": "transit .12.2; LAN .100.1",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "web",
+     "x": 180,
+     "y": 930,
+     "w": 240,
+     "h": 110,
+     "label": "WEB | HTTP 80",
+     "sub": "198.51.100.20/24",
+     "kind": "app",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "pc",
+     "dst": "sw",
+     "label": "Fa0/1",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "dns",
+     "dst": "sw",
+     "label": "Fa0/2",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "sw",
+     "dst": "r1",
+     "label": "Gi0/1 -> R1 Gi0/0",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "r1",
+     "dst": "r2",
+     "label": "10.0.12.0/30",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "r2",
+     "dst": "web",
+     "label": "198.51.100.0/24",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "datalink",
+     "label": "Local Ethernet/VLAN"
+    },
+    {
+     "kind": "network",
+     "label": "Routed hop"
+    },
+    {
+     "kind": "app",
+     "label": "Service endpoint"
+    }
+   ],
+   "explanation": "Exact authored packet fixture. PC and DNS share VLAN 10 through SW1. SW1 Gi0/1 reaches R1 Gi0/0 192.168.10.1/24. R1 Gi0/1 10.0.12.1/30 reaches R2 Gi0/0 10.0.12.2/30. R2 Gi0/1 198.51.100.1/24 reaches WEB. Arrows identify the depicted delivery relationships, not a ban on return traffic. No NAT is configured. Inspect the device controls for full MAC/interface details. Header changes are shown by the walkthrough, not computed by this diagram."
+  },
+  {
+   "id": "vlan_pilot_fixture",
+   "title": "VLAN pilot: ports and gateway paths",
+   "width": 640,
+   "height": 1160,
+   "nodes": [
+    {
+     "id": "a",
+     "x": 20,
+     "y": 40,
+     "w": 260,
+     "h": 100,
+     "label": "PC-A | VLAN 10",
+     "sub": "192.168.10.10/24",
+     "kind": "vlan10",
+     "shape": "round"
+    },
+    {
+     "id": "r",
+     "x": 360,
+     "y": 40,
+     "w": 260,
+     "h": 100,
+     "label": "R1 | Gi0/0",
+     "sub": ".10.1 and .20.1 gateways",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "s1",
+     "x": 190,
+     "y": 290,
+     "w": 260,
+     "h": 110,
+     "label": "SW1",
+     "sub": "Fa0/1 A; Gi0/2 R1",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "s2",
+     "x": 190,
+     "y": 600,
+     "w": 260,
+     "h": 110,
+     "label": "SW2",
+     "sub": "Gi0/1 to SW1 Gi0/1",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "b",
+     "x": 20,
+     "y": 940,
+     "w": 260,
+     "h": 110,
+     "label": "PC-B | VLAN 10",
+     "sub": "192.168.10.20/24",
+     "kind": "vlan10",
+     "shape": "round"
+    },
+    {
+     "id": "c",
+     "x": 360,
+     "y": 940,
+     "w": 260,
+     "h": 110,
+     "label": "PC-C | VLAN 20",
+     "sub": "192.168.20.20/24",
+     "kind": "vlan20",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "a",
+     "dst": "s1",
+     "label": "Fa0/1 access 10",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "r",
+     "dst": "s1",
+     "label": "Gi0/2 trunk",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "s1",
+     "dst": "s2",
+     "label": "Gi0/1 trunk",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "s2",
+     "dst": "b",
+     "label": "Fa0/1 access 10",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "s2",
+     "dst": "c",
+     "label": "Fa0/2 access 20",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "vlan10",
+     "label": "VLAN 10 broadcast domain"
+    },
+    {
+     "kind": "vlan20",
+     "label": "VLAN 20 broadcast domain"
+    },
+    {
+     "kind": "network",
+     "label": "Routing boundary"
+    }
+   ],
+   "explanation": "Exact main VLAN pilot fixture, separate from the phone extension. Both trunks permit 10,20,999 and use untagged native VLAN 999. VLAN 10/20 frames are tagged on trunks and ordinary PC frames are untagged on access links. PC-A/PC-B share a broadcast domain; PC-C does not. R1 subinterfaces Gi0/0.10 and .20 provide 192.168.10.1/24 and 192.168.20.1/24. Lines show physical links; arrows are reading guides, not one-way Ethernet. A routed conversation replaces the Layer 2 header at R1; ordinary routing does not translate IP endpoints."
+  },
+  {
+   "id": "ospf_pilot_fixture",
+   "title": "OSPF pilot: point-to-point area 0",
+   "width": 600,
+   "height": 900,
+   "nodes": [
+    {
+     "id": "l1",
+     "x": 130,
+     "y": 30,
+     "w": 340,
+     "h": 100,
+     "label": "R1 Loopback0",
+     "sub": "192.168.1.1/32; cost 1",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "r1",
+     "x": 130,
+     "y": 240,
+     "w": 340,
+     "h": 110,
+     "label": "R1 | ID 1.1.1.1",
+     "sub": "Gi0/0 10.0.12.1/30",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "r2",
+     "x": 130,
+     "y": 520,
+     "w": 340,
+     "h": 110,
+     "label": "R2 | ID 2.2.2.2",
+     "sub": "Gi0/0 10.0.12.2/30",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "l2",
+     "x": 130,
+     "y": 760,
+     "w": 340,
+     "h": 100,
+     "label": "R2 Loopback0",
+     "sub": "192.168.2.1/32; cost 1",
+     "kind": "network",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "l1",
+     "dst": "r1",
+     "label": "passive advertisement",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "r1",
+     "dst": "r2",
+     "label": "area 0; p2p; cost 10",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "r2",
+     "dst": "l2",
+     "label": "passive advertisement",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "network",
+     "label": "OSPF-enabled interface or advertised prefix"
+    }
+   ],
+   "explanation": "Exact OSPF command fixture. Both transit interfaces explicitly use OSPF point-to-point network type and outgoing cost 10, so there is no DR/BDR election. Loopbacks are advertised passively with cost 1. R1 cost to R2 loopback is 10+1=11. Router IDs identify OSPF speakers and are not the transit next-hop addresses. The broadcast DR/BDR discussion is a different scenario, not a role shown on this link. Arrows organize the drawing; Hello/database exchanges and data can travel both directions."
+  },
+  {
+   "id": "mechanism_1-01",
+   "title": "Component roles on a packet path",
+   "width": 640,
+   "height": 1070,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Endpoint",
+     "sub": "Creates application data",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Access switch / AP",
+     "sub": "Local Ethernet or wireless delivery",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Router",
+     "sub": "Selects a next hop between networks",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "Firewall / IPS",
+     "sub": "Applies policy and inspection",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n4",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "Server",
+     "sub": "Provides the requested service",
+     "kind": "app",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n3",
+     "dst": "n4",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "Each component has a distinct job. A switch forwards within a VLAN; a router connects networks; an AP bridges wireless clients; a firewall enforces policy. An IPS can inspect/block supported traffic. A controller manages devices but is not automatically in every data path. PoE supplies supported powered devices subject to negotiation and power budget, not unlimited watts per port."
+  },
+  {
+   "id": "mechanism_1-02",
+   "title": "Campus and data-center topology choices",
+   "width": 640,
+   "height": 1070,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Campus access",
+     "sub": "Endpoints attach here",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Distribution / collapsed core",
+     "sub": "Policy and aggregation",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Campus core, if present",
+     "sub": "High-speed resilient transit",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "Alternative: leaf",
+     "sub": "Servers attach to leaf switches",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "n4",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "Alternative: spine",
+     "sub": "Every leaf connects to every spine",
+     "kind": "network",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n3",
+     "dst": "n4",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "The first three nodes describe a three-tier campus; a two-tier design collapses distribution/core. The final two nodes describe a separate spine-leaf alternative, not extra campus tiers. Spine-leaf aims for consistent fabric paths, commonly using routed ECMP. WAN/SOHO/cloud choices depend on scale, failure domains, cost, and operational ownership. Vertical arrows organize the comparison, not a literal five-device cable chain."
+  },
+  {
+   "id": "mechanism_1-04",
+   "title": "Physical media and link delivery",
+   "width": 640,
+   "height": 1070,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Electrical transmitter",
+     "sub": "Copper balanced pairs",
+     "kind": "physical",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Copper channel",
+     "sub": "Category, length, termination matter",
+     "kind": "physical",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Electrical receiver",
+     "sub": "Check errors and negotiated link",
+     "kind": "physical",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "Optical transmitter",
+     "sub": "Matched wavelength and optics",
+     "kind": "physical",
+     "shape": "round"
+    },
+    {
+     "id": "n4",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "Fiber / optical receiver",
+     "sub": "Match SMF/MMF and Tx-to-Rx path",
+     "kind": "physical",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n3",
+     "dst": "n4",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "The upper three nodes describe copper; the lower two describe a separate optical path. Copper category and channel construction constrain supported rates/distances. Fiber type, wavelength, transceiver support, connector cleanliness, polarity, and optical budget must match. Duplex fiber commonly crosses transmitter to receiver; supported bidirectional optics use a different arrangement. This is a mechanism comparison, not a connector-orientation pinout. Use the numbered T568A/B table for copper contacts."
+  },
+  {
+   "id": "mechanism_1-07",
+   "title": "Private addressing is not a security policy",
+   "width": 640,
+   "height": 870,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Inside host",
+     "sub": "Example 192.168.10.10/24",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Inside gateway",
+     "sub": "Routes traffic off the LAN",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Optional NAT boundary",
+     "sub": "Rewrites selected addresses/ports",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "External destination",
+     "sub": "Needs a reachable return path",
+     "kind": "app",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "RFC1918 private ranges are 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16. They are not globally unique public assignments. NAT is common at IPv4 edges but is not encryption or a substitute for firewall policy. A private address can route inside an organization without NAT. Other non-public/special-use ranges exist, so outside RFC1918 does not universally mean public/reachable."
+  },
+  {
+   "id": "mechanism_1-11",
+   "title": "Client diagnostics: isolate the failing layer",
+   "width": 640,
+   "height": 1070,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Address and prefix",
+     "sub": "Is the client configured correctly?",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Local link / gateway",
+     "sub": "Can the intended next hop be reached?",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Remote IP path",
+     "sub": "Do routes and return policy work?",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "Name resolution",
+     "sub": "Does the resolver return the right answer?",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n4",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "Application service",
+     "sub": "Port, TLS, and service health",
+     "kind": "app",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n3",
+     "dst": "n4",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "Use ipconfig /all on Windows, ip addr/ip route on Linux, and ifconfig/route -n get default on macOS as applicable. Check resolver configuration with the OS-appropriate tool. A successful ping does not prove DNS, TCP, TLS, or application health; blocked ICMP alone does not prove all traffic fails. The sequence is an evidence ladder, not a claim that every OS uses identical commands."
+  },
+  {
+   "id": "mechanism_1-13",
+   "title": "Virtualization: separate compute and forwarding",
+   "width": 640,
+   "height": 1070,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Physical host",
+     "sub": "CPU, memory, NIC resources",
+     "kind": "physical",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Hypervisor and VMs",
+     "sub": "VMs have guest operating systems",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Containers: separate model",
+     "sub": "Share a host kernel; isolate processes",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "VRF BLUE",
+     "sub": "Independent routing/forwarding table",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n4",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "VRF GREEN",
+     "sub": "No automatic route sharing with BLUE",
+     "kind": "network",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n3",
+     "dst": "n4",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "VMs, containers, and VRFs solve different isolation problems. Containers are not simply small VMs. A VRF separates Layer 3 forwarding tables, permitting overlapping addresses in different contexts. A VLAN separates Layer 2 broadcast domains. VRF communication requires explicit routing/policy such as controlled route leaking; it is not created by placing boxes next to each other. Arrows organize the comparison rather than connecting BLUE to GREEN."
+  },
+  {
+   "id": "mechanism_2-04",
+   "title": "Discovery is link-local evidence",
+   "width": 640,
+   "height": 870,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Device A interface",
+     "sub": "CDP / LLDP advertisement",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Direct Layer 2 link",
+     "sub": "Neighbor exchange on this link",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Device B interface",
+     "sub": "Neighbor identity and port details",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "Operator verification",
+     "sub": "Compare advertised and physical ports",
+     "kind": "app",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "CDP is Cisco-specific; LLDP is an IEEE discovery protocol. Advertisements describe adjacent devices and interfaces, not end-to-end reachability. They are not normally routed to discover arbitrary remote networks. Check both local and remote port identifiers, platform/capability information, and security policy before enabling discovery on an untrusted edge."
+  },
+  {
+   "id": "mechanism_2-05",
+   "title": "EtherChannel: one logical path, multiple members",
+   "width": 640,
+   "height": 1070,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Traffic flows",
+     "sub": "Flow A and flow B",
+     "kind": "transport",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Hash selection",
+     "sub": "Supported fields select a member",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Logical Port-channel",
+     "sub": "One interface to routing or STP",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "Physical member 1",
+     "sub": "One selected flow path",
+     "kind": "physical",
+     "shape": "round"
+    },
+    {
+     "id": "n4",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "Physical member 2",
+     "sub": "Other flows may use this member",
+     "kind": "physical",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n3",
+     "dst": "n4",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "An EtherChannel bundles compatible links to the same logical peer. LACP active/passive negotiates; passive/passive does not initiate. A single flow commonly stays on one member and does not gain the sum of all link rates. A Layer 2 bundle participates in STP as a logical interface; a routed bundle has an IP on the port-channel. The member nodes are alternatives selected by a hash, not serial hops."
+  },
+  {
+   "id": "mechanism_2-08",
+   "title": "Wireless control and data paths differ",
+   "width": 640,
+   "height": 1070,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Wireless client",
+     "sub": "802.11 association and traffic",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Access point",
+     "sub": "Radio termination and forwarding",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "CAPWAP control to WLC",
+     "sub": "Management/control relationship",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "Central switching option",
+     "sub": "Client data traverses controller",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n4",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "Local switching option",
+     "sub": "Client data exits at AP site",
+     "kind": "network",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n3",
+     "dst": "n4",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "The last two nodes are alternative data paths, not a serial chain. Central/local switching depends on architecture and AP mode. CAPWAP control uses UDP 5246 and data commonly uses UDP 5247; security and tunnel details depend on platform. Autonomous, lightweight, FlexConnect, and cloud-managed designs do not have identical control/data paths. Confirm AP/controller compatibility and reachability before assuming a failed client is an RF issue."
+  },
+  {
+   "id": "mechanism_2-09",
+   "title": "WLAN policy: SSID to the wired network",
+   "width": 640,
+   "height": 1070,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "SSID / WLAN profile",
+     "sub": "The advertised service name",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Security policy",
+     "sub": "WPA mode, PSK or enterprise AAA",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Policy / VLAN mapping",
+     "sub": "Selects the wired client segment",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "DHCP and gateway",
+     "sub": "Provides usable IP connectivity",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n4",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "Permitted application",
+     "sub": "DNS, routing, ACL, service",
+     "kind": "app",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n3",
+     "dst": "n4",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "A visible SSID is not proof that clients can authenticate or obtain an address. Verify security compatibility, the actual WLAN-to-policy/VLAN mapping, VLAN transport, DHCP, and gateway reachability. Controller GUI names differ between AireOS and IOS XE Catalyst 9800. A voice/data or management VLAN must not be guessed from the SSID text. This is a policy dependency chain, not a claim of identical configuration screens."
+  },
+  {
+   "id": "mechanism_4-03",
+   "title": "NTP: traceable source and synchronization",
+   "width": 640,
+   "height": 1070,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Reference clock",
+     "sub": "Stratum 0 reference, not an NTP host",
+     "kind": "physical",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Primary time server",
+     "sub": "Stratum 1 when directly referenced",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Downstream server",
+     "sub": "Example stratum 2 after selection",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "Network device client",
+     "sub": "Example stratum 3 after selection",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n4",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "Evidence check",
+     "sub": "Selected association and sync status",
+     "kind": "app",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n3",
+     "dst": "n4",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "Stratum counts distance from a reference, not absolute accuracy. NTP source selection also considers eligibility and quality; it is not simply choose the lowest number. Stratum 16 is unsynchronized. A lab ntp master command does not create an accurate UTC source. Verify selected associations and synchronization, not only the wall-clock display. The diagram shows a representative hierarchy, not guaranteed measured offsets."
+  },
+  {
+   "id": "mechanism_5-01",
+   "title": "Risk analysis separates cause from control",
+   "width": 640,
+   "height": 1070,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Asset and exposure",
+     "sub": "What needs protection?",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Vulnerability",
+     "sub": "A weakness in the environment",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Threat and exploit path",
+     "sub": "A possible actor/event and method",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "Impact and likelihood",
+     "sub": "Evaluate the resulting risk",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n4",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "Controls and residual risk",
+     "sub": "Prevent, detect, respond, recover",
+     "kind": "network",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n3",
+     "dst": "n4",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "A threat is not the same as a vulnerability, and a control does not eliminate every risk. Identify the asset, weakness, plausible event, business impact, and likelihood before selecting layered controls. Prevention, detection, response, and recovery have different jobs. Security awareness, least privilege, patching, backups, and monitoring address different failure modes. Arrows describe an analysis sequence, not an attack procedure."
+  },
+  {
+   "id": "mechanism_5-02",
+   "title": "AAA: identity, permissions, and records",
+   "width": 640,
+   "height": 1070,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Access request",
+     "sub": "User/device asks to enter",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Authentication",
+     "sub": "Verify the claimed identity",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Authorization",
+     "sub": "Determine allowed actions",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "Accounting",
+     "sub": "Record activity and sessions",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n4",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "Recovery access",
+     "sub": "Test approved fallback safely",
+     "kind": "network",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n3",
+     "dst": "n4",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "Authentication asks who; authorization asks what is permitted; accounting records what happened. Local accounts and centralized AAA are different designs. RADIUS commonly uses UDP 1812/1813; TACACS+ commonly uses TCP 49. Their protection and authorization models differ. Preserve a tested console/recovery path before changing AAA. Do not enable a method list that can lock out administrators without validating the intended server and fallback behavior."
+  },
+  {
+   "id": "mechanism_6-02",
+   "title": "Controller APIs do not replace the data plane",
+   "width": 640,
+   "height": 1070,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Application / operator",
+     "sub": "Intent, policy, automation request",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Northbound interface",
+     "sub": "Application-facing API",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Controller",
+     "sub": "Coordinates supported control/policy",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "Southbound interface",
+     "sub": "Device-facing communication",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n4",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "Device forwarding plane",
+     "sub": "Forwards traffic using installed state",
+     "kind": "datalink",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n3",
+     "dst": "n4",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "Northbound/southbound describe the relationship to a controller, not a fixed physical compass direction. The data plane forwards packets; control/management functions determine or configure forwarding behavior. Architectures vary: not every controller is in the user-data path, and not every network has a fully centralized control plane. An API request must be authorized and its actual result verified."
+  },
+  {
+   "id": "mechanism_6-04",
+   "title": "AI assistance requires engineering validation",
+   "width": 640,
+   "height": 1070,
+   "nodes": [
+    {
+     "id": "n0",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Approved observations",
+     "sub": "Logs, metrics, inventory with access controls",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n1",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Model inference",
+     "sub": "Prediction, classification, or generation",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n2",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Candidate explanation",
+     "sub": "A hypothesis, not verified truth",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "n3",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "Engineer and policy review",
+     "sub": "Validate evidence, scope, rollback",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "n4",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "Controlled change and checks",
+     "sub": "Approve, apply, verify, monitor",
+     "kind": "network",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "n0",
+     "dst": "n1",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n1",
+     "dst": "n2",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n2",
+     "dst": "n3",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "n3",
+     "dst": "n4",
+     "label": "read next",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Application / operational role"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 / control / policy"
+    },
+    {
+     "kind": "datalink",
+     "label": "Layer 2"
+    },
+    {
+     "kind": "physical",
+     "label": "Physical resource"
+    }
+   ],
+   "explanation": "Predictive and generative AI have different outputs. Correlation does not establish causation; generated commands can be incorrect or platform-incompatible. Keep sensitive data within approved systems. Validate recommendations against authoritative documentation and actual device state. A human-approved change still needs rollback and postchecks. This app provides educational material and does not autonomously change production devices."
+  }
+ ]
+}

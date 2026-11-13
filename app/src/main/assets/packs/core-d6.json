@@ -1,0 +1,905 @@
+{
+ "schema": 1,
+ "id": "core-d6",
+ "name": "Core: Automation and Programmability",
+ "version": 1,
+ "category": "Core CCNA 200-301",
+ "description": "24 original questions for Automation and Programmability (10% of the v1.1 blueprint).",
+ "author": "CCNA Academy",
+ "topics": [
+  {
+   "id": "automation",
+   "title": "Automation and controller-based networking",
+   "domainId": "d6",
+   "lessonId": "6-01"
+  },
+  {
+   "id": "ai",
+   "title": "AI and ML in operations",
+   "domainId": "d6",
+   "lessonId": "6-02"
+  },
+  {
+   "id": "rest-json",
+   "title": "REST APIs and JSON",
+   "domainId": "d6",
+   "lessonId": "6-03"
+  },
+  {
+   "id": "config-mgmt",
+   "title": "Ansible and Terraform",
+   "domainId": "d6",
+   "lessonId": "6-04"
+  }
+ ],
+ "questions": [
+  {
+   "id": "core-d6-001",
+   "domainId": "d6",
+   "objective": "6.2",
+   "topic": "automation",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "match",
+   "stem": "Match each activity to the network plane it belongs to.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "The data plane moves user traffic, the control plane builds forwarding information, and the management plane is used to operate the device.",
+   "concept": "Network planes",
+   "tip": "",
+   "lessonId": "6-01",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Forwarding a frame using the MAC address table → Data plane; Exchanging OSPF LSAs with a neighbor → Control plane; An administrator logging in with SSH → Management plane",
+   "whyWrong": [],
+   "left": [
+    "Forwarding a frame using the MAC address table",
+    "Exchanging OSPF LSAs with a neighbor",
+    "An administrator logging in with SSH"
+   ],
+   "right": [
+    "Data plane",
+    "Control plane",
+    "Management plane"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d6-002",
+   "domainId": "d6",
+   "objective": "6.3",
+   "topic": "automation",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "A Python script retrieves the device inventory from Catalyst Center using its REST API. Which interface is the script using?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Picture the controller in the middle: applications above (northbound, usually REST/JSON) and devices below (southbound).",
+   "concept": "NBI vs SBI",
+   "tip": "North = up to apps; south = down to devices.",
+   "lessonId": "6-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Northbound interface",
+    "Southbound interface",
+    "Data plane",
+    "Underlay"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Applications talk to the controller through its northbound API.",
+   "whyWrong": [
+    "",
+    "The controller uses southbound interfaces to talk to network devices.",
+    "The data plane forwards user traffic.",
+    "The underlay is the physical IP transport network."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-003",
+   "domainId": "d6",
+   "objective": "6.3",
+   "topic": "automation",
+   "difficulty": 2,
+   "format": "protocol-id",
+   "type": "multi",
+   "stem": "Which of these are southbound protocols a controller can use to configure network devices? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Southbound options include NETCONF, RESTCONF, OpenFlow, OpFlex, SSH/CLI and SNMP.",
+   "concept": "Southbound interfaces",
+   "tip": "",
+   "lessonId": "6-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "NETCONF",
+    "OpenFlow",
+    "JSON",
+    "YAML",
+    "OAuth"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "NETCONF configures devices over SSH using YANG data models. OpenFlow programs forwarding tables on switches.",
+   "whyWrong": [
+    "",
+    "",
+    "JSON is a data format, not a protocol.",
+    "YAML is a data format, typically used by Ansible playbooks.",
+    "OAuth is an authorization framework, typically for APIs."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-004",
+   "domainId": "d6",
+   "objective": "6.3",
+   "topic": "automation",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: In controller-based networking, user traffic no longer passes through switches; the controller forwards all packets.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "The controller centralizes control and management, but devices still forward user traffic in their data planes.",
+   "concept": "Controller role",
+   "tip": "",
+   "lessonId": "6-01",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    1
+   ],
+   "whyCorrect": "The statement is false. The controller centralizes control and management, but devices still forward user traffic in their data planes.",
+   "whyWrong": [
+    "The statement is false, so this choice is incorrect.",
+    ""
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-005",
+   "domainId": "d6",
+   "objective": "6.2",
+   "topic": "automation",
+   "difficulty": 3,
+   "format": "protocol-id",
+   "type": "match",
+   "stem": "Match each Cisco SD-Access function to the technology that provides it.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "SD-Access builds a fabric: an IS-IS underlay, VXLAN encapsulation, LISP mapping, and Catalyst Center for automation and assurance.",
+   "concept": "SD-Access architecture",
+   "tip": "",
+   "lessonId": "6-01",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Underlay routing → IS-IS; Overlay data plane encapsulation → VXLAN; Overlay control plane → LISP; Management and automation → Catalyst Center",
+   "whyWrong": [],
+   "left": [
+    "Underlay routing",
+    "Overlay data plane encapsulation",
+    "Overlay control plane",
+    "Management and automation"
+   ],
+   "right": [
+    "IS-IS",
+    "VXLAN",
+    "LISP",
+    "Catalyst Center"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d6-006",
+   "domainId": "d6",
+   "objective": "6.2",
+   "topic": "automation",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "single",
+   "stem": "In a software-defined fabric, what is the underlay?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Underlay = physical transport; overlay = virtual networks on top; fabric = both managed as one.",
+   "concept": "Underlay vs overlay",
+   "tip": "",
+   "lessonId": "6-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "The physical IP transport network",
+    "The virtual tunnels that carry user traffic",
+    "The controller's northbound API",
+    "The wireless network only"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Overlay tunnels are built on top of it.",
+   "whyWrong": [
+    "",
+    "That is the overlay.",
+    "APIs are not part of the underlay.",
+    "The underlay covers the whole transport network."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-007",
+   "domainId": "d6",
+   "objective": "6.1",
+   "topic": "automation",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "Why does controller-based management reduce configuration errors across 300 switches?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Automation improves consistency, speed and auditability, and frees engineers for design work.",
+   "concept": "Benefits of automation",
+   "tip": "",
+   "lessonId": "6-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Policy is defined centrally and pushed consistently",
+    "It removes the need for spanning tree",
+    "It encrypts the CLI",
+    "It disables the management plane on switches"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Automation removes repetitive manual steps.",
+   "whyWrong": [
+    "",
+    "Controllers do not change Layer 2 loop prevention requirements.",
+    "Encryption is unrelated to consistency.",
+    "Devices still need management access."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-008",
+   "domainId": "d6",
+   "objective": "6.4",
+   "topic": "ai",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "A monitoring platform learns typical DHCP onboarding times for each site and alerts when a site deviates. Which kind of AI is this?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Predictive AI uses telemetry to build baselines, detect anomalies and forecast problems.",
+   "concept": "Predictive AI",
+   "tip": "",
+   "lessonId": "6-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Predictive AI",
+    "Generative AI",
+    "A static threshold alarm",
+    "Rule-based ACL logging"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "It learns a baseline from historical data and flags deviations.",
+   "whyWrong": [
+    "",
+    "Generative AI creates content such as text or configurations.",
+    "A static threshold does not learn per-site baselines.",
+    "ACL logging records matches; it does not learn behavior."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-009",
+   "domainId": "d6",
+   "objective": "6.4",
+   "topic": "ai",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "An engineer uses a generative AI assistant to draft an ACL for a production router. What is the correct practice?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Use AI to speed up drafting and analysis, but keep humans responsible for validating changes.",
+   "concept": "Responsible use of generative AI",
+   "tip": "",
+   "lessonId": "6-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Validate it in a lab before deploying",
+    "Apply it immediately because AI output is always accurate",
+    "Trust it because the model was trained on vendor documentation",
+    "Paste the router's credentials into the prompt for better results"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Generative output can be plausible but wrong.",
+   "whyWrong": [
+    "",
+    "Generated configurations can contain errors.",
+    "Training data does not guarantee correctness.",
+    "Sensitive data should not be shared with AI services."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-010",
+   "domainId": "d6",
+   "objective": "6.4",
+   "topic": "ai",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: Supervised machine learning trains models using labeled data.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Supervised learning uses labeled examples; unsupervised learning finds patterns in unlabeled data; reinforcement learning learns from rewards.",
+   "concept": "Machine learning types",
+   "tip": "",
+   "lessonId": "6-02",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The statement is true. Supervised learning uses labeled examples; unsupervised learning finds patterns in unlabeled data; reinforcement learning learns from rewards.",
+   "whyWrong": [
+    "",
+    "The statement is true, so this choice is incorrect."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-011",
+   "domainId": "d6",
+   "objective": "6.5",
+   "topic": "rest-json",
+   "difficulty": 1,
+   "format": "protocol-id",
+   "type": "match",
+   "stem": "Match each CRUD operation to the HTTP method normally used in REST APIs.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "REST maps CRUD to HTTP verbs. PATCH is used for partial updates.",
+   "concept": "CRUD and HTTP methods",
+   "tip": "",
+   "lessonId": "6-03",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Create → POST; Read → GET; Update (replace) → PUT; Delete → DELETE",
+   "whyWrong": [],
+   "left": [
+    "Create",
+    "Read",
+    "Update (replace)",
+    "Delete"
+   ],
+   "right": [
+    "POST",
+    "GET",
+    "PUT",
+    "DELETE"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d6-012",
+   "domainId": "d6",
+   "objective": "6.5",
+   "topic": "rest-json",
+   "difficulty": 2,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "A script calling a controller API receives HTTP 401. What is the most likely cause?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "401 Unauthorized = authentication needed or failed; 403 Forbidden = authenticated but not allowed.",
+   "concept": "HTTP status codes",
+   "tip": "",
+   "lessonId": "6-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Missing or invalid authentication",
+    "The requested resource does not exist",
+    "The server hit an internal error",
+    "The request succeeded"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "401 means not authenticated.",
+   "whyWrong": [
+    "",
+    "That is 404.",
+    "That is 500.",
+    "Success codes are 2xx."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-013",
+   "domainId": "d6",
+   "objective": "6.5",
+   "topic": "rest-json",
+   "difficulty": 1,
+   "format": "protocol-id",
+   "type": "single",
+   "stem": "Which HTTP status code indicates that a POST request successfully created a new resource?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "2xx = success, 4xx = client error, 5xx = server error.",
+   "concept": "HTTP status codes",
+   "tip": "",
+   "lessonId": "6-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "201 Created",
+    "200 OK",
+    "204 No Content",
+    "400 Bad Request"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The resource was created, often with its location returned.",
+   "whyWrong": [
+    "",
+    "200 is generic success, typically for GET.",
+    "204 is success with no response body.",
+    "400 is a client error."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-014",
+   "domainId": "d6",
+   "objective": "6.5",
+   "topic": "rest-json",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "multi",
+   "stem": "Which statements describe REST APIs? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "REST constraints: client-server, stateless, cacheable, uniform interface, layered system (and optional code-on-demand).",
+   "concept": "REST characteristics",
+   "tip": "",
+   "lessonId": "6-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "They are stateless; each request carries all the information the server needs",
+    "They use HTTP methods on resources identified by URIs",
+    "They require SNMP as the transport",
+    "They keep a session state on the server between calls",
+    "They can only return XML"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "The server keeps no client session state between calls. For example, GET /api/v1/devices.",
+   "whyWrong": [
+    "",
+    "",
+    "REST normally uses HTTP/HTTPS.",
+    "That would violate the stateless constraint.",
+    "JSON is the most common format; XML and YAML are also possible."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-015",
+   "domainId": "d6",
+   "objective": "6.7",
+   "topic": "rest-json",
+   "difficulty": 3,
+   "format": "calculation",
+   "type": "single",
+   "stem": "How many JSON objects does this document contain, including the outermost one?",
+   "exhibit": "{\n  \"device\": {\n    \"hostname\": \"SW1\",\n    \"interfaces\": [\n      {\"name\": \"Gi0/1\", \"enabled\": true},\n      {\"name\": \"Gi0/2\", \"enabled\": false}\n    ]\n  }\n}",
+   "diagram": null,
+   "explanation": "Every { } is an object; [ ] is an array. Count braces, not keys.",
+   "concept": "JSON structure",
+   "tip": "Curly = object, square = array.",
+   "lessonId": "6-03",
+   "verified": true,
+   "shuffle": true,
+   "options": [
+    "4",
+    "3",
+    "2",
+    "5"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The outer object, the 'device' object and the two interface objects inside the array.",
+   "whyWrong": [
+    "",
+    "This misses one of the objects.",
+    "This counts only the outer and 'device' objects.",
+    "The array itself is not an object."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-016",
+   "domainId": "d6",
+   "objective": "6.7",
+   "topic": "rest-json",
+   "difficulty": 2,
+   "format": "calculation",
+   "type": "single",
+   "stem": "Which statement about this JSON document is correct?",
+   "exhibit": "{\n  \"device\": {\n    \"hostname\": \"SW1\",\n    \"interfaces\": [\n      {\"name\": \"Gi0/1\", \"enabled\": true},\n      {\"name\": \"Gi0/2\", \"enabled\": false}\n    ]\n  }\n}",
+   "diagram": null,
+   "explanation": "JSON value types: string, number, boolean, null, object and array.",
+   "concept": "JSON data types",
+   "tip": "",
+   "lessonId": "6-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "'interfaces' is an array containing two objects",
+    "The values of 'enabled' are strings",
+    "'hostname' has a number value",
+    "The document contains two arrays"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Square brackets hold two { } objects.",
+   "whyWrong": [
+    "",
+    "true and false are unquoted JSON booleans.",
+    "\"SW1\" is a string.",
+    "There is only one array ('interfaces')."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-017",
+   "domainId": "d6",
+   "objective": "6.7",
+   "topic": "rest-json",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "single",
+   "stem": "Which of these is valid JSON?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "JSON rules: double-quoted keys and strings, commas between members, no trailing commas, no comments.",
+   "concept": "JSON syntax",
+   "tip": "",
+   "lessonId": "6-03",
+   "verified": true,
+   "shuffle": true,
+   "options": [
+    "{\"vlan\": 10, \"name\": \"SALES\"}",
+    "{'vlan': 10, 'name': 'SALES'}",
+    "{\"vlan\": 10, \"name\": \"SALES\",}",
+    "{vlan: 10, name: \"SALES\"}"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Keys and strings use double quotes, and numbers are unquoted.",
+   "whyWrong": [
+    "",
+    "JSON does not allow single quotes.",
+    "Trailing commas are not allowed.",
+    "Keys must be quoted strings."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-018",
+   "domainId": "d6",
+   "objective": "6.6",
+   "topic": "config-mgmt",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "multi",
+   "stem": "Which statements about Ansible are true? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Ansible key files: inventory (hosts and groups), playbooks (YAML), modules (units of work). It is written in Python and push-based.",
+   "concept": "Ansible",
+   "tip": "",
+   "lessonId": "6-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "It is agentless and connects to devices over SSH or APIs",
+    "Playbooks are written in YAML",
+    "It requires an agent on every managed device",
+    "It describes infrastructure using HCL"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "No software is installed on managed devices. Plays and tasks are defined in YAML files.",
+   "whyWrong": [
+    "",
+    "",
+    "That describes Puppet or Chef.",
+    "HCL is Terraform's language."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-019",
+   "domainId": "d6",
+   "objective": "6.6",
+   "topic": "config-mgmt",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "single",
+   "stem": "Which tool uses declarative HCL configuration files and keeps a state file of the resources it manages?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Terraform is infrastructure as code: providers, plan/apply workflow, state file.",
+   "concept": "Terraform",
+   "tip": "",
+   "lessonId": "6-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Terraform",
+    "Ansible",
+    "NETCONF",
+    "Syslog"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Terraform compares desired state in .tf files with its state file and applies the differences.",
+   "whyWrong": [
+    "",
+    "Ansible uses YAML playbooks and has no state file.",
+    "NETCONF is a device configuration protocol.",
+    "Syslog collects log messages."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-020",
+   "domainId": "d6",
+   "objective": "6.6",
+   "topic": "config-mgmt",
+   "difficulty": 2,
+   "format": "command",
+   "type": "order",
+   "stem": "Arrange the typical Terraform workflow steps in order.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "'init' downloads providers, 'plan' previews changes, and 'apply' makes them.",
+   "concept": "Terraform workflow",
+   "tip": "",
+   "lessonId": "6-04",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Write the .tf configuration files → Run terraform init → Run terraform plan → Run terraform apply",
+   "whyWrong": [],
+   "left": [],
+   "right": [],
+   "items": [
+    "Write the .tf configuration files",
+    "Run terraform init",
+    "Run terraform plan",
+    "Run terraform apply"
+   ]
+  },
+  {
+   "id": "core-d6-021",
+   "domainId": "d6",
+   "objective": "6.6",
+   "topic": "config-mgmt",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "single",
+   "stem": "Which Ansible file lists the managed devices and organizes them into groups?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Example: an inventory group [access_switches] targeted by a playbook that sets NTP and banners.",
+   "concept": "Ansible inventory",
+   "tip": "",
+   "lessonId": "6-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Inventory",
+    "Playbook",
+    "Module",
+    "State file"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The inventory defines hosts, groups and host variables.",
+   "whyWrong": [
+    "",
+    "A playbook defines the tasks to run.",
+    "A module is a unit of work called by a task.",
+    "State files belong to Terraform."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-022",
+   "domainId": "d6",
+   "objective": "6.6",
+   "topic": "config-mgmt",
+   "difficulty": 2,
+   "format": "command",
+   "type": "tf",
+   "stem": "True or false: 'terraform plan' changes the managed infrastructure.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "'terraform plan' only previews the changes Terraform would make; 'terraform apply' performs them.",
+   "concept": "Terraform plan vs apply",
+   "tip": "",
+   "lessonId": "6-04",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    1
+   ],
+   "whyCorrect": "The statement is false. 'terraform plan' only previews the changes Terraform would make; 'terraform apply' performs them.",
+   "whyWrong": [
+    "The statement is false, so this choice is incorrect.",
+    ""
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-023",
+   "domainId": "d6",
+   "objective": "6.5",
+   "topic": "rest-json",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "single",
+   "stem": "Which HTTP request header commonly carries a token for REST API authentication?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Some APIs use custom headers (Catalyst Center uses X-Auth-Token), but the idea is the same: credentials accompany each request.",
+   "concept": "API authentication",
+   "tip": "",
+   "lessonId": "6-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Authorization",
+    "Content-Type",
+    "Accept",
+    "User-Agent"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Token-based APIs expect the token on every stateless request.",
+   "whyWrong": [
+    "",
+    "Content-Type describes the body format, such as application/json.",
+    "Accept states which response formats the client can handle.",
+    "User-Agent identifies the client software."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d6-024",
+   "domainId": "d6",
+   "objective": "6.1",
+   "topic": "automation",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "single",
+   "stem": "Which statement best compares traditional and controller-based network management?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Controllers add a central point for policy, automation, assurance and APIs.",
+   "concept": "Traditional vs controller-based",
+   "tip": "",
+   "lessonId": "6-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Traditional is per-device; controller-based is centralized policy",
+    "Traditional networks have no control plane",
+    "Controller-based networks do not use IP addressing",
+    "Traditional networks cannot be monitored"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The key difference is where control and intent live.",
+   "whyWrong": [
+    "",
+    "Every traditional device runs its own control plane.",
+    "IP is still used everywhere.",
+    "SNMP, syslog and similar tools work on traditional networks."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  }
+ ]
+}

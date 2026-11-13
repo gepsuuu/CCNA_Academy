@@ -1,0 +1,2667 @@
+{
+ "comparisons": [
+  {
+   "id": "tcp-udp",
+   "title": "TCP vs UDP",
+   "domainId": "d1",
+   "summary": "Reliable connection-oriented delivery versus lightweight best-effort delivery.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Side by side",
+     "headers": [
+      "Feature",
+      "TCP",
+      "UDP"
+     ],
+     "rows": [
+      [
+       "Connection",
+       "Connection-oriented (3-way handshake)",
+       "Connectionless"
+      ],
+      [
+       "Reliability",
+       "Acknowledgments and retransmission",
+       "None (best effort)"
+      ],
+      [
+       "Ordering",
+       "Sequence numbers, in-order delivery",
+       "No ordering"
+      ],
+      [
+       "Flow control",
+       "Windowing",
+       "None"
+      ],
+      [
+       "Header size",
+       "20 bytes minimum",
+       "8 bytes"
+      ],
+      [
+       "Typical uses",
+       "HTTP/HTTPS, SSH, SMTP, FTP, BGP",
+       "DNS queries, DHCP, TFTP, SNMP, NTP, Syslog, voice/video"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "text",
+     "title": "Example",
+     "text": "Downloading a file over HTTPS must arrive complete and in order → TCP. A VoIP call needs low delay; a late packet is useless → UDP."
+    },
+    {
+     "type": "callout",
+     "title": "Exam focus",
+     "text": "DNS uses both (UDP 53 for queries, TCP 53 for zone transfers/large replies). TACACS+ is TCP 49; RADIUS is UDP 1812/1813.",
+     "tone": "exam"
+    },
+    {
+     "type": "diagram",
+     "title": "TCP handshake",
+     "diagram": "tcp_handshake",
+     "text": ""
+    }
+   ],
+   "lessons": [
+    "1-06"
+   ]
+  },
+  {
+   "id": "osi-tcpip",
+   "title": "OSI vs TCP/IP",
+   "domainId": "d1",
+   "summary": "A 7-layer reference model versus the 4-layer model the internet actually uses.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Layer mapping",
+     "headers": [
+      "OSI",
+      "TCP/IP",
+      "Examples"
+     ],
+     "rows": [
+      [
+       "7 Application, 6 Presentation, 5 Session",
+       "Application",
+       "HTTP, DNS, SSH, DHCP"
+      ],
+      [
+       "4 Transport",
+       "Transport",
+       "TCP, UDP"
+      ],
+      [
+       "3 Network",
+       "Internet",
+       "IPv4, IPv6, ICMP"
+      ],
+      [
+       "2 Data Link, 1 Physical",
+       "Network Access (Link)",
+       "Ethernet, 802.11"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "bullets",
+     "title": "Key differences",
+     "items": [
+      "OSI is a teaching and troubleshooting reference; TCP/IP describes the implemented protocol suite.",
+      "Cisco still names devices by OSI layer number (Layer 2 switch, Layer 3 switch).",
+      "PDUs: segment (L4), packet (L3), frame (L2), bits (L1)."
+     ]
+    },
+    {
+     "type": "diagram",
+     "title": "Models side by side",
+     "diagram": "osi_tcpip",
+     "text": ""
+    }
+   ],
+   "lessons": [
+    "1-03"
+   ]
+  },
+  {
+   "id": "switch-router",
+   "title": "Switch vs router",
+   "domainId": "d1",
+   "summary": "Forwarding inside a network versus forwarding between networks.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Side by side",
+     "headers": [
+      "Feature",
+      "Layer 2 switch",
+      "Router"
+     ],
+     "rows": [
+      [
+       "OSI layer",
+       "2 (Data Link)",
+       "3 (Network)"
+      ],
+      [
+       "Forwards using",
+       "Destination MAC + MAC address table",
+       "Destination IP + routing table"
+      ],
+      [
+       "Broadcasts",
+       "Floods within the VLAN",
+       "Does not forward broadcasts (separates broadcast domains)"
+      ],
+      [
+       "Connects",
+       "Devices in the same LAN/VLAN",
+       "Different networks/subnets, WAN, internet"
+      ],
+      [
+       "Learns",
+       "Source MACs automatically",
+       "Routes: connected, static, dynamic"
+      ],
+      [
+       "Extra functions",
+       "VLANs, STP, port security",
+       "NAT, ACLs, VPN, DHCP relay"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "callout",
+     "title": "Layer 3 switch",
+     "text": "A multilayer switch does both: Layer 2 switching plus routing between VLANs with SVIs ('ip routing'). Routers usually remain at the WAN/internet edge.",
+     "tone": "tip"
+    }
+   ],
+   "lessons": [
+    "1-01",
+    "1-14"
+   ]
+  },
+  {
+   "id": "hub-switch",
+   "title": "Hub vs switch",
+   "domainId": "d1",
+   "summary": "Repeating every signal everywhere versus intelligent frame forwarding.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Side by side",
+     "headers": [
+      "Feature",
+      "Hub",
+      "Switch"
+     ],
+     "rows": [
+      [
+       "OSI layer",
+       "1",
+       "2"
+      ],
+      [
+       "Forwarding",
+       "Repeats bits out every port",
+       "Forwards a frame only to the destination port (floods unknown/broadcast)"
+      ],
+      [
+       "Collision domains",
+       "One shared domain",
+       "One per port"
+      ],
+      [
+       "Broadcast domains",
+       "One",
+       "One per VLAN"
+      ],
+      [
+       "Duplex",
+       "Half duplex (CSMA/CD)",
+       "Full duplex"
+      ],
+      [
+       "Security/performance",
+       "Every host sees all traffic; bandwidth shared",
+       "Dedicated bandwidth per port"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "diagram",
+     "title": "How a switch learns",
+     "diagram": "mac_learning",
+     "text": ""
+    }
+   ],
+   "lessons": [
+    "1-14"
+   ]
+  },
+  {
+   "id": "static-dynamic",
+   "title": "Static vs dynamic routing",
+   "domainId": "d3",
+   "summary": "Manually configured routes versus routes learned from a routing protocol.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Side by side",
+     "headers": [
+      "Feature",
+      "Static routing",
+      "Dynamic routing (e.g., OSPF)"
+     ],
+     "rows": [
+      [
+       "Configuration",
+       "Manual on every router",
+       "Protocol exchanges routes automatically"
+      ],
+      [
+       "Reaction to failure",
+       "None (unless a floating static backs it up)",
+       "Converges automatically"
+      ],
+      [
+       "Overhead",
+       "No CPU/bandwidth for updates",
+       "Hellos, LSAs, SPF calculations"
+      ],
+      [
+       "Default AD",
+       "1",
+       "OSPF 110, EIGRP 90, RIP 120"
+      ],
+      [
+       "Scales to",
+       "Small / stub networks",
+       "Medium to large networks"
+      ],
+      [
+       "Typical use",
+       "Default route to ISP, stub branches, backups",
+       "Enterprise cores and campuses"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "code",
+     "title": "Examples",
+     "items": [
+      "ip route 0.0.0.0 0.0.0.0 203.0.113.1",
+      "ip route 0.0.0.0 0.0.0.0 198.51.100.1 130   ! floating backup",
+      "router ospf 1",
+      " network 10.0.0.0 0.255.255.255 area 0"
+     ],
+     "text": ""
+    }
+   ],
+   "lessons": [
+    "3-02",
+    "3-03"
+   ]
+  },
+  {
+   "id": "ospf-others",
+   "title": "OSPF vs other routing protocols",
+   "domainId": "d3",
+   "summary": "How OSPF compares with RIP, EIGRP and BGP.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Comparison",
+     "headers": [
+      "",
+      "OSPF",
+      "EIGRP",
+      "RIPv2",
+      "BGP"
+     ],
+     "rows": [
+      [
+       "Type",
+       "Link state",
+       "Advanced distance vector",
+       "Distance vector",
+       "Path vector"
+      ],
+      [
+       "Metric",
+       "Cost (bandwidth)",
+       "Bandwidth + delay (default)",
+       "Hop count (max 15)",
+       "Path attributes"
+      ],
+      [
+       "AD",
+       "110",
+       "90 (170 external)",
+       "120",
+       "20 eBGP / 200 iBGP"
+      ],
+      [
+       "Standard",
+       "Open",
+       "Cisco (informational RFC)",
+       "Open",
+       "Open"
+      ],
+      [
+       "Transport",
+       "IP protocol 89",
+       "IP protocol 88",
+       "UDP 520",
+       "TCP 179"
+      ],
+      [
+       "Scope",
+       "IGP",
+       "IGP",
+       "IGP",
+       "EGP (between autonomous systems)"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "callout",
+     "title": "Exam scope",
+     "text": "CCNA v1.1 configures single-area OSPFv2 only; the others appear in comparison and AD questions.",
+     "tone": "exam"
+    }
+   ],
+   "lessons": [
+    "3-03",
+    "3-01"
+   ]
+  },
+  {
+   "id": "access-native",
+   "title": "Access VLAN vs native VLAN",
+   "domainId": "d2",
+   "summary": "The single VLAN of an access port versus the untagged VLAN on a trunk.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Side by side",
+     "headers": [
+      "Feature",
+      "Access VLAN",
+      "Native VLAN"
+     ],
+     "rows": [
+      [
+       "Applies to",
+       "Access ports",
+       "802.1Q trunk ports"
+      ],
+      [
+       "Tagging",
+       "Frames untagged (host has no idea about VLANs)",
+       "The one VLAN sent untagged on the trunk"
+      ],
+      [
+       "Default",
+       "VLAN 1",
+       "VLAN 1"
+      ],
+      [
+       "Command",
+       "switchport access vlan 10",
+       "switchport trunk native vlan 99"
+      ],
+      [
+       "Must match",
+       "The host's subnet",
+       "Both ends of the trunk"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "callout",
+     "title": "Mismatch",
+     "text": "A native VLAN mismatch places untagged frames in different VLANs on each side — CDP reports it. Use the same, unused VLAN on both ends.",
+     "tone": "warn"
+    },
+    {
+     "type": "diagram",
+     "title": "VLANs over a trunk",
+     "diagram": "vlan_trunk",
+     "text": ""
+    }
+   ],
+   "lessons": [
+    "2-01",
+    "2-02"
+   ]
+  },
+  {
+   "id": "access-trunk",
+   "title": "Access port vs trunk port",
+   "domainId": "d2",
+   "summary": "One VLAN to an endpoint versus many VLANs between switches.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Side by side",
+     "headers": [
+      "Feature",
+      "Access port",
+      "Trunk port"
+     ],
+     "rows": [
+      [
+       "VLANs carried",
+       "One data VLAN (+ optional voice VLAN)",
+       "Many VLANs (allowed list)"
+      ],
+      [
+       "Tagging",
+       "Untagged (voice VLAN tagged by the phone)",
+       "802.1Q tagged except native VLAN"
+      ],
+      [
+       "Connects to",
+       "PCs, printers, phones, Local-mode APs",
+       "Switches, routers (ROAS), WLCs, FlexConnect APs, hypervisors"
+      ],
+      [
+       "Commands",
+       "switchport mode access / switchport access vlan X",
+       "switchport mode trunk / switchport trunk allowed vlan …"
+      ],
+      [
+       "Verify",
+       "show vlan brief",
+       "show interfaces trunk"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "bullets",
+     "title": "DTP",
+     "items": [
+      "auto + auto = access",
+      "desirable + auto/desirable/trunk = trunk",
+      "Best practice: hard-code mode and use 'switchport nonegotiate' on trunks"
+     ]
+    }
+   ],
+   "lessons": [
+    "2-01",
+    "2-02"
+   ]
+  },
+  {
+   "id": "stp-rstp",
+   "title": "STP (802.1D) vs RSTP (802.1w)",
+   "domainId": "d2",
+   "summary": "Legacy timer-based spanning tree versus rapid convergence.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Side by side",
+     "headers": [
+      "Feature",
+      "802.1D STP",
+      "802.1w RSTP / Rapid PVST+"
+     ],
+     "rows": [
+      [
+       "Port states",
+       "Blocking, Listening, Learning, Forwarding, Disabled",
+       "Discarding, Learning, Forwarding"
+      ],
+      [
+       "Port roles",
+       "Root, Designated, Blocking",
+       "Root, Designated, Alternate, Backup"
+      ],
+      [
+       "Convergence",
+       "Up to ~30–50 s (timers)",
+       "Typically a few seconds (handshake/proposal-agreement)"
+      ],
+      [
+       "Edge ports",
+       "PortFast (Cisco extension)",
+       "Edge ports built in (PortFast configures them)"
+      ],
+      [
+       "Cisco per-VLAN version",
+       "PVST+",
+       "Rapid PVST+"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "callout",
+     "title": "Same election",
+     "text": "Both elect the root bridge with the lowest bridge ID and use the same cost values; RSTP just converges faster.",
+     "tone": "tip"
+    },
+    {
+     "type": "diagram",
+     "title": "Port roles example",
+     "diagram": "stp",
+     "text": ""
+    }
+   ],
+   "lessons": [
+    "2-06"
+   ]
+  },
+  {
+   "id": "ipv4-ipv6",
+   "title": "IPv4 vs IPv6",
+   "domainId": "d1",
+   "summary": "32-bit dotted decimal versus 128-bit hexadecimal addressing.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Side by side",
+     "headers": [
+      "Feature",
+      "IPv4",
+      "IPv6"
+     ],
+     "rows": [
+      [
+       "Address size",
+       "32 bits",
+       "128 bits"
+      ],
+      [
+       "Notation",
+       "Dotted decimal 192.168.1.1",
+       "Hex hextets 2001:DB8::1"
+      ],
+      [
+       "Broadcast",
+       "Yes",
+       "No — multicast instead"
+      ],
+      [
+       "Address resolution",
+       "ARP",
+       "NDP (ICMPv6 NS/NA)"
+      ],
+      [
+       "Auto-configuration",
+       "DHCP / APIPA",
+       "SLAAC, DHCPv6, link-local always present"
+      ],
+      [
+       "Header checksum",
+       "Yes",
+       "No"
+      ],
+      [
+       "Private-style range",
+       "RFC 1918 (10/8, 172.16/12, 192.168/16)",
+       "Unique local FC00::/7"
+      ],
+      [
+       "Typical LAN prefix",
+       "/24 (varies)",
+       "/64"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "diagram",
+     "title": "IPv6 address structure",
+     "diagram": "ipv6_structure",
+     "text": ""
+    }
+   ],
+   "lessons": [
+    "1-08",
+    "1-10"
+   ]
+  },
+  {
+   "id": "std-ext-acl",
+   "title": "Standard vs extended ACL",
+   "domainId": "d5",
+   "summary": "Source-only filtering versus full 5-tuple filtering.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Side by side",
+     "headers": [
+      "Feature",
+      "Standard",
+      "Extended"
+     ],
+     "rows": [
+      [
+       "Numbers",
+       "1–99, 1300–1999",
+       "100–199, 2000–2699"
+      ],
+      [
+       "Matches",
+       "Source IP only",
+       "Protocol, source, destination, ports"
+      ],
+      [
+       "Placement",
+       "Near the destination",
+       "Near the source"
+      ],
+      [
+       "Example",
+       "access-list 10 permit 192.168.1.0 0.0.0.255",
+       "access-list 110 deny tcp any host 10.1.1.10 eq 23"
+      ],
+      [
+       "Other uses",
+       "NAT match lists, VTY access-class",
+       "Firewall-style filtering"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "bullets",
+     "title": "Same rules for both",
+     "items": [
+      "Top-down, first match",
+      "Implicit deny any at the end",
+      "One ACL per interface, per direction, per protocol"
+     ]
+    },
+    {
+     "type": "diagram",
+     "title": "ACL processing",
+     "diagram": "acl_flow",
+     "text": ""
+    }
+   ],
+   "lessons": [
+    "5-03"
+   ]
+  },
+  {
+   "id": "nat-pat",
+   "title": "NAT vs PAT",
+   "domainId": "d4",
+   "summary": "One public address per inside host versus many hosts sharing one address via ports.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Side by side",
+     "headers": [
+      "Feature",
+      "Static NAT",
+      "Dynamic NAT",
+      "PAT (overload)"
+     ],
+     "rows": [
+      [
+       "Mapping",
+       "1:1 permanent",
+       "1:1 from a pool, while in use",
+       "Many:1 using port numbers"
+      ],
+      [
+       "Inbound access",
+       "Yes",
+       "Only while a mapping exists",
+       "Not for unsolicited sessions (without static entries)"
+      ],
+      [
+       "Address use",
+       "One public per host",
+       "Pool size limits hosts",
+       "Thousands of hosts per public IP"
+      ],
+      [
+       "Keyword",
+       "static",
+       "pool",
+       "overload"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "diagram",
+     "title": "PAT example",
+     "diagram": "nat_pat",
+     "text": ""
+    }
+   ],
+   "lessons": [
+    "4-02"
+   ]
+  },
+  {
+   "id": "public-private",
+   "title": "Public vs private IP addresses",
+   "domainId": "d1",
+   "summary": "Internet-routable addresses versus reusable internal addresses.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Side by side",
+     "headers": [
+      "Feature",
+      "Public",
+      "Private (RFC 1918)"
+     ],
+     "rows": [
+      [
+       "Ranges",
+       "Most addresses outside reserved blocks",
+       "10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16"
+      ],
+      [
+       "Routable on internet",
+       "Yes",
+       "No"
+      ],
+      [
+       "Uniqueness",
+       "Globally unique, assigned by RIR/ISP",
+       "Reused by many organizations"
+      ],
+      [
+       "Needs NAT for internet",
+       "No",
+       "Yes"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "callout",
+     "title": "Not private, not public",
+     "text": "127.0.0.0/8 loopback, 169.254.0.0/16 APIPA and 100.64.0.0/10 shared CGN space are special-purpose, not RFC 1918.",
+     "tone": "warn"
+    }
+   ],
+   "lessons": [
+    "1-08"
+   ]
+  },
+  {
+   "id": "aaa",
+   "title": "Authentication vs authorization vs accounting",
+   "domainId": "d5",
+   "summary": "Who you are, what you may do, and what you did.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "AAA",
+     "headers": [
+      "Function",
+      "Question answered",
+      "Example"
+     ],
+     "rows": [
+      [
+       "Authentication",
+       "Who are you?",
+       "Username/password, certificate, MFA"
+      ],
+      [
+       "Authorization",
+       "What are you allowed to do?",
+       "Helpdesk may run show commands only"
+      ],
+      [
+       "Accounting",
+       "What did you do, and when?",
+       "Log of every command and session time"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "table",
+     "title": "RADIUS vs TACACS+",
+     "headers": [
+      "",
+      "RADIUS",
+      "TACACS+"
+     ],
+     "rows": [
+      [
+       "Transport",
+       "UDP 1812/1813",
+       "TCP 49"
+      ],
+      [
+       "Encryption",
+       "Password only",
+       "Entire payload"
+      ],
+      [
+       "AAA separation",
+       "AuthN + AuthZ combined",
+       "All three separate"
+      ],
+      [
+       "Typical use",
+       "Network access (802.1X, VPN)",
+       "Device administration"
+      ]
+     ],
+     "text": ""
+    }
+   ],
+   "lessons": [
+    "5-02"
+   ]
+  },
+  {
+   "id": "trad-sdn",
+   "title": "Traditional networking vs SDN",
+   "domainId": "d6",
+   "summary": "Box-by-box distributed control versus centralized, API-driven control.",
+   "blocks": [
+    {
+     "type": "table",
+     "title": "Side by side",
+     "headers": [
+      "Feature",
+      "Traditional",
+      "Controller-based / SDN"
+     ],
+     "rows": [
+      [
+       "Control plane",
+       "Distributed on every device",
+       "Centralized logic on a controller (devices still forward)"
+      ],
+      [
+       "Configuration",
+       "Per-device CLI",
+       "Central policy pushed via southbound APIs"
+      ],
+      [
+       "Interfaces",
+       "CLI, SNMP",
+       "Northbound REST APIs; southbound NETCONF, RESTCONF, OpenFlow…"
+      ],
+      [
+       "Consistency",
+       "Prone to drift and typos",
+       "Templates and intent enforce consistency"
+      ],
+      [
+       "Visibility",
+       "Device by device",
+       "Network-wide assurance and analytics"
+      ]
+     ],
+     "text": ""
+    },
+    {
+     "type": "diagram",
+     "title": "Controller architecture",
+     "diagram": "sdn",
+     "text": ""
+    }
+   ],
+   "lessons": [
+    "6-01"
+   ]
+  }
+ ],
+ "mistakes": [
+  {
+   "id": "subnet-hosts",
+   "title": "Subnetting: forgetting the −2 or the wrong octet",
+   "domainId": "d1",
+   "wrong": "Usable hosts equal the total number of addresses, and the block size applies to the 4th octet for every prefix.",
+   "right": "Usable hosts = 2^h − 2 (except /31 and /32). The block size applies to the 'interesting' octet — the 3rd octet for /17–/24, the 2nd for /9–/16.",
+   "recognize": "Answer options include both 2^h and 2^h − 2 (e.g., 32 and 30), or the prefix is shorter than /24.",
+   "avoid": "Write h and the interesting octet before calculating. Check: does your answer subtract the network and broadcast?",
+   "example": "10.1.0.0/21 → interesting octet 3, block 8 → 10.1.0.0–10.1.7.255, 2,046 usable hosts (not 2,048, and not a /24-style answer).",
+   "lessonId": "1-09"
+  },
+  {
+   "id": "net-bcast",
+   "title": "Confusing network and broadcast addresses",
+   "domainId": "d1",
+   "wrong": "x.x.x.0 is always the network address and x.x.x.255 is always the broadcast.",
+   "right": "Network = all host bits 0; broadcast = all host bits 1, for that prefix. In a /22, 10.1.5.255 can be a valid host and 10.1.7.255 is the broadcast.",
+   "recognize": "The question asks for 'first usable', 'last usable', or 'valid host' with a prefix shorter than /24.",
+   "avoid": "Always derive network and broadcast from the block, never from the last octet alone.",
+   "example": "10.1.4.0/22 spans 10.1.4.0–10.1.7.255. 10.1.5.0 and 10.1.5.255 are both valid hosts.",
+   "lessonId": "1-09"
+  },
+  {
+   "id": "vlan-subnet",
+   "title": "Confusing VLANs and subnets",
+   "domainId": "d2",
+   "wrong": "Putting two hosts in the same VLAN lets them talk even if their IP subnets differ, or a VLAN routes traffic by itself.",
+   "right": "A VLAN is a Layer 2 broadcast domain; a subnet is a Layer 3 address range. Normally one VLAN = one subnet, and inter-VLAN traffic needs a router or Layer 3 switch.",
+   "recognize": "A host can reach nothing outside its VLAN, or a host is in the right VLAN but has an address from another VLAN's subnet.",
+   "avoid": "Check both: the switch port VLAN (show vlan brief) and the host IP/mask/gateway.",
+   "example": "PC in VLAN 20 configured with 192.168.10.50/24 (VLAN 10's subnet) cannot reach its gateway.",
+   "lessonId": "2-01"
+  },
+  {
+   "id": "trunk",
+   "title": "Misunderstanding trunk ports",
+   "domainId": "d2",
+   "wrong": "A trunk automatically carries every VLAN, and the native VLAN is tagged like the others.",
+   "right": "Trunks carry only VLANs that are allowed AND exist on the switch; the native VLAN is untagged and must match on both ends. 'allowed vlan X' without 'add' replaces the list.",
+   "recognize": "show interfaces trunk output, native VLAN mismatch messages, or an 'allowed vlan' command without 'add'.",
+   "avoid": "Read all three trunk lists (allowed, active, forwarding) and check the native VLAN on both ends.",
+   "example": "switchport trunk allowed vlan 40 on a trunk carrying 10,20,30 leaves only VLAN 40.",
+   "lessonId": "2-02"
+  },
+  {
+   "id": "stp",
+   "title": "Misunderstanding STP",
+   "domainId": "d2",
+   "wrong": "The switch with the highest priority or most connections becomes root; the root bridge has a root port.",
+   "right": "Lowest bridge ID (priority, then MAC) wins. The root bridge has no root port — all its ports are designated. Path selection uses total cost, not hop count.",
+   "recognize": "Questions giving priorities and MACs, or asking which port blocks.",
+   "avoid": "Follow the order: root bridge → root ports → designated ports → everything else discards.",
+   "example": "Priorities 4096 vs 32768: the 4096 switch is root even if its MAC is higher.",
+   "lessonId": "2-06"
+  },
+  {
+   "id": "ad-metric",
+   "title": "Confusing administrative distance and metric",
+   "domainId": "d3",
+   "wrong": "The route with the lowest metric always wins, or AD is compared between routes to different prefixes.",
+   "right": "Order: longest prefix → lowest AD (between different sources for the same prefix) → lowest metric (within the same protocol).",
+   "recognize": "Routes from different protocols in the table, or [AD/metric] values in brackets.",
+   "avoid": "First filter by prefix length; only then look at AD; only then at metric.",
+   "example": "O 10.1.1.0/24 [110/2] vs S 10.1.0.0/16 [1/0]: a packet to 10.1.1.5 uses the OSPF /24.",
+   "lessonId": "3-01"
+  },
+  {
+   "id": "rt-reading",
+   "title": "Misreading routing tables",
+   "domainId": "d3",
+   "wrong": "The first matching line in the output is used, or 'L' means loopback.",
+   "right": "IOS uses the longest matching prefix wherever it appears. L = local /32 for the router's own interface IP; C = connected subnet; S* = static default.",
+   "recognize": "An exhibit with overlapping routes like /16, /22 and /24.",
+   "avoid": "Write the destination, list every matching prefix, pick the longest, then read next hop and exit interface on that line.",
+   "example": "10.1.5.20 matches 10.1.0.0/16, 10.1.4.0/22 and 10.1.5.0/24 → the /24 is used.",
+   "lessonId": "3-01"
+  },
+  {
+   "id": "wildcard",
+   "title": "Confusing wildcard masks and subnet masks",
+   "domainId": "d5",
+   "wrong": "ACLs and OSPF network statements use subnet masks, or the wildcard is just the mask reversed in order.",
+   "right": "Wildcard = 255.255.255.255 − subnet mask; 0 bits must match, 1 bits are ignored. /26 → 0.0.0.63.",
+   "recognize": "Options containing both 255.255.255.192 and 0.0.0.63 for an ACL or OSPF command.",
+   "avoid": "In ACLs and 'network … area' commands, expect small numbers at the end (0.0.0.x).",
+   "example": "network 10.0.12.4 0.0.0.3 area 0 — not 255.255.255.252.",
+   "lessonId": "5-03"
+  },
+  {
+   "id": "acl",
+   "title": "Misunderstanding ACL processing",
+   "domainId": "d5",
+   "wrong": "The most specific entry wins, or traffic not denied is permitted.",
+   "right": "Entries are processed top-down; the first match decides; anything unmatched is dropped by the implicit deny.",
+   "recognize": "An ACL with a broad permit above a specific deny, or an ACL with only deny lines.",
+   "avoid": "Walk the packet line by line and stop at the first match; remember the invisible deny at the end.",
+   "example": "permit 192.168.1.0 0.0.0.255 then deny host 192.168.1.66 → .66 is permitted.",
+   "lessonId": "5-03"
+  },
+  {
+   "id": "tcp-udp",
+   "title": "Confusing TCP and UDP",
+   "domainId": "d1",
+   "wrong": "Anything important uses TCP; DNS is UDP-only; TFTP is TCP like FTP.",
+   "right": "Choice depends on needs: reliability → TCP; low overhead/real time → UDP. DNS uses both; TFTP is UDP 69; TACACS+ is TCP 49; RADIUS is UDP.",
+   "recognize": "Port/transport matching questions and 'which uses a handshake' questions.",
+   "avoid": "Memorize the exceptions list: DNS (both), TFTP (UDP), TACACS+ (TCP), Syslog (UDP).",
+   "example": "SNMP is important but uses UDP 161/162.",
+   "lessonId": "1-06"
+  },
+  {
+   "id": "ipv6-types",
+   "title": "Misunderstanding IPv6 address types",
+   "domainId": "d1",
+   "wrong": "FE80 addresses are routable, IPv6 uses broadcast, or FD00 addresses are global.",
+   "right": "Link-local FE80::/10 never leaves the link; IPv6 has no broadcast (multicast FF00::/8 instead); FC00::/7 (FD..) is unique local; 2000::/3 is global unicast.",
+   "recognize": "Questions asking which address a router uses as a next hop, or which address type a prefix is.",
+   "avoid": "Classify by the first hex digits: 2/3 global, FD unique local, FE80 link-local, FF multicast.",
+   "example": "OSPFv3 neighbors use link-local addresses as next hops.",
+   "lessonId": "1-10"
+  },
+  {
+   "id": "dhcp-dns",
+   "title": "Confusing DHCP and DNS",
+   "domainId": "d4",
+   "wrong": "DNS assigns IP addresses, or DHCP resolves names.",
+   "right": "DHCP gives a host its IP settings (address, mask, gateway, DNS server). DNS translates names to addresses.",
+   "recognize": "Symptoms: 169.254.x.x address → DHCP problem; can ping IPs but not names → DNS problem.",
+   "avoid": "Ask: is the host missing its own address (DHCP) or failing to resolve names (DNS)?",
+   "example": "ping 8.8.8.8 works, ping www.cisco.com fails → check DNS, not DHCP.",
+   "lessonId": "4-01"
+  },
+  {
+   "id": "nat-pat",
+   "title": "Confusing NAT and PAT",
+   "domainId": "d4",
+   "wrong": "Dynamic NAT lets unlimited hosts share a pool, or inside global means the private address.",
+   "right": "Dynamic NAT is one public address per active host; PAT ('overload') shares an address using ports. Inside local = private inside address; inside global = its public translation.",
+   "recognize": "Translation tables with ports, pool exhaustion scenarios, and NAT terminology questions.",
+   "avoid": "Look for the 'overload' keyword and port numbers in the translation table.",
+   "example": "ip nat inside source list 1 pool PUB (no overload) fails once all pool addresses are in use.",
+   "lessonId": "4-02"
+  }
+ ],
+ "glossary": [
+  {
+   "id": "g-802-1q",
+   "term": "802.1Q",
+   "full": "IEEE 802.1Q",
+   "simple": "The VLAN tagging standard.",
+   "technical": "Inserts a 4-byte tag (TPID 0x8100, PCP, DEI, 12-bit VLAN ID) between source MAC and EtherType.",
+   "domainId": "d2",
+   "related": [
+    "Trunk",
+    "CoS"
+   ]
+  },
+  {
+   "id": "g-802-1x",
+   "term": "802.1X",
+   "full": "IEEE 802.1X",
+   "simple": "Port-based network access control.",
+   "technical": "Supplicant, authenticator (switch/AP/WLC), authentication server (RADIUS); uses EAP. Basis of WPA-Enterprise.",
+   "domainId": "d5",
+   "related": [
+    "RADIUS"
+   ]
+  },
+  {
+   "id": "g-aaa",
+   "term": "AAA",
+   "full": "Authentication, Authorization, Accounting",
+   "simple": "Controls who can log in, what they can do, and records what they did.",
+   "technical": "Framework enabled with 'aaa new-model'; uses local users or RADIUS/TACACS+ servers through method lists evaluated left to right.",
+   "domainId": "d5",
+   "related": [
+    "RADIUS",
+    "TACACS+"
+   ]
+  },
+  {
+   "id": "g-acl",
+   "term": "ACL",
+   "full": "Access Control List",
+   "simple": "An ordered list of permit/deny rules.",
+   "technical": "Processed top-down with first-match and an implicit deny. Standard ACLs match source only; extended ACLs match protocol, addresses and ports. Applied with ip access-group (interfaces) or access-class (VTY).",
+   "domainId": "d5",
+   "related": [
+    "Wildcard mask",
+    "Implicit deny"
+   ]
+  },
+  {
+   "id": "g-administrative-distance",
+   "term": "Administrative distance",
+   "full": "",
+   "simple": "How much a router trusts a route source.",
+   "technical": "Compared only between routes to the same prefix; lower wins. Connected 0, static 1, eBGP 20, EIGRP 90, OSPF 110, IS-IS 115, RIP 120, iBGP 200.",
+   "domainId": "d3",
+   "related": [
+    "Metric",
+    "Floating static route"
+   ]
+  },
+  {
+   "id": "g-ansible",
+   "term": "Ansible",
+   "full": "",
+   "simple": "Agentless configuration management tool.",
+   "technical": "Push model over SSH/APIs; YAML playbooks; inventory and modules; written in Python.",
+   "domainId": "d6",
+   "related": [
+    "Terraform",
+    "YAML"
+   ]
+  },
+  {
+   "id": "g-anycast",
+   "term": "Anycast",
+   "full": "",
+   "simple": "One address shared by several devices; the nearest one answers.",
+   "technical": "An IPv6 unicast address assigned to multiple interfaces; routing delivers packets to the topologically closest.",
+   "domainId": "d1",
+   "related": [
+    "IPv6",
+    "Multicast"
+   ]
+  },
+  {
+   "id": "g-api",
+   "term": "API",
+   "full": "Application Programming Interface",
+   "simple": "A defined way for software to talk to other software.",
+   "technical": "Controllers expose northbound REST APIs to applications and use southbound interfaces to configure devices.",
+   "domainId": "d6",
+   "related": [
+    "REST",
+    "Northbound interface"
+   ]
+  },
+  {
+   "id": "g-apipa",
+   "term": "APIPA",
+   "full": "Automatic Private IP Addressing",
+   "simple": "The 169.254.x.x address a host gives itself when DHCP fails.",
+   "technical": "IPv4 link-local range 169.254.0.0/16; signals that no DHCP server responded.",
+   "domainId": "d1",
+   "related": [
+    "DHCP",
+    "Link-local address"
+   ]
+  },
+  {
+   "id": "g-arp",
+   "term": "ARP",
+   "full": "Address Resolution Protocol",
+   "simple": "Finds the MAC address that belongs to an IPv4 address.",
+   "technical": "Broadcast request, unicast reply; results cached in the ARP table. Hosts ARP for the default gateway when the destination is remote.",
+   "domainId": "d1",
+   "related": [
+    "MAC address",
+    "NDP",
+    "DAI"
+   ]
+  },
+  {
+   "id": "g-autonomous-ap",
+   "term": "Autonomous AP",
+   "full": "",
+   "simple": "A standalone access point configured on its own.",
+   "technical": "Handles all 802.11 functions locally; no WLC required.",
+   "domainId": "d2",
+   "related": [
+    "Lightweight AP",
+    "WLC"
+   ]
+  },
+  {
+   "id": "g-autonomous-system",
+   "term": "Autonomous system",
+   "full": "",
+   "simple": "A network under one administrative routing policy.",
+   "technical": "Identified by an AS number; BGP routes between autonomous systems, IGPs route within one.",
+   "domainId": "d3",
+   "related": [
+    "BGP"
+   ]
+  },
+  {
+   "id": "g-bdr",
+   "term": "BDR",
+   "full": "Backup Designated Router",
+   "simple": "The OSPF router ready to replace the DR.",
+   "technical": "Elected on broadcast networks by second-highest priority/RID; forms full adjacencies with all routers.",
+   "domainId": "d3",
+   "related": [
+    "DR",
+    "OSPF"
+   ]
+  },
+  {
+   "id": "g-bgp",
+   "term": "BGP",
+   "full": "Border Gateway Protocol",
+   "simple": "The routing protocol of the internet.",
+   "technical": "Path-vector EGP over TCP 179; AD 20 for eBGP and 200 for iBGP.",
+   "domainId": "d3",
+   "related": [
+    "Administrative distance",
+    "Autonomous system"
+   ]
+  },
+  {
+   "id": "g-bpdu",
+   "term": "BPDU",
+   "full": "Bridge Protocol Data Unit",
+   "simple": "Spanning tree control message.",
+   "technical": "Carries bridge ID, root bridge ID and path cost; root sends hellos every 2 s by default.",
+   "domainId": "d2",
+   "related": [
+    "STP",
+    "BPDU Guard"
+   ]
+  },
+  {
+   "id": "g-bpdu-guard",
+   "term": "BPDU Guard",
+   "full": "",
+   "simple": "Shuts down an edge port if a switch is connected.",
+   "technical": "Err-disables a PortFast port that receives any BPDU. Recover with shutdown/no shutdown or errdisable recovery.",
+   "domainId": "d2",
+   "related": [
+    "PortFast",
+    "Root Guard"
+   ]
+  },
+  {
+   "id": "g-bridge-id",
+   "term": "Bridge ID",
+   "full": "",
+   "simple": "The identity used in the STP root election.",
+   "technical": "Priority (default 32768, multiples of 4096) + VLAN system ID extension + MAC address; lowest wins.",
+   "domainId": "d2",
+   "related": [
+    "Root bridge",
+    "STP"
+   ]
+  },
+  {
+   "id": "g-broadcast-domain",
+   "term": "Broadcast domain",
+   "full": "",
+   "simple": "All devices that receive each other's broadcasts.",
+   "technical": "Bounded by routers and VLANs; each VLAN is one broadcast domain.",
+   "domainId": "d1",
+   "related": [
+    "VLAN",
+    "Collision domain"
+   ]
+  },
+  {
+   "id": "g-capwap",
+   "term": "CAPWAP",
+   "full": "Control And Provisioning of Wireless Access Points",
+   "simple": "Tunnel between lightweight APs and a WLC.",
+   "technical": "UDP 5246 control (DTLS-encrypted) and UDP 5247 data.",
+   "domainId": "d2",
+   "related": [
+    "WLC",
+    "Lightweight AP"
+   ]
+  },
+  {
+   "id": "g-catalyst-center",
+   "term": "Catalyst Center",
+   "full": "",
+   "simple": "Cisco's enterprise network controller (formerly DNA Center).",
+   "technical": "Provides automation, assurance and policy; exposes northbound REST APIs.",
+   "domainId": "d6",
+   "related": [
+    "SDN",
+    "Controller"
+   ]
+  },
+  {
+   "id": "g-cdp",
+   "term": "CDP",
+   "full": "Cisco Discovery Protocol",
+   "simple": "Shows which Cisco devices are directly connected.",
+   "technical": "Cisco-proprietary Layer 2 protocol; 60 s timer, 180 s holdtime. show cdp neighbors [detail].",
+   "domainId": "d2",
+   "related": [
+    "LLDP"
+   ]
+  },
+  {
+   "id": "g-cidr",
+   "term": "CIDR",
+   "full": "Classless Inter-Domain Routing",
+   "simple": "Writing a mask as a prefix length like /24.",
+   "technical": "Removes classful boundaries and allows summarization and VLSM.",
+   "domainId": "d1",
+   "related": [
+    "Prefix length",
+    "VLSM"
+   ]
+  },
+  {
+   "id": "g-collision-domain",
+   "term": "Collision domain",
+   "full": "",
+   "simple": "A segment where simultaneous transmissions can collide.",
+   "technical": "Each switch port is its own collision domain; full duplex eliminates collisions.",
+   "domainId": "d1",
+   "related": [
+    "CSMA/CD",
+    "Duplex"
+   ]
+  },
+  {
+   "id": "g-container",
+   "term": "Container",
+   "full": "",
+   "simple": "A lightweight package that runs an app on a shared OS kernel.",
+   "technical": "Packages the application and dependencies; shares the host kernel, unlike a VM.",
+   "domainId": "d1",
+   "related": [
+    "Virtual machine",
+    "Hypervisor"
+   ]
+  },
+  {
+   "id": "g-control-plane",
+   "term": "Control plane",
+   "full": "",
+   "simple": "The part of a device that decides how to forward.",
+   "technical": "Routing protocols, STP, ARP — they build the tables used by the data plane.",
+   "domainId": "d6",
+   "related": [
+    "Data plane",
+    "Management plane"
+   ]
+  },
+  {
+   "id": "g-controller",
+   "term": "Controller",
+   "full": "",
+   "simple": "Central software that manages many network devices.",
+   "technical": "Holds policy and automation logic; examples include Catalyst Center and WLCs; uses northbound and southbound interfaces.",
+   "domainId": "d6",
+   "related": [
+    "SDN",
+    "WLC"
+   ]
+  },
+  {
+   "id": "g-cos",
+   "term": "CoS",
+   "full": "Class of Service",
+   "simple": "A 3-bit Layer 2 priority marking.",
+   "technical": "Carried in the PCP field of the 802.1Q tag (values 0–7).",
+   "domainId": "d4",
+   "related": [
+    "DSCP",
+    "QoS"
+   ]
+  },
+  {
+   "id": "g-crc",
+   "term": "CRC",
+   "full": "Cyclic Redundancy Check",
+   "simple": "Error check that detects corrupted frames.",
+   "technical": "Stored in the Ethernet FCS; CRC errors suggest cabling problems, interference or duplex mismatch.",
+   "domainId": "d1",
+   "related": [
+    "FCS",
+    "Duplex"
+   ]
+  },
+  {
+   "id": "g-crud",
+   "term": "CRUD",
+   "full": "Create, Read, Update, Delete",
+   "simple": "The four basic data operations.",
+   "technical": "Map to HTTP POST, GET, PUT/PATCH and DELETE in REST APIs.",
+   "domainId": "d6",
+   "related": [
+    "REST",
+    "HTTP status code"
+   ]
+  },
+  {
+   "id": "g-csma-ca",
+   "term": "CSMA/CA",
+   "full": "Carrier Sense Multiple Access with Collision Avoidance",
+   "simple": "How Wi-Fi devices take turns.",
+   "technical": "Stations listen, wait a random backoff and use acknowledgments because they cannot detect collisions while transmitting.",
+   "domainId": "d1",
+   "related": [
+    "CSMA/CD"
+   ]
+  },
+  {
+   "id": "g-csma-cd",
+   "term": "CSMA/CD",
+   "full": "Carrier Sense Multiple Access with Collision Detection",
+   "simple": "How old shared Ethernet handled collisions.",
+   "technical": "Half-duplex method: detect collision, send jam signal, back off. Not used on full-duplex links.",
+   "domainId": "d1",
+   "related": [
+    "CSMA/CA",
+    "Duplex"
+   ]
+  },
+  {
+   "id": "g-dai",
+   "term": "DAI",
+   "full": "Dynamic ARP Inspection",
+   "simple": "Blocks fake ARP messages.",
+   "technical": "Validates ARP on untrusted ports against the DHCP snooping binding table (or ARP ACLs); default limit 15 pps on untrusted ports.",
+   "domainId": "d5",
+   "related": [
+    "DHCP snooping",
+    "ARP"
+   ]
+  },
+  {
+   "id": "g-data-plane",
+   "term": "Data plane",
+   "full": "",
+   "simple": "The part of a device that forwards traffic.",
+   "technical": "Frame switching, routing lookups, ACL filtering, NAT — performed on user traffic.",
+   "domainId": "d6",
+   "related": [
+    "Control plane"
+   ]
+  },
+  {
+   "id": "g-default-gateway",
+   "term": "Default gateway",
+   "full": "",
+   "simple": "The router a host uses to reach other networks.",
+   "technical": "Must be in the host's own subnet; hosts ARP for it when the destination is remote.",
+   "domainId": "d1",
+   "related": [
+    "ARP",
+    "FHRP"
+   ]
+  },
+  {
+   "id": "g-default-route",
+   "term": "Default route",
+   "full": "",
+   "simple": "The route used when nothing more specific matches.",
+   "technical": "0.0.0.0/0 (IPv4) or ::/0 (IPv6); shown as S* and 'Gateway of last resort'.",
+   "domainId": "d3",
+   "related": [
+    "Static route",
+    "Longest prefix match"
+   ]
+  },
+  {
+   "id": "g-dhcp",
+   "term": "DHCP",
+   "full": "Dynamic Host Configuration Protocol",
+   "simple": "Automatically gives devices their IP settings.",
+   "technical": "DORA exchange; server UDP 67, client UDP 68; relayed across subnets with ip helper-address.",
+   "domainId": "d4",
+   "related": [
+    "DHCP relay",
+    "DHCP snooping"
+   ]
+  },
+  {
+   "id": "g-dhcp-relay",
+   "term": "DHCP relay",
+   "full": "",
+   "simple": "Forwards DHCP requests to a server on another subnet.",
+   "technical": "ip helper-address on the client-facing interface converts broadcasts to unicast and sets giaddr.",
+   "domainId": "d4",
+   "related": [
+    "DHCP"
+   ]
+  },
+  {
+   "id": "g-dhcp-snooping",
+   "term": "DHCP snooping",
+   "full": "",
+   "simple": "Stops rogue DHCP servers on a switch.",
+   "technical": "Untrusted ports drop DHCP server messages; builds a binding table of MAC, IP, VLAN and port.",
+   "domainId": "d5",
+   "related": [
+    "DAI",
+    "DHCP"
+   ]
+  },
+  {
+   "id": "g-dns",
+   "term": "DNS",
+   "full": "Domain Name System",
+   "simple": "Translates names into IP addresses.",
+   "technical": "UDP 53 for queries, TCP 53 for zone transfers/large responses. Records: A, AAAA, CNAME, MX, PTR, NS.",
+   "domainId": "d4",
+   "related": [
+    "DHCP"
+   ]
+  },
+  {
+   "id": "g-dr",
+   "term": "DR",
+   "full": "Designated Router",
+   "simple": "The OSPF router that coordinates updates on a shared segment.",
+   "technical": "Elected on broadcast networks by highest priority then router ID; non-preemptive; reached at 224.0.0.6.",
+   "domainId": "d3",
+   "related": [
+    "BDR",
+    "OSPF"
+   ]
+  },
+  {
+   "id": "g-dscp",
+   "term": "DSCP",
+   "full": "Differentiated Services Code Point",
+   "simple": "A 6-bit Layer 3 QoS marking.",
+   "technical": "In the IP header's DS field (0–63). Voice is typically EF (46).",
+   "domainId": "d4",
+   "related": [
+    "CoS",
+    "QoS"
+   ]
+  },
+  {
+   "id": "g-dtp",
+   "term": "DTP",
+   "full": "Dynamic Trunking Protocol",
+   "simple": "Cisco protocol that negotiates trunk links.",
+   "technical": "Modes dynamic auto / dynamic desirable; auto + auto = access. Disable with switchport nonegotiate.",
+   "domainId": "d2",
+   "related": [
+    "Trunk"
+   ]
+  },
+  {
+   "id": "g-duplex",
+   "term": "Duplex",
+   "full": "",
+   "simple": "Whether a link can send and receive at the same time.",
+   "technical": "Half duplex uses CSMA/CD; full duplex sends and receives simultaneously. A mismatch causes late collisions and CRC errors.",
+   "domainId": "d1",
+   "related": [
+    "Collision domain",
+    "CRC"
+   ]
+  },
+  {
+   "id": "g-etherchannel",
+   "term": "EtherChannel",
+   "full": "",
+   "simple": "Bundles several links into one logical link.",
+   "technical": "Negotiated with LACP (active/passive) or PAgP (desirable/auto), or static 'on'; per-flow load balancing.",
+   "domainId": "d2",
+   "related": [
+    "LACP",
+    "PAgP"
+   ]
+  },
+  {
+   "id": "g-eui-64",
+   "term": "EUI-64",
+   "full": "Extended Unique Identifier (64-bit)",
+   "simple": "Builds an IPv6 interface ID from a MAC address.",
+   "technical": "Split the MAC, insert FFFE, flip the 7th bit of the first byte.",
+   "domainId": "d1",
+   "related": [
+    "IPv6",
+    "SLAAC"
+   ]
+  },
+  {
+   "id": "g-fcs",
+   "term": "FCS",
+   "full": "Frame Check Sequence",
+   "simple": "The error-check trailer of an Ethernet frame.",
+   "technical": "4-byte CRC; receivers discard frames whose FCS does not match.",
+   "domainId": "d1",
+   "related": [
+    "CRC"
+   ]
+  },
+  {
+   "id": "g-fhrp",
+   "term": "FHRP",
+   "full": "First Hop Redundancy Protocol",
+   "simple": "Keeps the default gateway available if a router fails.",
+   "technical": "Routers share a virtual IP/MAC: HSRP and GLBP (Cisco), VRRP (standard).",
+   "domainId": "d3",
+   "related": [
+    "HSRP",
+    "VRRP",
+    "GLBP"
+   ]
+  },
+  {
+   "id": "g-flexconnect",
+   "term": "FlexConnect",
+   "full": "",
+   "simple": "AP mode for branches that can switch traffic locally.",
+   "technical": "Control goes to the WLC; client data can be switched locally, and the AP keeps serving clients if the WAN fails.",
+   "domainId": "d2",
+   "related": [
+    "WLC",
+    "Lightweight AP"
+   ]
+  },
+  {
+   "id": "g-floating-static-route",
+   "term": "Floating static route",
+   "full": "",
+   "simple": "A backup static route.",
+   "technical": "Configured with an AD higher than the primary route so it is installed only when the primary disappears.",
+   "domainId": "d3",
+   "related": [
+    "Administrative distance",
+    "Static route"
+   ]
+  },
+  {
+   "id": "g-glbp",
+   "term": "GLBP",
+   "full": "Gateway Load Balancing Protocol",
+   "simple": "Cisco FHRP that load-balances gateways.",
+   "technical": "An AVG answers ARP with different virtual MACs so several AVFs forward at once.",
+   "domainId": "d3",
+   "related": [
+    "FHRP"
+   ]
+  },
+  {
+   "id": "g-hsrp",
+   "term": "HSRP",
+   "full": "Hot Standby Router Protocol",
+   "simple": "Cisco FHRP with active and standby routers.",
+   "technical": "Default priority 100, preemption disabled by default; v1 virtual MAC 0000.0C07.ACxx.",
+   "domainId": "d3",
+   "related": [
+    "FHRP",
+    "VRRP"
+   ]
+  },
+  {
+   "id": "g-http-status-code",
+   "term": "HTTP status code",
+   "full": "",
+   "simple": "The number a web server returns to describe the result.",
+   "technical": "2xx success (200, 201, 204), 4xx client error (400, 401, 403, 404), 5xx server error (500).",
+   "domainId": "d6",
+   "related": [
+    "REST",
+    "CRUD"
+   ]
+  },
+  {
+   "id": "g-hypervisor",
+   "term": "Hypervisor",
+   "full": "",
+   "simple": "Software that runs virtual machines.",
+   "technical": "Type 1 runs on bare metal (ESXi, Hyper-V, KVM); Type 2 runs on a host OS.",
+   "domainId": "d1",
+   "related": [
+    "Virtual machine",
+    "Container"
+   ]
+  },
+  {
+   "id": "g-iaas",
+   "term": "IaaS",
+   "full": "Infrastructure as a Service",
+   "simple": "Renting compute, storage and networking from a provider.",
+   "technical": "The customer manages OS and applications; compare PaaS and SaaS.",
+   "domainId": "d1",
+   "related": [
+    "PaaS",
+    "SaaS"
+   ]
+  },
+  {
+   "id": "g-icmp",
+   "term": "ICMP",
+   "full": "Internet Control Message Protocol",
+   "simple": "Error and diagnostic messages for IP.",
+   "technical": "Used by ping (echo request/reply) and traceroute; IP protocol 1. ICMPv6 also carries NDP.",
+   "domainId": "d1",
+   "related": [
+    "NDP"
+   ]
+  },
+  {
+   "id": "g-implicit-deny",
+   "term": "Implicit deny",
+   "full": "",
+   "simple": "The invisible last line of every ACL.",
+   "technical": "Denies anything not matched by an explicit entry.",
+   "domainId": "d5",
+   "related": [
+    "ACL"
+   ]
+  },
+  {
+   "id": "g-inside-global",
+   "term": "Inside global",
+   "full": "",
+   "simple": "The public address that represents an inside host.",
+   "technical": "Assigned by NAT/PAT; seen by hosts on the internet.",
+   "domainId": "d4",
+   "related": [
+    "NAT",
+    "Inside local"
+   ]
+  },
+  {
+   "id": "g-inside-local",
+   "term": "Inside local",
+   "full": "",
+   "simple": "The real address of an inside host.",
+   "technical": "Usually an RFC 1918 private address before translation.",
+   "domainId": "d4",
+   "related": [
+    "NAT",
+    "Inside global"
+   ]
+  },
+  {
+   "id": "g-inter-vlan-routing",
+   "term": "Inter-VLAN routing",
+   "full": "",
+   "simple": "Routing traffic between VLANs.",
+   "technical": "Router-on-a-stick subinterfaces (encapsulation dot1Q) or Layer 3 switch SVIs.",
+   "domainId": "d2",
+   "related": [
+    "SVI",
+    "Trunk"
+   ]
+  },
+  {
+   "id": "g-ips",
+   "term": "IPS",
+   "full": "Intrusion Prevention System",
+   "simple": "Inspects traffic inline and blocks attacks.",
+   "technical": "An IDS only monitors and alerts; an IPS can drop malicious packets. Often integrated in NGFWs.",
+   "domainId": "d5",
+   "related": [
+    "NGFW"
+   ]
+  },
+  {
+   "id": "g-ipsec",
+   "term": "IPsec",
+   "full": "Internet Protocol Security",
+   "simple": "Framework for encrypting IP traffic.",
+   "technical": "Provides confidentiality, integrity, authentication and anti-replay; ESP (IP 50), AH (IP 51), IKE on UDP 500.",
+   "domainId": "d5",
+   "related": [
+    "VPN"
+   ]
+  },
+  {
+   "id": "g-ipv6",
+   "term": "IPv6",
+   "full": "Internet Protocol version 6",
+   "simple": "128-bit addressing for the modern internet.",
+   "technical": "Hex hextets, no broadcast, NDP instead of ARP, SLAAC and link-local addresses on every interface.",
+   "domainId": "d1",
+   "related": [
+    "EUI-64",
+    "SLAAC",
+    "NDP"
+   ]
+  },
+  {
+   "id": "g-json",
+   "term": "JSON",
+   "full": "JavaScript Object Notation",
+   "simple": "A simple text format for structured data.",
+   "technical": "Objects {} with double-quoted keys, arrays [], values: string, number, boolean, null, object, array.",
+   "domainId": "d6",
+   "related": [
+    "REST",
+    "YAML"
+   ]
+  },
+  {
+   "id": "g-lacp",
+   "term": "LACP",
+   "full": "Link Aggregation Control Protocol",
+   "simple": "Standard protocol for building EtherChannels.",
+   "technical": "IEEE 802.3ad/802.1AX; modes active and passive; passive + passive does not form.",
+   "domainId": "d2",
+   "related": [
+    "EtherChannel",
+    "PAgP"
+   ]
+  },
+  {
+   "id": "g-lightweight-ap",
+   "term": "Lightweight AP",
+   "full": "",
+   "simple": "An AP managed by a wireless LAN controller.",
+   "technical": "Split-MAC: AP handles real-time 802.11 functions; WLC handles management, security and RF.",
+   "domainId": "d2",
+   "related": [
+    "WLC",
+    "CAPWAP"
+   ]
+  },
+  {
+   "id": "g-link-local-address",
+   "term": "Link-local address",
+   "full": "",
+   "simple": "An address valid only on the local link.",
+   "technical": "IPv6 FE80::/10, created automatically; used for NDP and as routing next hops. IPv4 equivalent: 169.254.0.0/16.",
+   "domainId": "d1",
+   "related": [
+    "IPv6",
+    "APIPA"
+   ]
+  },
+  {
+   "id": "g-lldp",
+   "term": "LLDP",
+   "full": "Link Layer Discovery Protocol",
+   "simple": "Vendor-neutral neighbor discovery.",
+   "technical": "IEEE 802.1AB; 30 s timer, 120 s holdtime; enable with lldp run.",
+   "domainId": "d2",
+   "related": [
+    "CDP"
+   ]
+  },
+  {
+   "id": "g-longest-prefix-match",
+   "term": "Longest prefix match",
+   "full": "",
+   "simple": "The router picks the most specific matching route.",
+   "technical": "Evaluated before administrative distance and metric.",
+   "domainId": "d3",
+   "related": [
+    "Administrative distance",
+    "Routing table"
+   ]
+  },
+  {
+   "id": "g-lsa",
+   "term": "LSA",
+   "full": "Link-State Advertisement",
+   "simple": "A piece of OSPF topology information.",
+   "technical": "Stored in the LSDB; all routers in an area have identical LSDBs.",
+   "domainId": "d3",
+   "related": [
+    "OSPF",
+    "SPF"
+   ]
+  },
+  {
+   "id": "g-mac-address",
+   "term": "MAC address",
+   "full": "Media Access Control address",
+   "simple": "The hardware address of a network interface.",
+   "technical": "48 bits; first 24 bits are the OUI; FFFF.FFFF.FFFF is broadcast.",
+   "domainId": "d1",
+   "related": [
+    "ARP",
+    "OUI"
+   ]
+  },
+  {
+   "id": "g-mac-address-table",
+   "term": "MAC address table",
+   "full": "",
+   "simple": "A switch's list of which MAC lives on which port.",
+   "technical": "Learned from source MACs; dynamic entries age out after 300 s by default.",
+   "domainId": "d1",
+   "related": [
+    "Switch"
+   ]
+  },
+  {
+   "id": "g-management-plane",
+   "term": "Management plane",
+   "full": "",
+   "simple": "How administrators operate a device.",
+   "technical": "SSH, SNMP, Syslog, NTP, HTTPS management.",
+   "domainId": "d6",
+   "related": [
+    "Control plane"
+   ]
+  },
+  {
+   "id": "g-metric",
+   "term": "Metric",
+   "full": "",
+   "simple": "A routing protocol's measure of path cost.",
+   "technical": "Compares routes from the same protocol: OSPF cost, RIP hop count, EIGRP composite.",
+   "domainId": "d3",
+   "related": [
+    "Administrative distance"
+   ]
+  },
+  {
+   "id": "g-mfa",
+   "term": "MFA",
+   "full": "Multifactor Authentication",
+   "simple": "Logging in with two or more kinds of proof.",
+   "technical": "Combines factors from different categories: know, have, are.",
+   "domainId": "d5",
+   "related": [
+    "AAA"
+   ]
+  },
+  {
+   "id": "g-multicast",
+   "term": "Multicast",
+   "full": "",
+   "simple": "One-to-group delivery.",
+   "technical": "IPv4 224.0.0.0/4; IPv6 FF00::/8 (FF02::1 all nodes, FF02::2 all routers).",
+   "domainId": "d1",
+   "related": [
+    "Anycast"
+   ]
+  },
+  {
+   "id": "g-nat",
+   "term": "NAT",
+   "full": "Network Address Translation",
+   "simple": "Changes IP addresses as traffic passes through a router.",
+   "technical": "Usually private inside local to public inside global; static, dynamic pool, or PAT (overload).",
+   "domainId": "d4",
+   "related": [
+    "PAT",
+    "Inside local"
+   ]
+  },
+  {
+   "id": "g-native-vlan",
+   "term": "Native VLAN",
+   "full": "",
+   "simple": "The VLAN sent without a tag on a trunk.",
+   "technical": "Default VLAN 1; must match on both ends; best practice is an unused VLAN.",
+   "domainId": "d2",
+   "related": [
+    "Trunk",
+    "802.1Q"
+   ]
+  },
+  {
+   "id": "g-ndp",
+   "term": "NDP",
+   "full": "Neighbor Discovery Protocol",
+   "simple": "IPv6's way of finding neighbors and routers.",
+   "technical": "ICMPv6 RS 133, RA 134, NS 135, NA 136; replaces ARP and supports SLAAC.",
+   "domainId": "d1",
+   "related": [
+    "ARP",
+    "SLAAC"
+   ]
+  },
+  {
+   "id": "g-netconf",
+   "term": "NETCONF",
+   "full": "Network Configuration Protocol",
+   "simple": "A protocol for configuring devices with structured data.",
+   "technical": "Runs over SSH (TCP 830) using YANG data models; a southbound interface.",
+   "domainId": "d6",
+   "related": [
+    "RESTCONF",
+    "Southbound interface"
+   ]
+  },
+  {
+   "id": "g-ngfw",
+   "term": "NGFW",
+   "full": "Next-Generation Firewall",
+   "simple": "A firewall that understands applications.",
+   "technical": "Stateful filtering plus application visibility and control, IPS, URL filtering and anti-malware.",
+   "domainId": "d1",
+   "related": [
+    "IPS"
+   ]
+  },
+  {
+   "id": "g-northbound-interface",
+   "term": "Northbound interface",
+   "full": "",
+   "simple": "How applications talk to a controller.",
+   "technical": "Typically REST APIs with JSON.",
+   "domainId": "d6",
+   "related": [
+    "Southbound interface",
+    "API"
+   ]
+  },
+  {
+   "id": "g-ntp",
+   "term": "NTP",
+   "full": "Network Time Protocol",
+   "simple": "Keeps device clocks synchronized.",
+   "technical": "UDP 123; stratum shows distance from the reference clock (lower is better).",
+   "domainId": "d4",
+   "related": [
+    "Syslog"
+   ]
+  },
+  {
+   "id": "g-ospf",
+   "term": "OSPF",
+   "full": "Open Shortest Path First",
+   "simple": "A link-state routing protocol.",
+   "technical": "Floods LSAs, builds an LSDB, runs SPF; AD 110; metric cost; Hello 10/Dead 40 on broadcast; IP protocol 89.",
+   "domainId": "d3",
+   "related": [
+    "DR",
+    "Router ID",
+    "LSA"
+   ]
+  },
+  {
+   "id": "g-oui",
+   "term": "OUI",
+   "full": "Organizationally Unique Identifier",
+   "simple": "The vendor part of a MAC address.",
+   "technical": "First 24 bits of the 48-bit MAC.",
+   "domainId": "d1",
+   "related": [
+    "MAC address"
+   ]
+  },
+  {
+   "id": "g-overlay",
+   "term": "Overlay",
+   "full": "",
+   "simple": "Virtual networks built on top of the physical network.",
+   "technical": "Tunnels such as VXLAN carry user traffic across the underlay.",
+   "domainId": "d6",
+   "related": [
+    "Underlay",
+    "VXLAN"
+   ]
+  },
+  {
+   "id": "g-paas",
+   "term": "PaaS",
+   "full": "Platform as a Service",
+   "simple": "A provider runs the platform; you deploy code.",
+   "technical": "Provider manages infrastructure, OS and runtime.",
+   "domainId": "d1",
+   "related": [
+    "IaaS",
+    "SaaS"
+   ]
+  },
+  {
+   "id": "g-pagp",
+   "term": "PAgP",
+   "full": "Port Aggregation Protocol",
+   "simple": "Cisco protocol for building EtherChannels.",
+   "technical": "Modes desirable and auto; auto + auto does not form.",
+   "domainId": "d2",
+   "related": [
+    "LACP"
+   ]
+  },
+  {
+   "id": "g-pat",
+   "term": "PAT",
+   "full": "Port Address Translation",
+   "simple": "Many hosts share one public IP using port numbers.",
+   "technical": "NAT overload; translations identified by IP + port.",
+   "domainId": "d4",
+   "related": [
+    "NAT"
+   ]
+  },
+  {
+   "id": "g-poe",
+   "term": "PoE",
+   "full": "Power over Ethernet",
+   "simple": "Powering devices through the network cable.",
+   "technical": "802.3af 15.4 W, 802.3at 30 W, 802.3bt up to 60/90 W at the PSE.",
+   "domainId": "d1",
+   "related": []
+  },
+  {
+   "id": "g-port-security",
+   "term": "Port security",
+   "full": "",
+   "simple": "Limits which MAC addresses may use a switch port.",
+   "technical": "Default max 1 MAC, violation shutdown; modes protect, restrict, shutdown; sticky learning.",
+   "domainId": "d5",
+   "related": [
+    "DHCP snooping"
+   ]
+  },
+  {
+   "id": "g-portfast",
+   "term": "PortFast",
+   "full": "",
+   "simple": "Lets host ports start forwarding immediately.",
+   "technical": "Skips listening/learning on edge ports; pair with BPDU Guard.",
+   "domainId": "d2",
+   "related": [
+    "BPDU Guard",
+    "STP"
+   ]
+  },
+  {
+   "id": "g-prefix-length",
+   "term": "Prefix length",
+   "full": "",
+   "simple": "The number of network bits in an address, written /n.",
+   "technical": "/24 = 255.255.255.0; usable hosts = 2^(32−n) − 2 for IPv4 (except /31, /32).",
+   "domainId": "d1",
+   "related": [
+    "CIDR",
+    "Subnet mask"
+   ]
+  },
+  {
+   "id": "g-qos",
+   "term": "QoS",
+   "full": "Quality of Service",
+   "simple": "Prioritizes important traffic when links are busy.",
+   "technical": "Classification, marking, queuing (CBWFQ/LLQ), congestion avoidance (WRED), policing and shaping.",
+   "domainId": "d4",
+   "related": [
+    "DSCP",
+    "CoS"
+   ]
+  },
+  {
+   "id": "g-radius",
+   "term": "RADIUS",
+   "full": "Remote Authentication Dial-In User Service",
+   "simple": "Standard AAA protocol for network access.",
+   "technical": "UDP 1812/1813; encrypts only the password; combines authentication and authorization.",
+   "domainId": "d5",
+   "related": [
+    "TACACS+",
+    "802.1X"
+   ]
+  },
+  {
+   "id": "g-rest",
+   "term": "REST",
+   "full": "Representational State Transfer",
+   "simple": "A simple, stateless style of web API.",
+   "technical": "HTTP methods on URIs; stateless, client-server, cacheable, uniform interface.",
+   "domainId": "d6",
+   "related": [
+    "API",
+    "JSON",
+    "CRUD"
+   ]
+  },
+  {
+   "id": "g-restconf",
+   "term": "RESTCONF",
+   "full": "",
+   "simple": "REST-style access to YANG-modeled device data.",
+   "technical": "Uses HTTPS with JSON or XML; a southbound interface.",
+   "domainId": "d6",
+   "related": [
+    "NETCONF"
+   ]
+  },
+  {
+   "id": "g-root-bridge",
+   "term": "Root bridge",
+   "full": "",
+   "simple": "The center of the spanning tree.",
+   "technical": "Switch with the lowest bridge ID; all its ports are designated.",
+   "domainId": "d2",
+   "related": [
+    "Bridge ID",
+    "STP"
+   ]
+  },
+  {
+   "id": "g-root-guard",
+   "term": "Root Guard",
+   "full": "",
+   "simple": "Prevents an unwanted switch from becoming root.",
+   "technical": "Puts a port into root-inconsistent state if it receives superior BPDUs.",
+   "domainId": "d2",
+   "related": [
+    "BPDU Guard"
+   ]
+  },
+  {
+   "id": "g-router-id",
+   "term": "Router ID",
+   "full": "",
+   "simple": "The unique 32-bit name of an OSPF router.",
+   "technical": "Manual router-id → highest loopback IP → highest active interface IP.",
+   "domainId": "d3",
+   "related": [
+    "OSPF"
+   ]
+  },
+  {
+   "id": "g-routing-table",
+   "term": "Routing table",
+   "full": "",
+   "simple": "The router's list of known networks and how to reach them.",
+   "technical": "Entries show source code, prefix, [AD/metric], next hop and exit interface.",
+   "domainId": "d3",
+   "related": [
+    "Longest prefix match"
+   ]
+  },
+  {
+   "id": "g-rstp",
+   "term": "RSTP",
+   "full": "Rapid Spanning Tree Protocol",
+   "simple": "Faster version of spanning tree.",
+   "technical": "IEEE 802.1w; states discarding, learning, forwarding; roles root, designated, alternate, backup. Cisco's per-VLAN version is Rapid PVST+.",
+   "domainId": "d2",
+   "related": [
+    "STP"
+   ]
+  },
+  {
+   "id": "g-saas",
+   "term": "SaaS",
+   "full": "Software as a Service",
+   "simple": "Using a complete application delivered by a provider.",
+   "technical": "The provider manages everything; the customer uses the app.",
+   "domainId": "d1",
+   "related": [
+    "IaaS",
+    "PaaS"
+   ]
+  },
+  {
+   "id": "g-sae",
+   "term": "SAE",
+   "full": "Simultaneous Authentication of Equals",
+   "simple": "WPA3-Personal's password-based key exchange.",
+   "technical": "Resists offline dictionary attacks and provides forward secrecy.",
+   "domainId": "d5",
+   "related": [
+    "WPA3"
+   ]
+  },
+  {
+   "id": "g-sdn",
+   "term": "SDN",
+   "full": "Software-Defined Networking",
+   "simple": "Central software controls how the network behaves.",
+   "technical": "Centralizes control/management logic on a controller with northbound and southbound interfaces; devices still forward traffic.",
+   "domainId": "d6",
+   "related": [
+    "Catalyst Center",
+    "Northbound interface"
+   ]
+  },
+  {
+   "id": "g-slaac",
+   "term": "SLAAC",
+   "full": "Stateless Address Autoconfiguration",
+   "simple": "IPv6 hosts build their own addresses.",
+   "technical": "Prefix from Router Advertisements + interface ID (EUI-64 or random).",
+   "domainId": "d1",
+   "related": [
+    "NDP",
+    "EUI-64"
+   ]
+  },
+  {
+   "id": "g-snmp",
+   "term": "SNMP",
+   "full": "Simple Network Management Protocol",
+   "simple": "Lets monitoring systems read and change device data.",
+   "technical": "UDP 161 polls, UDP 162 traps/informs; MIBs and OIDs; v3 adds authentication and encryption.",
+   "domainId": "d4",
+   "related": [
+    "Syslog"
+   ]
+  },
+  {
+   "id": "g-southbound-interface",
+   "term": "Southbound interface",
+   "full": "",
+   "simple": "How a controller talks to network devices.",
+   "technical": "NETCONF, RESTCONF, OpenFlow, OpFlex, SSH/CLI, SNMP.",
+   "domainId": "d6",
+   "related": [
+    "Northbound interface"
+   ]
+  },
+  {
+   "id": "g-spf",
+   "term": "SPF",
+   "full": "Shortest Path First",
+   "simple": "The algorithm OSPF uses to compute routes.",
+   "technical": "Dijkstra's algorithm run on the LSDB by each router.",
+   "domainId": "d3",
+   "related": [
+    "OSPF"
+   ]
+  },
+  {
+   "id": "g-spine-leaf",
+   "term": "Spine-leaf",
+   "full": "",
+   "simple": "Data center topology where each leaf connects to every spine.",
+   "technical": "Predictable leaf–spine–leaf paths for east-west traffic; no leaf-leaf or spine-spine links.",
+   "domainId": "d1",
+   "related": []
+  },
+  {
+   "id": "g-ssh",
+   "term": "SSH",
+   "full": "Secure Shell",
+   "simple": "Encrypted remote command-line access.",
+   "technical": "TCP 22; requires hostname, domain name, RSA keys and VTY 'transport input ssh'.",
+   "domainId": "d4",
+   "related": [
+    "Telnet"
+   ]
+  },
+  {
+   "id": "g-ssid",
+   "term": "SSID",
+   "full": "Service Set Identifier",
+   "simple": "The name of a wireless network.",
+   "technical": "Advertised in beacons; several APs sharing an SSID form an ESS. BSSID is the AP radio's MAC.",
+   "domainId": "d1",
+   "related": []
+  },
+  {
+   "id": "g-static-route",
+   "term": "Static route",
+   "full": "",
+   "simple": "A manually configured route.",
+   "technical": "ip route / ipv6 route; default AD 1; installed only when the next hop is reachable.",
+   "domainId": "d3",
+   "related": [
+    "Floating static route",
+    "Default route"
+   ]
+  },
+  {
+   "id": "g-stp",
+   "term": "STP",
+   "full": "Spanning Tree Protocol",
+   "simple": "Prevents Layer 2 loops.",
+   "technical": "Elects a root bridge and blocks redundant ports; 802.1D costs 100/19/4/2 for 10M/100M/1G/10G.",
+   "domainId": "d2",
+   "related": [
+    "RSTP",
+    "Root bridge"
+   ]
+  },
+  {
+   "id": "g-subnet-mask",
+   "term": "Subnet mask",
+   "full": "",
+   "simple": "Shows which part of an IP address is the network.",
+   "technical": "Contiguous 1 bits for the network portion; valid octets 0, 128, 192, 224, 240, 248, 252, 254, 255.",
+   "domainId": "d1",
+   "related": [
+    "CIDR",
+    "Wildcard mask"
+   ]
+  },
+  {
+   "id": "g-svi",
+   "term": "SVI",
+   "full": "Switched Virtual Interface",
+   "simple": "A routed interface for a VLAN on a switch.",
+   "technical": "interface vlan X; up/up only if the VLAN exists with an active port; requires ip routing to route.",
+   "domainId": "d2",
+   "related": [
+    "Inter-VLAN routing"
+   ]
+  },
+  {
+   "id": "g-switch",
+   "term": "Switch",
+   "full": "",
+   "simple": "Connects devices within a LAN and forwards frames by MAC address.",
+   "technical": "Learns source MACs, forwards known unicasts, floods broadcasts and unknown unicasts within the VLAN; each port is a collision domain.",
+   "domainId": "d1",
+   "related": [
+    "MAC address table",
+    "VLAN"
+   ]
+  },
+  {
+   "id": "g-syslog",
+   "term": "Syslog",
+   "full": "",
+   "simple": "Standard for sending log messages.",
+   "technical": "UDP 514; severities 0 Emergency … 7 Debugging; a configured level includes all more severe levels.",
+   "domainId": "d4",
+   "related": [
+    "NTP",
+    "SNMP"
+   ]
+  },
+  {
+   "id": "g-tacacs",
+   "term": "TACACS+",
+   "full": "Terminal Access Controller Access-Control System Plus",
+   "simple": "Cisco-developed AAA protocol for device administration.",
+   "technical": "TCP 49; encrypts the whole payload; separates authentication, authorization and accounting.",
+   "domainId": "d5",
+   "related": [
+    "RADIUS",
+    "AAA"
+   ]
+  },
+  {
+   "id": "g-tcp",
+   "term": "TCP",
+   "full": "Transmission Control Protocol",
+   "simple": "Reliable, connection-oriented transport.",
+   "technical": "Three-way handshake, sequencing, acknowledgments, windowing; 20-byte minimum header.",
+   "domainId": "d1",
+   "related": [
+    "UDP"
+   ]
+  },
+  {
+   "id": "g-telnet",
+   "term": "Telnet",
+   "full": "",
+   "simple": "Unencrypted remote command-line access.",
+   "technical": "TCP 23; sends credentials in clear text — use SSH instead.",
+   "domainId": "d4",
+   "related": [
+    "SSH"
+   ]
+  },
+  {
+   "id": "g-terraform",
+   "term": "Terraform",
+   "full": "",
+   "simple": "Infrastructure-as-code tool using declarative files.",
+   "technical": "HCL language, providers, plan/apply workflow and a state file.",
+   "domainId": "d6",
+   "related": [
+    "Ansible"
+   ]
+  },
+  {
+   "id": "g-tftp",
+   "term": "TFTP",
+   "full": "Trivial File Transfer Protocol",
+   "simple": "Simple file transfer without login.",
+   "technical": "UDP 69; no authentication or encryption; used for IOS images and configs on trusted networks.",
+   "domainId": "d4",
+   "related": [
+    "SSH"
+   ]
+  },
+  {
+   "id": "g-trunk",
+   "term": "Trunk",
+   "full": "",
+   "simple": "A link that carries multiple VLANs.",
+   "technical": "802.1Q tags every VLAN except the native VLAN; verify with show interfaces trunk.",
+   "domainId": "d2",
+   "related": [
+    "Native VLAN",
+    "DTP",
+    "802.1Q"
+   ]
+  },
+  {
+   "id": "g-udp",
+   "term": "UDP",
+   "full": "User Datagram Protocol",
+   "simple": "Lightweight, connectionless transport.",
+   "technical": "No handshake, acknowledgments or ordering; 8-byte header. Used by DNS queries, DHCP, TFTP, SNMP, voice.",
+   "domainId": "d1",
+   "related": [
+    "TCP"
+   ]
+  },
+  {
+   "id": "g-underlay",
+   "term": "Underlay",
+   "full": "",
+   "simple": "The physical network under a fabric.",
+   "technical": "Provides IP reachability for overlay tunnels (IS-IS in SD-Access).",
+   "domainId": "d6",
+   "related": [
+    "Overlay"
+   ]
+  },
+  {
+   "id": "g-virtual-machine",
+   "term": "Virtual machine",
+   "full": "",
+   "simple": "A complete computer running in software.",
+   "technical": "Runs a full guest OS on a hypervisor.",
+   "domainId": "d1",
+   "related": [
+    "Hypervisor",
+    "Container"
+   ]
+  },
+  {
+   "id": "g-vlan",
+   "term": "VLAN",
+   "full": "Virtual LAN",
+   "simple": "A separate logical network on a switch.",
+   "technical": "A Layer 2 broadcast domain; normal 1–1005, extended 1006–4094; usually maps to one subnet.",
+   "domainId": "d2",
+   "related": [
+    "Trunk",
+    "SVI"
+   ]
+  },
+  {
+   "id": "g-vlsm",
+   "term": "VLSM",
+   "full": "Variable Length Subnet Masking",
+   "simple": "Using different subnet sizes in one address block.",
+   "technical": "Allocate largest subnets first on correct boundaries to avoid overlap.",
+   "domainId": "d1",
+   "related": [
+    "CIDR"
+   ]
+  },
+  {
+   "id": "g-vpn",
+   "term": "VPN",
+   "full": "Virtual Private Network",
+   "simple": "An encrypted tunnel over an untrusted network.",
+   "technical": "Site-to-site (gateway to gateway) or remote access (client to gateway); often IPsec or TLS.",
+   "domainId": "d5",
+   "related": [
+    "IPsec"
+   ]
+  },
+  {
+   "id": "g-vrf",
+   "term": "VRF",
+   "full": "Virtual Routing and Forwarding",
+   "simple": "Several separate routing tables in one router.",
+   "technical": "Allows overlapping address space; VRF-lite without MPLS.",
+   "domainId": "d1",
+   "related": []
+  },
+  {
+   "id": "g-vrrp",
+   "term": "VRRP",
+   "full": "Virtual Router Redundancy Protocol",
+   "simple": "Standards-based FHRP.",
+   "technical": "Master/backup routers; preemption enabled by default; virtual MAC 0000.5E00.01xx.",
+   "domainId": "d3",
+   "related": [
+    "HSRP",
+    "FHRP"
+   ]
+  },
+  {
+   "id": "g-vxlan",
+   "term": "VXLAN",
+   "full": "Virtual Extensible LAN",
+   "simple": "A tunneling format for overlay networks.",
+   "technical": "MAC-in-UDP encapsulation with a 24-bit VNI; the SD-Access data plane.",
+   "domainId": "d6",
+   "related": [
+    "Overlay"
+   ]
+  },
+  {
+   "id": "g-wildcard-mask",
+   "term": "Wildcard mask",
+   "full": "",
+   "simple": "An inverse mask used in ACLs and OSPF.",
+   "technical": "0 bits must match, 1 bits are ignored; 255.255.255.255 minus the subnet mask for a contiguous block.",
+   "domainId": "d5",
+   "related": [
+    "ACL",
+    "Subnet mask"
+   ]
+  },
+  {
+   "id": "g-wlc",
+   "term": "WLC",
+   "full": "Wireless LAN Controller",
+   "simple": "Centrally manages lightweight access points.",
+   "technical": "Uses CAPWAP; maps WLANs to interfaces/VLANs; AireOS LAG requires a static EtherChannel.",
+   "domainId": "d2",
+   "related": [
+    "CAPWAP",
+    "FlexConnect"
+   ]
+  },
+  {
+   "id": "g-wpa2",
+   "term": "WPA2",
+   "full": "Wi-Fi Protected Access 2",
+   "simple": "Common Wi-Fi security standard.",
+   "technical": "AES-CCMP encryption; Personal (PSK) or Enterprise (802.1X).",
+   "domainId": "d5",
+   "related": [
+    "WPA3"
+   ]
+  },
+  {
+   "id": "g-wpa3",
+   "term": "WPA3",
+   "full": "Wi-Fi Protected Access 3",
+   "simple": "Current Wi-Fi security standard.",
+   "technical": "SAE for Personal, mandatory Protected Management Frames, 192-bit option for Enterprise.",
+   "domainId": "d5",
+   "related": [
+    "SAE",
+    "WPA2"
+   ]
+  },
+  {
+   "id": "g-yaml",
+   "term": "YAML",
+   "full": "YAML Ain't Markup Language",
+   "simple": "Human-readable data format that uses indentation.",
+   "technical": "Used for Ansible playbooks; indentation defines structure.",
+   "domainId": "d6",
+   "related": [
+    "JSON",
+    "Ansible"
+   ]
+  }
+ ]
+}

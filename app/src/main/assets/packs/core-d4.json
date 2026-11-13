@@ -1,0 +1,949 @@
+{
+ "schema": 1,
+ "id": "core-d4",
+ "name": "Core: IP Services",
+ "version": 1,
+ "category": "Core CCNA 200-301",
+ "description": "25 original questions for IP Services (10% of the v1.1 blueprint).",
+ "author": "CCNA Academy",
+ "topics": [
+  {
+   "id": "dhcp-dns",
+   "title": "DHCP and DNS",
+   "domainId": "d4",
+   "lessonId": "4-01"
+  },
+  {
+   "id": "nat",
+   "title": "NAT and PAT",
+   "domainId": "d4",
+   "lessonId": "4-02"
+  },
+  {
+   "id": "mgmt-services",
+   "title": "NTP, SNMP and Syslog",
+   "domainId": "d4",
+   "lessonId": "4-03"
+  },
+  {
+   "id": "qos",
+   "title": "QoS",
+   "domainId": "d4",
+   "lessonId": "4-04"
+  },
+  {
+   "id": "ssh-files",
+   "title": "SSH, TFTP and FTP",
+   "domainId": "d4",
+   "lessonId": "2-09"
+  }
+ ],
+ "questions": [
+  {
+   "id": "core-d4-001",
+   "domainId": "d4",
+   "objective": "4.6",
+   "topic": "dhcp-dns",
+   "difficulty": 1,
+   "format": "protocol-id",
+   "type": "order",
+   "stem": "Arrange the DHCP messages exchanged when a client first obtains an address.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "The client broadcasts Discover, servers reply with Offer, the client broadcasts Request for one offer, and the chosen server confirms with Ack.",
+   "concept": "DHCP DORA",
+   "tip": "D-O-R-A.",
+   "lessonId": "4-01",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Discover → Offer → Request → Acknowledge",
+   "whyWrong": [],
+   "left": [],
+   "right": [],
+   "items": [
+    "Discover",
+    "Offer",
+    "Request",
+    "Acknowledge"
+   ]
+  },
+  {
+   "id": "core-d4-002",
+   "domainId": "d4",
+   "objective": "4.6",
+   "topic": "dhcp-dns",
+   "difficulty": 2,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "Clients in VLAN 10 (gateway R1 Gi0/1, 10.1.10.1/24) receive no IP address. The DHCP server is 10.0.0.50, reachable from R1 through Gi0/2. What fixes the problem?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Routers do not forward broadcasts. 'ip helper-address' turns DHCP broadcasts into unicasts to the server and sets giaddr so the server picks the right pool.",
+   "concept": "DHCP relay",
+   "tip": "Helper goes where the help is needed — the client side.",
+   "lessonId": "4-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Configure 'ip helper-address 10.0.0.50' on Gi0/1",
+    "Configure 'ip helper-address 10.0.0.50' on Gi0/2",
+    "Enable 'ip routing' on R1",
+    "Configure PAT on R1"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The relay must sit on the interface that receives the clients' broadcasts.",
+   "whyWrong": [
+    "",
+    "Gi0/2 faces the server and never receives client broadcasts.",
+    "Routers already route IPv4 by default; the problem is broadcast forwarding.",
+    "NAT does not relay DHCP broadcasts."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-003",
+   "domainId": "d4",
+   "objective": "4.6",
+   "topic": "dhcp-dns",
+   "difficulty": 2,
+   "format": "config",
+   "type": "multi",
+   "stem": "An IOS DHCP pool for 10.1.10.0/24 must never lease 10.1.10.1–10.1.10.20, and clients must receive gateway 10.1.10.1. Which commands achieve these two requirements? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Typical pool: excluded-address (global), then 'ip dhcp pool NAME' with network, default-router, dns-server and lease.",
+   "concept": "IOS DHCP server",
+   "tip": "",
+   "lessonId": "4-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "ip dhcp excluded-address 10.1.10.1 10.1.10.20",
+    "default-router 10.1.10.1 (inside the pool)",
+    "ip helper-address 10.1.10.1",
+    "dns-server 10.1.10.1",
+    "network 10.1.10.0 0.0.0.255"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "This global command keeps the range out of every pool. This gives clients their default gateway.",
+   "whyWrong": [
+    "",
+    "",
+    "This configures a relay, not the pool.",
+    "This sets the DNS server option, not the gateway.",
+    "The pool's network command uses a subnet mask or prefix length, not a wildcard."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-004",
+   "domainId": "d4",
+   "objective": "4.6",
+   "topic": "dhcp-dns",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: A DHCP Discover is broadcast because the client has no IP address yet and does not know the server's address.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "The Discover is sent from 0.0.0.0 to 255.255.255.255 (UDP 68 to 67). A relay is needed when the server is on another subnet.",
+   "concept": "DHCP Discover",
+   "tip": "",
+   "lessonId": "4-01",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The statement is true. The Discover is sent from 0.0.0.0 to 255.255.255.255 (UDP 68 to 67). A relay is needed when the server is on another subnet.",
+   "whyWrong": [
+    "",
+    "The statement is true, so this choice is incorrect."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-005",
+   "domainId": "d4",
+   "objective": "4.3",
+   "topic": "dhcp-dns",
+   "difficulty": 1,
+   "format": "protocol-id",
+   "type": "single",
+   "stem": "Which DNS record type maps a hostname to an IPv6 address?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Common records: A (IPv4), AAAA (IPv6), CNAME (alias), MX (mail), PTR (reverse), NS (name server).",
+   "concept": "DNS record types",
+   "tip": "AAAA = 4×A, because IPv6 is 4× longer.",
+   "lessonId": "4-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "AAAA",
+    "A",
+    "PTR",
+    "MX"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "AAAA records hold 128-bit IPv6 addresses.",
+   "whyWrong": [
+    "",
+    "A records hold IPv4 addresses.",
+    "PTR records map addresses back to names.",
+    "MX records identify mail servers for a domain."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-006",
+   "domainId": "d4",
+   "objective": "4.3",
+   "topic": "dhcp-dns",
+   "difficulty": 2,
+   "format": "protocol-id",
+   "type": "single",
+   "stem": "Which statement about DNS transport is correct?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "DNS is a classic 'both' protocol: UDP for small query/response exchanges, TCP for zone transfers and large answers.",
+   "concept": "DNS transport",
+   "tip": "",
+   "lessonId": "4-01",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Queries use UDP 53; zone transfers use TCP 53",
+    "DNS uses only TCP 53 for every query",
+    "DNS uses UDP 67 for queries and replies",
+    "DNS uses only TCP 443 for all lookups"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "TCP is also used when responses are too large for UDP.",
+   "whyWrong": [
+    "",
+    "Most queries use UDP for speed.",
+    "UDP 67 belongs to DHCP servers.",
+    "DNS over HTTPS exists, but standard DNS uses port 53."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-007",
+   "domainId": "d4",
+   "objective": "4.1",
+   "topic": "nat",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "match",
+   "stem": "Match each NAT term to its definition.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Inside/outside describes where the host is; local/global describes which side of the router the address is seen from.",
+   "concept": "NAT terminology",
+   "tip": "",
+   "lessonId": "4-02",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Inside local → The real IP address of an inside host, usually private; Inside global → The public address that represents an inside host to the outside; Outside global → The real IP address of an outside host; Outside local → The address of an outside host as seen from the inside network",
+   "whyWrong": [],
+   "left": [
+    "Inside local",
+    "Inside global",
+    "Outside global",
+    "Outside local"
+   ],
+   "right": [
+    "The real IP address of an inside host, usually private",
+    "The public address that represents an inside host to the outside",
+    "The real IP address of an outside host",
+    "The address of an outside host as seen from the inside network"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d4-008",
+   "domainId": "d4",
+   "objective": "4.1",
+   "topic": "nat",
+   "difficulty": 2,
+   "format": "diagram",
+   "type": "single",
+   "stem": "Refer to the diagram. What is the inside global address and port for PC2's session?",
+   "exhibit": null,
+   "diagram": "nat_pat",
+   "explanation": "In the translation table, the inside global column shows how an inside host appears on the internet.",
+   "concept": "Reading NAT translations",
+   "tip": "",
+   "lessonId": "4-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "203.0.113.2:51001",
+    "192.168.1.11:51000",
+    "198.51.100.80:443",
+    "203.0.113.2:51000"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "PC2's private socket 192.168.1.11:51000 is translated to the shared public address on port 51001.",
+   "whyWrong": [
+    "",
+    "This is PC2's inside local address.",
+    "This is the outside global address of the web server.",
+    "This translation is already used by PC1."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-009",
+   "domainId": "d4",
+   "objective": "4.1",
+   "topic": "nat",
+   "difficulty": 3,
+   "format": "diagram",
+   "type": "single",
+   "stem": "Refer to the diagram. Why did the router change PC2's source port from 51000 to 51001?",
+   "exhibit": null,
+   "diagram": "nat_pat",
+   "explanation": "PAT identifies sessions by public IP + port. When two inside hosts use the same source port, PAT assigns a different one.",
+   "concept": "PAT port translation",
+   "tip": "",
+   "lessonId": "4-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "To keep each PAT translation unique",
+    "To randomize ports for security",
+    "Because port 51000 is reserved on the internet",
+    "Because the web server requires odd port numbers"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "PAT changes the source port when needed to avoid collisions.",
+   "whyWrong": [
+    "",
+    "PAT keeps the original port when it is free.",
+    "51000 is an ordinary dynamic port.",
+    "Servers do not impose such requirements."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-010",
+   "domainId": "d4",
+   "objective": "4.1",
+   "topic": "nat",
+   "difficulty": 3,
+   "format": "troubleshooting",
+   "type": "single",
+   "stem": "No translations appear after this configuration. Gi0/0 is the LAN (192.168.1.1/24) and Gi0/1 faces the ISP. What is wrong?",
+   "exhibit": "interface GigabitEthernet0/0\n ip address 192.168.1.1 255.255.255.0\n ip nat outside\ninterface GigabitEthernet0/1\n ip address 203.0.113.2 255.255.255.252\n ip nat inside\n!\naccess-list 1 permit 192.168.1.0 0.0.0.255\nip nat inside source list 1 interface GigabitEthernet0/1 overload",
+   "diagram": null,
+   "explanation": "Mark interfaces correctly, then verify with 'show ip nat translations' and 'show ip nat statistics'.",
+   "concept": "NAT interface roles",
+   "tip": "",
+   "lessonId": "4-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Inside/outside roles are reversed",
+    "The ACL wildcard mask is incorrect",
+    "The 'overload' keyword is missing",
+    "PAT requires a NAT pool"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The LAN must be 'ip nat inside' and the ISP-facing interface 'ip nat outside'.",
+   "whyWrong": [
+    "",
+    "0.0.0.255 correctly matches 192.168.1.0/24.",
+    "'overload' is present.",
+    "PAT can overload the outside interface address."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-011",
+   "domainId": "d4",
+   "objective": "4.1",
+   "topic": "nat",
+   "difficulty": 1,
+   "format": "scenario",
+   "type": "single",
+   "stem": "Web server 192.168.1.10 must always be reachable from the internet at 203.0.113.10. Which NAT type is appropriate?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Configure: ip nat inside source static 192.168.1.10 203.0.113.10.",
+   "concept": "Static NAT",
+   "tip": "",
+   "lessonId": "4-02",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Static NAT",
+    "Dynamic NAT with a pool",
+    "PAT on the outside interface",
+    "No translation is needed"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "A permanent one-to-one mapping allows inbound connections at any time.",
+   "whyWrong": [
+    "",
+    "Pool mappings exist only while the inside host has an active session.",
+    "PAT mainly supports outbound sessions; inbound access needs static mappings.",
+    "A private address is not routable on the internet."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-012",
+   "domainId": "d4",
+   "objective": "4.1",
+   "topic": "nat",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: Dynamic NAT without overload can run out of addresses when more inside hosts need translation than the pool contains.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Each inside host needs its own pool address. When the pool is exhausted, new translations fail until entries time out — which is why PAT (overload) is common.",
+   "concept": "Dynamic NAT limits",
+   "tip": "",
+   "lessonId": "4-02",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The statement is true. Each inside host needs its own pool address. When the pool is exhausted, new translations fail until entries time out — which is why PAT (overload) is common.",
+   "whyWrong": [
+    "",
+    "The statement is true, so this choice is incorrect."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-013",
+   "domainId": "d4",
+   "objective": "4.2",
+   "topic": "mgmt-services",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "A router synchronizes its clock to an NTP server that reports stratum 2. What stratum does the router report?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Lower stratum means closer to the reference source. Each hop adds one.",
+   "concept": "NTP stratum",
+   "tip": "",
+   "lessonId": "4-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "3",
+    "2",
+    "1",
+    "0"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "A client is one stratum further from the reference clock than its server.",
+   "whyWrong": [
+    "",
+    "The router cannot share its server's stratum.",
+    "Stratum 1 servers are directly attached to a reference clock.",
+    "Stratum 0 is the reference clock itself (GPS or atomic)."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-014",
+   "domainId": "d4",
+   "objective": "4.2",
+   "topic": "mgmt-services",
+   "difficulty": 1,
+   "format": "scenario",
+   "type": "single",
+   "stem": "During an incident review, syslog timestamps from different switches do not line up. What should be implemented?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Configure 'ntp server <ip>', set the time zone, and add 'service timestamps log datetime msec'.",
+   "concept": "NTP purpose",
+   "tip": "",
+   "lessonId": "4-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "NTP on all devices",
+    "SNMPv3",
+    "Higher logging severity",
+    "CDP"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "A common time source makes logs from different devices comparable.",
+   "whyWrong": [
+    "",
+    "SNMP monitors devices; it does not synchronize clocks.",
+    "Severity filters messages; it does not fix timestamps.",
+    "CDP discovers neighbors and does not set time."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-015",
+   "domainId": "d4",
+   "objective": "4.4",
+   "topic": "mgmt-services",
+   "difficulty": 2,
+   "format": "protocol-id",
+   "type": "multi",
+   "stem": "Which statements about SNMP are correct? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "SNMP: manager ↔ agent, data organized in MIBs and identified by OIDs. Use SNMPv3 for security.",
+   "concept": "SNMP",
+   "tip": "",
+   "lessonId": "4-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Managers poll agents on UDP 161",
+    "SNMPv3 can provide both authentication and encryption",
+    "Traps must be acknowledged by the manager",
+    "SNMPv2c encrypts the community string"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "Get/Set requests go to the agent on port 161. The authPriv security level adds privacy (encryption).",
+   "whyWrong": [
+    "",
+    "",
+    "Traps are unacknowledged; Informs are acknowledged.",
+    "v1 and v2c send community strings in clear text."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-016",
+   "domainId": "d4",
+   "objective": "4.5",
+   "topic": "mgmt-services",
+   "difficulty": 2,
+   "format": "protocol-id",
+   "type": "single",
+   "stem": "A router logs '%OSPF-5-ADJCHG: Process 1, Nbr 2.2.2.2 on Gi0/1 from LOADING to FULL'. What is the severity of this message?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Syslog format: %FACILITY-SEVERITY-MNEMONIC. Severities: 0 Emergency, 1 Alert, 2 Critical, 3 Error, 4 Warning, 5 Notification, 6 Informational, 7 Debugging.",
+   "concept": "Syslog message format",
+   "tip": "",
+   "lessonId": "4-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Level 5, Notification",
+    "Level 5, Warning",
+    "Level 3, Error",
+    "Level 6, Informational"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "The number between the dashes is the severity; 5 = Notification.",
+   "whyWrong": [
+    "",
+    "Warning is level 4.",
+    "The message shows 5, not 3.",
+    "Informational is level 6."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-017",
+   "domainId": "d4",
+   "objective": "4.5",
+   "topic": "mgmt-services",
+   "difficulty": 3,
+   "format": "config",
+   "type": "single",
+   "stem": "With 'logging trap warnings' configured, which messages are sent to the syslog server?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Lower number = more severe. 'logging trap 4' sends Emergency, Alert, Critical, Error and Warning.",
+   "concept": "Syslog levels",
+   "tip": "Every Awesome Cisco Engineer Will Need Ice cream Daily (0–7).",
+   "lessonId": "4-03",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Severity 0 through 4",
+    "Only severity 4",
+    "Severity 4 through 7",
+    "All messages"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Choosing a level includes it and every more severe (lower-numbered) level.",
+   "whyWrong": [
+    "",
+    "A logging level is a threshold, not a single level.",
+    "Higher numbers are less severe and are excluded.",
+    "Notification, Informational and Debugging are filtered out."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-018",
+   "domainId": "d4",
+   "objective": "4.5",
+   "topic": "mgmt-services",
+   "difficulty": 2,
+   "format": "protocol-id",
+   "type": "order",
+   "stem": "Arrange the syslog severity levels from most severe (0) to least severe (7).",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Syslog severities run from 0 (Emergency) to 7 (Debugging).",
+   "concept": "Syslog severity order",
+   "tip": "",
+   "lessonId": "4-03",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Emergency → Alert → Critical → Error → Warning → Notification → Informational → Debugging",
+   "whyWrong": [],
+   "left": [],
+   "right": [],
+   "items": [
+    "Emergency",
+    "Alert",
+    "Critical",
+    "Error",
+    "Warning",
+    "Notification",
+    "Informational",
+    "Debugging"
+   ]
+  },
+  {
+   "id": "core-d4-019",
+   "domainId": "d4",
+   "objective": "4.7",
+   "topic": "qos",
+   "difficulty": 1,
+   "format": "protocol-id",
+   "type": "single",
+   "stem": "Which DSCP marking is recommended for voice bearer traffic?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "DSCP is 6 bits in the IP header. Voice is marked EF so every hop can give it priority queuing.",
+   "concept": "DSCP markings",
+   "tip": "",
+   "lessonId": "4-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "EF (DSCP 46)",
+    "AF41",
+    "CS1",
+    "DSCP 0"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Expedited Forwarding is designed for low-delay, low-jitter traffic such as voice.",
+   "whyWrong": [
+    "",
+    "AF41 is commonly used for interactive video.",
+    "CS1 is commonly used for low-priority scavenger traffic.",
+    "0 is default best effort."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-020",
+   "domainId": "d4",
+   "objective": "4.7",
+   "topic": "qos",
+   "difficulty": 2,
+   "format": "scenario",
+   "type": "single",
+   "stem": "An ISP drops traffic above the contracted 50 Mbps. What should the customer configure outbound to avoid those drops?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Providers commonly police; customers shape to match. Shaping adds delay but avoids drops.",
+   "concept": "Policing vs shaping",
+   "tip": "Police stop you; shapers make you wait.",
+   "lessonId": "4-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "Shaping to 50 Mbps",
+    "Policing to 50 Mbps",
+    "WRED",
+    "Marking with EF"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "Shaping buffers bursts and sends them at the contracted rate.",
+   "whyWrong": [
+    "",
+    "Policing drops the excess itself — the same result as the ISP's drops.",
+    "WRED manages queue depth; it does not hold traffic to a rate.",
+    "Marking alone does not limit the sending rate."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-021",
+   "domainId": "d4",
+   "objective": "4.7",
+   "topic": "qos",
+   "difficulty": 3,
+   "format": "concept",
+   "type": "multi",
+   "stem": "Which statements describe Low Latency Queuing (LLQ)? (Choose two.)",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "LLQ = CBWFQ (bandwidth guarantees per class) plus a policed strict-priority queue.",
+   "concept": "LLQ",
+   "tip": "",
+   "lessonId": "4-04",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "It provides a strict-priority queue for delay-sensitive traffic such as voice",
+    "The priority queue is policed so it cannot starve the other queues",
+    "It marks packets with DSCP values",
+    "It randomly drops packets before a queue fills"
+   ],
+   "correct": [
+    0,
+    1
+   ],
+   "whyCorrect": "Priority traffic is always sent first. Traffic above the configured priority rate is dropped during congestion.",
+   "whyWrong": [
+    "",
+    "",
+    "Marking is a separate QoS tool.",
+    "That is WRED."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-022",
+   "domainId": "d4",
+   "objective": "4.7",
+   "topic": "qos",
+   "difficulty": 2,
+   "format": "concept",
+   "type": "match",
+   "stem": "Match each QoS tool to what it does.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "QoS tools work together: classify → mark → queue → avoid congestion → police/shape.",
+   "concept": "QoS tools",
+   "tip": "",
+   "lessonId": "4-04",
+   "verified": false,
+   "shuffle": false,
+   "options": [],
+   "correct": [],
+   "whyCorrect": "Classification → Identifies traffic by ACL, NBAR or existing markings; Marking → Writes a CoS or DSCP value into the header; Queuing → Schedules packets on a congested interface; Policing → Drops or re-marks traffic that exceeds a rate; Shaping → Buffers excess traffic and sends it later",
+   "whyWrong": [],
+   "left": [
+    "Classification",
+    "Marking",
+    "Queuing",
+    "Policing",
+    "Shaping"
+   ],
+   "right": [
+    "Identifies traffic by ACL, NBAR or existing markings",
+    "Writes a CoS or DSCP value into the header",
+    "Schedules packets on a congested interface",
+    "Drops or re-marks traffic that exceeds a rate",
+    "Buffers excess traffic and sends it later"
+   ],
+   "items": []
+  },
+  {
+   "id": "core-d4-023",
+   "domainId": "d4",
+   "objective": "4.7",
+   "topic": "qos",
+   "difficulty": 1,
+   "format": "concept",
+   "type": "tf",
+   "stem": "True or false: QoS creates additional bandwidth on a congested link.",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "QoS manages existing bandwidth by prioritizing, protecting and limiting traffic classes; it never adds capacity.",
+   "concept": "QoS purpose",
+   "tip": "",
+   "lessonId": "4-04",
+   "verified": false,
+   "shuffle": false,
+   "options": [
+    "True",
+    "False"
+   ],
+   "correct": [
+    1
+   ],
+   "whyCorrect": "The statement is false. QoS manages existing bandwidth by prioritizing, protecting and limiting traffic classes; it never adds capacity.",
+   "whyWrong": [
+    "The statement is false, so this choice is incorrect.",
+    ""
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-024",
+   "domainId": "d4",
+   "objective": "4.8",
+   "topic": "ssh-files",
+   "difficulty": 2,
+   "format": "command",
+   "type": "single",
+   "stem": "Which global command forces a Cisco device to accept only SSH version 2 connections?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "SSHv2 requires RSA keys of at least 768 bits; 2048 bits is recommended.",
+   "concept": "SSH version",
+   "tip": "",
+   "lessonId": "2-09",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "ip ssh version 2",
+    "transport input ssh2",
+    "crypto key generate rsa version 2",
+    "ssh server v2"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "This disables SSHv1.",
+   "whyWrong": [
+    "",
+    "This is not valid syntax; 'transport input' controls which protocols are allowed on lines.",
+    "Key generation has no version option.",
+    "This is not valid IOS syntax."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  },
+  {
+   "id": "core-d4-025",
+   "domainId": "d4",
+   "objective": "4.9",
+   "topic": "ssh-files",
+   "difficulty": 1,
+   "format": "protocol-id",
+   "type": "single",
+   "stem": "Which statement correctly compares FTP and TFTP?",
+   "exhibit": null,
+   "diagram": null,
+   "explanation": "Use TFTP only on trusted management networks for simple image and configuration copies.",
+   "concept": "FTP vs TFTP",
+   "tip": "",
+   "lessonId": "2-09",
+   "verified": false,
+   "shuffle": true,
+   "options": [
+    "FTP: TCP with login; TFTP: UDP without login",
+    "TFTP uses TCP 21 and FTP uses UDP 69",
+    "Both encrypt files in transit",
+    "TFTP supports directory listings and FTP does not"
+   ],
+   "correct": [
+    0
+   ],
+   "whyCorrect": "TFTP (UDP 69) is minimal; FTP (TCP 20/21) has logins and directory operations.",
+   "whyWrong": [
+    "",
+    "The transports and ports are swapped.",
+    "Neither encrypts; use SCP or SFTP for encryption.",
+    "The opposite is true."
+   ],
+   "left": [],
+   "right": [],
+   "items": []
+  }
+ ]
+}
