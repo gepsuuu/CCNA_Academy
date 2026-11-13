@@ -33,7 +33,6 @@ A	docs/evidence/kotlin-jvm-tests.txt
 A	docs/evidence/python-validation.txt
 A	docs/rc2-change-manifest.txt
 M	docs/release-acceptance.json
-A	kotlin-0.0.1.tar.gz
 A	tools/offline-kotlin/Runner.kt
 A	tools/offline-kotlin/kc.sh
 A	tools/offline-kotlin/org/junit/Assert.java
