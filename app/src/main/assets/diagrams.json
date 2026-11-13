@@ -4421,7 +4421,7 @@
      "label": "Physical resource"
     }
    ],
-   "explanation": "Each component has a distinct job. A switch forwards within a VLAN; a router connects networks; an AP bridges wireless clients; a firewall enforces policy. An IPS can inspect/block supported traffic. A controller manages devices but is not automatically in every data path. PoE supplies supported powered devices subject to negotiation and power budget, not unlimited watts per port."
+   "explanation": "Each component has a distinct job. A switch forwards within a VLAN; a router connects networks; an access point (AP) bridges wireless clients; a firewall enforces policy. An IPS can inspect/block supported traffic. A controller manages devices but is not automatically in every data path. PoE supplies supported powered devices subject to negotiation and power budget, not unlimited watts per port."
   },
   {
    "id": "mechanism_1-02",
@@ -4542,7 +4542,7 @@
   },
   {
    "id": "mechanism_1-04",
-   "title": "Physical media and link delivery",
+   "title": "Cabling and interfaces: physical media and link delivery",
    "width": 640,
    "height": 1070,
    "nodes": [
@@ -4574,8 +4574,8 @@
      "y": 435,
      "w": 460,
      "h": 110,
-     "label": "Electrical receiver",
-     "sub": "Check errors and negotiated link",
+     "label": "Receiving interface",
+     "sub": "Check CRC/input errors, speed, duplex",
      "kind": "physical",
      "shape": "round"
     },
@@ -4658,7 +4658,7 @@
    "explanation": "The upper three nodes describe copper; the lower two describe a separate optical path. Copper category and channel construction constrain supported rates/distances. Fiber type, wavelength, transceiver support, connector cleanliness, polarity, and optical budget must match. Duplex fiber commonly crosses transmitter to receiver; supported bidirectional optics use a different arrangement. This is a mechanism comparison, not a connector-orientation pinout. Use the numbered T568A/B table for copper contacts."
   },
   {
-   "id": "mechanism_1-07",
+   "id": "mechanism_1-08",
    "title": "Private addressing is not a security policy",
    "width": 640,
    "height": 870,
@@ -5205,7 +5205,7 @@
    "explanation": "An EtherChannel bundles compatible links to the same logical peer. LACP active/passive negotiates; passive/passive does not initiate. A single flow commonly stays on one member and does not gain the sum of all link rates. A Layer 2 bundle participates in STP as a logical interface; a routed bundle has an IP on the port-channel. The member nodes are alternatives selected by a hash, not serial hops."
   },
   {
-   "id": "mechanism_2-08",
+   "id": "mechanism_2-07",
    "title": "Wireless control and data paths differ",
    "width": 640,
    "height": 1070,
@@ -5322,7 +5322,7 @@
    "explanation": "The last two nodes are alternative data paths, not a serial chain. Central/local switching depends on architecture and AP mode. CAPWAP control uses UDP 5246 and data commonly uses UDP 5247; security and tunnel details depend on platform. Autonomous, lightweight, FlexConnect, and cloud-managed designs do not have identical control/data paths. Confirm AP/controller compatibility and reachability before assuming a failed client is an RF issue."
   },
   {
-   "id": "mechanism_2-09",
+   "id": "mechanism_2-08",
    "title": "WLAN policy: SSID to the wired network",
    "width": 640,
    "height": 1070,
@@ -5790,7 +5790,7 @@
    "explanation": "Authentication asks who; authorization asks what is permitted; accounting records what happened. Local accounts and centralized AAA are different designs. RADIUS commonly uses UDP 1812/1813; TACACS+ commonly uses TCP 49. Their protection and authorization models differ. Preserve a tested console/recovery path before changing AAA. Do not enable a method list that can lock out administrators without validating the intended server and fallback behavior."
   },
   {
-   "id": "mechanism_6-02",
+   "id": "mechanism_6-01",
    "title": "Controller APIs do not replace the data plane",
    "width": 640,
    "height": 1070,
@@ -5907,8 +5907,8 @@
    "explanation": "Northbound/southbound describe the relationship to a controller, not a fixed physical compass direction. The data plane forwards packets; control/management functions determine or configure forwarding behavior. Architectures vary: not every controller is in the user-data path, and not every network has a fully centralized control plane. An API request must be authorized and its actual result verified."
   },
   {
-   "id": "mechanism_6-04",
-   "title": "AI assistance requires engineering validation",
+   "id": "mechanism_6-02",
+   "title": "AI and machine learning: outputs require engineering validation",
    "width": 640,
    "height": 1070,
    "nodes": [
@@ -6022,6 +6022,421 @@
     }
    ],
    "explanation": "Predictive and generative AI have different outputs. Correlation does not establish causation; generated commands can be incorrect or platform-incompatible. Keep sensitive data within approved systems. Validate recommendations against authoritative documentation and actual device state. A human-approved change still needs rollback and postchecks. This app provides educational material and does not autonomously change production devices."
+  },
+  {
+   "id": "mechanism_1-07",
+   "title": "Binary and hexadecimal: one octet, three notations",
+   "width": 640,
+   "height": 980,
+   "nodes": [
+    {
+     "id": "dec",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Decimal 172",
+     "sub": "Value to convert",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "w",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "Place weights 128 64 32 16 8 4 2 1",
+     "sub": "172 = 128 + 32 + 8 + 4",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "bin",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "Binary 1010 1100",
+     "sub": "1 under each weight used; keep 8 bits",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "hi",
+     "x": 20,
+     "y": 635,
+     "w": 280,
+     "h": 110,
+     "label": "High nibble 1010",
+     "sub": "8 + 2 = 10 = hex A",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "lo",
+     "x": 340,
+     "y": 635,
+     "w": 280,
+     "h": 110,
+     "label": "Low nibble 1100",
+     "sub": "8 + 4 = 12 = hex C",
+     "kind": "datalink",
+     "shape": "round"
+    },
+    {
+     "id": "hex",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "Hexadecimal 0xAC",
+     "sub": "Same value: 172 decimal",
+     "kind": "app",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "dec",
+     "dst": "w",
+     "label": "select largest weights first",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "w",
+     "dst": "bin",
+     "label": "mark used weights as 1",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "bin",
+     "dst": "hi",
+     "label": "split into 4-bit nibbles",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "bin",
+     "dst": "lo",
+     "label": "split into 4-bit nibbles",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "hi",
+     "dst": "hex",
+     "label": "A",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "lo",
+     "dst": "hex",
+     "label": "C",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Value in a human-readable base"
+    },
+    {
+     "kind": "network",
+     "label": "Arithmetic step"
+    },
+    {
+     "kind": "datalink",
+     "label": "Bit pattern"
+    }
+   ],
+   "explanation": "Worked example: 172 decimal. Subtract the largest place weight that fits: 172-128=44, 44-32=12, 12-8=4, 4-4=0, so the 128, 32, 8, and 4 bits are 1 and the rest are 0: 10101100. Each hexadecimal digit is exactly four bits (a nibble), so split 1010|1100 and convert each nibble separately: 1010=10=A and 1100=12=C, giving 0xAC. Reverse the steps to convert hex or binary back to decimal. Leading zeros keep the eight-bit width but do not change the value: 00001010 is 10. The same nibble rule makes each IPv6 hex digit represent four of the 128 address bits."
+  },
+  {
+   "id": "mechanism_2-09",
+   "title": "Remote management: reachability, SSH, VTY, and recovery",
+   "width": 640,
+   "height": 1180,
+   "nodes": [
+    {
+     "id": "pc",
+     "x": 90,
+     "y": 35,
+     "w": 460,
+     "h": 110,
+     "label": "Admin PC 192.168.10.10/24",
+     "sub": "SSH client",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "gi",
+     "x": 90,
+     "y": 235,
+     "w": 460,
+     "h": 110,
+     "label": "R1 Gi0/0 192.168.10.1/24",
+     "sub": "IP reachability must exist first",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "ssh",
+     "x": 90,
+     "y": 435,
+     "w": 460,
+     "h": 110,
+     "label": "SSH server on R1",
+     "sub": "hostname + domain -> RSA host key; SSH v2",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "vty",
+     "x": 90,
+     "y": 635,
+     "w": 460,
+     "h": 110,
+     "label": "line vty 0 4",
+     "sub": "transport input ssh; login local",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "usr",
+     "x": 90,
+     "y": 835,
+     "w": 460,
+     "h": 110,
+     "label": "Local user learner",
+     "sub": "privilege 1 lands in user EXEC (R1>)",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "con",
+     "x": 90,
+     "y": 1035,
+     "w": 460,
+     "h": 110,
+     "label": "Console port (separate path)",
+     "sub": "Out-of-band recovery if VTY/SSH breaks",
+     "kind": "physical",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "pc",
+     "dst": "gi",
+     "label": "TCP 22 over IP",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "gi",
+     "dst": "ssh",
+     "label": "host key exchange",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "ssh",
+     "dst": "vty",
+     "label": "session uses a VTY line",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "vty",
+     "dst": "usr",
+     "label": "login local checks user",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Management service or credential"
+    },
+    {
+     "kind": "network",
+     "label": "Layer 3 reachability"
+    },
+    {
+     "kind": "physical",
+     "label": "Out-of-band access"
+    }
+   ],
+   "explanation": "Read top to bottom for an SSH session in the lesson fixture. The PC must first reach 192.168.10.1 over IP; a Layer 2 switch would instead need a management SVI and ip default-gateway for off-subnet admins. SSH needs a hostname, a domain name, and an RSA key pair before ip ssh version 2 can be used. The VTY lines accept only SSH (transport input ssh) and authenticate against the local username database (login local). A privilege 1 user starts in user EXEC; entering privileged EXEC additionally requires an enable secret. The console port is intentionally not connected by an arrow: it is an independent recovery path that keeps working if a VTY change locks out remote access. Telnet sends credentials in clear text and is excluded by the transport restriction."
+  },
+  {
+   "id": "mechanism_6-04",
+   "title": "Ansible and Terraform: two configuration-management workflows",
+   "width": 640,
+   "height": 970,
+   "nodes": [
+    {
+     "id": "ainv",
+     "x": 20,
+     "y": 95,
+     "w": 280,
+     "h": 120,
+     "label": "Ansible inventory",
+     "sub": "Which hosts and groups",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "apb",
+     "x": 20,
+     "y": 335,
+     "w": 280,
+     "h": 120,
+     "label": "Playbook tasks (YAML)",
+     "sub": "Desired steps per host",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "amod",
+     "x": 20,
+     "y": 575,
+     "w": 280,
+     "h": 120,
+     "label": "Modules push changes",
+     "sub": "Agentless over SSH or API",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "tcfg",
+     "x": 340,
+     "y": 95,
+     "w": 280,
+     "h": 120,
+     "label": "Terraform config (HCL)",
+     "sub": "Declared resources",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "tplan",
+     "x": 340,
+     "y": 335,
+     "w": 280,
+     "h": 120,
+     "label": "terraform plan",
+     "sub": "Preview: no change yet",
+     "kind": "app",
+     "shape": "round"
+    },
+    {
+     "id": "tapply",
+     "x": 340,
+     "y": 575,
+     "w": 280,
+     "h": 120,
+     "label": "terraform apply",
+     "sub": "Provider API calls; state updated",
+     "kind": "network",
+     "shape": "round"
+    },
+    {
+     "id": "ver",
+     "x": 90,
+     "y": 815,
+     "w": 460,
+     "h": 120,
+     "label": "Verify actual device state",
+     "sub": "show commands, API reads, tests",
+     "kind": "datalink",
+     "shape": "round"
+    }
+   ],
+   "edges": [
+    {
+     "src": "ainv",
+     "dst": "apb",
+     "label": "select hosts",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "apb",
+     "dst": "amod",
+     "label": "run tasks",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "tcfg",
+     "dst": "tplan",
+     "label": "compare with state",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "tplan",
+     "dst": "tapply",
+     "label": "reviewed approval",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "amod",
+     "dst": "ver",
+     "label": "postcheck",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    },
+    {
+     "src": "tapply",
+     "dst": "ver",
+     "label": "postcheck",
+     "style": "solid",
+     "arrow": "end",
+     "kind": "neutral"
+    }
+   ],
+   "texts": [],
+   "legend": [
+    {
+     "kind": "app",
+     "label": "Authored definition or preview"
+    },
+    {
+     "kind": "network",
+     "label": "Action that changes devices"
+    },
+    {
+     "kind": "datalink",
+     "label": "Independent verification"
+    }
+   ],
+   "explanation": "Left column: Ansible. An inventory selects hosts, a YAML playbook lists tasks, and modules push changes over SSH or device APIs without an installed agent on network devices. Right column: Terraform. HCL declares desired resources; terraform plan compares them with recorded state and the provider to preview changes without applying them; terraform apply makes provider API calls and updates the state file, which can contain sensitive data. The two columns are alternatives, not one pipeline. Idempotence depends on the module or provider, not just the tool name. Both workflows end in independent verification because a successful run does not prove the intended operational result."
   }
  ]
 }

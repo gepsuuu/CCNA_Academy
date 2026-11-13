@@ -8,6 +8,9 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.Role
+import androidx.compose.foundation.selection.toggleable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -27,8 +30,13 @@ fun PacketWalkthroughView(packet: PacketWalkthrough, diagrams: Map<String, Diagr
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         diagrams[packet.diagramId]?.let { DiagramCard(it) }
         Text(packet.assumptions, style = MaterialTheme.typography.bodyMedium)
-        if (packet.steps.any { it.condition == "dnsMiss" }) Row { Checkbox(dnsWarm, { dnsWarm = it; position = 0 }); Text("DNS cache already contains the answer", Modifier.weight(1f).padding(top = 12.dp)) }
-        if (packet.steps.any { it.condition == "gatewayMiss" }) Row { Checkbox(gatewayWarm, { gatewayWarm = it; position = 0 }); Text("Gateway MAC already cached", Modifier.weight(1f).padding(top = 12.dp)) }
+        // Whole row is one toggle so TalkBack announces the label with the checkbox state (48dp+ touch target).
+        if (packet.steps.any { it.condition == "dnsMiss" }) Row(Modifier.fillMaxWidth().heightIn(min = 48.dp).toggleable(dnsWarm, role = Role.Checkbox) { dnsWarm = it; position = 0 }, verticalAlignment = Alignment.CenterVertically) {
+            Checkbox(dnsWarm, null); Spacer(Modifier.width(8.dp)); Text("DNS cache already contains the answer", Modifier.weight(1f))
+        }
+        if (packet.steps.any { it.condition == "gatewayMiss" }) Row(Modifier.fillMaxWidth().heightIn(min = 48.dp).toggleable(gatewayWarm, role = Role.Checkbox) { gatewayWarm = it; position = 0 }, verticalAlignment = Alignment.CenterVertically) {
+            Checkbox(gatewayWarm, null); Spacer(Modifier.width(8.dp)); Text("Gateway MAC already cached", Modifier.weight(1f))
+        }
         Text("Inspect a device", fontWeight = FontWeight.SemiBold)
         // Stacked controls remain readable at narrow widths and large font scales.
         packet.devices.forEach { device ->

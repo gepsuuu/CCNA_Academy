@@ -27,6 +27,12 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.material.icons.filled.ZoomIn
+import androidx.compose.material.icons.filled.ZoomOut
+import androidx.compose.material.icons.filled.CenterFocusStrong
+import com.ccnaacademy.app.data.diagramTextAlternative
 import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
@@ -84,7 +90,7 @@ fun DiagramCard(d: Diagram, showExplanation: Boolean = true) {
                 IconButton(onClick = { full = true }) { Icon(Icons.Filled.ZoomOutMap, "Open full screen") }
             }
             Spacer(Modifier.height(8.dp))
-            DiagramCanvas(d, Modifier.fillMaxWidth().clickable { full = true })
+            DiagramCanvas(d, Modifier.fillMaxWidth().clickable(onClickLabel = "Open zoomable diagram") { full = true })
             Legend(d, dark)
             if (showExplanation && d.explanation.isNotBlank()) {
                 Spacer(Modifier.height(8.dp))
@@ -102,7 +108,14 @@ fun DiagramCard(d: Diagram, showExplanation: Boolean = true) {
                         Text(d.title, style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f))
                         IconButton(onClick = { full = false }) { Icon(Icons.Filled.Close, "Close") }
                     }
-                    Text("Pinch to zoom, drag to pan", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text("Pinch or use the buttons to zoom; drag to pan", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    // Single-pointer alternative to pinch gestures (accessibility; also works with a mouse or switch access).
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        IconButton(onClick = { scale = (scale / 1.5f).coerceIn(1f, 5f); if (scale == 1f) offset = Offset.Zero }, enabled = scale > 1f) { Icon(Icons.Filled.ZoomOut, "Zoom out") }
+                        Text("${(scale * 100).toInt()}%", style = MaterialTheme.typography.labelMedium)
+                        IconButton(onClick = { scale = (scale * 1.5f).coerceIn(1f, 5f) }, enabled = scale < 5f) { Icon(Icons.Filled.ZoomIn, "Zoom in") }
+                        IconButton(onClick = { scale = 1f; offset = Offset.Zero }, enabled = scale != 1f || offset != Offset.Zero) { Icon(Icons.Filled.CenterFocusStrong, "Reset zoom and position") }
+                    }
                     Box(Modifier.weight(1f).fillMaxWidth().pointerInput(Unit) {
                         detectTransformGestures { _, pan, zoom, _ ->
                             scale = (scale * zoom).coerceIn(1f, 5f)
@@ -143,7 +156,8 @@ fun DiagramCanvas(d: Diagram, modifier: Modifier = Modifier) {
     val textColor = if (dark) Color(0xFFECEFF4) else Color(0xFF1B1F24)
     val lineColor = if (dark) Color(0xFFB0BEC5) else Color(0xFF455A64)
     val labelBg = MaterialTheme.colorScheme.surfaceContainer
-    Canvas(modifier.aspectRatio(d.width / d.height)) {
+    val description = remember(d.id) { diagramTextAlternative(d) }
+    Canvas(modifier.aspectRatio(d.width / d.height).semantics { contentDescription = description }) {
         val s = size.width / d.width
         val nodes = d.nodes.associateBy { it.id }
         fun r(n: DNode) = Rect(n.x * s, n.y * s, (n.x + n.w) * s, (n.y + n.h) * s)

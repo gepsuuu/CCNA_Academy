@@ -32,17 +32,6 @@ import java.util.Date
 
 private val TABS = listOf("Notes", "Lessons", "Diagrams", "Highlights", "Questions", "Cheatsheets")
 
-/** Lesson section keys used for highlights: lessonId:section. */
-fun lessonSectionText(l: Lesson, section: String): String = when {
-    section.startsWith("block:") -> l.learningStages.flatMap { it.blocks }.firstOrNull { it.id == section.removePrefix("block:") }?.let { b ->
-        listOf(b.title, b.text, b.items.joinToString("\n"), b.rows.joinToString("\n") { it.joinToString(": ") }).filter { it.isNotBlank() }.joinToString("\n\n")
-    } ?: "Preserved highlight: this block is not available in the current content."
-    section == "simple" -> l.simple; section == "why" -> l.why; section == "summary" -> l.summary
-    section.startsWith("deep") -> l.deep.getOrNull(section.removePrefix("deep").toIntOrNull() ?: -1)?.text ?: ""
-    section.startsWith("ex") -> l.examples.getOrNull(section.removePrefix("ex").toIntOrNull() ?: -1)?.let { "${it.title}: ${it.text}" } ?: ""
-    else -> ""
-}
-
 fun notesMarkdown(s: AppScope): String = buildString {
     append("# CCNA Academy — my study notes\n\n")
     s.p.notes.groupBy { it.topic.ifBlank { "General" } }.toSortedMap().forEach { (topic, list) ->

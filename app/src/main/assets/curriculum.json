@@ -2,7 +2,7 @@
  "blueprint": {
   "exam": "CCNA 200-301",
   "version": "v1.1",
-  "note": "Aligned to Cisco's 200-301 v1.1 exam topics (effective Aug 20, 2024). Cisco has announced v2.0 starting Feb 3, 2027; content is tagged by objective for remapping."
+  "note": "Aligned to Cisco's 200-301 v1.1 exam topics (effective Aug 20, 2024). Cisco lists Feb 2, 2027 as the last v1.1 test date and Feb 3, 2027 as the first v2.0 test date. This content is not a v2.0 course; lessons are tagged by v1.1 objective for a deliberate future remap."
  },
  "domains": [
   {
@@ -1442,10 +1442,10 @@
          },
          {
           "id": "dns-answer",
-          "title": "Receive the DNS answer",
+          "title": "DNS sends the answer",
           "device": "DNS",
           "interface": "eth0",
-          "action": "Return the authored A record 198.51.100.20.",
+          "action": "Return the authored A record 198.51.100.20 to PC-A.",
           "why": "This example assumes a successful resolver response and omits its upstream work.",
           "next": "Route to the web destination.",
           "headers": {
@@ -1793,7 +1793,7 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
           },
           "condition": "always"
          },
@@ -1818,7 +1818,7 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
           },
           "condition": "always"
          },
@@ -1843,17 +1843,92 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-0",
+          "title": "HTTP response on link 1",
+          "device": "WEB",
+          "interface": "eth0",
+          "action": "Transmit the HTTP response frame. The endpoint creates the segment and IPv4 packet.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:00:20:20",
+           "Destination MAC": "02:00:00:02:20:01",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "64",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-1",
+          "title": "HTTP response on link 2",
+          "device": "R2",
+          "interface": "Gi0/0",
+          "action": "Transmit the HTTP response frame. A router has removed the previous Ethernet header, selected the next hop, decremented TTL, and updated the IPv4 header checksum.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:02:12:02",
+           "Destination MAC": "02:00:00:01:12:01",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "63",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-2",
+          "title": "HTTP response on link 3",
+          "device": "R1",
+          "interface": "Gi0/0",
+          "action": "Transmit the HTTP response frame. A router has removed the previous Ethernet header, selected the next hop, decremented TTL, and updated the IPv4 header checksum.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:01:10:01",
+           "Destination MAC": "02:00:00:00:10:10",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "62",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
           },
           "condition": "always"
          },
          {
           "id": "application",
           "title": "Application data is exchanged",
-          "device": "WEB",
+          "device": "PC-A",
           "interface": "eth0",
-          "action": "The server can process the HTTP request and send a response through the return path.",
-          "why": "A TCP handshake is not proof of application success. Real HTTPS would add TLS; this explicitly plain-HTTP lab does not model it.",
+          "action": "PC-A receives the HTTP response; its TCP acknowledges the received bytes and the browser processes the page.",
+          "why": "The response acknowledges 1121 = 1001 + the 120 request bytes. A TCP handshake alone is not proof of application success. Plain HTTP is readable on every link; real HTTPS would add a TLS handshake after TCP and encrypt the HTTP messages, which this lab does not model. With NAT, a translating router would also rewrite IP addresses/ports; this fixture has none.",
           "next": "Review header changes and the cache branches.",
           "headers": {},
           "condition": "always"
@@ -2830,10 +2905,10 @@
          },
          {
           "id": "dns-answer",
-          "title": "Receive the DNS answer",
+          "title": "DNS sends the answer",
           "device": "DNS",
           "interface": "eth0",
-          "action": "Return the authored A record 198.51.100.20.",
+          "action": "Return the authored A record 198.51.100.20 to PC-A.",
           "why": "This example assumes a successful resolver response and omits its upstream work.",
           "next": "Route to the web destination.",
           "headers": {
@@ -3181,7 +3256,7 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
           },
           "condition": "always"
          },
@@ -3206,7 +3281,7 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
           },
           "condition": "always"
          },
@@ -3231,17 +3306,92 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-0",
+          "title": "HTTP response on link 1",
+          "device": "WEB",
+          "interface": "eth0",
+          "action": "Transmit the HTTP response frame. The endpoint creates the segment and IPv4 packet.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:00:20:20",
+           "Destination MAC": "02:00:00:02:20:01",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "64",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-1",
+          "title": "HTTP response on link 2",
+          "device": "R2",
+          "interface": "Gi0/0",
+          "action": "Transmit the HTTP response frame. A router has removed the previous Ethernet header, selected the next hop, decremented TTL, and updated the IPv4 header checksum.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:02:12:02",
+           "Destination MAC": "02:00:00:01:12:01",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "63",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-2",
+          "title": "HTTP response on link 3",
+          "device": "R1",
+          "interface": "Gi0/0",
+          "action": "Transmit the HTTP response frame. A router has removed the previous Ethernet header, selected the next hop, decremented TTL, and updated the IPv4 header checksum.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:01:10:01",
+           "Destination MAC": "02:00:00:00:10:10",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "62",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
           },
           "condition": "always"
          },
          {
           "id": "application",
           "title": "Application data is exchanged",
-          "device": "WEB",
+          "device": "PC-A",
           "interface": "eth0",
-          "action": "The server can process the HTTP request and send a response through the return path.",
-          "why": "A TCP handshake is not proof of application success. Real HTTPS would add TLS; this explicitly plain-HTTP lab does not model it.",
+          "action": "PC-A receives the HTTP response; its TCP acknowledges the received bytes and the browser processes the page.",
+          "why": "The response acknowledges 1121 = 1001 + the 120 request bytes. A TCP handshake alone is not proof of application success. Plain HTTP is readable on every link; real HTTPS would add a TLS handshake after TCP and encrypt the HTTP messages, which this lab does not model. With NAT, a translating router would also rewrite IP addresses/ports; this fixture has none.",
           "next": "Review header changes and the cache branches.",
           "headers": {},
           "condition": "always"
@@ -3768,10 +3918,10 @@
          },
          {
           "id": "dns-answer",
-          "title": "Receive the DNS answer",
+          "title": "DNS sends the answer",
           "device": "DNS",
           "interface": "eth0",
-          "action": "Return the authored A record 198.51.100.20.",
+          "action": "Return the authored A record 198.51.100.20 to PC-A.",
           "why": "This example assumes a successful resolver response and omits its upstream work.",
           "next": "Route to the web destination.",
           "headers": {
@@ -4119,7 +4269,7 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
           },
           "condition": "always"
          },
@@ -4144,7 +4294,7 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
           },
           "condition": "always"
          },
@@ -4169,17 +4319,92 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-0",
+          "title": "HTTP response on link 1",
+          "device": "WEB",
+          "interface": "eth0",
+          "action": "Transmit the HTTP response frame. The endpoint creates the segment and IPv4 packet.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:00:20:20",
+           "Destination MAC": "02:00:00:02:20:01",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "64",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-1",
+          "title": "HTTP response on link 2",
+          "device": "R2",
+          "interface": "Gi0/0",
+          "action": "Transmit the HTTP response frame. A router has removed the previous Ethernet header, selected the next hop, decremented TTL, and updated the IPv4 header checksum.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:02:12:02",
+           "Destination MAC": "02:00:00:01:12:01",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "63",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-2",
+          "title": "HTTP response on link 3",
+          "device": "R1",
+          "interface": "Gi0/0",
+          "action": "Transmit the HTTP response frame. A router has removed the previous Ethernet header, selected the next hop, decremented TTL, and updated the IPv4 header checksum.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:01:10:01",
+           "Destination MAC": "02:00:00:00:10:10",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "62",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
           },
           "condition": "always"
          },
          {
           "id": "application",
           "title": "Application data is exchanged",
-          "device": "WEB",
+          "device": "PC-A",
           "interface": "eth0",
-          "action": "The server can process the HTTP request and send a response through the return path.",
-          "why": "A TCP handshake is not proof of application success. Real HTTPS would add TLS; this explicitly plain-HTTP lab does not model it.",
+          "action": "PC-A receives the HTTP response; its TCP acknowledges the received bytes and the browser processes the page.",
+          "why": "The response acknowledges 1121 = 1001 + the 120 request bytes. A TCP handshake alone is not proof of application success. Plain HTTP is readable on every link; real HTTPS would add a TLS handshake after TCP and encrypt the HTTP messages, which this lab does not model. With NAT, a translating router would also rewrite IP addresses/ports; this fixture has none.",
           "next": "Review header changes and the cache branches.",
           "headers": {},
           "condition": "always"
@@ -4913,6 +5138,13 @@
      "applicable": true,
      "reason": "",
      "blocks": [
+      {
+       "id": "1-08-mechanism-diagram",
+       "type": "visual",
+       "title": "Inspect the mechanism",
+       "text": "Read the explanation for alternatives and assumptions; arrows are reading guides where stated.",
+       "diagram": "mechanism_1-08"
+      },
       {
        "id": "1-08-visualize-reading",
        "type": "text",
@@ -7601,7 +7833,7 @@
       {
        "type": "text",
        "title": "What this pilot covers",
-       "text": "Required CCNA v1.1: objectives 2.1 and 2.2, including access ports, inter-VLAN connectivity, trunks, 802.1Q, and native VLANs. Voice VLAN configuration remains in the preserved reference material and must be reviewed before this pilot can be marked complete.",
+       "text": "Required CCNA v1.1: objectives 2.1 and 2.2, including access ports, data and voice VLANs, the default VLAN, inter-VLAN connectivity, trunks, 802.1Q, and native VLANs. The two-department fixture is used throughout; the voice VLAN is taught with its own single-port fixture in Configure, Verify, and Troubleshoot so its phone-specific behavior is not confused with an interswitch trunk.",
        "id": "2-01-understand-pilot-03"
       },
       {
@@ -10585,6 +10817,13 @@
      "reason": "",
      "blocks": [
       {
+       "id": "2-07-mechanism-diagram",
+       "type": "visual",
+       "title": "Inspect the mechanism",
+       "text": "Read the explanation for alternatives and assumptions; arrows are reading guides where stated.",
+       "diagram": "mechanism_2-07"
+      },
+      {
        "id": "2-07-visualize-reading",
        "type": "text",
        "title": "Read the relationships",
@@ -11400,7 +11639,7 @@
        "id": "2-09-configure-context",
        "type": "text",
        "title": "Fixture, command context, and restoration",
-       "text": "Isolated IOS router with crypto support, reachable Gi0/0 192.168.10.1/24, and console recovery. The password is an explicitly disposable lab example, never a production secret. hostname/domain support key identity; RSA creates host keys; login local selects the user database; transport restricts VTY 0-4. Review any additional VTY ranges on the actual device. Key-generation syntax and supported algorithms vary. Restore the captured VTY/user baseline for undo; do not zeroize shared keys blindly."
+       "text": "Isolated IOS router with crypto support, reachable Gi0/0 192.168.10.1/24, and console recovery. The password is an explicitly disposable lab example, never a production secret. hostname/domain support key identity; RSA creates host keys; login local selects the user database; transport restricts VTY 0-4. The privilege 1 user arrives in User EXEC (R1>); enable secret (a separate disposable lab value) is what allows enable to reach Privileged EXEC (R1#) remotely, because IOS refuses enable over VTY when no enable password is set. Review any additional VTY ranges on the actual device. Key-generation syntax and supported algorithms vary. Restore the captured VTY/user baseline for undo; do not zeroize shared keys blindly."
       },
       {
        "id": "2-09-configure-commands",
@@ -11413,6 +11652,7 @@
         "hostname R1",
         "ip domain name academy.example",
         "username learner privilege 1 secret LabOnly-ChangeMe-2026",
+        "enable secret LabOnly-Enable-2026",
         "crypto key generate rsa modulus 2048",
         "ip ssh version 2",
         "line vty 0 4",
@@ -11941,10 +12181,10 @@
          },
          {
           "id": "dns-answer",
-          "title": "Receive the DNS answer",
+          "title": "DNS sends the answer",
           "device": "DNS",
           "interface": "eth0",
-          "action": "Return the authored A record 198.51.100.20.",
+          "action": "Return the authored A record 198.51.100.20 to PC-A.",
           "why": "This example assumes a successful resolver response and omits its upstream work.",
           "next": "Route to the web destination.",
           "headers": {
@@ -12292,7 +12532,7 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
           },
           "condition": "always"
          },
@@ -12317,7 +12557,7 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
           },
           "condition": "always"
          },
@@ -12342,17 +12582,92 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-0",
+          "title": "HTTP response on link 1",
+          "device": "WEB",
+          "interface": "eth0",
+          "action": "Transmit the HTTP response frame. The endpoint creates the segment and IPv4 packet.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:00:20:20",
+           "Destination MAC": "02:00:00:02:20:01",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "64",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-1",
+          "title": "HTTP response on link 2",
+          "device": "R2",
+          "interface": "Gi0/0",
+          "action": "Transmit the HTTP response frame. A router has removed the previous Ethernet header, selected the next hop, decremented TTL, and updated the IPv4 header checksum.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:02:12:02",
+           "Destination MAC": "02:00:00:01:12:01",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "63",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-2",
+          "title": "HTTP response on link 3",
+          "device": "R1",
+          "interface": "Gi0/0",
+          "action": "Transmit the HTTP response frame. A router has removed the previous Ethernet header, selected the next hop, decremented TTL, and updated the IPv4 header checksum.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:01:10:01",
+           "Destination MAC": "02:00:00:00:10:10",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "62",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
           },
           "condition": "always"
          },
          {
           "id": "application",
           "title": "Application data is exchanged",
-          "device": "WEB",
+          "device": "PC-A",
           "interface": "eth0",
-          "action": "The server can process the HTTP request and send a response through the return path.",
-          "why": "A TCP handshake is not proof of application success. Real HTTPS would add TLS; this explicitly plain-HTTP lab does not model it.",
+          "action": "PC-A receives the HTTP response; its TCP acknowledges the received bytes and the browser processes the page.",
+          "why": "The response acknowledges 1121 = 1001 + the 120 request bytes. A TCP handshake alone is not proof of application success. Plain HTTP is readable on every link; real HTTPS would add a TLS handshake after TCP and encrypt the HTTP messages, which this lab does not model. With NAT, a translating router would also rewrite IP addresses/ports; this fixture has none.",
           "next": "Review header changes and the cache branches.",
           "headers": {},
           "condition": "always"
@@ -13266,6 +13581,12 @@
         "Classic IOS commonly uses a 100-Mbps reference bandwidth, so faster links can all receive cost 1. Verify the platform and configuration. auto-cost reference-bandwidth uses Mbps and should be planned consistently across the OSPF domain. An explicit ip ospf cost overrides automatic interface cost. This fixture uses explicit costs to make the expected route metric deterministic."
        ],
        "id": "3-03-observe-pilot-04"
+      },
+      {
+       "type": "text",
+       "title": "Hello compatibility: what must match",
+       "text": "Two routers become OSPF neighbors only if their Hellos agree on the parameters OSPF checks. On a shared segment they must agree on the area ID, the Hello and dead intervals, the authentication settings, and the area type flags (for example, stub). On broadcast and NBMA networks the subnet and mask must also match. Router IDs must be unique.\n\nCisco IOS defaults on broadcast and point-to-point networks are a 10-second Hello and a 40-second dead interval; changing one side alone prevents the neighbor relationship. Interface MTU is not a Hello field: it is checked in Database Description packets, which is why an MTU mismatch typically leaves neighbors stuck in ExStart or Exchange instead of preventing discovery.\n\nOSPF process IDs are locally significant and do not need to match. Network type is not a Hello compatibility field, but mismatched types (one side broadcast, the other point-to-point) can produce a neighbor that never reaches a working Full adjacency or routes that do not install as expected, so keep both ends consistent as this fixture does.",
+       "id": "3-03-observe-pilot-05"
       },
       {
        "id": "3-03-reference-example-0",
@@ -14559,10 +14880,10 @@
          },
          {
           "id": "dns-answer",
-          "title": "Receive the DNS answer",
+          "title": "DNS sends the answer",
           "device": "DNS",
           "interface": "eth0",
-          "action": "Return the authored A record 198.51.100.20.",
+          "action": "Return the authored A record 198.51.100.20 to PC-A.",
           "why": "This example assumes a successful resolver response and omits its upstream work.",
           "next": "Route to the web destination.",
           "headers": {
@@ -14910,7 +15231,7 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
           },
           "condition": "always"
          },
@@ -14935,7 +15256,7 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
           },
           "condition": "always"
          },
@@ -14960,17 +15281,92 @@
            "TCP flags": "PSH, ACK",
            "Sequence": "1001",
            "Acknowledgment": "5001",
-           "Payload": "Illustrative HTTP request bytes; byte count intentionally not modeled"
+           "Payload": "GET / HTTP/1.1, Host: portal.academy.example (illustrative 120 bytes)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-0",
+          "title": "HTTP response on link 1",
+          "device": "WEB",
+          "interface": "eth0",
+          "action": "Transmit the HTTP response frame. The endpoint creates the segment and IPv4 packet.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:00:20:20",
+           "Destination MAC": "02:00:00:02:20:01",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "64",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-1",
+          "title": "HTTP response on link 2",
+          "device": "R2",
+          "interface": "Gi0/0",
+          "action": "Transmit the HTTP response frame. A router has removed the previous Ethernet header, selected the next hop, decremented TTL, and updated the IPv4 header checksum.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:02:12:02",
+           "Destination MAC": "02:00:00:01:12:01",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "63",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
+          },
+          "condition": "always"
+         },
+         {
+          "id": "HTTP response-2",
+          "title": "HTTP response on link 3",
+          "device": "R1",
+          "interface": "Gi0/0",
+          "action": "Transmit the HTTP response frame. A router has removed the previous Ethernet header, selected the next hop, decremented TTL, and updated the IPv4 header checksum.",
+          "why": "MAC addresses describe this link. Original IP endpoints and TCP ports are unchanged because no NAT is configured.",
+          "next": "Inspect the next link or receiving endpoint.",
+          "headers": {
+           "EtherType": "IPv4",
+           "Source MAC": "02:00:00:01:10:01",
+           "Destination MAC": "02:00:00:00:10:10",
+           "Source IPv4": "198.51.100.20",
+           "Destination IPv4": "192.168.10.10",
+           "TTL": "62",
+           "Protocol": "TCP",
+           "Source port": "80",
+           "Destination port": "49152",
+           "TCP flags": "PSH, ACK",
+           "Sequence": "5001",
+           "Acknowledgment": "1121",
+           "Payload": "HTTP/1.1 200 OK with page content (illustrative; length not modeled)"
           },
           "condition": "always"
          },
          {
           "id": "application",
           "title": "Application data is exchanged",
-          "device": "WEB",
+          "device": "PC-A",
           "interface": "eth0",
-          "action": "The server can process the HTTP request and send a response through the return path.",
-          "why": "A TCP handshake is not proof of application success. Real HTTPS would add TLS; this explicitly plain-HTTP lab does not model it.",
+          "action": "PC-A receives the HTTP response; its TCP acknowledges the received bytes and the browser processes the page.",
+          "why": "The response acknowledges 1121 = 1001 + the 120 request bytes. A TCP handshake alone is not proof of application success. Plain HTTP is readable on every link; real HTTPS would add a TLS handshake after TCP and encrypt the HTTP messages, which this lab does not model. With NAT, a translating router would also rewrite IP addresses/ports; this fixture has none.",
           "next": "Review header changes and the cache branches.",
           "headers": {},
           "condition": "always"
@@ -17974,7 +18370,7 @@
        "id": "5-04-configure-context",
        "type": "text",
        "title": "Fixture, command context, and restoration",
-       "text": "Isolated supported Catalyst switch, VLAN 10 already operational; Gi0/1 leads only to the authorized DHCP infrastructure, and clients use untrusted access ports. Review option-82/server compatibility and rate limits before testing. These commands enable snooping, not DAI or port security. After valid bindings and static-host policy exist, DAI is enabled with ip arp inspection vlan 10; trust must be planned separately. Undo by restoring prior feature/VLAN/trust policy, not blindly trusting clients. Full DAI and port-security configuration acceptance remains pending."
+       "text": "Isolated supported Catalyst switch, VLAN 10 already operational; Gi0/1 leads only to the authorized DHCP infrastructure, and clients use untrusted access ports. Review option-82/server compatibility and rate limits before testing. These commands enable snooping, not DAI or port security. After valid bindings and static-host policy exist, DAI is enabled with ip arp inspection vlan 10; trust must be planned separately. Undo by restoring prior feature/VLAN/trust policy, not blindly trusting clients. Port security and DAI are configured in their own fixtures below, each with context, verification, and restoration."
       },
       {
        "id": "5-04-configure-commands",
@@ -19189,6 +19585,13 @@
      "applicable": true,
      "reason": "",
      "blocks": [
+      {
+       "id": "6-01-mechanism-diagram",
+       "type": "visual",
+       "title": "Inspect the mechanism",
+       "text": "Read the explanation for alternatives and assumptions; arrows are reading guides where stated.",
+       "diagram": "mechanism_6-01"
+      },
       {
        "id": "6-01-visualize-reading",
        "type": "text",

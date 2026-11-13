@@ -1,6 +1,5 @@
 package com.ccnaacademy.app
 import com.ccnaacademy.app.data.*
-import com.ccnaacademy.app.ui.screens.lessonSectionText
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import org.junit.Assert.*
@@ -20,8 +19,10 @@ class InteractiveTeachingTest {
         val b = AppJson.decodeFromString<Block>("""{"type":"text","text":"legacy"}""")
         assertNull(b.packet); assertNull(b.inspector)
     }
+    // rc2: fixture corrected. completedLessons has always been Map<lessonId, epochDay>; the rc1 fixture used an
+    // array, which no app version ever wrote (DECISION_LOG D-07). The test had never been executed before rc2.
     @Test fun existingProgressRoundTrip() {
-        val old = """{"completedLessons":["2-01"],"lessonBookmarks":["3-03"],"lessonHighlights":["2-01:deep0","3-03:block:3-03-interactive-check"],"reviews":{"2-01":{"stage":2,"dueEpochDay":20000}}}"""
+        val old = """{"completedLessons":{"2-01":20000},"lessonBookmarks":["3-03"],"lessonHighlights":["2-01:deep0","3-03:block:3-03-interactive-check"],"reviews":{"2-01":{"stage":2,"dueEpochDay":20000}}}"""
         val state = AppJson.decodeFromString<ProgressState>(old)
         assertTrue("2-01" in state.completedLessons)
         assertTrue("3-03" in state.lessonBookmarks)

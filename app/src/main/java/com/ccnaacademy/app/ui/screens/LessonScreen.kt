@@ -15,6 +15,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -35,7 +36,7 @@ fun LessonScreen(s: AppScope, id: String) {
     val d = s.c.domain(l.domainId)
     val complete = l.id in s.p.completedLessons
     val review = s.p.reviews[l.id]
-    var showLegacy by remember(id) { mutableStateOf(false) }
+    var showLegacy by rememberSaveable(id) { mutableStateOf(false) }
     val lessonList = rememberLazyListState()
     val navigationScope = rememberCoroutineScope()
     val extras = remember(id) { LessonExtrasCatalog.forLesson(id) }
@@ -68,11 +69,12 @@ fun LessonScreen(s: AppScope, id: String) {
                     else Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                         l.learningStages.forEachIndexed { stageIndex, stage ->
                             OutlinedButton(onClick = {
-                                val target = 2 + l.learningStages.take(stageIndex).sumOf { 1 + if (it.applicable) it.blocks.size else 0 }
-                                navigationScope.launch {
+                                // Shared with LessonPresentationTest; keep in sync with the item emission order below.
+                                val target = stageItemIndex(l.learningStages, stageIndex)
+                                if (target >= 0) navigationScope.launch {
                                     if (s.p.reducedMotion) lessonList.scrollToItem(target) else lessonList.animateScrollToItem(target)
                                 }
-                            }) { Text(stage.title) }
+                            }) { Text(if (stage.applicable) stage.title else stage.title + " (n/a)") }
                         }
                     }
                     Spacer(Modifier.height(16.dp))
